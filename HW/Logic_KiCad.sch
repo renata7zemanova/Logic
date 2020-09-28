@@ -470,9 +470,28 @@ V_BAT_PRIME
 Wire Wire Line
 	2300 6750 2500 6750
 $Sheet
-S 1100 4650 1100 500 
+S 1850 5250 1100 500 
 U 5F751135
 F0 "nabijecka.sch" 50
 F1 "nabijecka.sch" 50
+F2 "bat_+" I L 1850 5350 50 
+F3 "bat_gnd" I L 1850 5500 50 
 $EndSheet
+$Comp
+L power:GND #PWR?
+U 1 1 5F73DAEF
+P 1700 5500
+F 0 "#PWR?" H 1700 5250 50  0001 C CNN
+F 1 "GND" H 1705 5327 50  0000 C CNN
+F 2 "" H 1700 5500 50  0001 C CNN
+F 3 "" H 1700 5500 50  0001 C CNN
+	1    1700 5500
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	1700 5500 1850 5500
+Text GLabel 1650 5350 0    50   Input ~ 0
+V_BAT_PRIME
+Wire Wire Line
+	1650 5350 1850 5350
 $EndSCHEMATC
