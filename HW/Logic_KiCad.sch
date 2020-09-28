@@ -1,0 +1,478 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 9
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Sheet
+S 9200 750  1050 400 
+U 5F70D6B6
+F0 "herni_LED.sch" 50
+F1 "herni_LED.sch" 50
+F2 "DATA_herni_LED" I L 9200 900 50 
+F3 "V_BAT" I L 9200 1050 50 
+$EndSheet
+Text GLabel 9050 900  0    50   Input ~ 0
+DATA_herni_LED
+Wire Wire Line
+	9050 900  9200 900 
+$Sheet
+S 9200 1500 1050 450 
+U 5FACC290
+F0 "hodnoceni_LED.sch" 50
+F1 "hodnoceni_LED.sch" 50
+F2 "DATA_hodnoceni_LED" I L 9200 1650 50 
+F3 "V_BAT" I L 9200 1850 50 
+$EndSheet
+Text GLabel 9000 1650 0    50   Input ~ 0
+DATA_hodnoceni_LED
+Wire Wire Line
+	9200 1650 9000 1650
+$Sheet
+S 9200 2200 1050 350 
+U 5FB682DC
+F0 "zadani.sch" 50
+F1 "zadani.sch" 50
+F2 "DATA_zadani_LED" I L 9200 2300 50 
+F3 "V_BAT" I L 9200 2450 50 
+$EndSheet
+Text GLabel 9050 2300 0    50   Input ~ 0
+DATA_zadani_LED
+Wire Wire Line
+	9050 2300 9200 2300
+$Sheet
+S 9600 4800 1200 1500
+U 5FB92F8B
+F0 "tlacitka.sch" 50
+F1 "tlacitka.sch" 50
+F2 "ENTER" I L 9600 4900 50 
+F3 "END" I L 9600 5100 50 
+F4 "NEW_GAME" I L 9600 5300 50 
+F5 "SIPKA_VLEVO" I L 9600 5500 50 
+F6 "SIPKA_VPRAVO" I L 9600 5700 50 
+F7 "SIPKA_NAHORU" I L 9600 5900 50 
+F8 "SIPKA_DOLU" I L 9600 6100 50 
+$EndSheet
+$Sheet
+S 9650 3400 850  450 
+U 5FBB3550
+F0 "USBto232.sch" 50
+F1 "USBto232.sch" 50
+F2 "TX_ESP" I L 9650 3450 50 
+F3 "RX_ESP" I L 9650 3550 50 
+F4 "EN_ESP" I L 9650 3650 50 
+F5 "IO0_ESP" I L 9650 3750 50 
+$EndSheet
+Text GLabel 9400 3550 0    50   Input ~ 0
+TX_ESP
+Text GLabel 9400 3450 0    50   Input ~ 0
+RX_ESP
+Wire Wire Line
+	9400 3450 9650 3450
+Wire Wire Line
+	9400 3550 9650 3550
+Text GLabel 9400 3650 0    50   Input ~ 0
+EN
+Text GLabel 9400 3750 0    50   Input ~ 0
+IO0
+Wire Wire Line
+	9400 3650 9650 3650
+Wire Wire Line
+	9400 3750 9650 3750
+$Comp
+L RF_Module:ESP32-PICO-D4 U?
+U 1 1 5FC1AE64
+P 4900 3850
+F 0 "U?" H 4600 2250 50  0000 C CNN
+F 1 "ESP32-PICO-D4" H 5300 2250 50  0000 C CNN
+F 2 "Package_DFN_QFN:QFN-48-1EP_7x7mm_P0.5mm_EP5.3x5.3mm" H 4900 2150 50  0001 C CNN
+F 3 "https://www.espressif.com/sites/default/files/documentation/esp32-pico-d4_datasheet_en.pdf" H 5150 2850 50  0001 C CNN
+	1    4900 3850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FC1CFE7
+P 4900 5450
+F 0 "#PWR?" H 4900 5200 50  0001 C CNN
+F 1 "GND" H 4905 5277 50  0000 C CNN
+F 2 "" H 4900 5450 50  0001 C CNN
+F 3 "" H 4900 5450 50  0001 C CNN
+	1    4900 5450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4100 2450 3850 2450
+$Comp
+L Device:R R?
+U 1 1 5FC1F426
+P 3850 2150
+F 0 "R?" H 3920 2196 50  0000 L CNN
+F 1 "10k" H 3920 2105 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 3780 2150 50  0001 C CNN
+F 3 "~" H 3850 2150 50  0001 C CNN
+	1    3850 2150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5FC1F42C
+P 3850 1900
+F 0 "#PWR?" H 3850 1750 50  0001 C CNN
+F 1 "+3.3V" H 3865 2073 50  0000 C CNN
+F 2 "" H 3850 1900 50  0001 C CNN
+F 3 "" H 3850 1900 50  0001 C CNN
+	1    3850 1900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3850 1900 3850 2000
+Wire Wire Line
+	3850 2300 3850 2450
+Connection ~ 3850 2450
+Wire Wire Line
+	3850 2450 3500 2450
+$Comp
+L Device:C C?
+U 1 1 5FC1F436
+P 3850 2700
+F 0 "C?" H 3735 2654 50  0000 R CNN
+F 1 "100n" H 3735 2745 50  0000 R CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 3888 2550 50  0001 C CNN
+F 3 "~" H 3850 2700 50  0001 C CNN
+	1    3850 2700
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FC1F43C
+P 3850 3050
+F 0 "#PWR?" H 3850 2800 50  0001 C CNN
+F 1 "GND" H 3855 2877 50  0000 C CNN
+F 2 "" H 3850 3050 50  0001 C CNN
+F 3 "" H 3850 3050 50  0001 C CNN
+	1    3850 3050
+	1    0    0    -1  
+$EndComp
+Text GLabel 3500 2450 0    50   Input ~ 0
+EN
+Wire Wire Line
+	3850 2550 3850 2450
+Wire Wire Line
+	3850 2850 3850 3050
+Text GLabel 6200 2650 2    50   Input ~ 0
+IO0
+Text GLabel 6200 2750 2    50   Input ~ 0
+TX_ESP
+Wire Wire Line
+	6200 2950 5700 2950
+Wire Wire Line
+	5700 2750 6200 2750
+Wire Wire Line
+	5700 2650 6200 2650
+Wire Wire Line
+	5700 4250 6200 4250
+Text GLabel 6200 4250 2    50   Input ~ 0
+DATA_herni_LED
+Text GLabel 6200 4150 2    50   Input ~ 0
+DATA_hodnoceni_LED
+Wire Wire Line
+	5700 4150 6200 4150
+Text GLabel 6200 4050 2    50   Input ~ 0
+DATA_zadani_LED
+Wire Wire Line
+	5700 4050 6200 4050
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5FC22CAB
+P 4800 1600
+F 0 "#PWR?" H 4800 1450 50  0001 C CNN
+F 1 "+3.3V" H 4815 1773 50  0000 C CNN
+F 2 "" H 4800 1600 50  0001 C CNN
+F 3 "" H 4800 1600 50  0001 C CNN
+	1    4800 1600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FC22CB1
+P 5200 1750
+F 0 "C?" V 4948 1750 50  0000 C CNN
+F 1 "10u" V 5039 1750 50  0000 C CNN
+F 2 "" H 5238 1600 50  0001 C CNN
+F 3 "~" H 5200 1750 50  0001 C CNN
+	1    5200 1750
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FC22CB7
+P 5200 1950
+F 0 "C?" V 4948 1950 50  0000 C CNN
+F 1 "100n" V 5039 1950 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 5238 1800 50  0001 C CNN
+F 3 "~" H 5200 1950 50  0001 C CNN
+	1    5200 1950
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5350 1750 5550 1750
+Wire Wire Line
+	5550 1750 5550 1850
+Wire Wire Line
+	5550 1950 5350 1950
+$Comp
+L power:GND #PWR?
+U 1 1 5FC22CC0
+P 5750 1850
+F 0 "#PWR?" H 5750 1600 50  0001 C CNN
+F 1 "GND" V 5755 1722 50  0000 R CNN
+F 2 "" H 5750 1850 50  0001 C CNN
+F 3 "" H 5750 1850 50  0001 C CNN
+	1    5750 1850
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	5750 1850 5550 1850
+Connection ~ 5550 1850
+Wire Wire Line
+	5550 1850 5550 1950
+Wire Wire Line
+	4800 2250 4800 1950
+Wire Wire Line
+	5050 1750 4800 1750
+Connection ~ 4800 1750
+Wire Wire Line
+	4800 1750 4800 1600
+Wire Wire Line
+	5050 1950 4800 1950
+Connection ~ 4800 1950
+Wire Wire Line
+	4800 1950 4800 1750
+Text GLabel 6200 2950 2    50   Input ~ 0
+RX_ESP
+$Comp
+L Device:LED D?
+U 1 1 602AD86D
+P 5500 900
+F 0 "D?" H 5493 645 50  0000 C CNN
+F 1 "POWER_LED_GREEN" H 5493 736 50  0000 C CNN
+F 2 "LED_SMD:LED_0603_1608Metric" H 5500 900 50  0001 C CNN
+F 3 "~" H 5500 900 50  0001 C CNN
+	1    5500 900 
+	-1   0    0    1   
+$EndComp
+Text GLabel 5150 900  0    50   Input ~ 0
+V_BAT_SPINANE
+$Comp
+L Device:R R?
+U 1 1 602AE39C
+P 6000 900
+F 0 "R?" V 5793 900 50  0000 C CNN
+F 1 "10k" V 5884 900 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 5930 900 50  0001 C CNN
+F 3 "~" H 6000 900 50  0001 C CNN
+	1    6000 900 
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 602AE8F9
+P 6400 900
+F 0 "#PWR?" H 6400 650 50  0001 C CNN
+F 1 "GND" V 6405 772 50  0000 R CNN
+F 2 "" H 6400 900 50  0001 C CNN
+F 3 "" H 6400 900 50  0001 C CNN
+	1    6400 900 
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	5350 900  5150 900 
+Wire Wire Line
+	5650 900  5850 900 
+Wire Wire Line
+	6150 900  6400 900 
+Text GLabel 9050 1050 0    50   Input ~ 0
+V_BAT
+Text GLabel 9000 1850 0    50   Input ~ 0
+V_BAT
+Text GLabel 9050 2450 0    50   Input ~ 0
+V_BAT
+Wire Wire Line
+	9200 2450 9050 2450
+Wire Wire Line
+	9000 1850 9200 1850
+Wire Wire Line
+	9050 1050 9200 1050
+$Sheet
+S 4950 6250 1000 550 
+U 602B57D2
+F0 "Stepdown_ESP.sch" 50
+F1 "Stepdown_ESP.sch" 50
+F2 "V_BAT_SPINANE" I L 4950 6400 50 
+$EndSheet
+Text GLabel 4750 6400 0    50   Input ~ 0
+V_BAT_SPINANE
+Wire Wire Line
+	4750 6400 4950 6400
+$Comp
+L Device:Q_PMOS_DGS Q?
+U 1 1 5F71DB38
+P 2550 1050
+F 0 "Q?" V 2892 1050 50  0000 C CNN
+F 1 "Q_PMOS_DGS" V 2801 1050 50  0000 C CNN
+F 2 "" H 2750 1150 50  0001 C CNN
+F 3 "~" H 2550 1050 50  0001 C CNN
+	1    2550 1050
+	0    -1   -1   0   
+$EndComp
+Text GLabel 2100 950  0    50   Input ~ 0
+V_BAT_SPINANE
+Text GLabel 3050 950  2    50   Input ~ 0
+V_BAT
+$Comp
+L power:GND #PWR?
+U 1 1 5F71E954
+P 2550 1850
+F 0 "#PWR?" H 2550 1600 50  0001 C CNN
+F 1 "GND" H 2555 1677 50  0000 C CNN
+F 2 "" H 2550 1850 50  0001 C CNN
+F 3 "" H 2550 1850 50  0001 C CNN
+	1    2550 1850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5F71EE20
+P 2550 1550
+F 0 "R?" H 2620 1596 50  0000 L CNN
+F 1 "10k" H 2620 1505 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 2480 1550 50  0001 C CNN
+F 3 "~" H 2550 1550 50  0001 C CNN
+	1    2550 1550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2100 950  2350 950 
+Wire Wire Line
+	2750 950  3050 950 
+Wire Wire Line
+	2550 1250 2550 1400
+Wire Wire Line
+	2550 1700 2550 1850
+Text Notes 2150 600  0    50   ~ 0
+Spínání pro LEDky
+Text GLabel 1250 2500 0    50   Input ~ 0
+V_BAT_PRIME
+$Comp
+L Switch:SW_SPDT SW?
+U 1 1 5F727A55
+P 1800 2500
+F 0 "SW?" H 1800 2785 50  0000 C CNN
+F 1 "SW_SPDT" H 1800 2694 50  0000 C CNN
+F 2 "" H 1800 2500 50  0001 C CNN
+F 3 "~" H 1800 2500 50  0001 C CNN
+	1    1800 2500
+	1    0    0    -1  
+$EndComp
+Text GLabel 2300 2400 2    50   Input ~ 0
+V_BAT_SPINANE
+Wire Wire Line
+	2000 2400 2300 2400
+Wire Wire Line
+	1600 2500 1250 2500
+Text Notes 800  2200 0    50   ~ 0
+Zapinani cele desky\n
+Text Notes 1500 2750 0    50   ~ 0
+Kolébkový vypínač
+Text Notes 1650 900  0    50   ~ 0
+IN\n
+Text Notes 3100 900  0    50   ~ 0
+OUT\n
+Text Notes 1000 2450 0    50   ~ 0
+IN\n
+Text Notes 2550 2350 0    50   ~ 0
+OUT\n
+Text GLabel 9400 4900 0    50   Input ~ 0
+BTN_ENTER
+Text GLabel 9400 5100 0    50   Input ~ 0
+BTN_END
+Text GLabel 9400 5300 0    50   Input ~ 0
+BTN_NEW_GAME
+Text GLabel 9400 5500 0    50   Input ~ 0
+BTN_SIPKA_VLEVO
+Text GLabel 9400 5700 0    50   Input ~ 0
+BTN_SIPKA_VPRAVO
+Text GLabel 9400 5900 0    50   Input ~ 0
+BTN_SIPKA_NAHORU
+Text GLabel 9400 6100 0    50   Input ~ 0
+BTN_SIPKA_DOLU
+Wire Wire Line
+	9400 4900 9600 4900
+Wire Wire Line
+	9400 5100 9600 5100
+Wire Wire Line
+	9600 5300 9400 5300
+Wire Wire Line
+	9400 5500 9600 5500
+Wire Wire Line
+	9600 5700 9400 5700
+Wire Wire Line
+	9400 5900 9600 5900
+Wire Wire Line
+	9600 6100 9400 6100
+Text GLabel 6200 4550 2    50   Input ~ 0
+BTN_NEW_GAME
+Text GLabel 6200 4350 2    50   Input ~ 0
+BTN_ENTER
+Text GLabel 6200 4450 2    50   Input ~ 0
+BTN_END
+Text GLabel 6200 4850 2    50   Input ~ 0
+BTN_SIPKA_VLEVO
+Text GLabel 6200 4950 2    50   Input ~ 0
+BTN_SIPKA_VPRAVO
+Text GLabel 6200 3650 2    50   Input ~ 0
+BTN_SIPKA_NAHORU
+Text GLabel 6200 3750 2    50   Input ~ 0
+BTN_SIPKA_DOLU
+Wire Wire Line
+	6200 3650 5700 3650
+Wire Wire Line
+	5700 3750 6200 3750
+Wire Wire Line
+	5700 4350 6200 4350
+Wire Wire Line
+	6200 4450 5700 4450
+Wire Wire Line
+	5700 4550 6200 4550
+Wire Wire Line
+	6200 4850 5700 4850
+Wire Wire Line
+	5700 4950 6200 4950
+$Sheet
+S 2500 6600 950  400 
+U 5F7464DA
+F0 "Battery_pack.sch" 50
+F1 "Battery_pack.sch" 50
+F2 "V_BAT_PRIME" I L 2500 6750 50 
+$EndSheet
+Text GLabel 2300 6750 0    50   Input ~ 0
+V_BAT_PRIME
+Wire Wire Line
+	2300 6750 2500 6750
+$Sheet
+S 1100 4650 1100 500 
+U 5F751135
+F0 "nabijecka.sch" 50
+F1 "nabijecka.sch" 50
+$EndSheet
+$EndSCHEMATC

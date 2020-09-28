@@ -1,0 +1,76 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 9 9
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Connector:USB_B_Micro J?
+U 1 1 5F752228
+P 2250 3250
+F 0 "J?" H 2307 3717 50  0000 C CNN
+F 1 "USB_B_Micro_nabijecka" H 2307 3626 50  0000 C CNN
+F 2 "" H 2400 3200 50  0001 C CNN
+F 3 "~" H 2400 3200 50  0001 C CNN
+	1    2250 3250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5F75334B
+P 2250 3650
+F 0 "#PWR?" H 2250 3400 50  0001 C CNN
+F 1 "GND" H 2255 3477 50  0000 C CNN
+F 2 "" H 2250 3650 50  0001 C CNN
+F 3 "" H 2250 3650 50  0001 C CNN
+	1    2250 3650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5F7535E3
+P 2150 3650
+F 0 "#PWR?" H 2150 3400 50  0001 C CNN
+F 1 "GND" H 2155 3477 50  0000 C CNN
+F 2 "" H 2150 3650 50  0001 C CNN
+F 3 "" H 2150 3650 50  0001 C CNN
+	1    2150 3650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 5F753B82
+P 2700 3050
+F 0 "#PWR?" H 2700 2900 50  0001 C CNN
+F 1 "+5V" V 2715 3178 50  0000 L CNN
+F 2 "" H 2700 3050 50  0001 C CNN
+F 3 "" H 2700 3050 50  0001 C CNN
+	1    2700 3050
+	0    1    1    0   
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 5F75411E
+P 4500 2650
+F 0 "#PWR?" H 4500 2500 50  0001 C CNN
+F 1 "+5V" H 4515 2823 50  0000 C CNN
+F 2 "" H 4500 2650 50  0001 C CNN
+F 3 "" H 4500 2650 50  0001 C CNN
+	1    4500 2650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2700 3050 2550 3050
+NoConn ~ 2550 3250
+NoConn ~ 2550 3350
+NoConn ~ 2550 3450
+$EndSCHEMATC

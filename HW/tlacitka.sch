@@ -1,0 +1,639 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 5 9
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Switch:SW_Push SW?
+U 1 1 5FB95540
+P 1950 1500
+AR Path="/5FB95540" Ref="SW?"  Part="1" 
+AR Path="/5FB92F8B/5FB95540" Ref="SW?"  Part="1" 
+F 0 "SW?" H 1950 1785 50  0000 C CNN
+F 1 "Enter" H 1950 1694 50  0000 C CNN
+F 2 "Button_Switch_THT:SW_Tactile_Straight_KSL0Axx1LFTR" H 1950 1700 50  0001 C CNN
+F 3 "~" H 1950 1700 50  0001 C CNN
+	1    1950 1500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB95546
+P 1950 1700
+AR Path="/5FB95546" Ref="C?"  Part="1" 
+AR Path="/5FB92F8B/5FB95546" Ref="C?"  Part="1" 
+F 0 "C?" V 1698 1700 50  0000 C CNN
+F 1 "10n" V 1789 1700 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 1988 1550 50  0001 C CNN
+F 3 "~" H 1950 1700 50  0001 C CNN
+	1    1950 1700
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	1750 1500 1600 1500
+Wire Wire Line
+	1600 1500 1600 1700
+Wire Wire Line
+	1600 1700 1800 1700
+Wire Wire Line
+	1450 1500 1600 1500
+Connection ~ 1600 1500
+Wire Wire Line
+	2150 1500 2300 1500
+Wire Wire Line
+	2300 1500 2300 1700
+Wire Wire Line
+	2300 1700 2100 1700
+$Comp
+L power:GND #PWR?
+U 1 1 5FB95555
+P 2500 1500
+AR Path="/5FB95555" Ref="#PWR?"  Part="1" 
+AR Path="/5FB92F8B/5FB95555" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 2500 1250 50  0001 C CNN
+F 1 "GND" V 2505 1372 50  0000 R CNN
+F 2 "" H 2500 1500 50  0001 C CNN
+F 3 "" H 2500 1500 50  0001 C CNN
+	1    2500 1500
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	2500 1500 2300 1500
+Connection ~ 2300 1500
+$Comp
+L Device:R R?
+U 1 1 5FB9555D
+P 1600 1250
+AR Path="/5FB9555D" Ref="R?"  Part="1" 
+AR Path="/5FB92F8B/5FB9555D" Ref="R?"  Part="1" 
+F 0 "R?" H 1670 1296 50  0000 L CNN
+F 1 "1k" H 1670 1205 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 1530 1250 50  0001 C CNN
+F 3 "~" H 1600 1250 50  0001 C CNN
+	1    1600 1250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5FB95563
+P 1600 1050
+AR Path="/5FB95563" Ref="#PWR?"  Part="1" 
+AR Path="/5FB92F8B/5FB95563" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 1600 900 50  0001 C CNN
+F 1 "+3.3V" H 1615 1223 50  0000 C CNN
+F 2 "" H 1600 1050 50  0001 C CNN
+F 3 "" H 1600 1050 50  0001 C CNN
+	1    1600 1050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1600 1100 1600 1050
+Wire Wire Line
+	1600 1400 1600 1500
+Text HLabel 1450 1500 0    50   Input ~ 0
+ENTER
+$Comp
+L Switch:SW_Push SW?
+U 1 1 5FB980D6
+P 1950 2500
+AR Path="/5FB980D6" Ref="SW?"  Part="1" 
+AR Path="/5FB92F8B/5FB980D6" Ref="SW?"  Part="1" 
+F 0 "SW?" H 1950 2785 50  0000 C CNN
+F 1 "End" H 1950 2694 50  0000 C CNN
+F 2 "Button_Switch_THT:SW_Tactile_Straight_KSL0Axx1LFTR" H 1950 2700 50  0001 C CNN
+F 3 "~" H 1950 2700 50  0001 C CNN
+	1    1950 2500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB980DC
+P 1950 2700
+AR Path="/5FB980DC" Ref="C?"  Part="1" 
+AR Path="/5FB92F8B/5FB980DC" Ref="C?"  Part="1" 
+F 0 "C?" V 1698 2700 50  0000 C CNN
+F 1 "10n" V 1789 2700 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 1988 2550 50  0001 C CNN
+F 3 "~" H 1950 2700 50  0001 C CNN
+	1    1950 2700
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	1750 2500 1600 2500
+Wire Wire Line
+	1600 2500 1600 2700
+Wire Wire Line
+	1600 2700 1800 2700
+Wire Wire Line
+	1450 2500 1600 2500
+Connection ~ 1600 2500
+Wire Wire Line
+	2150 2500 2300 2500
+Wire Wire Line
+	2300 2500 2300 2700
+Wire Wire Line
+	2300 2700 2100 2700
+$Comp
+L power:GND #PWR?
+U 1 1 5FB980EA
+P 2500 2500
+AR Path="/5FB980EA" Ref="#PWR?"  Part="1" 
+AR Path="/5FB92F8B/5FB980EA" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 2500 2250 50  0001 C CNN
+F 1 "GND" V 2505 2372 50  0000 R CNN
+F 2 "" H 2500 2500 50  0001 C CNN
+F 3 "" H 2500 2500 50  0001 C CNN
+	1    2500 2500
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	2500 2500 2300 2500
+Connection ~ 2300 2500
+$Comp
+L Device:R R?
+U 1 1 5FB980F2
+P 1600 2250
+AR Path="/5FB980F2" Ref="R?"  Part="1" 
+AR Path="/5FB92F8B/5FB980F2" Ref="R?"  Part="1" 
+F 0 "R?" H 1670 2296 50  0000 L CNN
+F 1 "1k" H 1670 2205 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 1530 2250 50  0001 C CNN
+F 3 "~" H 1600 2250 50  0001 C CNN
+	1    1600 2250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5FB980F8
+P 1600 2050
+AR Path="/5FB980F8" Ref="#PWR?"  Part="1" 
+AR Path="/5FB92F8B/5FB980F8" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 1600 1900 50  0001 C CNN
+F 1 "+3.3V" H 1615 2223 50  0000 C CNN
+F 2 "" H 1600 2050 50  0001 C CNN
+F 3 "" H 1600 2050 50  0001 C CNN
+	1    1600 2050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1600 2100 1600 2050
+Wire Wire Line
+	1600 2400 1600 2500
+Text HLabel 1450 2500 0    50   Input ~ 0
+END
+$Comp
+L Switch:SW_Push SW?
+U 1 1 5FB998AF
+P 1950 3550
+AR Path="/5FB998AF" Ref="SW?"  Part="1" 
+AR Path="/5FB92F8B/5FB998AF" Ref="SW?"  Part="1" 
+F 0 "SW?" H 1950 3835 50  0000 C CNN
+F 1 "New_game" H 2050 3750 50  0000 C CNN
+F 2 "Button_Switch_THT:SW_Tactile_Straight_KSL0Axx1LFTR" H 1950 3750 50  0001 C CNN
+F 3 "~" H 1950 3750 50  0001 C CNN
+	1    1950 3550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB998B5
+P 1950 3750
+AR Path="/5FB998B5" Ref="C?"  Part="1" 
+AR Path="/5FB92F8B/5FB998B5" Ref="C?"  Part="1" 
+F 0 "C?" V 1698 3750 50  0000 C CNN
+F 1 "10n" V 1789 3750 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 1988 3600 50  0001 C CNN
+F 3 "~" H 1950 3750 50  0001 C CNN
+	1    1950 3750
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	1750 3550 1600 3550
+Wire Wire Line
+	1600 3550 1600 3750
+Wire Wire Line
+	1600 3750 1800 3750
+Wire Wire Line
+	1450 3550 1600 3550
+Connection ~ 1600 3550
+Wire Wire Line
+	2150 3550 2300 3550
+Wire Wire Line
+	2300 3550 2300 3750
+Wire Wire Line
+	2300 3750 2100 3750
+$Comp
+L power:GND #PWR?
+U 1 1 5FB998C3
+P 2500 3550
+AR Path="/5FB998C3" Ref="#PWR?"  Part="1" 
+AR Path="/5FB92F8B/5FB998C3" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 2500 3300 50  0001 C CNN
+F 1 "GND" V 2505 3422 50  0000 R CNN
+F 2 "" H 2500 3550 50  0001 C CNN
+F 3 "" H 2500 3550 50  0001 C CNN
+	1    2500 3550
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	2500 3550 2300 3550
+Connection ~ 2300 3550
+$Comp
+L Device:R R?
+U 1 1 5FB998CB
+P 1600 3300
+AR Path="/5FB998CB" Ref="R?"  Part="1" 
+AR Path="/5FB92F8B/5FB998CB" Ref="R?"  Part="1" 
+F 0 "R?" H 1670 3346 50  0000 L CNN
+F 1 "1k" H 1670 3255 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 1530 3300 50  0001 C CNN
+F 3 "~" H 1600 3300 50  0001 C CNN
+	1    1600 3300
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5FB998D1
+P 1600 3100
+AR Path="/5FB998D1" Ref="#PWR?"  Part="1" 
+AR Path="/5FB92F8B/5FB998D1" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 1600 2950 50  0001 C CNN
+F 1 "+3.3V" H 1615 3273 50  0000 C CNN
+F 2 "" H 1600 3100 50  0001 C CNN
+F 3 "" H 1600 3100 50  0001 C CNN
+	1    1600 3100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1600 3150 1600 3100
+Wire Wire Line
+	1600 3450 1600 3550
+Text HLabel 1450 3550 0    50   Input ~ 0
+NEW_GAME
+$Comp
+L Switch:SW_Push SW?
+U 1 1 5FB9BCD2
+P 4300 1500
+AR Path="/5FB9BCD2" Ref="SW?"  Part="1" 
+AR Path="/5FB92F8B/5FB9BCD2" Ref="SW?"  Part="1" 
+F 0 "SW?" H 4300 1785 50  0000 C CNN
+F 1 "Sipka_vlevo" H 4400 1700 50  0000 C CNN
+F 2 "Button_Switch_THT:SW_Tactile_Straight_KSL0Axx1LFTR" H 4300 1700 50  0001 C CNN
+F 3 "~" H 4300 1700 50  0001 C CNN
+	1    4300 1500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB9BCD8
+P 4300 1700
+AR Path="/5FB9BCD8" Ref="C?"  Part="1" 
+AR Path="/5FB92F8B/5FB9BCD8" Ref="C?"  Part="1" 
+F 0 "C?" V 4048 1700 50  0000 C CNN
+F 1 "10n" V 4139 1700 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 4338 1550 50  0001 C CNN
+F 3 "~" H 4300 1700 50  0001 C CNN
+	1    4300 1700
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4100 1500 3950 1500
+Wire Wire Line
+	3950 1500 3950 1700
+Wire Wire Line
+	3950 1700 4150 1700
+Wire Wire Line
+	3800 1500 3950 1500
+Connection ~ 3950 1500
+Wire Wire Line
+	4500 1500 4650 1500
+Wire Wire Line
+	4650 1500 4650 1700
+Wire Wire Line
+	4650 1700 4450 1700
+$Comp
+L power:GND #PWR?
+U 1 1 5FB9BCE6
+P 4850 1500
+AR Path="/5FB9BCE6" Ref="#PWR?"  Part="1" 
+AR Path="/5FB92F8B/5FB9BCE6" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 4850 1250 50  0001 C CNN
+F 1 "GND" V 4855 1372 50  0000 R CNN
+F 2 "" H 4850 1500 50  0001 C CNN
+F 3 "" H 4850 1500 50  0001 C CNN
+	1    4850 1500
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4850 1500 4650 1500
+Connection ~ 4650 1500
+$Comp
+L Device:R R?
+U 1 1 5FB9BCEE
+P 3950 1250
+AR Path="/5FB9BCEE" Ref="R?"  Part="1" 
+AR Path="/5FB92F8B/5FB9BCEE" Ref="R?"  Part="1" 
+F 0 "R?" H 4020 1296 50  0000 L CNN
+F 1 "1k" H 4020 1205 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 3880 1250 50  0001 C CNN
+F 3 "~" H 3950 1250 50  0001 C CNN
+	1    3950 1250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5FB9BCF4
+P 3950 1050
+AR Path="/5FB9BCF4" Ref="#PWR?"  Part="1" 
+AR Path="/5FB92F8B/5FB9BCF4" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 3950 900 50  0001 C CNN
+F 1 "+3.3V" H 3965 1223 50  0000 C CNN
+F 2 "" H 3950 1050 50  0001 C CNN
+F 3 "" H 3950 1050 50  0001 C CNN
+	1    3950 1050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3950 1100 3950 1050
+Wire Wire Line
+	3950 1400 3950 1500
+Text HLabel 3800 1500 0    50   Input ~ 0
+SIPKA_VLEVO
+$Comp
+L Switch:SW_Push SW?
+U 1 1 5FB9E0FD
+P 4300 2500
+AR Path="/5FB9E0FD" Ref="SW?"  Part="1" 
+AR Path="/5FB92F8B/5FB9E0FD" Ref="SW?"  Part="1" 
+F 0 "SW?" H 4300 2785 50  0000 C CNN
+F 1 "Sipka_vpravo" H 4450 2700 50  0000 C CNN
+F 2 "Button_Switch_THT:SW_Tactile_Straight_KSL0Axx1LFTR" H 4300 2700 50  0001 C CNN
+F 3 "~" H 4300 2700 50  0001 C CNN
+	1    4300 2500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB9E103
+P 4300 2700
+AR Path="/5FB9E103" Ref="C?"  Part="1" 
+AR Path="/5FB92F8B/5FB9E103" Ref="C?"  Part="1" 
+F 0 "C?" V 4048 2700 50  0000 C CNN
+F 1 "10n" V 4139 2700 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 4338 2550 50  0001 C CNN
+F 3 "~" H 4300 2700 50  0001 C CNN
+	1    4300 2700
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4100 2500 3950 2500
+Wire Wire Line
+	3950 2500 3950 2700
+Wire Wire Line
+	3950 2700 4150 2700
+Wire Wire Line
+	3800 2500 3950 2500
+Connection ~ 3950 2500
+Wire Wire Line
+	4500 2500 4650 2500
+Wire Wire Line
+	4650 2500 4650 2700
+Wire Wire Line
+	4650 2700 4450 2700
+$Comp
+L power:GND #PWR?
+U 1 1 5FB9E111
+P 4850 2500
+AR Path="/5FB9E111" Ref="#PWR?"  Part="1" 
+AR Path="/5FB92F8B/5FB9E111" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 4850 2250 50  0001 C CNN
+F 1 "GND" V 4855 2372 50  0000 R CNN
+F 2 "" H 4850 2500 50  0001 C CNN
+F 3 "" H 4850 2500 50  0001 C CNN
+	1    4850 2500
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4850 2500 4650 2500
+Connection ~ 4650 2500
+$Comp
+L Device:R R?
+U 1 1 5FB9E119
+P 3950 2250
+AR Path="/5FB9E119" Ref="R?"  Part="1" 
+AR Path="/5FB92F8B/5FB9E119" Ref="R?"  Part="1" 
+F 0 "R?" H 4020 2296 50  0000 L CNN
+F 1 "1k" H 4020 2205 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 3880 2250 50  0001 C CNN
+F 3 "~" H 3950 2250 50  0001 C CNN
+	1    3950 2250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5FB9E11F
+P 3950 2050
+AR Path="/5FB9E11F" Ref="#PWR?"  Part="1" 
+AR Path="/5FB92F8B/5FB9E11F" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 3950 1900 50  0001 C CNN
+F 1 "+3.3V" H 3965 2223 50  0000 C CNN
+F 2 "" H 3950 2050 50  0001 C CNN
+F 3 "" H 3950 2050 50  0001 C CNN
+	1    3950 2050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3950 2100 3950 2050
+Wire Wire Line
+	3950 2400 3950 2500
+Text HLabel 3800 2500 0    50   Input ~ 0
+SIPKA_VPRAVO
+$Comp
+L Switch:SW_Push SW?
+U 1 1 5FBA5C46
+P 6450 1500
+AR Path="/5FBA5C46" Ref="SW?"  Part="1" 
+AR Path="/5FB92F8B/5FBA5C46" Ref="SW?"  Part="1" 
+F 0 "SW?" H 6450 1785 50  0000 C CNN
+F 1 "Sipka_nahoru" H 6600 1700 50  0000 C CNN
+F 2 "Button_Switch_THT:SW_Tactile_Straight_KSL0Axx1LFTR" H 6450 1700 50  0001 C CNN
+F 3 "~" H 6450 1700 50  0001 C CNN
+	1    6450 1500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FBA5C4C
+P 6450 1700
+AR Path="/5FBA5C4C" Ref="C?"  Part="1" 
+AR Path="/5FB92F8B/5FBA5C4C" Ref="C?"  Part="1" 
+F 0 "C?" V 6198 1700 50  0000 C CNN
+F 1 "10n" V 6289 1700 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 6488 1550 50  0001 C CNN
+F 3 "~" H 6450 1700 50  0001 C CNN
+	1    6450 1700
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6250 1500 6100 1500
+Wire Wire Line
+	6100 1500 6100 1700
+Wire Wire Line
+	6100 1700 6300 1700
+Wire Wire Line
+	5950 1500 6100 1500
+Connection ~ 6100 1500
+Wire Wire Line
+	6650 1500 6800 1500
+Wire Wire Line
+	6800 1500 6800 1700
+Wire Wire Line
+	6800 1700 6600 1700
+$Comp
+L power:GND #PWR?
+U 1 1 5FBA5C5A
+P 7000 1500
+AR Path="/5FBA5C5A" Ref="#PWR?"  Part="1" 
+AR Path="/5FB92F8B/5FBA5C5A" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 7000 1250 50  0001 C CNN
+F 1 "GND" V 7005 1372 50  0000 R CNN
+F 2 "" H 7000 1500 50  0001 C CNN
+F 3 "" H 7000 1500 50  0001 C CNN
+	1    7000 1500
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	7000 1500 6800 1500
+Connection ~ 6800 1500
+$Comp
+L Device:R R?
+U 1 1 5FBA5C62
+P 6100 1250
+AR Path="/5FBA5C62" Ref="R?"  Part="1" 
+AR Path="/5FB92F8B/5FBA5C62" Ref="R?"  Part="1" 
+F 0 "R?" H 6170 1296 50  0000 L CNN
+F 1 "1k" H 6170 1205 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 6030 1250 50  0001 C CNN
+F 3 "~" H 6100 1250 50  0001 C CNN
+	1    6100 1250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5FBA5C68
+P 6100 1050
+AR Path="/5FBA5C68" Ref="#PWR?"  Part="1" 
+AR Path="/5FB92F8B/5FBA5C68" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 6100 900 50  0001 C CNN
+F 1 "+3.3V" H 6115 1223 50  0000 C CNN
+F 2 "" H 6100 1050 50  0001 C CNN
+F 3 "" H 6100 1050 50  0001 C CNN
+	1    6100 1050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6100 1100 6100 1050
+Wire Wire Line
+	6100 1400 6100 1500
+Text HLabel 5950 1500 0    50   Input ~ 0
+SIPKA_NAHORU
+$Comp
+L Switch:SW_Push SW?
+U 1 1 5FBA7D98
+P 6450 2500
+AR Path="/5FBA7D98" Ref="SW?"  Part="1" 
+AR Path="/5FB92F8B/5FBA7D98" Ref="SW?"  Part="1" 
+F 0 "SW?" H 6450 2785 50  0000 C CNN
+F 1 "Sipka_dolu" H 6600 2700 50  0000 C CNN
+F 2 "Button_Switch_THT:SW_Tactile_Straight_KSL0Axx1LFTR" H 6450 2700 50  0001 C CNN
+F 3 "~" H 6450 2700 50  0001 C CNN
+	1    6450 2500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FBA7D9E
+P 6450 2700
+AR Path="/5FBA7D9E" Ref="C?"  Part="1" 
+AR Path="/5FB92F8B/5FBA7D9E" Ref="C?"  Part="1" 
+F 0 "C?" V 6198 2700 50  0000 C CNN
+F 1 "10n" V 6289 2700 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 6488 2550 50  0001 C CNN
+F 3 "~" H 6450 2700 50  0001 C CNN
+	1    6450 2700
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6250 2500 6100 2500
+Wire Wire Line
+	6100 2500 6100 2700
+Wire Wire Line
+	6100 2700 6300 2700
+Wire Wire Line
+	5950 2500 6100 2500
+Connection ~ 6100 2500
+Wire Wire Line
+	6650 2500 6800 2500
+Wire Wire Line
+	6800 2500 6800 2700
+Wire Wire Line
+	6800 2700 6600 2700
+$Comp
+L power:GND #PWR?
+U 1 1 5FBA7DAC
+P 7000 2500
+AR Path="/5FBA7DAC" Ref="#PWR?"  Part="1" 
+AR Path="/5FB92F8B/5FBA7DAC" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 7000 2250 50  0001 C CNN
+F 1 "GND" V 7005 2372 50  0000 R CNN
+F 2 "" H 7000 2500 50  0001 C CNN
+F 3 "" H 7000 2500 50  0001 C CNN
+	1    7000 2500
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	7000 2500 6800 2500
+Connection ~ 6800 2500
+$Comp
+L Device:R R?
+U 1 1 5FBA7DB4
+P 6100 2250
+AR Path="/5FBA7DB4" Ref="R?"  Part="1" 
+AR Path="/5FB92F8B/5FBA7DB4" Ref="R?"  Part="1" 
+F 0 "R?" H 6170 2296 50  0000 L CNN
+F 1 "1k" H 6170 2205 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 6030 2250 50  0001 C CNN
+F 3 "~" H 6100 2250 50  0001 C CNN
+	1    6100 2250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5FBA7DBA
+P 6100 2050
+AR Path="/5FBA7DBA" Ref="#PWR?"  Part="1" 
+AR Path="/5FB92F8B/5FBA7DBA" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 6100 1900 50  0001 C CNN
+F 1 "+3.3V" H 6115 2223 50  0000 C CNN
+F 2 "" H 6100 2050 50  0001 C CNN
+F 3 "" H 6100 2050 50  0001 C CNN
+	1    6100 2050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6100 2100 6100 2050
+Wire Wire Line
+	6100 2400 6100 2500
+Text HLabel 5950 2500 0    50   Input ~ 0
+SIPKA_DOLU
+$EndSCHEMATC

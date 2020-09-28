@@ -1,0 +1,2474 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 3 9
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F125
+P 1700 1300
+AR Path="/5FB2F125" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F125" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F125" Ref="D?"  Part="1" 
+F 0 "D?" H 2044 1346 50  0000 L CNN
+F 1 "WS2812B" H 2044 1255 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 1750 1000 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 1800 925 50  0001 L TNN
+	1    1700 1300
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F12B
+P 1700 1700
+AR Path="/5FB2F12B" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F12B" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F12B" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 1700 1450 50  0001 C CNN
+F 1 "GND" H 1705 1527 50  0000 C CNN
+F 2 "" H 1700 1700 50  0001 C CNN
+F 3 "" H 1700 1700 50  0001 C CNN
+	1    1700 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F137
+P 2250 1100
+AR Path="/5FB2F137" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F137" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F137" Ref="C?"  Part="1" 
+F 0 "C?" H 2365 1146 50  0000 L CNN
+F 1 "100n" H 2365 1055 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 2288 950 50  0001 C CNN
+F 3 "~" H 2250 1100 50  0001 C CNN
+	1    2250 1100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2250 900  2250 950 
+Wire Wire Line
+	1700 900  2250 900 
+Wire Wire Line
+	2250 1250 2250 1600
+Wire Wire Line
+	2250 1600 1700 1600
+Wire Wire Line
+	1700 1700 1700 1600
+Connection ~ 1700 1600
+Wire Wire Line
+	1700 1000 1700 900 
+Wire Wire Line
+	1400 1300 1250 1300
+Text HLabel 1250 1300 0    50   Input ~ 0
+DATA_hodnoceni_LED
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F147
+P 3100 1300
+AR Path="/5FB2F147" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F147" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F147" Ref="D?"  Part="1" 
+F 0 "D?" H 3444 1346 50  0000 L CNN
+F 1 "WS2812B" H 3444 1255 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 3150 1000 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 3200 925 50  0001 L TNN
+	1    3100 1300
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F14D
+P 3100 1700
+AR Path="/5FB2F14D" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F14D" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F14D" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 3100 1450 50  0001 C CNN
+F 1 "GND" H 3105 1527 50  0000 C CNN
+F 2 "" H 3100 1700 50  0001 C CNN
+F 3 "" H 3100 1700 50  0001 C CNN
+	1    3100 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F159
+P 3650 1100
+AR Path="/5FB2F159" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F159" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F159" Ref="C?"  Part="1" 
+F 0 "C?" H 3765 1146 50  0000 L CNN
+F 1 "100n" H 3765 1055 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 3688 950 50  0001 C CNN
+F 3 "~" H 3650 1100 50  0001 C CNN
+	1    3650 1100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3650 900  3650 950 
+Wire Wire Line
+	3100 900  3650 900 
+Wire Wire Line
+	3650 1250 3650 1600
+Wire Wire Line
+	3650 1600 3100 1600
+Wire Wire Line
+	3100 1700 3100 1600
+Connection ~ 3100 1600
+Wire Wire Line
+	3100 1000 3100 900 
+Connection ~ 3100 900 
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F167
+P 4400 1300
+AR Path="/5FB2F167" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F167" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F167" Ref="D?"  Part="1" 
+F 0 "D?" H 4744 1346 50  0000 L CNN
+F 1 "WS2812B" H 4744 1255 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 4450 1000 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 4500 925 50  0001 L TNN
+	1    4400 1300
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F16D
+P 4400 1700
+AR Path="/5FB2F16D" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F16D" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F16D" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 4400 1450 50  0001 C CNN
+F 1 "GND" H 4405 1527 50  0000 C CNN
+F 2 "" H 4400 1700 50  0001 C CNN
+F 3 "" H 4400 1700 50  0001 C CNN
+	1    4400 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F179
+P 4950 1100
+AR Path="/5FB2F179" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F179" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F179" Ref="C?"  Part="1" 
+F 0 "C?" H 5065 1146 50  0000 L CNN
+F 1 "100n" H 5065 1055 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 4988 950 50  0001 C CNN
+F 3 "~" H 4950 1100 50  0001 C CNN
+	1    4950 1100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4950 900  4950 950 
+Wire Wire Line
+	4400 900  4950 900 
+Wire Wire Line
+	4950 1250 4950 1600
+Wire Wire Line
+	4950 1600 4400 1600
+Wire Wire Line
+	4400 1700 4400 1600
+Connection ~ 4400 1600
+Wire Wire Line
+	4400 1000 4400 900 
+Connection ~ 4400 900 
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F187
+P 5800 1300
+AR Path="/5FB2F187" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F187" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F187" Ref="D?"  Part="1" 
+F 0 "D?" H 6144 1346 50  0000 L CNN
+F 1 "WS2812B" H 6144 1255 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 5850 1000 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 5900 925 50  0001 L TNN
+	1    5800 1300
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F18D
+P 5800 1700
+AR Path="/5FB2F18D" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F18D" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F18D" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 5800 1450 50  0001 C CNN
+F 1 "GND" H 5805 1527 50  0000 C CNN
+F 2 "" H 5800 1700 50  0001 C CNN
+F 3 "" H 5800 1700 50  0001 C CNN
+	1    5800 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F199
+P 6350 1100
+AR Path="/5FB2F199" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F199" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F199" Ref="C?"  Part="1" 
+F 0 "C?" H 6465 1146 50  0000 L CNN
+F 1 "100n" H 6465 1055 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 6388 950 50  0001 C CNN
+F 3 "~" H 6350 1100 50  0001 C CNN
+	1    6350 1100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6350 900  6350 950 
+Wire Wire Line
+	5800 900  6350 900 
+Wire Wire Line
+	6350 1250 6350 1600
+Wire Wire Line
+	6350 1600 5800 1600
+Wire Wire Line
+	5800 1700 5800 1600
+Connection ~ 5800 1600
+Wire Wire Line
+	5800 1000 5800 900 
+Connection ~ 5800 900 
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F1A7
+P 7100 1300
+AR Path="/5FB2F1A7" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F1A7" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F1A7" Ref="D?"  Part="1" 
+F 0 "D?" H 7444 1346 50  0000 L CNN
+F 1 "WS2812B" H 7444 1255 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 7150 1000 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 7200 925 50  0001 L TNN
+	1    7100 1300
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F1AD
+P 7100 1700
+AR Path="/5FB2F1AD" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F1AD" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F1AD" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 7100 1450 50  0001 C CNN
+F 1 "GND" H 7105 1527 50  0000 C CNN
+F 2 "" H 7100 1700 50  0001 C CNN
+F 3 "" H 7100 1700 50  0001 C CNN
+	1    7100 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F1B9
+P 7650 1100
+AR Path="/5FB2F1B9" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F1B9" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F1B9" Ref="C?"  Part="1" 
+F 0 "C?" H 7765 1146 50  0000 L CNN
+F 1 "100n" H 7765 1055 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 7688 950 50  0001 C CNN
+F 3 "~" H 7650 1100 50  0001 C CNN
+	1    7650 1100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7650 900  7650 950 
+Wire Wire Line
+	7100 900  7650 900 
+Wire Wire Line
+	7650 1250 7650 1600
+Wire Wire Line
+	7650 1600 7100 1600
+Wire Wire Line
+	7100 1700 7100 1600
+Connection ~ 7100 1600
+Wire Wire Line
+	7100 1000 7100 900 
+Connection ~ 7100 900 
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F1C7
+P 8400 1300
+AR Path="/5FB2F1C7" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F1C7" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F1C7" Ref="D?"  Part="1" 
+F 0 "D?" H 8744 1346 50  0000 L CNN
+F 1 "WS2812B" H 8744 1255 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 8450 1000 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 8500 925 50  0001 L TNN
+	1    8400 1300
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F1CD
+P 8400 1700
+AR Path="/5FB2F1CD" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F1CD" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F1CD" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 8400 1450 50  0001 C CNN
+F 1 "GND" H 8405 1527 50  0000 C CNN
+F 2 "" H 8400 1700 50  0001 C CNN
+F 3 "" H 8400 1700 50  0001 C CNN
+	1    8400 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F1D9
+P 8950 1100
+AR Path="/5FB2F1D9" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F1D9" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F1D9" Ref="C?"  Part="1" 
+F 0 "C?" H 9065 1146 50  0000 L CNN
+F 1 "100n" H 9065 1055 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 8988 950 50  0001 C CNN
+F 3 "~" H 8950 1100 50  0001 C CNN
+	1    8950 1100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8950 900  8950 950 
+Wire Wire Line
+	8400 900  8950 900 
+Wire Wire Line
+	8950 1250 8950 1600
+Wire Wire Line
+	8950 1600 8400 1600
+Wire Wire Line
+	8400 1700 8400 1600
+Connection ~ 8400 1600
+Wire Wire Line
+	8400 1000 8400 900 
+Connection ~ 8400 900 
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F1E7
+P 9700 1300
+AR Path="/5FB2F1E7" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F1E7" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F1E7" Ref="D?"  Part="1" 
+F 0 "D?" H 10044 1346 50  0000 L CNN
+F 1 "WS2812B" H 10044 1255 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 9750 1000 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 9800 925 50  0001 L TNN
+	1    9700 1300
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F1ED
+P 9700 1700
+AR Path="/5FB2F1ED" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F1ED" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F1ED" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 9700 1450 50  0001 C CNN
+F 1 "GND" H 9705 1527 50  0000 C CNN
+F 2 "" H 9700 1700 50  0001 C CNN
+F 3 "" H 9700 1700 50  0001 C CNN
+	1    9700 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F1F9
+P 10250 1100
+AR Path="/5FB2F1F9" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F1F9" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F1F9" Ref="C?"  Part="1" 
+F 0 "C?" H 10365 1146 50  0000 L CNN
+F 1 "100n" H 10365 1055 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 10288 950 50  0001 C CNN
+F 3 "~" H 10250 1100 50  0001 C CNN
+	1    10250 1100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10250 900  10250 950 
+Wire Wire Line
+	9700 900  10250 900 
+Wire Wire Line
+	10250 1250 10250 1600
+Wire Wire Line
+	10250 1600 9700 1600
+Wire Wire Line
+	9700 1700 9700 1600
+Connection ~ 9700 1600
+Wire Wire Line
+	9700 1000 9700 900 
+Connection ~ 9700 900 
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F207
+P 1700 2650
+AR Path="/5FB2F207" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F207" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F207" Ref="D?"  Part="1" 
+F 0 "D?" H 2044 2696 50  0000 L CNN
+F 1 "WS2812B" H 2044 2605 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 1750 2350 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 1800 2275 50  0001 L TNN
+	1    1700 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F20D
+P 1700 3050
+AR Path="/5FB2F20D" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F20D" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F20D" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 1700 2800 50  0001 C CNN
+F 1 "GND" H 1705 2877 50  0000 C CNN
+F 2 "" H 1700 3050 50  0001 C CNN
+F 3 "" H 1700 3050 50  0001 C CNN
+	1    1700 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F219
+P 2250 2450
+AR Path="/5FB2F219" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F219" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F219" Ref="C?"  Part="1" 
+F 0 "C?" H 2365 2496 50  0000 L CNN
+F 1 "100n" H 2365 2405 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 2288 2300 50  0001 C CNN
+F 3 "~" H 2250 2450 50  0001 C CNN
+	1    2250 2450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2250 2250 2250 2300
+Wire Wire Line
+	1700 2250 2250 2250
+Wire Wire Line
+	2250 2600 2250 2950
+Wire Wire Line
+	2250 2950 1700 2950
+Wire Wire Line
+	1700 3050 1700 2950
+Connection ~ 1700 2950
+Wire Wire Line
+	1700 2350 1700 2250
+Wire Wire Line
+	1400 2650 1250 2650
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F228
+P 3100 2650
+AR Path="/5FB2F228" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F228" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F228" Ref="D?"  Part="1" 
+F 0 "D?" H 3444 2696 50  0000 L CNN
+F 1 "WS2812B" H 3444 2605 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 3150 2350 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 3200 2275 50  0001 L TNN
+	1    3100 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F22E
+P 3100 3050
+AR Path="/5FB2F22E" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F22E" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F22E" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 3100 2800 50  0001 C CNN
+F 1 "GND" H 3105 2877 50  0000 C CNN
+F 2 "" H 3100 3050 50  0001 C CNN
+F 3 "" H 3100 3050 50  0001 C CNN
+	1    3100 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F23A
+P 3650 2450
+AR Path="/5FB2F23A" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F23A" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F23A" Ref="C?"  Part="1" 
+F 0 "C?" H 3765 2496 50  0000 L CNN
+F 1 "100n" H 3765 2405 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 3688 2300 50  0001 C CNN
+F 3 "~" H 3650 2450 50  0001 C CNN
+	1    3650 2450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3650 2250 3650 2300
+Wire Wire Line
+	3100 2250 3650 2250
+Wire Wire Line
+	3650 2600 3650 2950
+Wire Wire Line
+	3650 2950 3100 2950
+Wire Wire Line
+	3100 3050 3100 2950
+Connection ~ 3100 2950
+Wire Wire Line
+	3100 2350 3100 2250
+Connection ~ 3100 2250
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F248
+P 4400 2650
+AR Path="/5FB2F248" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F248" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F248" Ref="D?"  Part="1" 
+F 0 "D?" H 4744 2696 50  0000 L CNN
+F 1 "WS2812B" H 4744 2605 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 4450 2350 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 4500 2275 50  0001 L TNN
+	1    4400 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F24E
+P 4400 3050
+AR Path="/5FB2F24E" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F24E" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F24E" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 4400 2800 50  0001 C CNN
+F 1 "GND" H 4405 2877 50  0000 C CNN
+F 2 "" H 4400 3050 50  0001 C CNN
+F 3 "" H 4400 3050 50  0001 C CNN
+	1    4400 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F25A
+P 4950 2450
+AR Path="/5FB2F25A" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F25A" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F25A" Ref="C?"  Part="1" 
+F 0 "C?" H 5065 2496 50  0000 L CNN
+F 1 "100n" H 5065 2405 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 4988 2300 50  0001 C CNN
+F 3 "~" H 4950 2450 50  0001 C CNN
+	1    4950 2450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4950 2250 4950 2300
+Wire Wire Line
+	4400 2250 4950 2250
+Wire Wire Line
+	4950 2600 4950 2950
+Wire Wire Line
+	4950 2950 4400 2950
+Wire Wire Line
+	4400 3050 4400 2950
+Connection ~ 4400 2950
+Wire Wire Line
+	4400 2350 4400 2250
+Connection ~ 4400 2250
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F268
+P 5800 2650
+AR Path="/5FB2F268" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F268" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F268" Ref="D?"  Part="1" 
+F 0 "D?" H 6144 2696 50  0000 L CNN
+F 1 "WS2812B" H 6144 2605 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 5850 2350 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 5900 2275 50  0001 L TNN
+	1    5800 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F26E
+P 5800 3050
+AR Path="/5FB2F26E" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F26E" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F26E" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 5800 2800 50  0001 C CNN
+F 1 "GND" H 5805 2877 50  0000 C CNN
+F 2 "" H 5800 3050 50  0001 C CNN
+F 3 "" H 5800 3050 50  0001 C CNN
+	1    5800 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F27A
+P 6350 2450
+AR Path="/5FB2F27A" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F27A" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F27A" Ref="C?"  Part="1" 
+F 0 "C?" H 6465 2496 50  0000 L CNN
+F 1 "100n" H 6465 2405 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 6388 2300 50  0001 C CNN
+F 3 "~" H 6350 2450 50  0001 C CNN
+	1    6350 2450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6350 2250 6350 2300
+Wire Wire Line
+	5800 2250 6350 2250
+Wire Wire Line
+	6350 2600 6350 2950
+Wire Wire Line
+	6350 2950 5800 2950
+Wire Wire Line
+	5800 3050 5800 2950
+Connection ~ 5800 2950
+Wire Wire Line
+	5800 2350 5800 2250
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F288
+P 7100 2650
+AR Path="/5FB2F288" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F288" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F288" Ref="D?"  Part="1" 
+F 0 "D?" H 7444 2696 50  0000 L CNN
+F 1 "WS2812B" H 7444 2605 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 7150 2350 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 7200 2275 50  0001 L TNN
+	1    7100 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F28E
+P 7100 3050
+AR Path="/5FB2F28E" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F28E" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F28E" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 7100 2800 50  0001 C CNN
+F 1 "GND" H 7105 2877 50  0000 C CNN
+F 2 "" H 7100 3050 50  0001 C CNN
+F 3 "" H 7100 3050 50  0001 C CNN
+	1    7100 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F29A
+P 7650 2450
+AR Path="/5FB2F29A" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F29A" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F29A" Ref="C?"  Part="1" 
+F 0 "C?" H 7765 2496 50  0000 L CNN
+F 1 "100n" H 7765 2405 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 7688 2300 50  0001 C CNN
+F 3 "~" H 7650 2450 50  0001 C CNN
+	1    7650 2450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7650 2250 7650 2300
+Wire Wire Line
+	7100 2250 7650 2250
+Wire Wire Line
+	7650 2600 7650 2950
+Wire Wire Line
+	7650 2950 7100 2950
+Wire Wire Line
+	7100 3050 7100 2950
+Connection ~ 7100 2950
+Wire Wire Line
+	7100 2350 7100 2250
+Connection ~ 7100 2250
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F2A8
+P 8400 2650
+AR Path="/5FB2F2A8" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F2A8" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F2A8" Ref="D?"  Part="1" 
+F 0 "D?" H 8744 2696 50  0000 L CNN
+F 1 "WS2812B" H 8744 2605 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 8450 2350 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 8500 2275 50  0001 L TNN
+	1    8400 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F2AE
+P 8400 3050
+AR Path="/5FB2F2AE" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F2AE" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F2AE" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 8400 2800 50  0001 C CNN
+F 1 "GND" H 8405 2877 50  0000 C CNN
+F 2 "" H 8400 3050 50  0001 C CNN
+F 3 "" H 8400 3050 50  0001 C CNN
+	1    8400 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F2BA
+P 8950 2450
+AR Path="/5FB2F2BA" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F2BA" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F2BA" Ref="C?"  Part="1" 
+F 0 "C?" H 9065 2496 50  0000 L CNN
+F 1 "100n" H 9065 2405 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 8988 2300 50  0001 C CNN
+F 3 "~" H 8950 2450 50  0001 C CNN
+	1    8950 2450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8950 2250 8950 2300
+Wire Wire Line
+	8400 2250 8950 2250
+Wire Wire Line
+	8950 2600 8950 2950
+Wire Wire Line
+	8950 2950 8400 2950
+Wire Wire Line
+	8400 3050 8400 2950
+Connection ~ 8400 2950
+Wire Wire Line
+	8400 2350 8400 2250
+Connection ~ 8400 2250
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F2C8
+P 9700 2650
+AR Path="/5FB2F2C8" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F2C8" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F2C8" Ref="D?"  Part="1" 
+F 0 "D?" H 10044 2696 50  0000 L CNN
+F 1 "WS2812B" H 10044 2605 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 9750 2350 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 9800 2275 50  0001 L TNN
+	1    9700 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F2CE
+P 9700 3050
+AR Path="/5FB2F2CE" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F2CE" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F2CE" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 9700 2800 50  0001 C CNN
+F 1 "GND" H 9705 2877 50  0000 C CNN
+F 2 "" H 9700 3050 50  0001 C CNN
+F 3 "" H 9700 3050 50  0001 C CNN
+	1    9700 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F2DA
+P 10250 2450
+AR Path="/5FB2F2DA" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F2DA" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F2DA" Ref="C?"  Part="1" 
+F 0 "C?" H 10365 2496 50  0000 L CNN
+F 1 "100n" H 10365 2405 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 10288 2300 50  0001 C CNN
+F 3 "~" H 10250 2450 50  0001 C CNN
+	1    10250 2450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10250 2250 10250 2300
+Wire Wire Line
+	9700 2250 10250 2250
+Wire Wire Line
+	10250 2600 10250 2950
+Wire Wire Line
+	10250 2950 9700 2950
+Wire Wire Line
+	9700 3050 9700 2950
+Connection ~ 9700 2950
+Wire Wire Line
+	9700 2350 9700 2250
+Connection ~ 9700 2250
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F2E8
+P 1700 4200
+AR Path="/5FB2F2E8" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F2E8" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F2E8" Ref="D?"  Part="1" 
+F 0 "D?" H 2044 4246 50  0000 L CNN
+F 1 "WS2812B" H 2044 4155 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 1750 3900 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 1800 3825 50  0001 L TNN
+	1    1700 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F2EE
+P 1700 4600
+AR Path="/5FB2F2EE" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F2EE" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F2EE" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 1700 4350 50  0001 C CNN
+F 1 "GND" H 1705 4427 50  0000 C CNN
+F 2 "" H 1700 4600 50  0001 C CNN
+F 3 "" H 1700 4600 50  0001 C CNN
+	1    1700 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F2FA
+P 2250 4000
+AR Path="/5FB2F2FA" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F2FA" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F2FA" Ref="C?"  Part="1" 
+F 0 "C?" H 2365 4046 50  0000 L CNN
+F 1 "100n" H 2365 3955 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 2288 3850 50  0001 C CNN
+F 3 "~" H 2250 4000 50  0001 C CNN
+	1    2250 4000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2250 3800 2250 3850
+Wire Wire Line
+	1700 3800 2250 3800
+Wire Wire Line
+	2250 4150 2250 4500
+Wire Wire Line
+	2250 4500 1700 4500
+Wire Wire Line
+	1700 4600 1700 4500
+Connection ~ 1700 4500
+Wire Wire Line
+	1700 3900 1700 3800
+Wire Wire Line
+	1400 4200 1250 4200
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F309
+P 3100 4200
+AR Path="/5FB2F309" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F309" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F309" Ref="D?"  Part="1" 
+F 0 "D?" H 3444 4246 50  0000 L CNN
+F 1 "WS2812B" H 3444 4155 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 3150 3900 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 3200 3825 50  0001 L TNN
+	1    3100 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F30F
+P 3100 4600
+AR Path="/5FB2F30F" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F30F" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F30F" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 3100 4350 50  0001 C CNN
+F 1 "GND" H 3105 4427 50  0000 C CNN
+F 2 "" H 3100 4600 50  0001 C CNN
+F 3 "" H 3100 4600 50  0001 C CNN
+	1    3100 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F31B
+P 3650 4000
+AR Path="/5FB2F31B" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F31B" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F31B" Ref="C?"  Part="1" 
+F 0 "C?" H 3765 4046 50  0000 L CNN
+F 1 "100n" H 3765 3955 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 3688 3850 50  0001 C CNN
+F 3 "~" H 3650 4000 50  0001 C CNN
+	1    3650 4000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3650 3800 3650 3850
+Wire Wire Line
+	3100 3800 3650 3800
+Wire Wire Line
+	3650 4150 3650 4500
+Wire Wire Line
+	3650 4500 3100 4500
+Wire Wire Line
+	3100 4600 3100 4500
+Connection ~ 3100 4500
+Wire Wire Line
+	3100 3900 3100 3800
+Connection ~ 3100 3800
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F329
+P 4450 4200
+AR Path="/5FB2F329" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F329" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F329" Ref="D?"  Part="1" 
+F 0 "D?" H 4794 4246 50  0000 L CNN
+F 1 "WS2812B" H 4794 4155 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 4500 3900 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 4550 3825 50  0001 L TNN
+	1    4450 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F32F
+P 4450 4600
+AR Path="/5FB2F32F" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F32F" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F32F" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 4450 4350 50  0001 C CNN
+F 1 "GND" H 4455 4427 50  0000 C CNN
+F 2 "" H 4450 4600 50  0001 C CNN
+F 3 "" H 4450 4600 50  0001 C CNN
+	1    4450 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F33B
+P 5000 4000
+AR Path="/5FB2F33B" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F33B" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F33B" Ref="C?"  Part="1" 
+F 0 "C?" H 5115 4046 50  0000 L CNN
+F 1 "100n" H 5115 3955 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 5038 3850 50  0001 C CNN
+F 3 "~" H 5000 4000 50  0001 C CNN
+	1    5000 4000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5000 3800 5000 3850
+Wire Wire Line
+	4450 3800 5000 3800
+Wire Wire Line
+	5000 4150 5000 4500
+Wire Wire Line
+	5000 4500 4450 4500
+Wire Wire Line
+	4450 4600 4450 4500
+Connection ~ 4450 4500
+Wire Wire Line
+	4450 3900 4450 3800
+Connection ~ 4450 3800
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F349
+P 1700 5600
+AR Path="/5FB2F349" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F349" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F349" Ref="D?"  Part="1" 
+F 0 "D?" H 2044 5646 50  0000 L CNN
+F 1 "WS2812B" H 2044 5555 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 1750 5300 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 1800 5225 50  0001 L TNN
+	1    1700 5600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F34F
+P 1700 6000
+AR Path="/5FB2F34F" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F34F" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F34F" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 1700 5750 50  0001 C CNN
+F 1 "GND" H 1705 5827 50  0000 C CNN
+F 2 "" H 1700 6000 50  0001 C CNN
+F 3 "" H 1700 6000 50  0001 C CNN
+	1    1700 6000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F35B
+P 2250 5400
+AR Path="/5FB2F35B" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F35B" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F35B" Ref="C?"  Part="1" 
+F 0 "C?" H 2365 5446 50  0000 L CNN
+F 1 "100n" H 2365 5355 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 2288 5250 50  0001 C CNN
+F 3 "~" H 2250 5400 50  0001 C CNN
+	1    2250 5400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2250 5200 2250 5250
+Wire Wire Line
+	1700 5200 2250 5200
+Wire Wire Line
+	2250 5550 2250 5900
+Wire Wire Line
+	2250 5900 1700 5900
+Wire Wire Line
+	1700 6000 1700 5900
+Connection ~ 1700 5900
+Wire Wire Line
+	1700 5300 1700 5200
+Wire Wire Line
+	1400 5600 1250 5600
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F36A
+P 3100 5600
+AR Path="/5FB2F36A" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F36A" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F36A" Ref="D?"  Part="1" 
+F 0 "D?" H 3444 5646 50  0000 L CNN
+F 1 "WS2812B" H 3444 5555 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 3150 5300 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 3200 5225 50  0001 L TNN
+	1    3100 5600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F370
+P 3100 6000
+AR Path="/5FB2F370" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F370" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F370" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 3100 5750 50  0001 C CNN
+F 1 "GND" H 3105 5827 50  0000 C CNN
+F 2 "" H 3100 6000 50  0001 C CNN
+F 3 "" H 3100 6000 50  0001 C CNN
+	1    3100 6000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F37C
+P 3650 5400
+AR Path="/5FB2F37C" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F37C" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F37C" Ref="C?"  Part="1" 
+F 0 "C?" H 3765 5446 50  0000 L CNN
+F 1 "100n" H 3765 5355 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 3688 5250 50  0001 C CNN
+F 3 "~" H 3650 5400 50  0001 C CNN
+	1    3650 5400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3650 5200 3650 5250
+Wire Wire Line
+	3100 5200 3650 5200
+Wire Wire Line
+	3650 5550 3650 5900
+Wire Wire Line
+	3650 5900 3100 5900
+Wire Wire Line
+	3100 6000 3100 5900
+Connection ~ 3100 5900
+Wire Wire Line
+	3100 5300 3100 5200
+Connection ~ 3100 5200
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F38A
+P 5800 4200
+AR Path="/5FB2F38A" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F38A" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F38A" Ref="D?"  Part="1" 
+F 0 "D?" H 6144 4246 50  0000 L CNN
+F 1 "WS2812B" H 6144 4155 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 5850 3900 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 5900 3825 50  0001 L TNN
+	1    5800 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F390
+P 5800 4600
+AR Path="/5FB2F390" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F390" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F390" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 5800 4350 50  0001 C CNN
+F 1 "GND" H 5805 4427 50  0000 C CNN
+F 2 "" H 5800 4600 50  0001 C CNN
+F 3 "" H 5800 4600 50  0001 C CNN
+	1    5800 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F39C
+P 6350 4000
+AR Path="/5FB2F39C" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F39C" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F39C" Ref="C?"  Part="1" 
+F 0 "C?" H 6465 4046 50  0000 L CNN
+F 1 "100n" H 6465 3955 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 6388 3850 50  0001 C CNN
+F 3 "~" H 6350 4000 50  0001 C CNN
+	1    6350 4000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6350 3800 6350 3850
+Wire Wire Line
+	5800 3800 6350 3800
+Wire Wire Line
+	6350 4150 6350 4500
+Wire Wire Line
+	6350 4500 5800 4500
+Wire Wire Line
+	5800 4600 5800 4500
+Connection ~ 5800 4500
+Wire Wire Line
+	5800 3900 5800 3800
+Connection ~ 5800 3800
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F3AA
+P 7100 4200
+AR Path="/5FB2F3AA" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F3AA" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F3AA" Ref="D?"  Part="1" 
+F 0 "D?" H 7444 4246 50  0000 L CNN
+F 1 "WS2812B" H 7444 4155 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 7150 3900 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 7200 3825 50  0001 L TNN
+	1    7100 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F3B0
+P 7100 4600
+AR Path="/5FB2F3B0" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F3B0" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F3B0" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 7100 4350 50  0001 C CNN
+F 1 "GND" H 7105 4427 50  0000 C CNN
+F 2 "" H 7100 4600 50  0001 C CNN
+F 3 "" H 7100 4600 50  0001 C CNN
+	1    7100 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F3BC
+P 7650 4000
+AR Path="/5FB2F3BC" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F3BC" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F3BC" Ref="C?"  Part="1" 
+F 0 "C?" H 7765 4046 50  0000 L CNN
+F 1 "100n" H 7765 3955 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 7688 3850 50  0001 C CNN
+F 3 "~" H 7650 4000 50  0001 C CNN
+	1    7650 4000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7650 3800 7650 3850
+Wire Wire Line
+	7100 3800 7650 3800
+Wire Wire Line
+	7650 4150 7650 4500
+Wire Wire Line
+	7650 4500 7100 4500
+Wire Wire Line
+	7100 4600 7100 4500
+Connection ~ 7100 4500
+Wire Wire Line
+	7100 3900 7100 3800
+Connection ~ 7100 3800
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F3CA
+P 8400 4200
+AR Path="/5FB2F3CA" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F3CA" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F3CA" Ref="D?"  Part="1" 
+F 0 "D?" H 8744 4246 50  0000 L CNN
+F 1 "WS2812B" H 8744 4155 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 8450 3900 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 8500 3825 50  0001 L TNN
+	1    8400 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F3D0
+P 8400 4600
+AR Path="/5FB2F3D0" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F3D0" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F3D0" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 8400 4350 50  0001 C CNN
+F 1 "GND" H 8405 4427 50  0000 C CNN
+F 2 "" H 8400 4600 50  0001 C CNN
+F 3 "" H 8400 4600 50  0001 C CNN
+	1    8400 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F3DC
+P 8950 4000
+AR Path="/5FB2F3DC" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F3DC" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F3DC" Ref="C?"  Part="1" 
+F 0 "C?" H 9065 4046 50  0000 L CNN
+F 1 "100n" H 9065 3955 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 8988 3850 50  0001 C CNN
+F 3 "~" H 8950 4000 50  0001 C CNN
+	1    8950 4000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8950 3800 8950 3850
+Wire Wire Line
+	8400 3800 8950 3800
+Wire Wire Line
+	8950 4150 8950 4500
+Wire Wire Line
+	8950 4500 8400 4500
+Wire Wire Line
+	8400 4600 8400 4500
+Connection ~ 8400 4500
+Wire Wire Line
+	8400 3900 8400 3800
+Connection ~ 8400 3800
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F3EA
+P 9700 4200
+AR Path="/5FB2F3EA" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F3EA" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F3EA" Ref="D?"  Part="1" 
+F 0 "D?" H 10044 4246 50  0000 L CNN
+F 1 "WS2812B" H 10044 4155 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 9750 3900 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 9800 3825 50  0001 L TNN
+	1    9700 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F3F0
+P 9700 4600
+AR Path="/5FB2F3F0" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F3F0" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F3F0" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 9700 4350 50  0001 C CNN
+F 1 "GND" H 9705 4427 50  0000 C CNN
+F 2 "" H 9700 4600 50  0001 C CNN
+F 3 "" H 9700 4600 50  0001 C CNN
+	1    9700 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F3FC
+P 10250 4000
+AR Path="/5FB2F3FC" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F3FC" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F3FC" Ref="C?"  Part="1" 
+F 0 "C?" H 10365 4046 50  0000 L CNN
+F 1 "100n" H 10365 3955 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 10288 3850 50  0001 C CNN
+F 3 "~" H 10250 4000 50  0001 C CNN
+	1    10250 4000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10250 3800 10250 3850
+Wire Wire Line
+	9700 3800 10250 3800
+Wire Wire Line
+	10250 4150 10250 4500
+Wire Wire Line
+	10250 4500 9700 4500
+Wire Wire Line
+	9700 4600 9700 4500
+Connection ~ 9700 4500
+Wire Wire Line
+	9700 3900 9700 3800
+Connection ~ 9700 3800
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F40A
+P 4450 5600
+AR Path="/5FB2F40A" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F40A" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F40A" Ref="D?"  Part="1" 
+F 0 "D?" H 4794 5646 50  0000 L CNN
+F 1 "WS2812B" H 4794 5555 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 4500 5300 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 4550 5225 50  0001 L TNN
+	1    4450 5600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F410
+P 4450 6000
+AR Path="/5FB2F410" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F410" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F410" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 4450 5750 50  0001 C CNN
+F 1 "GND" H 4455 5827 50  0000 C CNN
+F 2 "" H 4450 6000 50  0001 C CNN
+F 3 "" H 4450 6000 50  0001 C CNN
+	1    4450 6000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F41C
+P 5000 5400
+AR Path="/5FB2F41C" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F41C" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F41C" Ref="C?"  Part="1" 
+F 0 "C?" H 5115 5446 50  0000 L CNN
+F 1 "100n" H 5115 5355 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 5038 5250 50  0001 C CNN
+F 3 "~" H 5000 5400 50  0001 C CNN
+	1    5000 5400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5000 5200 5000 5250
+Wire Wire Line
+	4450 5200 5000 5200
+Wire Wire Line
+	5000 5550 5000 5900
+Wire Wire Line
+	5000 5900 4450 5900
+Wire Wire Line
+	4450 6000 4450 5900
+Connection ~ 4450 5900
+Wire Wire Line
+	4450 5300 4450 5200
+Connection ~ 4450 5200
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F42A
+P 5800 5600
+AR Path="/5FB2F42A" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F42A" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F42A" Ref="D?"  Part="1" 
+F 0 "D?" H 6144 5646 50  0000 L CNN
+F 1 "WS2812B" H 6144 5555 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 5850 5300 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 5900 5225 50  0001 L TNN
+	1    5800 5600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F430
+P 5800 6000
+AR Path="/5FB2F430" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F430" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F430" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 5800 5750 50  0001 C CNN
+F 1 "GND" H 5805 5827 50  0000 C CNN
+F 2 "" H 5800 6000 50  0001 C CNN
+F 3 "" H 5800 6000 50  0001 C CNN
+	1    5800 6000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F43C
+P 6350 5400
+AR Path="/5FB2F43C" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F43C" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F43C" Ref="C?"  Part="1" 
+F 0 "C?" H 6465 5446 50  0000 L CNN
+F 1 "100n" H 6465 5355 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 6388 5250 50  0001 C CNN
+F 3 "~" H 6350 5400 50  0001 C CNN
+	1    6350 5400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6350 5200 6350 5250
+Wire Wire Line
+	5800 5200 6350 5200
+Wire Wire Line
+	6350 5550 6350 5900
+Wire Wire Line
+	6350 5900 5800 5900
+Wire Wire Line
+	5800 6000 5800 5900
+Connection ~ 5800 5900
+Wire Wire Line
+	5800 5300 5800 5200
+Connection ~ 5800 5200
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F44A
+P 7100 5600
+AR Path="/5FB2F44A" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F44A" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F44A" Ref="D?"  Part="1" 
+F 0 "D?" H 7444 5646 50  0000 L CNN
+F 1 "WS2812B" H 7444 5555 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 7150 5300 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 7200 5225 50  0001 L TNN
+	1    7100 5600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F450
+P 7100 6000
+AR Path="/5FB2F450" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F450" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F450" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 7100 5750 50  0001 C CNN
+F 1 "GND" H 7105 5827 50  0000 C CNN
+F 2 "" H 7100 6000 50  0001 C CNN
+F 3 "" H 7100 6000 50  0001 C CNN
+	1    7100 6000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F45C
+P 7650 5400
+AR Path="/5FB2F45C" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F45C" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F45C" Ref="C?"  Part="1" 
+F 0 "C?" H 7765 5446 50  0000 L CNN
+F 1 "100n" H 7765 5355 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 7688 5250 50  0001 C CNN
+F 3 "~" H 7650 5400 50  0001 C CNN
+	1    7650 5400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7650 5200 7650 5250
+Wire Wire Line
+	7100 5200 7650 5200
+Wire Wire Line
+	7650 5550 7650 5900
+Wire Wire Line
+	7650 5900 7100 5900
+Wire Wire Line
+	7100 6000 7100 5900
+Connection ~ 7100 5900
+Wire Wire Line
+	7100 5300 7100 5200
+Connection ~ 7100 5200
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F46A
+P 8400 5600
+AR Path="/5FB2F46A" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F46A" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F46A" Ref="D?"  Part="1" 
+F 0 "D?" H 8744 5646 50  0000 L CNN
+F 1 "WS2812B" H 8744 5555 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 8450 5300 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 8500 5225 50  0001 L TNN
+	1    8400 5600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F470
+P 8400 6000
+AR Path="/5FB2F470" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F470" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F470" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 8400 5750 50  0001 C CNN
+F 1 "GND" H 8405 5827 50  0000 C CNN
+F 2 "" H 8400 6000 50  0001 C CNN
+F 3 "" H 8400 6000 50  0001 C CNN
+	1    8400 6000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F47C
+P 8950 5400
+AR Path="/5FB2F47C" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F47C" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F47C" Ref="C?"  Part="1" 
+F 0 "C?" H 9065 5446 50  0000 L CNN
+F 1 "100n" H 9065 5355 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 8988 5250 50  0001 C CNN
+F 3 "~" H 8950 5400 50  0001 C CNN
+	1    8950 5400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8950 5200 8950 5250
+Wire Wire Line
+	8400 5200 8950 5200
+Wire Wire Line
+	8950 5550 8950 5900
+Wire Wire Line
+	8950 5900 8400 5900
+Wire Wire Line
+	8400 6000 8400 5900
+Connection ~ 8400 5900
+Wire Wire Line
+	8400 5300 8400 5200
+Connection ~ 8400 5200
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F48A
+P 9700 5600
+AR Path="/5FB2F48A" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F48A" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F48A" Ref="D?"  Part="1" 
+F 0 "D?" H 10044 5646 50  0000 L CNN
+F 1 "WS2812B" H 10044 5555 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 9750 5300 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 9800 5225 50  0001 L TNN
+	1    9700 5600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F490
+P 9700 6000
+AR Path="/5FB2F490" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F490" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F490" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 9700 5750 50  0001 C CNN
+F 1 "GND" H 9705 5827 50  0000 C CNN
+F 2 "" H 9700 6000 50  0001 C CNN
+F 3 "" H 9700 6000 50  0001 C CNN
+	1    9700 6000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F49C
+P 10250 5400
+AR Path="/5FB2F49C" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F49C" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F49C" Ref="C?"  Part="1" 
+F 0 "C?" H 10365 5446 50  0000 L CNN
+F 1 "100n" H 10365 5355 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 10288 5250 50  0001 C CNN
+F 3 "~" H 10250 5400 50  0001 C CNN
+	1    10250 5400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10250 5200 10250 5250
+Wire Wire Line
+	9700 5200 10250 5200
+Wire Wire Line
+	10250 5550 10250 5900
+Wire Wire Line
+	10250 5900 9700 5900
+Wire Wire Line
+	9700 6000 9700 5900
+Connection ~ 9700 5900
+Wire Wire Line
+	9700 5300 9700 5200
+Connection ~ 9700 5200
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F4AA
+P 12150 2650
+AR Path="/5FB2F4AA" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F4AA" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F4AA" Ref="D?"  Part="1" 
+F 0 "D?" H 12494 2696 50  0000 L CNN
+F 1 "WS2812B" H 12494 2605 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 12200 2350 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 12250 2275 50  0001 L TNN
+	1    12150 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F4B0
+P 12150 3050
+AR Path="/5FB2F4B0" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F4B0" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F4B0" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 12150 2800 50  0001 C CNN
+F 1 "GND" H 12155 2877 50  0000 C CNN
+F 2 "" H 12150 3050 50  0001 C CNN
+F 3 "" H 12150 3050 50  0001 C CNN
+	1    12150 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F4BC
+P 12700 2450
+AR Path="/5FB2F4BC" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F4BC" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F4BC" Ref="C?"  Part="1" 
+F 0 "C?" H 12815 2496 50  0000 L CNN
+F 1 "100n" H 12815 2405 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 12738 2300 50  0001 C CNN
+F 3 "~" H 12700 2450 50  0001 C CNN
+	1    12700 2450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	12700 2250 12700 2300
+Wire Wire Line
+	12150 2250 12700 2250
+Wire Wire Line
+	12700 2600 12700 2950
+Wire Wire Line
+	12700 2950 12150 2950
+Wire Wire Line
+	12150 3050 12150 2950
+Connection ~ 12150 2950
+Wire Wire Line
+	12150 2350 12150 2250
+Connection ~ 12150 2250
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F4CA
+P 13550 2650
+AR Path="/5FB2F4CA" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F4CA" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F4CA" Ref="D?"  Part="1" 
+F 0 "D?" H 13894 2696 50  0000 L CNN
+F 1 "WS2812B" H 13894 2605 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 13600 2350 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 13650 2275 50  0001 L TNN
+	1    13550 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F4D0
+P 13550 3050
+AR Path="/5FB2F4D0" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F4D0" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F4D0" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 13550 2800 50  0001 C CNN
+F 1 "GND" H 13555 2877 50  0000 C CNN
+F 2 "" H 13550 3050 50  0001 C CNN
+F 3 "" H 13550 3050 50  0001 C CNN
+	1    13550 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F4DC
+P 14100 2450
+AR Path="/5FB2F4DC" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F4DC" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F4DC" Ref="C?"  Part="1" 
+F 0 "C?" H 14215 2496 50  0000 L CNN
+F 1 "100n" H 14215 2405 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 14138 2300 50  0001 C CNN
+F 3 "~" H 14100 2450 50  0001 C CNN
+	1    14100 2450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	14100 2250 14100 2300
+Wire Wire Line
+	13550 2250 14100 2250
+Wire Wire Line
+	14100 2600 14100 2950
+Wire Wire Line
+	14100 2950 13550 2950
+Wire Wire Line
+	13550 3050 13550 2950
+Connection ~ 13550 2950
+Wire Wire Line
+	13550 2350 13550 2250
+Connection ~ 13550 2250
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F4EA
+P 14900 2650
+AR Path="/5FB2F4EA" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F4EA" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F4EA" Ref="D?"  Part="1" 
+F 0 "D?" H 15244 2696 50  0000 L CNN
+F 1 "WS2812B" H 15244 2605 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 14950 2350 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 15000 2275 50  0001 L TNN
+	1    14900 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F4F0
+P 14900 3050
+AR Path="/5FB2F4F0" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F4F0" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F4F0" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 14900 2800 50  0001 C CNN
+F 1 "GND" H 14905 2877 50  0000 C CNN
+F 2 "" H 14900 3050 50  0001 C CNN
+F 3 "" H 14900 3050 50  0001 C CNN
+	1    14900 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F4FC
+P 15450 2450
+AR Path="/5FB2F4FC" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F4FC" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F4FC" Ref="C?"  Part="1" 
+F 0 "C?" H 15565 2496 50  0000 L CNN
+F 1 "100n" H 15565 2405 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 15488 2300 50  0001 C CNN
+F 3 "~" H 15450 2450 50  0001 C CNN
+	1    15450 2450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	15450 2250 15450 2300
+Wire Wire Line
+	14900 2250 15450 2250
+Wire Wire Line
+	15450 2600 15450 2950
+Wire Wire Line
+	15450 2950 14900 2950
+Wire Wire Line
+	14900 3050 14900 2950
+Connection ~ 14900 2950
+Wire Wire Line
+	14900 2350 14900 2250
+Connection ~ 14900 2250
+Wire Wire Line
+	13850 2650 14600 2650
+Wire Wire Line
+	2000 5600 2800 5600
+Wire Wire Line
+	3400 5600 4150 5600
+Wire Wire Line
+	4750 5600 5500 5600
+Wire Wire Line
+	6100 5600 6800 5600
+Wire Wire Line
+	7400 5600 8100 5600
+Wire Wire Line
+	8700 5600 9400 5600
+Wire Wire Line
+	8700 4200 9400 4200
+Wire Wire Line
+	7400 4200 8100 4200
+Wire Wire Line
+	6100 4200 6800 4200
+Wire Wire Line
+	4750 4200 5500 4200
+Wire Wire Line
+	3400 4200 4150 4200
+Wire Wire Line
+	2000 4200 2800 4200
+Wire Wire Line
+	2000 1300 2800 1300
+Wire Wire Line
+	3400 1300 4100 1300
+Wire Wire Line
+	4700 1300 5500 1300
+Wire Wire Line
+	6100 1300 6800 1300
+Wire Wire Line
+	7400 1300 8100 1300
+Wire Wire Line
+	8700 1300 9400 1300
+Wire Wire Line
+	8700 2650 9400 2650
+Wire Wire Line
+	7400 2650 8100 2650
+Wire Wire Line
+	6100 2650 6800 2650
+Wire Wire Line
+	4700 2650 5500 2650
+Wire Wire Line
+	3400 2650 4100 2650
+Wire Wire Line
+	2000 2650 2800 2650
+Wire Wire Line
+	12450 2650 13250 2650
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F524
+P 12150 1300
+AR Path="/5FB2F524" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F524" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F524" Ref="D?"  Part="1" 
+F 0 "D?" H 12494 1346 50  0000 L CNN
+F 1 "WS2812B" H 12494 1255 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 12200 1000 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 12250 925 50  0001 L TNN
+	1    12150 1300
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F52A
+P 12150 1700
+AR Path="/5FB2F52A" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F52A" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F52A" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 12150 1450 50  0001 C CNN
+F 1 "GND" H 12155 1527 50  0000 C CNN
+F 2 "" H 12150 1700 50  0001 C CNN
+F 3 "" H 12150 1700 50  0001 C CNN
+	1    12150 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F536
+P 12700 1100
+AR Path="/5FB2F536" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F536" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F536" Ref="C?"  Part="1" 
+F 0 "C?" H 12815 1146 50  0000 L CNN
+F 1 "100n" H 12815 1055 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 12738 950 50  0001 C CNN
+F 3 "~" H 12700 1100 50  0001 C CNN
+	1    12700 1100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	12700 900  12700 950 
+Wire Wire Line
+	12150 900  12700 900 
+Wire Wire Line
+	12700 1250 12700 1600
+Wire Wire Line
+	12700 1600 12150 1600
+Wire Wire Line
+	12150 1700 12150 1600
+Connection ~ 12150 1600
+Wire Wire Line
+	12150 1000 12150 900 
+Connection ~ 12150 900 
+Wire Wire Line
+	10000 1300 11850 1300
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F545
+P 13500 1300
+AR Path="/5FB2F545" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F545" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F545" Ref="D?"  Part="1" 
+F 0 "D?" H 13844 1346 50  0000 L CNN
+F 1 "WS2812B" H 13844 1255 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 13550 1000 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 13600 925 50  0001 L TNN
+	1    13500 1300
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F54B
+P 13500 1700
+AR Path="/5FB2F54B" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F54B" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F54B" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 13500 1450 50  0001 C CNN
+F 1 "GND" H 13505 1527 50  0000 C CNN
+F 2 "" H 13500 1700 50  0001 C CNN
+F 3 "" H 13500 1700 50  0001 C CNN
+	1    13500 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F557
+P 14050 1100
+AR Path="/5FB2F557" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F557" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F557" Ref="C?"  Part="1" 
+F 0 "C?" H 14165 1146 50  0000 L CNN
+F 1 "100n" H 14165 1055 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 14088 950 50  0001 C CNN
+F 3 "~" H 14050 1100 50  0001 C CNN
+	1    14050 1100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	14050 900  14050 950 
+Wire Wire Line
+	13500 900  14050 900 
+Wire Wire Line
+	14050 1250 14050 1600
+Wire Wire Line
+	14050 1600 13500 1600
+Wire Wire Line
+	13500 1700 13500 1600
+Connection ~ 13500 1600
+Wire Wire Line
+	13500 1000 13500 900 
+Connection ~ 13500 900 
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F565
+P 14850 1300
+AR Path="/5FB2F565" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F565" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F565" Ref="D?"  Part="1" 
+F 0 "D?" H 15194 1346 50  0000 L CNN
+F 1 "WS2812B" H 15194 1255 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 14900 1000 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 14950 925 50  0001 L TNN
+	1    14850 1300
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F56B
+P 14850 1700
+AR Path="/5FB2F56B" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F56B" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F56B" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 14850 1450 50  0001 C CNN
+F 1 "GND" H 14855 1527 50  0000 C CNN
+F 2 "" H 14850 1700 50  0001 C CNN
+F 3 "" H 14850 1700 50  0001 C CNN
+	1    14850 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F577
+P 15400 1100
+AR Path="/5FB2F577" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F577" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F577" Ref="C?"  Part="1" 
+F 0 "C?" H 15515 1146 50  0000 L CNN
+F 1 "100n" H 15515 1055 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 15438 950 50  0001 C CNN
+F 3 "~" H 15400 1100 50  0001 C CNN
+	1    15400 1100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	15400 900  15400 950 
+Wire Wire Line
+	14850 900  15400 900 
+Wire Wire Line
+	15400 1250 15400 1600
+Wire Wire Line
+	15400 1600 14850 1600
+Wire Wire Line
+	14850 1700 14850 1600
+Connection ~ 14850 1600
+Wire Wire Line
+	14850 1000 14850 900 
+Connection ~ 14850 900 
+Wire Wire Line
+	12450 1300 13200 1300
+Wire Wire Line
+	13800 1300 14550 1300
+Wire Wire Line
+	15150 1300 15800 1300
+Wire Wire Line
+	10000 2650 11850 2650
+Wire Wire Line
+	15200 2650 15850 2650
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F58A
+P 12150 5600
+AR Path="/5FB2F58A" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F58A" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F58A" Ref="D?"  Part="1" 
+F 0 "D?" H 12494 5646 50  0000 L CNN
+F 1 "WS2812B" H 12494 5555 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 12200 5300 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 12250 5225 50  0001 L TNN
+	1    12150 5600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F590
+P 12150 6000
+AR Path="/5FB2F590" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F590" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F590" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 12150 5750 50  0001 C CNN
+F 1 "GND" H 12155 5827 50  0000 C CNN
+F 2 "" H 12150 6000 50  0001 C CNN
+F 3 "" H 12150 6000 50  0001 C CNN
+	1    12150 6000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F59C
+P 12700 5400
+AR Path="/5FB2F59C" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F59C" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F59C" Ref="C?"  Part="1" 
+F 0 "C?" H 12815 5446 50  0000 L CNN
+F 1 "100n" H 12815 5355 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 12738 5250 50  0001 C CNN
+F 3 "~" H 12700 5400 50  0001 C CNN
+	1    12700 5400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	12700 5200 12700 5250
+Wire Wire Line
+	12150 5200 12700 5200
+Wire Wire Line
+	12700 5550 12700 5900
+Wire Wire Line
+	12700 5900 12150 5900
+Wire Wire Line
+	12150 6000 12150 5900
+Connection ~ 12150 5900
+Wire Wire Line
+	12150 5300 12150 5200
+Connection ~ 12150 5200
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F5AA
+P 13550 5600
+AR Path="/5FB2F5AA" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F5AA" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F5AA" Ref="D?"  Part="1" 
+F 0 "D?" H 13894 5646 50  0000 L CNN
+F 1 "WS2812B" H 13894 5555 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 13600 5300 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 13650 5225 50  0001 L TNN
+	1    13550 5600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F5B0
+P 13550 6000
+AR Path="/5FB2F5B0" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F5B0" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F5B0" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 13550 5750 50  0001 C CNN
+F 1 "GND" H 13555 5827 50  0000 C CNN
+F 2 "" H 13550 6000 50  0001 C CNN
+F 3 "" H 13550 6000 50  0001 C CNN
+	1    13550 6000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F5BC
+P 14100 5400
+AR Path="/5FB2F5BC" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F5BC" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F5BC" Ref="C?"  Part="1" 
+F 0 "C?" H 14215 5446 50  0000 L CNN
+F 1 "100n" H 14215 5355 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 14138 5250 50  0001 C CNN
+F 3 "~" H 14100 5400 50  0001 C CNN
+	1    14100 5400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	14100 5200 14100 5250
+Wire Wire Line
+	13550 5200 14100 5200
+Wire Wire Line
+	14100 5550 14100 5900
+Wire Wire Line
+	14100 5900 13550 5900
+Wire Wire Line
+	13550 6000 13550 5900
+Connection ~ 13550 5900
+Wire Wire Line
+	13550 5300 13550 5200
+Connection ~ 13550 5200
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F5CA
+P 14900 5600
+AR Path="/5FB2F5CA" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F5CA" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F5CA" Ref="D?"  Part="1" 
+F 0 "D?" H 15244 5646 50  0000 L CNN
+F 1 "WS2812B" H 15244 5555 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 14950 5300 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 15000 5225 50  0001 L TNN
+	1    14900 5600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F5D0
+P 14900 6000
+AR Path="/5FB2F5D0" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F5D0" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F5D0" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 14900 5750 50  0001 C CNN
+F 1 "GND" H 14905 5827 50  0000 C CNN
+F 2 "" H 14900 6000 50  0001 C CNN
+F 3 "" H 14900 6000 50  0001 C CNN
+	1    14900 6000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F5DC
+P 15450 5400
+AR Path="/5FB2F5DC" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F5DC" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F5DC" Ref="C?"  Part="1" 
+F 0 "C?" H 15565 5446 50  0000 L CNN
+F 1 "100n" H 15565 5355 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 15488 5250 50  0001 C CNN
+F 3 "~" H 15450 5400 50  0001 C CNN
+	1    15450 5400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	15450 5200 15450 5250
+Wire Wire Line
+	14900 5200 15450 5200
+Wire Wire Line
+	15450 5550 15450 5900
+Wire Wire Line
+	15450 5900 14900 5900
+Wire Wire Line
+	14900 6000 14900 5900
+Connection ~ 14900 5900
+Wire Wire Line
+	14900 5300 14900 5200
+Connection ~ 14900 5200
+Wire Wire Line
+	13850 5600 14600 5600
+Wire Wire Line
+	12450 5600 13250 5600
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F5EC
+P 12150 4200
+AR Path="/5FB2F5EC" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F5EC" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F5EC" Ref="D?"  Part="1" 
+F 0 "D?" H 12494 4246 50  0000 L CNN
+F 1 "WS2812B" H 12494 4155 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 12200 3900 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 12250 3825 50  0001 L TNN
+	1    12150 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F5F2
+P 12150 4600
+AR Path="/5FB2F5F2" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F5F2" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F5F2" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 12150 4350 50  0001 C CNN
+F 1 "GND" H 12155 4427 50  0000 C CNN
+F 2 "" H 12150 4600 50  0001 C CNN
+F 3 "" H 12150 4600 50  0001 C CNN
+	1    12150 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F5FE
+P 12700 4000
+AR Path="/5FB2F5FE" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F5FE" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F5FE" Ref="C?"  Part="1" 
+F 0 "C?" H 12815 4046 50  0000 L CNN
+F 1 "100n" H 12815 3955 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 12738 3850 50  0001 C CNN
+F 3 "~" H 12700 4000 50  0001 C CNN
+	1    12700 4000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	12700 3800 12700 3850
+Wire Wire Line
+	12150 3800 12700 3800
+Wire Wire Line
+	12700 4150 12700 4500
+Wire Wire Line
+	12700 4500 12150 4500
+Wire Wire Line
+	12150 4600 12150 4500
+Connection ~ 12150 4500
+Wire Wire Line
+	12150 3900 12150 3800
+Connection ~ 12150 3800
+Wire Wire Line
+	10000 4200 11850 4200
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F60D
+P 13500 4200
+AR Path="/5FB2F60D" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F60D" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F60D" Ref="D?"  Part="1" 
+F 0 "D?" H 13844 4246 50  0000 L CNN
+F 1 "WS2812B" H 13844 4155 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 13550 3900 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 13600 3825 50  0001 L TNN
+	1    13500 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F613
+P 13500 4600
+AR Path="/5FB2F613" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F613" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F613" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 13500 4350 50  0001 C CNN
+F 1 "GND" H 13505 4427 50  0000 C CNN
+F 2 "" H 13500 4600 50  0001 C CNN
+F 3 "" H 13500 4600 50  0001 C CNN
+	1    13500 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F61F
+P 14050 4000
+AR Path="/5FB2F61F" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F61F" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F61F" Ref="C?"  Part="1" 
+F 0 "C?" H 14165 4046 50  0000 L CNN
+F 1 "100n" H 14165 3955 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 14088 3850 50  0001 C CNN
+F 3 "~" H 14050 4000 50  0001 C CNN
+	1    14050 4000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	14050 3800 14050 3850
+Wire Wire Line
+	13500 3800 14050 3800
+Wire Wire Line
+	14050 4150 14050 4500
+Wire Wire Line
+	14050 4500 13500 4500
+Wire Wire Line
+	13500 4600 13500 4500
+Connection ~ 13500 4500
+Wire Wire Line
+	13500 3900 13500 3800
+Connection ~ 13500 3800
+$Comp
+L LED:WS2812B D?
+U 1 1 5FB2F62D
+P 14850 4200
+AR Path="/5FB2F62D" Ref="D?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F62D" Ref="D?"  Part="1" 
+AR Path="/5FACC290/5FB2F62D" Ref="D?"  Part="1" 
+F 0 "D?" H 15194 4246 50  0000 L CNN
+F 1 "WS2812B" H 15194 4155 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 14900 3900 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 14950 3825 50  0001 L TNN
+	1    14850 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB2F633
+P 14850 4600
+AR Path="/5FB2F633" Ref="#PWR?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F633" Ref="#PWR?"  Part="1" 
+AR Path="/5FACC290/5FB2F633" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 14850 4350 50  0001 C CNN
+F 1 "GND" H 14855 4427 50  0000 C CNN
+F 2 "" H 14850 4600 50  0001 C CNN
+F 3 "" H 14850 4600 50  0001 C CNN
+	1    14850 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FB2F63F
+P 15400 4000
+AR Path="/5FB2F63F" Ref="C?"  Part="1" 
+AR Path="/5F70D6B6/5FB2F63F" Ref="C?"  Part="1" 
+AR Path="/5FACC290/5FB2F63F" Ref="C?"  Part="1" 
+F 0 "C?" H 15515 4046 50  0000 L CNN
+F 1 "100n" H 15515 3955 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 15438 3850 50  0001 C CNN
+F 3 "~" H 15400 4000 50  0001 C CNN
+	1    15400 4000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	15400 3800 15400 3850
+Wire Wire Line
+	14850 3800 15400 3800
+Wire Wire Line
+	15400 4150 15400 4500
+Wire Wire Line
+	15400 4500 14850 4500
+Wire Wire Line
+	14850 4600 14850 4500
+Connection ~ 14850 4500
+Wire Wire Line
+	14850 3900 14850 3800
+Connection ~ 14850 3800
+Wire Wire Line
+	12450 4200 13200 4200
+Wire Wire Line
+	13800 4200 14550 4200
+Wire Wire Line
+	15150 4200 15800 4200
+Wire Wire Line
+	10000 5600 11850 5600
+Text GLabel 15800 1300 2    50   Input ~ 0
+DATA1
+Text GLabel 1250 2650 0    50   Input ~ 0
+DATA1
+Text GLabel 15850 2650 2    50   Input ~ 0
+DATA2
+Text GLabel 1250 4200 0    50   Input ~ 0
+DATA2
+Text GLabel 15800 4200 2    50   Input ~ 0
+DATA3
+Text GLabel 1250 5600 0    50   Input ~ 0
+DATA3
+Text HLabel 800  800  0    50   Input ~ 0
+V_BAT
+Wire Wire Line
+	800  800  1050 800 
+Text GLabel 1050 800  2    50   Input ~ 0
+V_BAT
+Text GLabel 1700 900  0    50   Input ~ 0
+V_BAT
+Text GLabel 1700 2250 0    50   Input ~ 0
+V_BAT
+Text GLabel 1700 3800 0    50   Input ~ 0
+V_BAT
+Text GLabel 1700 5200 0    50   Input ~ 0
+V_BAT
+Wire Wire Line
+	3100 900  2250 900 
+Connection ~ 2250 900 
+Wire Wire Line
+	3650 900  4400 900 
+Connection ~ 3650 900 
+Wire Wire Line
+	2250 2250 3100 2250
+Connection ~ 2250 2250
+Wire Wire Line
+	4400 2250 3650 2250
+Connection ~ 3650 2250
+Wire Wire Line
+	4950 900  5800 900 
+Connection ~ 4950 900 
+Wire Wire Line
+	5800 2250 4950 2250
+Connection ~ 5800 2250
+Connection ~ 4950 2250
+Wire Wire Line
+	7100 2250 6350 2250
+Connection ~ 6350 2250
+Wire Wire Line
+	7100 900  6350 900 
+Connection ~ 6350 900 
+Wire Wire Line
+	7650 900  8400 900 
+Connection ~ 7650 900 
+Wire Wire Line
+	8400 2250 7650 2250
+Connection ~ 7650 2250
+Wire Wire Line
+	9700 2250 8950 2250
+Connection ~ 8950 2250
+Wire Wire Line
+	9700 900  8950 900 
+Connection ~ 8950 900 
+Wire Wire Line
+	12150 900  10250 900 
+Connection ~ 10250 900 
+Wire Wire Line
+	12150 2250 10250 2250
+Connection ~ 10250 2250
+Wire Wire Line
+	13500 900  12700 900 
+Connection ~ 12700 900 
+Wire Wire Line
+	13550 2250 12700 2250
+Connection ~ 12700 2250
+Wire Wire Line
+	14900 2250 14100 2250
+Connection ~ 14100 2250
+Connection ~ 14050 900 
+Wire Wire Line
+	14050 900  14850 900 
+Wire Wire Line
+	3100 3800 2250 3800
+Connection ~ 2250 3800
+Wire Wire Line
+	4450 3800 3650 3800
+Connection ~ 3650 3800
+Wire Wire Line
+	3100 5200 2250 5200
+Connection ~ 2250 5200
+Wire Wire Line
+	4450 5200 3650 5200
+Connection ~ 3650 5200
+Wire Wire Line
+	5000 3800 5800 3800
+Connection ~ 5000 3800
+Wire Wire Line
+	5800 5200 5000 5200
+Connection ~ 5000 5200
+Wire Wire Line
+	7100 5200 6350 5200
+Connection ~ 6350 5200
+Wire Wire Line
+	7100 3800 6350 3800
+Connection ~ 6350 3800
+Wire Wire Line
+	8400 3800 7650 3800
+Connection ~ 7650 3800
+Wire Wire Line
+	8400 5200 7650 5200
+Connection ~ 7650 5200
+Wire Wire Line
+	9700 5200 8950 5200
+Connection ~ 8950 5200
+Wire Wire Line
+	9700 3800 8950 3800
+Connection ~ 8950 3800
+Wire Wire Line
+	12150 5200 10250 5200
+Connection ~ 10250 5200
+Wire Wire Line
+	12150 3800 10250 3800
+Connection ~ 10250 3800
+Wire Wire Line
+	13500 3800 12700 3800
+Connection ~ 12700 3800
+Wire Wire Line
+	13550 5200 12700 5200
+Connection ~ 12700 5200
+Wire Wire Line
+	14900 5200 14100 5200
+Connection ~ 14100 5200
+Wire Wire Line
+	14850 3800 14050 3800
+Connection ~ 14050 3800
+$EndSCHEMATC
