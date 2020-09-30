@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 16
+Sheet 1 17
 Title ""
 Date ""
 Rev ""
@@ -63,7 +63,7 @@ F7 "SIPKA_NAHORU" I L 9600 5900 50
 F8 "SIPKA_DOLU" I L 9600 6100 50 
 $EndSheet
 $Sheet
-S 9650 3400 850  450 
+S 9650 3400 850  1000
 U 5FBB3550
 F0 "USBto232.sch" 50
 F1 "USBto232.sch" 50
@@ -71,6 +71,9 @@ F2 "TX_ESP" I L 9650 3450 50
 F3 "RX_ESP" I L 9650 3550 50 
 F4 "EN_ESP" I L 9650 3650 50 
 F5 "IO0_ESP" I L 9650 3750 50 
+F6 "VBUS" I L 9650 3850 50 
+F7 "D+" I L 9650 3950 50 
+F8 "D-" I L 9650 4050 50 
 $EndSheet
 Text GLabel 9400 3550 0    50   Input ~ 0
 TX_ESP
@@ -509,4 +512,37 @@ Connection ~ 5000 1950
 Wire Wire Line
 	5000 1950 4900 1950
 NoConn ~ 5700 5150
+$Sheet
+S 7150 5700 1050 500 
+U 5F78DB3E
+F0 "USB.sch" 50
+F1 "USB.sch" 50
+F2 "D+" I L 7150 5800 50 
+F3 "D-" I L 7150 5950 50 
+F4 "VBUS" I L 7150 6100 50 
+$EndSheet
+Text GLabel 9400 3850 0    50   Input ~ 0
+VBUS
+Text GLabel 9400 3950 0    50   Input ~ 0
+D+
+Text GLabel 9400 4050 0    50   Input ~ 0
+D-
+Wire Wire Line
+	9400 3850 9650 3850
+Wire Wire Line
+	9650 3950 9400 3950
+Wire Wire Line
+	9400 4050 9650 4050
+Text GLabel 7000 6100 0    50   Input ~ 0
+VBUS
+Text GLabel 7000 5800 0    50   Input ~ 0
+D+
+Text GLabel 7000 5950 0    50   Input ~ 0
+D-
+Wire Wire Line
+	7000 5800 7150 5800
+Wire Wire Line
+	7000 5950 7150 5950
+Wire Wire Line
+	7000 6100 7150 6100
 $EndSCHEMATC

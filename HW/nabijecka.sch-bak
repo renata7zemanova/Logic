@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 9 16
+Sheet 16 17
 Title ""
 Date ""
 Rev ""
@@ -13,50 +13,6 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-$Comp
-L Connector:USB_B_Micro J?
-U 1 1 5F752228
-P 1400 3400
-F 0 "J?" H 1457 3867 50  0000 C CNN
-F 1 "USB_B_Micro_nabijecka" H 1457 3776 50  0000 C CNN
-F 2 "" H 1550 3350 50  0001 C CNN
-F 3 "~" H 1550 3350 50  0001 C CNN
-	1    1400 3400
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 5F75334B
-P 1400 3800
-F 0 "#PWR?" H 1400 3550 50  0001 C CNN
-F 1 "GND" H 1405 3627 50  0000 C CNN
-F 2 "" H 1400 3800 50  0001 C CNN
-F 3 "" H 1400 3800 50  0001 C CNN
-	1    1400 3800
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 5F7535E3
-P 1300 3800
-F 0 "#PWR?" H 1300 3550 50  0001 C CNN
-F 1 "GND" H 1305 3627 50  0000 C CNN
-F 2 "" H 1300 3800 50  0001 C CNN
-F 3 "" H 1300 3800 50  0001 C CNN
-	1    1300 3800
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+5V #PWR?
-U 1 1 5F753B82
-P 1850 3200
-F 0 "#PWR?" H 1850 3050 50  0001 C CNN
-F 1 "+5V" V 1865 3328 50  0000 L CNN
-F 2 "" H 1850 3200 50  0001 C CNN
-F 3 "" H 1850 3200 50  0001 C CNN
-	1    1850 3200
-	0    1    1    0   
-$EndComp
 $Comp
 L power:+5V #PWR?
 U 1 1 5F75411E
@@ -68,11 +24,6 @@ F 3 "" H 4500 2200 50  0001 C CNN
 	1    4500 2200
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	1850 3200 1700 3200
-NoConn ~ 1700 3400
-NoConn ~ 1700 3500
-NoConn ~ 1700 3600
 $Comp
 L symbols:TP4056 U?
 U 1 1 5F720A93
