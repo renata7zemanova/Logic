@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 9
+Sheet 1 16
 Title ""
 Date ""
 Rev ""
@@ -254,7 +254,7 @@ Connection ~ 4800 1750
 Wire Wire Line
 	4800 1750 4800 1600
 Wire Wire Line
-	5050 1950 4800 1950
+	5050 1950 5000 1950
 Connection ~ 4800 1950
 Wire Wire Line
 	4800 1950 4800 1750
@@ -470,28 +470,43 @@ V_BAT_PRIME
 Wire Wire Line
 	2300 6750 2500 6750
 $Sheet
-S 1100 4650 1100 500 
+S 1850 5250 1100 500 
 U 5F751135
 F0 "nabijecka.sch" 50
 F1 "nabijecka.sch" 50
-F2 "bat_+" I L 1100 4750 50 
-F3 "bat_gnd" I L 1100 4900 50 
+F2 "bat_+" I L 1850 5350 50 
+F3 "bat_gnd" I L 1850 5500 50 
 $EndSheet
 $Comp
 L power:GND #PWR?
 U 1 1 5F73DAEF
-P 950 4900
-F 0 "#PWR?" H 950 4650 50  0001 C CNN
-F 1 "GND" H 955 4727 50  0000 C CNN
-F 2 "" H 950 4900 50  0001 C CNN
-F 3 "" H 950 4900 50  0001 C CNN
-	1    950  4900
+P 1700 5500
+F 0 "#PWR?" H 1700 5250 50  0001 C CNN
+F 1 "GND" H 1705 5327 50  0000 C CNN
+F 2 "" H 1700 5500 50  0001 C CNN
+F 3 "" H 1700 5500 50  0001 C CNN
+	1    1700 5500
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	950  4900 1100 4900
-Text GLabel 900  4750 0    50   Input ~ 0
+	1700 5500 1850 5500
+Text GLabel 1650 5350 0    50   Input ~ 0
 V_BAT_PRIME
 Wire Wire Line
-	900  4750 1100 4750
+	1650 5350 1850 5350
+Wire Wire Line
+	4800 1950 4700 1950
+Wire Wire Line
+	4700 1950 4700 2250
+Wire Wire Line
+	4900 2250 4900 1950
+Connection ~ 4900 1950
+Wire Wire Line
+	4900 1950 4800 1950
+Wire Wire Line
+	5000 2250 5000 1950
+Connection ~ 5000 1950
+Wire Wire Line
+	5000 1950 4900 1950
+NoConn ~ 5700 5150
 $EndSCHEMATC

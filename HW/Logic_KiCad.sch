@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 9
+Sheet 1 16
 Title ""
 Date ""
 Rev ""
@@ -254,7 +254,7 @@ Connection ~ 4800 1750
 Wire Wire Line
 	4800 1750 4800 1600
 Wire Wire Line
-	5050 1950 4800 1950
+	5050 1950 5000 1950
 Connection ~ 4800 1950
 Wire Wire Line
 	4800 1950 4800 1750
@@ -494,4 +494,19 @@ Text GLabel 1650 5350 0    50   Input ~ 0
 V_BAT_PRIME
 Wire Wire Line
 	1650 5350 1850 5350
+Wire Wire Line
+	4800 1950 4700 1950
+Wire Wire Line
+	4700 1950 4700 2250
+Wire Wire Line
+	4900 2250 4900 1950
+Connection ~ 4900 1950
+Wire Wire Line
+	4900 1950 4800 1950
+Wire Wire Line
+	5000 2250 5000 1950
+Connection ~ 5000 1950
+Wire Wire Line
+	5000 1950 4900 1950
+NoConn ~ 5700 5150
 $EndSCHEMATC
