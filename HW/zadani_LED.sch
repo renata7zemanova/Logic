@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 4 22
+Sheet 4 42
 Title ""
 Date ""
 Rev ""
@@ -246,13 +246,7 @@ Wire Wire Line
 	6000 1500 6700 1500
 Text HLabel 2250 1500 0    50   Input ~ 0
 DATA_zadani_LED
-Text HLabel 1700 1000 0    50   Input ~ 0
-V_BAT
-Wire Wire Line
-	1700 1000 1950 1000
-Text GLabel 1950 1000 2    50   Input ~ 0
-V_BAT
-Text GLabel 3000 1100 0    50   Input ~ 0
+Text HLabel 2750 1100 0    50   Input ~ 0
 V_BAT
 Wire Wire Line
 	4300 1100 3550 1100
@@ -263,4 +257,8 @@ Connection ~ 4850 1100
 Wire Wire Line
 	7000 1100 6250 1100
 Connection ~ 6250 1100
+Wire Wire Line
+	2750 1100 3000 1100
+Connection ~ 3000 1100
+NoConn ~ 7300 1500
 $EndSCHEMATC
