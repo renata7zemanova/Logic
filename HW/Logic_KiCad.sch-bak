@@ -575,12 +575,20 @@ Wire Wire Line
 	7500 1050 7800 1050
 Wire Wire Line
 	7500 1200 7800 1200
-Text GLabel 6900 3200 2    50   Input ~ 0
+Text GLabel 6200 3450 2    50   Input ~ 0
 ZAPINANI_1_CAST_LED
-Text GLabel 7000 3350 2    50   Input ~ 0
+Text GLabel 6200 3550 2    50   Input ~ 0
 ZAPINANI_2_CAST_LED
-Text GLabel 7100 3500 2    50   Input ~ 0
+Text GLabel 6200 3850 2    50   Input ~ 0
 ZAPINANI_3_CAST_LED
-Text GLabel 7600 3900 2    50   Input ~ 0
+Text GLabel 6200 3950 2    50   Input ~ 0
 ZAPINANI_4_CAST_LED
+Wire Wire Line
+	6200 3450 5700 3450
+Wire Wire Line
+	6200 3550 5700 3550
+Wire Wire Line
+	5700 3850 6200 3850
+Wire Wire Line
+	5700 3950 6200 3950
 $EndSCHEMATC

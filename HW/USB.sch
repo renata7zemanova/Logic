@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 17 42
+Sheet 15 42
 Title ""
 Date ""
 Rev ""
@@ -46,7 +46,7 @@ Wire Wire Line
 Wire Wire Line
 	4300 3250 4350 3250
 Wire Wire Line
-	4300 2950 4400 2950
+	4300 2950 4650 2950
 $Comp
 L Diode:SD05_SOD323 D?
 U 1 1 5F793184
@@ -153,38 +153,6 @@ Connection ~ 4500 3150
 Wire Wire Line
 	4500 3150 4300 3150
 $Comp
-L Device:D_Schottky D?
-U 1 1 5F7931B4
-P 4650 2650
-AR Path="/5FBB3550/5F7931B4" Ref="D?"  Part="1" 
-AR Path="/5F7931B4" Ref="D?"  Part="1" 
-AR Path="/5F78DB3E/5F7931B4" Ref="D?"  Part="1" 
-F 0 "D?" V 4604 2730 50  0000 L CNN
-F 1 "D_Schottky" V 4695 2730 50  0000 L CNN
-F 2 "" H 4650 2650 50  0001 C CNN
-F 3 "~" H 4650 2650 50  0001 C CNN
-	1    4650 2650
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	4650 2800 4650 2950
-$Comp
-L Connector:Conn_01x01_Male J?
-U 1 1 5F7931BB
-P 4650 2150
-AR Path="/5FBB3550/5F7931BB" Ref="J?"  Part="1" 
-AR Path="/5F7931BB" Ref="J?"  Part="1" 
-AR Path="/5F78DB3E/5F7931BB" Ref="J?"  Part="1" 
-F 0 "J?" V 4712 2194 50  0000 L CNN
-F 1 "+5V_USB" V 4803 2194 50  0000 L CNN
-F 2 "" H 4650 2150 50  0001 C CNN
-F 3 "~" H 4650 2150 50  0001 C CNN
-	1    4650 2150
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	4650 2350 4650 2500
-$Comp
 L power:GND #PWR?
 U 1 1 5F7931C2
 P 3900 3550
@@ -208,19 +176,16 @@ VBUS
 $Comp
 L power:+5V #PWR?
 U 1 1 5F7931CC
-P 4400 2850
+P 4650 2800
 AR Path="/5F7931CC" Ref="#PWR?"  Part="1" 
 AR Path="/5F78DB3E/5F7931CC" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 4400 2700 50  0001 C CNN
-F 1 "+5V" H 4415 3023 50  0000 C CNN
-F 2 "" H 4400 2850 50  0001 C CNN
-F 3 "" H 4400 2850 50  0001 C CNN
-	1    4400 2850
+F 0 "#PWR?" H 4650 2650 50  0001 C CNN
+F 1 "+5V" H 4665 2973 50  0000 C CNN
+F 2 "" H 4650 2800 50  0001 C CNN
+F 3 "" H 4650 2800 50  0001 C CNN
+	1    4650 2800
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4400 2850 4400 2950
-Connection ~ 4400 2950
-Wire Wire Line
-	4400 2950 4650 2950
+	4650 2800 4650 2950
 $EndSCHEMATC
