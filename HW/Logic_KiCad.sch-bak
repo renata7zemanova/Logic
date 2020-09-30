@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 17
+Sheet 1 22
 Title ""
 Date ""
 Rev ""
@@ -40,8 +40,8 @@ Wire Wire Line
 $Sheet
 S 9200 2200 1050 350 
 U 5FB682DC
-F0 "zadani.sch" 50
-F1 "zadani.sch" 50
+F0 "zadaniLED.sch" 50
+F1 "zadani_LED.sch" 50
 F2 "DATA_zadani_LED" I L 9200 2300 50 
 F3 "V_BAT" I L 9200 2450 50 
 $EndSheet
@@ -68,29 +68,29 @@ U 5FBB3550
 F0 "USBto232.sch" 50
 F1 "USBto232.sch" 50
 F2 "TX_ESP" I L 9650 3450 50 
-F3 "RX_ESP" I L 9650 3550 50 
-F4 "EN_ESP" I L 9650 3650 50 
-F5 "IO0_ESP" I L 9650 3750 50 
-F6 "VBUS" I L 9650 3850 50 
-F7 "D+" I L 9650 3950 50 
-F8 "D-" I L 9650 4050 50 
+F3 "RX_ESP" I L 9650 3600 50 
+F4 "EN_ESP" I L 9650 3750 50 
+F5 "IO0_ESP" I L 9650 3900 50 
+F6 "VBUS" I L 9650 4050 50 
+F7 "D+" I L 9650 4200 50 
+F8 "D-" I L 9650 4350 50 
 $EndSheet
-Text GLabel 9400 3550 0    50   Input ~ 0
+Text GLabel 9400 3600 0    50   Input ~ 0
 TX_ESP
 Text GLabel 9400 3450 0    50   Input ~ 0
 RX_ESP
 Wire Wire Line
 	9400 3450 9650 3450
 Wire Wire Line
-	9400 3550 9650 3550
-Text GLabel 9400 3650 0    50   Input ~ 0
-EN
+	9400 3600 9650 3600
 Text GLabel 9400 3750 0    50   Input ~ 0
+EN
+Text GLabel 9400 3900 0    50   Input ~ 0
 IO0
 Wire Wire Line
-	9400 3650 9650 3650
-Wire Wire Line
 	9400 3750 9650 3750
+Wire Wire Line
+	9400 3900 9650 3900
 $Comp
 L RF_Module:ESP32-PICO-D4 U?
 U 1 1 5FC1AE64
@@ -327,83 +327,32 @@ Text GLabel 4750 6400 0    50   Input ~ 0
 V_BAT_SPINANE
 Wire Wire Line
 	4750 6400 4950 6400
-$Comp
-L Device:Q_PMOS_DGS Q?
-U 1 1 5F71DB38
-P 2550 1050
-F 0 "Q?" V 2892 1050 50  0000 C CNN
-F 1 "Q_PMOS_DGS" V 2801 1050 50  0000 C CNN
-F 2 "" H 2750 1150 50  0001 C CNN
-F 3 "~" H 2550 1050 50  0001 C CNN
-	1    2550 1050
-	0    -1   -1   0   
-$EndComp
-Text GLabel 2100 950  0    50   Input ~ 0
-V_BAT_SPINANE
-Text GLabel 3050 950  2    50   Input ~ 0
-V_BAT
-$Comp
-L power:GND #PWR?
-U 1 1 5F71E954
-P 2550 1850
-F 0 "#PWR?" H 2550 1600 50  0001 C CNN
-F 1 "GND" H 2555 1677 50  0000 C CNN
-F 2 "" H 2550 1850 50  0001 C CNN
-F 3 "" H 2550 1850 50  0001 C CNN
-	1    2550 1850
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R?
-U 1 1 5F71EE20
-P 2550 1550
-F 0 "R?" H 2620 1596 50  0000 L CNN
-F 1 "10k" H 2620 1505 50  0000 L CNN
-F 2 "Resistor_SMD:R_0402_1005Metric" V 2480 1550 50  0001 C CNN
-F 3 "~" H 2550 1550 50  0001 C CNN
-	1    2550 1550
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	2100 950  2350 950 
-Wire Wire Line
-	2750 950  3050 950 
-Wire Wire Line
-	2550 1250 2550 1400
-Wire Wire Line
-	2550 1700 2550 1850
-Text Notes 2150 600  0    50   ~ 0
-Spínání pro LEDky
-Text GLabel 1250 2500 0    50   Input ~ 0
+Text GLabel 1250 3950 0    50   Input ~ 0
 V_BAT_PRIME
 $Comp
 L Switch:SW_SPDT SW?
 U 1 1 5F727A55
-P 1800 2500
-F 0 "SW?" H 1800 2785 50  0000 C CNN
-F 1 "SW_SPDT" H 1800 2694 50  0000 C CNN
-F 2 "" H 1800 2500 50  0001 C CNN
-F 3 "~" H 1800 2500 50  0001 C CNN
-	1    1800 2500
+P 1800 3950
+F 0 "SW?" H 1800 4235 50  0000 C CNN
+F 1 "SW_SPDT" H 1800 4144 50  0000 C CNN
+F 2 "" H 1800 3950 50  0001 C CNN
+F 3 "~" H 1800 3950 50  0001 C CNN
+	1    1800 3950
 	1    0    0    -1  
 $EndComp
-Text GLabel 2300 2400 2    50   Input ~ 0
+Text GLabel 2300 3850 2    50   Input ~ 0
 V_BAT_SPINANE
 Wire Wire Line
-	2000 2400 2300 2400
+	2000 3850 2300 3850
 Wire Wire Line
-	1600 2500 1250 2500
-Text Notes 800  2200 0    50   ~ 0
+	1600 3950 1250 3950
+Text Notes 800  3650 0    50   ~ 0
 Zapinani cele desky\n
-Text Notes 1500 2750 0    50   ~ 0
+Text Notes 1500 4200 0    50   ~ 0
 Kolébkový vypínač
-Text Notes 1650 900  0    50   ~ 0
+Text Notes 1000 3900 0    50   ~ 0
 IN\n
-Text Notes 3100 900  0    50   ~ 0
-OUT\n
-Text Notes 1000 2450 0    50   ~ 0
-IN\n
-Text Notes 2550 2350 0    50   ~ 0
+Text Notes 2550 3800 0    50   ~ 0
 OUT\n
 Text GLabel 9400 4900 0    50   Input ~ 0
 BTN_ENTER
@@ -513,9 +462,42 @@ Wire Wire Line
 	5000 1950 4900 1950
 NoConn ~ 5700 5150
 $Sheet
-S 2650 3950 1050 500 
+S 7150 5700 1050 500 
 U 5F78DB3E
 F0 "USB.sch" 50
 F1 "USB.sch" 50
+F2 "D+" I L 7150 5800 50 
+F3 "D-" I L 7150 5950 50 
+F4 "VBUS" I L 7150 6100 50 
+$EndSheet
+Text GLabel 9400 4050 0    50   Input ~ 0
+VBUS
+Text GLabel 9400 4200 0    50   Input ~ 0
+D+
+Text GLabel 9400 4350 0    50   Input ~ 0
+D-
+Wire Wire Line
+	9400 4050 9650 4050
+Wire Wire Line
+	9650 4200 9400 4200
+Wire Wire Line
+	9400 4350 9650 4350
+Text GLabel 7000 6100 0    50   Input ~ 0
+VBUS
+Text GLabel 7000 5800 0    50   Input ~ 0
+D+
+Text GLabel 7000 5950 0    50   Input ~ 0
+D-
+Wire Wire Line
+	7000 5800 7150 5800
+Wire Wire Line
+	7000 5950 7150 5950
+Wire Wire Line
+	7000 6100 7150 6100
+$Sheet
+S 750  1050 1400 750 
+U 5F7BA54B
+F0 "zapinani_LEDek.sch" 50
+F1 "zapinani_LEDek.sch" 50
 $EndSheet
 $EndSCHEMATC
