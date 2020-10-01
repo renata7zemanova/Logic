@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 43
+Sheet 1 44
 Title ""
 Date ""
 Rev ""
@@ -344,9 +344,9 @@ Text GLabel 6200 4350 2    50   Input ~ 0
 BTN_ENTER
 Text GLabel 6200 4450 2    50   Input ~ 0
 BTN_END
-Text GLabel 6200 4850 2    50   Input ~ 0
+Text GLabel 6200 4650 2    50   Input ~ 0
 BTN_SIPKA_VLEVO
-Text GLabel 6200 4950 2    50   Input ~ 0
+Text GLabel 6200 4750 2    50   Input ~ 0
 BTN_SIPKA_VPRAVO
 Text GLabel 6200 3650 2    50   Input ~ 0
 BTN_SIPKA_NAHORU
@@ -355,17 +355,11 @@ BTN_SIPKA_DOLU
 Wire Wire Line
 	6200 3650 5700 3650
 Wire Wire Line
-	5700 3750 6200 3750
-Wire Wire Line
 	5700 4350 6200 4350
 Wire Wire Line
 	6200 4450 5700 4450
 Wire Wire Line
 	5700 4550 6200 4550
-Wire Wire Line
-	6200 4850 5700 4850
-Wire Wire Line
-	5700 4950 6200 4950
 $Sheet
 S 2500 6600 950  400 
 U 5F7464DA
@@ -538,8 +532,6 @@ ZAPINANI_3_CAST_LED
 Text GLabel 6200 3950 2    50   Input ~ 0
 ZAPINANI_4_CAST_LED
 Wire Wire Line
-	6200 3450 5700 3450
-Wire Wire Line
 	6200 3550 5700 3550
 Wire Wire Line
 	5700 3850 6200 3850
@@ -686,4 +678,31 @@ Wire Wire Line
 	5350 1350 5500 1350
 Wire Wire Line
 	5350 2200 5500 2200
+NoConn ~ 5700 3450
+NoConn ~ 5700 3750
+NoConn ~ 5700 3150
+Wire Wire Line
+	5700 4650 6200 4650
+Wire Wire Line
+	5700 4750 6200 4750
+Wire Wire Line
+	5700 4950 6200 4950
+Text GLabel 6200 4950 2    50   Input ~ 0
+MERENI_BATERKY
+$Sheet
+S 5900 5450 700  500 
+U 5F7D8E24
+F0 "mereni_baterky.sch" 50
+F1 "mereni_baterky.sch" 50
+F2 "BAT+" I L 5900 5600 50 
+F3 "GPIO" I L 5900 5750 50 
+$EndSheet
+Text GLabel 5750 5750 0    50   Input ~ 0
+MERENI_BATERKY
+Wire Wire Line
+	5750 5750 5900 5750
+Text GLabel 5750 5600 0    50   Input ~ 0
+V_BAT
+Wire Wire Line
+	5750 5600 5900 5600
 $EndSCHEMATC
