@@ -350,7 +350,7 @@ Text GLabel 6200 4750 2    50   Input ~ 0
 BTN_SIPKA_VPRAVO
 Text GLabel 6200 3650 2    50   Input ~ 0
 BTN_SIPKA_NAHORU
-Text GLabel 6200 3750 2    50   Input ~ 0
+Text GLabel 6200 4850 2    50   Input ~ 0
 BTN_SIPKA_DOLU
 Wire Wire Line
 	6200 3650 5700 3650
@@ -523,7 +523,7 @@ Wire Wire Line
 	7500 1050 7800 1050
 Wire Wire Line
 	7500 1200 7800 1200
-Text GLabel 6200 3450 2    50   Input ~ 0
+Text GLabel 6200 3050 2    50   Input ~ 0
 ZAPINANI_1_CAST_LED
 Text GLabel 6200 3550 2    50   Input ~ 0
 ZAPINANI_2_CAST_LED
@@ -705,4 +705,8 @@ Text GLabel 5750 5600 0    50   Input ~ 0
 V_BAT
 Wire Wire Line
 	5750 5600 5900 5600
+Wire Wire Line
+	6200 4850 5700 4850
+Wire Wire Line
+	6200 3050 5700 3050
 $EndSCHEMATC

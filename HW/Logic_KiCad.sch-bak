@@ -350,7 +350,7 @@ Text GLabel 6200 4750 2    50   Input ~ 0
 BTN_SIPKA_VPRAVO
 Text GLabel 6200 3650 2    50   Input ~ 0
 BTN_SIPKA_NAHORU
-Text GLabel 6200 3750 2    50   Input ~ 0
+Text GLabel 6200 4850 2    50   Input ~ 0
 BTN_SIPKA_DOLU
 Wire Wire Line
 	6200 3650 5700 3650
@@ -694,5 +694,17 @@ S 5900 5450 700  500
 U 5F7D8E24
 F0 "mereni_baterky.sch" 50
 F1 "mereni_baterky.sch" 50
+F2 "BAT+" I L 5900 5600 50 
+F3 "GPIO" I L 5900 5750 50 
 $EndSheet
+Text GLabel 5750 5750 0    50   Input ~ 0
+MERENI_BATERKY
+Wire Wire Line
+	5750 5750 5900 5750
+Text GLabel 5750 5600 0    50   Input ~ 0
+V_BAT
+Wire Wire Line
+	5750 5600 5900 5600
+Wire Wire Line
+	6200 4850 5700 4850
 $EndSCHEMATC
