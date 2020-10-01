@@ -101,19 +101,6 @@ Wire Wire Line
 Wire Wire Line
 	5000 3300 4550 3300
 Connection ~ 4550 3300
-$Comp
-L Device:R R?
-U 1 1 602BA124
-P 5750 3600
-F 0 "R?" H 5820 3646 50  0000 L CNN
-F 1 "1M" H 5820 3555 50  0000 L CNN
-F 2 "Resistor_SMD:R_0402_1005Metric" V 5680 3600 50  0001 C CNN
-F 3 "~" H 5750 3600 50  0001 C CNN
-	1    5750 3600
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	5750 3450 5750 3300
 Wire Wire Line
 	5750 3300 5000 3300
 Connection ~ 5000 3300
@@ -311,8 +298,8 @@ Connection ~ 6350 4250
 Wire Wire Line
 	6000 3800 5750 3800
 Wire Wire Line
-	5750 3800 5750 3750
-Wire Wire Line
 	6000 3300 5750 3300
 Connection ~ 5750 3300
+Wire Wire Line
+	5750 3300 5750 3800
 $EndSCHEMATC

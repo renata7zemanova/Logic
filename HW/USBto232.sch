@@ -197,32 +197,6 @@ Wire Wire Line
 Connection ~ 6100 1650
 $Comp
 L Device:R R?
-U 1 1 5FBDBF1A
-P 4550 2900
-F 0 "R?" V 4343 2900 50  0000 C CNN
-F 1 "10k" V 4434 2900 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric" V 4480 2900 50  0001 C CNN
-F 3 "~" H 4550 2900 50  0001 C CNN
-	1    4550 2900
-	0    1    1    0   
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 5FBDC504
-P 4150 2900
-F 0 "#PWR?" H 4150 2650 50  0001 C CNN
-F 1 "GND" V 4155 2772 50  0000 R CNN
-F 2 "" H 4150 2900 50  0001 C CNN
-F 3 "" H 4150 2900 50  0001 C CNN
-	1    4150 2900
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	4150 2900 4400 2900
-Wire Wire Line
-	4700 2900 4950 2900
-$Comp
-L Device:R R?
 U 1 1 5FBDED92
 P 4000 3400
 F 0 "R?" V 3793 3400 50  0000 C CNN
@@ -376,4 +350,6 @@ Text HLabel 4600 3500 0    50   Input ~ 0
 D+
 Text HLabel 4600 3600 0    50   Input ~ 0
 D-
+NoConn ~ 4950 2900
+NoConn ~ 4950 2800
 $EndSCHEMATC

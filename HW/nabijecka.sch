@@ -147,30 +147,6 @@ Wire Wire Line
 	5250 3500 5050 3500
 $Comp
 L Device:R R?
-U 1 1 5F729FE7
-P 5800 4350
-F 0 "R?" H 5870 4396 50  0000 L CNN
-F 1 "R" H 5870 4305 50  0000 L CNN
-F 2 "Resistor_SMD:R_0402_1005Metric" V 5730 4350 50  0001 C CNN
-F 3 "~" H 5800 4350 50  0001 C CNN
-	1    5800 4350
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 5F72ACF6
-P 5800 4600
-F 0 "#PWR?" H 5800 4350 50  0001 C CNN
-F 1 "GND" H 5805 4427 50  0000 C CNN
-F 2 "" H 5800 4600 50  0001 C CNN
-F 3 "" H 5800 4600 50  0001 C CNN
-	1    5800 4600
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	5800 4600 5800 4500
-$Comp
-L Device:R R?
 U 1 1 5F72B67D
 P 5800 3250
 F 0 "R?" H 5870 3296 50  0000 L CNN
@@ -228,8 +204,6 @@ F 3 "" H 3150 2450 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	3400 2450 3150 2450
-Text HLabel 6000 4000 2    50   Input ~ 0
-bat_gnd
 Wire Wire Line
 	5800 3400 5800 4000
 $Comp
@@ -282,11 +256,6 @@ Wire Wire Line
 	4500 2650 4500 2450
 Wire Wire Line
 	5250 3900 5250 4000
-Wire Wire Line
-	6000 4000 5800 4000
-Connection ~ 5800 4000
-Wire Wire Line
-	5800 4200 5800 4000
 Wire Wire Line
 	5800 4000 5250 4000
 Connection ~ 5250 4000
