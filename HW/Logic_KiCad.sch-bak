@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 42
+Sheet 1 43
 Title ""
 Date ""
 Rev ""
@@ -578,4 +578,13 @@ Wire Wire Line
 Wire Wire Line
 	5700 3950 6200 3950
 NoConn ~ 2000 4050
+NoConn ~ 5700 2850
+NoConn ~ 6450 2200
+NoConn ~ 6200 2050
+$Sheet
+S 3050 900  650  350 
+U 5F76D05B
+F0 "ochrana_proti_prepolovani.sch" 50
+F1 "ochrana_proti_prepolovani.sch" 50
+$EndSheet
 $EndSCHEMATC

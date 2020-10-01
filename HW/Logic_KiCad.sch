@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 42
+Sheet 1 43
 Title ""
 Date ""
 Rev ""
@@ -257,7 +257,7 @@ F 3 "~" H 5500 900 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 Text GLabel 5150 900  0    50   Input ~ 0
-V_BAT_SPINANE
+V_BAT
 $Comp
 L Device:R R?
 U 1 1 602AE39C
@@ -470,7 +470,7 @@ F9 "GPIO_3" I R 1750 2200 50
 F10 "GPIO_4" I R 1750 2350 50 
 $EndSheet
 Text GLabel 1950 1150 2    50   Input ~ 0
-V_BAT_SPINANE
+V_BAT
 Wire Wire Line
 	1750 1150 1950 1150
 Text GLabel 1950 1300 2    50   Input ~ 0
@@ -578,4 +578,23 @@ Wire Wire Line
 Wire Wire Line
 	5700 3950 6200 3950
 NoConn ~ 2000 4050
+NoConn ~ 5700 2850
+NoConn ~ 6450 2200
+NoConn ~ 6200 2050
+$Sheet
+S 3050 900  1300 350 
+U 5F76D05B
+F0 "ochrana_proti_prepolovani.sch" 50
+F1 "ochrana_proti_prepolovani.sch" 50
+F2 "V_BAT_SPINANE" I L 3050 1000 50 
+F3 "V_BAT" I L 3050 1150 50 
+$EndSheet
+Text GLabel 2850 1000 0    50   Input ~ 0
+V_BAT_SPINANE
+Text GLabel 2850 1150 0    50   Input ~ 0
+V_BAT
+Wire Wire Line
+	2850 1000 3050 1000
+Wire Wire Line
+	3050 1150 2850 1150
 $EndSCHEMATC

@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 22 42
+Sheet 17 43
 Title ""
 Date ""
 Rev ""
@@ -28,7 +28,7 @@ F 1 "Q_PMOS_DGS" V 5351 2750 50  0000 C CNN
 F 2 "Package_TO_SOT_SMD:SOT-23" H 5300 2850 50  0001 C CNN
 F 3 "~" H 5100 2750 50  0001 C CNN
 	1    5100 2750
-	0    -1   -1   0   
+	0    1    -1   0   
 $EndComp
 $Comp
 L Device:R R?
@@ -55,14 +55,14 @@ Wire Wire Line
 	5100 2950 5100 3100
 Wire Wire Line
 	5100 3400 5100 3550
+Text HLabel 5100 3550 3    50   Input ~ 0
+GPIO
+Text HLabel 4650 2650 0    50   Input ~ 0
+V_BAT_SPINANE
 Text Notes 4200 2600 0    50   ~ 0
 IN\n
 Text Notes 5650 2600 0    50   ~ 0
 OUT\n
-Text HLabel 4650 2650 0    50   Input ~ 0
-V_BAT_SPINANE
-Text HLabel 5100 3550 3    50   Input ~ 0
-GPIO
 Text HLabel 5600 2650 2    50   Input ~ 0
 V_BAT
 $EndSCHEMATC

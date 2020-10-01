@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 8 42
+Sheet 13 43
 Title ""
 Date ""
 Rev ""
@@ -38,23 +38,23 @@ $EndComp
 $Comp
 L Connector_Generic:Conn_01x01 J?
 U 1 1 5F7477BC
-P 3950 3100
-F 0 "J?" H 3868 2875 50  0000 C CNN
-F 1 "B1+" H 3868 2966 50  0000 C CNN
-F 2 "" H 3950 3100 50  0001 C CNN
-F 3 "~" H 3950 3100 50  0001 C CNN
-	1    3950 3100
+P 3000 3100
+F 0 "J?" H 2918 2875 50  0000 C CNN
+F 1 "B1+" H 2918 2966 50  0000 C CNN
+F 2 "" H 3000 3100 50  0001 C CNN
+F 3 "~" H 3000 3100 50  0001 C CNN
+	1    3000 3100
 	-1   0    0    1   
 $EndComp
 $Comp
 L Connector_Generic:Conn_01x01 J?
 U 1 1 5F747F73
-P 3950 3550
-F 0 "J?" H 3868 3325 50  0000 C CNN
-F 1 "B2+" H 3868 3416 50  0000 C CNN
-F 2 "" H 3950 3550 50  0001 C CNN
-F 3 "~" H 3950 3550 50  0001 C CNN
-	1    3950 3550
+P 3000 3550
+F 0 "J?" H 2918 3325 50  0000 C CNN
+F 1 "B2+" H 2918 3416 50  0000 C CNN
+F 2 "" H 3000 3550 50  0001 C CNN
+F 3 "~" H 3000 3550 50  0001 C CNN
+	1    3000 3550
 	-1   0    0    1   
 $EndComp
 $Comp
@@ -84,9 +84,9 @@ Wire Wire Line
 Wire Wire Line
 	5450 3100 5250 3100
 Wire Wire Line
-	4700 3100 4400 3100
+	3750 3100 3450 3100
 Wire Wire Line
-	4150 3550 4400 3550
+	3200 3550 3450 3550
 Wire Wire Line
 	5250 3100 5250 3300
 Connection ~ 5250 3100
@@ -96,13 +96,13 @@ Connection ~ 5250 3550
 Wire Wire Line
 	5250 3550 5000 3550
 Wire Wire Line
-	4400 3100 4400 3250
-Connection ~ 4400 3100
+	3450 3100 3450 3250
+Connection ~ 3450 3100
 Wire Wire Line
-	4400 3100 4150 3100
-Connection ~ 4400 3550
+	3450 3100 3200 3100
+Connection ~ 3450 3550
 Wire Wire Line
-	4400 3550 4700 3550
+	3450 3550 3750 3550
 $Comp
 L power:GND #PWR?
 U 1 1 5F74BC2B
@@ -119,22 +119,22 @@ Wire Wire Line
 Connection ~ 5250 3300
 Wire Wire Line
 	5250 3300 5250 3550
-Text HLabel 4300 3250 0    50   Input ~ 0
+Text HLabel 3350 3250 0    50   Input ~ 0
 V_BAT_PRIME
 Wire Wire Line
-	4300 3250 4400 3250
-Connection ~ 4400 3250
+	3350 3250 3450 3250
+Connection ~ 3450 3250
 Wire Wire Line
-	4400 3250 4400 3550
+	3450 3250 3450 3550
 $Comp
 L Mechanical:MountingHole_Pad H?
 U 1 1 5F74F82F
-P 4400 3000
-F 0 "H?" H 4500 3049 50  0000 L CNN
-F 1 "MountingHole_Pad" H 4500 2958 50  0000 L CNN
-F 2 "" H 4400 3000 50  0001 C CNN
-F 3 "~" H 4400 3000 50  0001 C CNN
-	1    4400 3000
+P 3450 3000
+F 0 "H?" H 3550 3049 50  0000 L CNN
+F 1 "MountingHole_Pad" H 3550 2958 50  0000 L CNN
+F 2 "" H 3450 3000 50  0001 C CNN
+F 3 "~" H 3450 3000 50  0001 C CNN
+	1    3450 3000
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -162,12 +162,38 @@ $EndComp
 $Comp
 L Mechanical:MountingHole_Pad H?
 U 1 1 5F7501BB
-P 4400 3650
-F 0 "H?" H 4300 3607 50  0000 R CNN
-F 1 "MountingHole_Pad" H 4300 3698 50  0000 R CNN
-F 2 "" H 4400 3650 50  0001 C CNN
-F 3 "~" H 4400 3650 50  0001 C CNN
-	1    4400 3650
+P 3450 3650
+F 0 "H?" H 3350 3607 50  0000 R CNN
+F 1 "MountingHole_Pad" H 3350 3698 50  0000 R CNN
+F 2 "" H 3450 3650 50  0001 C CNN
+F 3 "~" H 3450 3650 50  0001 C CNN
+	1    3450 3650
 	-1   0    0    1   
 $EndComp
+$Comp
+L Device:Polyfuse F?
+U 1 1 5F77C417
+P 3900 3100
+F 0 "F?" V 3675 3100 50  0000 C CNN
+F 1 "Polyfuse" V 3766 3100 50  0000 C CNN
+F 2 "" H 3950 2900 50  0001 L CNN
+F 3 "~" H 3900 3100 50  0001 C CNN
+	1    3900 3100
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:Polyfuse F?
+U 1 1 5F77C5DC
+P 3900 3550
+F 0 "F?" V 3675 3550 50  0000 C CNN
+F 1 "Polyfuse" V 3766 3550 50  0000 C CNN
+F 2 "" H 3950 3350 50  0001 L CNN
+F 3 "~" H 3900 3550 50  0001 C CNN
+	1    3900 3550
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4050 3100 4700 3100
+Wire Wire Line
+	4050 3550 4700 3550
 $EndSCHEMATC
