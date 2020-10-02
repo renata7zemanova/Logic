@@ -1,6 +1,33 @@
 EESchema-LIBRARY Version 2.4
 #encoding utf-8
 #
+# Dual_battery
+#
+DEF Dual_battery U 0 40 Y Y 1 F N
+F0 "U" 150 200 50 H V C CNN
+F1 "Dual_battery" 0 300 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+S -20 -240 -10 -60 1 1 0 F
+S -20 60 -10 240 1 1 0 F
+S 3 -212 23 -92 1 1 0 F
+S 3 88 23 208 1 1 0 F
+P 2 1 1 10 -105 -110 -65 -110 N
+P 2 1 1 10 -105 190 -65 190 N
+P 2 1 1 10 -85 -130 -85 -90 N
+P 2 1 1 10 -85 170 -85 210 N
+P 2 1 1 0 -20 -150 -50 -150 N
+P 2 1 1 0 -20 150 -50 150 N
+P 2 1 1 0 20 -150 50 -150 N
+P 2 1 1 0 20 150 50 150 N
+X ~ ~ -150 -150 100 R 50 50 1 1 w
+X ~ ~ -150 150 100 R 50 50 1 1 w
+X ~ ~ 150 -150 100 L 50 50 1 1 w
+X ~ ~ 150 150 100 L 50 50 1 1 w
+ENDDRAW
+ENDDEF
+#
 # SY8105
 #
 DEF SY8105 U 0 40 Y Y 1 F N

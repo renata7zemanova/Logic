@@ -265,40 +265,40 @@ V_BAT_1
 Wire Wire Line
 	9950 2150 9800 2150
 $Sheet
-S 550  2650 1000 400 
+S 600  3250 1000 400 
 U 602B57D2
 F0 "Stepdown_ESP.sch" 50
 F1 "Stepdown_ESP.sch" 50
-F2 "V_BAT_SPINANE" I R 1550 2800 50 
+F2 "V_BAT_SPINANE" I R 1600 3400 50 
 $EndSheet
-Text GLabel 1750 2800 2    50   Input ~ 0
+Text GLabel 1800 3400 2    50   Input ~ 0
 V_BAT
-Text GLabel 1050 1550 0    50   Input ~ 0
+Text GLabel 4600 1700 0    50   Input ~ 0
 V_BAT_PRIME
 $Comp
 L Switch:SW_SPDT SW?
 U 1 1 5F727A55
-P 1600 1550
-F 0 "SW?" H 1600 1835 50  0000 C CNN
-F 1 "SW_SPDT" H 1600 1744 50  0000 C CNN
-F 2 "" H 1600 1550 50  0001 C CNN
-F 3 "~" H 1600 1550 50  0001 C CNN
-	1    1600 1550
+P 5150 1700
+F 0 "SW?" H 5150 1985 50  0000 C CNN
+F 1 "SW_SPDT" H 5150 1894 50  0000 C CNN
+F 2 "" H 5150 1700 50  0001 C CNN
+F 3 "~" H 5150 1700 50  0001 C CNN
+	1    5150 1700
 	1    0    0    -1  
 $EndComp
-Text GLabel 2100 1450 2    50   Input ~ 0
+Text GLabel 5650 1600 2    50   Input ~ 0
 V_BAT_SPINANE
 Wire Wire Line
-	1800 1450 2100 1450
+	5350 1600 5650 1600
 Wire Wire Line
-	1400 1550 1050 1550
-Text Notes 600  1250 0    50   ~ 0
+	4950 1700 4600 1700
+Text Notes 4150 1400 0    50   ~ 0
 Zapinani cele desky\n
-Text Notes 1300 1800 0    50   ~ 0
+Text Notes 4850 1950 0    50   ~ 0
 Kolébkový vypínač
-Text Notes 800  1500 0    50   ~ 0
+Text Notes 4350 1650 0    50   ~ 0
 IN\n
-Text Notes 2350 1400 0    50   ~ 0
+Text Notes 5900 1550 0    50   ~ 0
 OUT\n
 Text GLabel 9750 2650 0    50   Input ~ 0
 BTN_ENTER
@@ -513,19 +513,19 @@ Wire Wire Line
 	5450 5650 5950 5650
 Wire Wire Line
 	5450 5750 5950 5750
-NoConn ~ 1800 1650
+NoConn ~ 5350 1800
 NoConn ~ 5450 4650
 $Sheet
-S 550  2000 1300 350 
+S 600  2600 1300 350 
 U 5F76D05B
 F0 "ochrana_proti_prepolovani.sch" 50
 F1 "ochrana_proti_prepolovani.sch" 50
-F2 "V_BAT_SPINANE" I R 1850 2100 50 
-F3 "V_BAT" I R 1850 2250 50 
+F2 "V_BAT_SPINANE" I R 1900 2700 50 
+F3 "V_BAT" I R 1900 2850 50 
 $EndSheet
-Text GLabel 2100 2100 2    50   Input ~ 0
+Text GLabel 2150 2700 2    50   Input ~ 0
 V_BAT_SPINANE
-Text GLabel 2100 2250 2    50   Input ~ 0
+Text GLabel 2150 2850 2    50   Input ~ 0
 V_BAT
 Wire Wire Line
 	4550 3150 4550 3600
@@ -684,11 +684,11 @@ Wire Wire Line
 Wire Wire Line
 	1500 750  1700 750 
 Wire Wire Line
-	2100 2250 1850 2250
+	2150 2850 1900 2850
 Wire Wire Line
-	1850 2100 2100 2100
+	1900 2700 2150 2700
 Wire Wire Line
-	1550 2800 1750 2800
+	1600 3400 1800 3400
 Wire Wire Line
 	1650 5350 1800 5350
 Wire Wire Line
