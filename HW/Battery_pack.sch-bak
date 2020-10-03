@@ -54,7 +54,7 @@ U 1 1 5F8A8975
 P 4400 2100
 F 0 "U?" H 4400 2505 50  0000 C CNN
 F 1 "Dual_battery" H 4400 2414 50  0000 C CNN
-F 2 "" H 4400 2100 50  0001 C CNN
+F 2 "my_library:battery_dock" H 4400 2100 50  0001 C CNN
 F 3 "" H 4400 2100 50  0001 C CNN
 	1    4400 2100
 	1    0    0    -1  
