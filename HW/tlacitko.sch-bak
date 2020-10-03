@@ -30,6 +30,7 @@ F 0 "SW?" H 3750 3085 50  0000 C CNN
 F 1 "button" H 3750 2994 50  0000 C CNN
 F 2 "Button_Switch_THT:SW_Tactile_Straight_KSL0Axx1LFTR" H 3750 3000 50  0001 C CNN
 F 3 "~" H 3750 3000 50  0001 C CNN
+F 4 "ručně" H 3750 2800 50  0001 C CNN "LCSC"
 	1    3750 2800
 	1    0    0    -1  
 $EndComp

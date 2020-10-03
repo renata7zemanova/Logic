@@ -142,9 +142,10 @@ L Device:C C?
 U 1 1 5FBD6F93
 P 5900 2250
 F 0 "C?" V 5950 2350 50  0000 C CNN
-F 1 "100n/50V" V 5750 2250 50  0000 C CNN
+F 1 "100n" V 5750 2250 50  0000 C CNN
 F 2 "Capacitor_SMD:C_0402_1005Metric" H 5938 2100 50  0001 C CNN
 F 3 "~" H 5900 2250 50  0001 C CNN
+F 4 "C1525" H 5900 2250 50  0001 C CNN "LCSC"
 	1    5900 2250
 	0    1    1    0   
 $EndComp
@@ -178,48 +179,6 @@ $EndComp
 Wire Wire Line
 	6200 1950 6150 1950
 Connection ~ 6150 1950
-$Comp
-L Device:R R?
-U 1 1 5FBDED92
-P 4050 3000
-F 0 "R?" V 3843 3000 50  0000 C CNN
-F 1 "22k1" V 3934 3000 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric" V 3980 3000 50  0001 C CNN
-F 3 "~" H 4050 3000 50  0001 C CNN
-	1    4050 3000
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:R R?
-U 1 1 5FBDF92A
-P 4250 3350
-F 0 "R?" H 4180 3304 50  0000 R CNN
-F 1 "47k5" H 4180 3395 50  0000 R CNN
-F 2 "Resistor_SMD:R_0402_1005Metric" V 4180 3350 50  0001 C CNN
-F 3 "~" H 4250 3350 50  0001 C CNN
-	1    4250 3350
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	5000 3000 4250 3000
-Wire Wire Line
-	4250 3200 4250 3000
-Connection ~ 4250 3000
-Wire Wire Line
-	4250 3000 4200 3000
-$Comp
-L power:GND #PWR?
-U 1 1 5FBE16B9
-P 4250 3650
-F 0 "#PWR?" H 4250 3400 50  0001 C CNN
-F 1 "GND" H 4255 3477 50  0000 C CNN
-F 2 "" H 4250 3650 50  0001 C CNN
-F 3 "" H 4250 3650 50  0001 C CNN
-	1    4250 3650
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4250 3500 4250 3650
 Wire Wire Line
 	4650 3100 5000 3100
 Wire Wire Line
@@ -247,8 +206,6 @@ Wire Wire Line
 	7000 3300 7000 3400
 Wire Wire Line
 	7000 3400 7150 3400
-Wire Wire Line
-	3700 3000 3900 3000
 $Comp
 L Device:R R?
 U 1 1 5F7740AD
@@ -305,7 +262,7 @@ Wire Wire Line
 	6550 2100 6550 2200
 Wire Wire Line
 	6850 2100 6850 2200
-Text HLabel 3700 3000 0    50   Input ~ 0
+Text HLabel 4650 3000 0    50   Input ~ 0
 VBUS
 Text HLabel 4650 3100 0    50   Input ~ 0
 D+
@@ -341,4 +298,6 @@ Wire Wire Line
 	6000 2700 7000 2700
 Wire Wire Line
 	6000 3100 6250 3100
+Wire Wire Line
+	4650 3000 5000 3000
 $EndSCHEMATC

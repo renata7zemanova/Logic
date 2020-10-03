@@ -24,6 +24,7 @@ F 0 "J?" H 4057 3617 50  0000 C CNN
 F 1 "USB_B_Micro" H 4057 3526 50  0000 C CNN
 F 2 "Connector_USB:USB_Micro-B_Wuerth_629105150521" H 4150 3100 50  0001 C CNN
 F 3 "~" H 4150 3100 50  0001 C CNN
+F 4 "ručně" H 4000 3150 50  0001 C CNN "LCSC"
 	1    4000 3150
 	1    0    0    -1  
 $EndComp
@@ -58,6 +59,7 @@ F 0 "D?" V 4396 3571 50  0000 R CNN
 F 1 "SD05_SOD323" V 4305 3571 50  0000 R CNN
 F 2 "Diode_SMD:D_SOD-323" H 4350 3450 50  0001 C CNN
 F 3 "https://www.littelfuse.com/~/media/electronics/datasheets/tvs_diode_arrays/littelfuse_tvs_diode_array_sd_c_datasheet.pdf.pdf" H 4350 3650 50  0001 C CNN
+F 4 "neosazovat" H 4350 3650 50  0001 C CNN "LCSC"
 	1    4350 3650
 	0    -1   -1   0   
 $EndComp
@@ -72,6 +74,7 @@ F 0 "D?" V 4546 3571 50  0000 R CNN
 F 1 "SD05_SOD323" V 4455 3571 50  0000 R CNN
 F 2 "Diode_SMD:D_SOD-323" H 4500 3450 50  0001 C CNN
 F 3 "https://www.littelfuse.com/~/media/electronics/datasheets/tvs_diode_arrays/littelfuse_tvs_diode_array_sd_c_datasheet.pdf.pdf" H 4500 3650 50  0001 C CNN
+F 4 "neosazovat" H 4500 3650 50  0001 C CNN "LCSC"
 	1    4500 3650
 	0    -1   -1   0   
 $EndComp
@@ -86,6 +89,7 @@ F 0 "D?" V 4696 3571 50  0000 R CNN
 F 1 "SD05_SOD323" V 4605 3571 50  0000 R CNN
 F 2 "Diode_SMD:D_SOD-323" H 4650 3450 50  0001 C CNN
 F 3 "https://www.littelfuse.com/~/media/electronics/datasheets/tvs_diode_arrays/littelfuse_tvs_diode_array_sd_c_datasheet.pdf.pdf" H 4650 3650 50  0001 C CNN
+F 4 "neosazovat" H 4650 3650 50  0001 C CNN "LCSC"
 	1    4650 3650
 	0    -1   -1   0   
 $EndComp
