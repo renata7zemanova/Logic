@@ -504,7 +504,7 @@
     )
   )
 
-  (module my_library:battery_dock (layer F.Cu) (tedit 5F79853F) (tstamp 5F7C298F)
+  (module my_library:battery_dock (layer F.Cu) (tedit 5F79853F) (tstamp 5F7C27E3)
     (at 182.55 56.45 180)
     (path /5F7464DA/5F8A8975)
     (fp_text reference U4 (at 3.15 2.94) (layer F.SilkS)
@@ -1215,7 +1215,7 @@
   )
 
   (module Resistor_SMD:R_0402_1005Metric (layer F.Cu) (tedit 5B301BBD) (tstamp 5F7A1A5A)
-    (at 208.81 40.775 180)
+    (at 208.81 43.175 180)
     (descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf), generated with kicad-footprint-generator")
     (tags resistor)
     (path /5F7BA54B/5F7BCC69/5F74647E)
@@ -1249,7 +1249,7 @@
   )
 
   (module Resistor_SMD:R_0402_1005Metric (layer F.Cu) (tedit 5B301BBD) (tstamp 5F7A1A4B)
-    (at 203.9 40.8 180)
+    (at 203.9 43.2 180)
     (descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf), generated with kicad-footprint-generator")
     (tags resistor)
     (path /5F7BA54B/5F7BCC0A/5F74647E)
@@ -1283,7 +1283,7 @@
   )
 
   (module Resistor_SMD:R_0402_1005Metric (layer F.Cu) (tedit 5B301BBD) (tstamp 5F7A1A3C)
-    (at 193.875 40.875 180)
+    (at 193.875 43.275 180)
     (descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf), generated with kicad-footprint-generator")
     (tags resistor)
     (path /5F7BA54B/5F7BCBA6/5F74647E)
@@ -1317,7 +1317,7 @@
   )
 
   (module Resistor_SMD:R_0402_1005Metric (layer F.Cu) (tedit 5B301BBD) (tstamp 5F7A1A2D)
-    (at 198.85 40.825 180)
+    (at 198.85 43.225 180)
     (descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf), generated with kicad-footprint-generator")
     (tags resistor)
     (path /5F7BA54B/5F7BCB45/5F74647E)
@@ -1759,7 +1759,7 @@
   )
 
   (module Resistor_SMD:R_0402_1005Metric (layer F.Cu) (tedit 5B301BBD) (tstamp 5F7A196A)
-    (at 215.035 37.4 180)
+    (at 215.035 39.8 180)
     (descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf), generated with kicad-footprint-generator")
     (tags resistor)
     (path /602AE39C)
@@ -1834,7 +1834,7 @@
   )
 
   (module Package_TO_SOT_SMD:SOT-23 (layer F.Cu) (tedit 5A02FF57) (tstamp 5F7A1946)
-    (at 208.35 38.45 90)
+    (at 208.35 40.85 90)
     (descr "SOT-23, Standard")
     (tags SOT-23)
     (path /5F7BA54B/5F7BCC69/5F746478)
@@ -1875,7 +1875,7 @@
   )
 
   (module Package_TO_SOT_SMD:SOT-23 (layer F.Cu) (tedit 5A02FF57) (tstamp 5F7A1931)
-    (at 203.425 38.5 90)
+    (at 203.425 40.9 90)
     (descr "SOT-23, Standard")
     (tags SOT-23)
     (path /5F7BA54B/5F7BCC0A/5F746478)
@@ -1916,7 +1916,7 @@
   )
 
   (module Package_TO_SOT_SMD:SOT-23 (layer F.Cu) (tedit 5A02FF57) (tstamp 5F7A191C)
-    (at 193.43 38.545 90)
+    (at 193.43 40.945 90)
     (descr "SOT-23, Standard")
     (tags SOT-23)
     (path /5F7BA54B/5F7BCBA6/5F746478)
@@ -1957,7 +1957,7 @@
   )
 
   (module Package_TO_SOT_SMD:SOT-23 (layer F.Cu) (tedit 5A02FF57) (tstamp 5F7A1907)
-    (at 198.4 38.525 90)
+    (at 198.4 40.925 90)
     (descr "SOT-23, Standard")
     (tags SOT-23)
     (path /5F7BA54B/5F7BCB45/5F746478)
@@ -6390,7 +6390,7 @@
   )
 
   (module LED_SMD:LED_0603_1608Metric (layer F.Cu) (tedit 5B301BBE) (tstamp 5F7A091B)
-    (at 212.1 37.4 180)
+    (at 212.0375 39.85 180)
     (descr "LED SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf), generated with kicad-footprint-generator")
     (tags diode)
     (path /602AD86D)

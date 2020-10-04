@@ -14,10 +14,10 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0140
 U 1 1 5F74BC2B
 P 4900 2100
-F 0 "#PWR?" H 4900 1850 50  0001 C CNN
+F 0 "#PWR0140" H 4900 1850 50  0001 C CNN
 F 1 "GND" V 4905 1972 50  0000 R CNN
 F 2 "" H 4900 2100 50  0001 C CNN
 F 3 "" H 4900 2100 50  0001 C CNN
@@ -27,10 +27,10 @@ $EndComp
 Text HLabel 3150 2100 0    50   Input ~ 0
 V_BAT_PRIME
 $Comp
-L Device:Polyfuse F?
+L Device:Polyfuse F1
 U 1 1 5F77C417
 P 3800 1950
-F 0 "F?" V 3575 1950 50  0000 C CNN
+F 0 "F1" V 3575 1950 50  0000 C CNN
 F 1 "Polyfuse" V 3666 1950 50  0000 C CNN
 F 2 "Fuse:Fuse_0603_1608Metric" H 3850 1750 50  0001 L CNN
 F 3 "~" H 3800 1950 50  0001 C CNN
@@ -39,10 +39,10 @@ F 4 "C20792" H 3800 1950 50  0001 C CNN "LCSC"
 	0    1    1    0   
 $EndComp
 $Comp
-L Device:Polyfuse F?
+L Device:Polyfuse F2
 U 1 1 5F77C5DC
 P 3800 2250
-F 0 "F?" V 3575 2250 50  0000 C CNN
+F 0 "F2" V 3575 2250 50  0000 C CNN
 F 1 "Polyfuse" V 3666 2250 50  0000 C CNN
 F 2 "Fuse:Fuse_0603_1608Metric" H 3850 2050 50  0001 L CNN
 F 3 "~" H 3800 2250 50  0001 C CNN
@@ -51,10 +51,10 @@ F 4 "C20792" H 3800 2250 50  0001 C CNN "LCSC"
 	0    1    1    0   
 $EndComp
 $Comp
-L symbols:Dual_battery U?
+L symbols:Dual_battery U4
 U 1 1 5F8A8975
 P 4400 2100
-F 0 "U?" H 4400 2505 50  0000 C CNN
+F 0 "U4" H 4400 2505 50  0000 C CNN
 F 1 "Dual_battery" H 4400 2414 50  0000 C CNN
 F 2 "my_library:battery_dock" H 4400 2100 50  0001 C CNN
 F 3 "" H 4400 2100 50  0001 C CNN
