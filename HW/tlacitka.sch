@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 3 44
+Sheet 3 34
 Title ""
 Date ""
 Rev ""
@@ -51,14 +51,14 @@ $EndSheet
 $Sheet
 S 5650 1050 1150 450 
 U 5F76F2AA
-F0 "sipka_nahoru.sch" 50
+F0 "barva_1.sch" 50
 F1 "tlacitko.sch" 50
 F2 "tlacitko_vstup" I L 5650 1150 50 
 $EndSheet
 $Sheet
 S 5650 1950 1150 500 
 U 5F76F385
-F0 "sipka_dolu.sch" 50
+F0 "barva_2.sch" 50
 F1 "tlacitko.sch" 50
 F2 "tlacitko_vstup" I L 5650 2100 50 
 $EndSheet
@@ -79,9 +79,9 @@ SIPKA_VPRAVO
 Text HLabel 3500 2100 0    50   Input ~ 0
 SIPKA_VLEVO
 Text HLabel 5500 1150 0    50   Input ~ 0
-SIPKA_NAHORU
+BARVA_1
 Text HLabel 5500 2100 0    50   Input ~ 0
-SIPKA_DOLU
+BARVA_2
 Wire Wire Line
 	5500 2100 5650 2100
 Wire Wire Line
@@ -90,4 +90,48 @@ Wire Wire Line
 	3500 1150 3700 1150
 Wire Wire Line
 	3700 2100 3500 2100
+$Sheet
+S 5650 2750 1150 500 
+U 5F896DB4
+F0 "barva_3.sch" 50
+F1 "tlacitko.sch" 50
+F2 "tlacitko_vstup" I L 5650 2850 50 
+$EndSheet
+$Sheet
+S 7300 1050 1000 450 
+U 5F896DD0
+F0 "barva_4.sch" 50
+F1 "tlacitko.sch" 50
+F2 "tlacitko_vstup" I L 7300 1150 50 
+$EndSheet
+$Sheet
+S 7300 1950 1000 500 
+U 5F896DFE
+F0 "barva_5.sch" 50
+F1 "tlacitko.sch" 50
+F2 "tlacitko_vstup" I L 7300 2050 50 
+$EndSheet
+$Sheet
+S 7300 2750 1000 500 
+U 5F896E12
+F0 "barva_6.sch" 50
+F1 "tlacitko.sch" 50
+F2 "tlacitko_vstup" I L 7300 2850 50 
+$EndSheet
+Text HLabel 5500 2850 0    50   Input ~ 0
+BARVA_3
+Text HLabel 7200 1150 0    50   Input ~ 0
+BARVA_4
+Text HLabel 7200 2050 0    50   Input ~ 0
+BARVA_5
+Text HLabel 7200 2850 0    50   Input ~ 0
+BARVA_6
+Wire Wire Line
+	7200 2850 7300 2850
+Wire Wire Line
+	7300 2050 7200 2050
+Wire Wire Line
+	7200 1150 7300 1150
+Wire Wire Line
+	5650 2850 5500 2850
 $EndSCHEMATC

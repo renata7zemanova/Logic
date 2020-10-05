@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 44
+Sheet 1 34
 Title ""
 Date ""
 Rev ""
@@ -32,7 +32,7 @@ DATA_zadani_LED
 Wire Wire Line
 	9800 2000 9950 2000
 $Sheet
-S 9950 2550 1050 1450
+S 9950 2550 1050 2950
 U 5FB92F8B
 F0 "tlacitka.sch" 50
 F1 "tlacitka.sch" 50
@@ -41,8 +41,12 @@ F3 "END" I L 9950 2850 50
 F4 "NEW_GAME" I L 9950 3050 50 
 F5 "SIPKA_VLEVO" I L 9950 3250 50 
 F6 "SIPKA_VPRAVO" I L 9950 3450 50 
-F7 "SIPKA_NAHORU" I L 9950 3650 50 
-F8 "SIPKA_DOLU" I L 9950 3850 50 
+F7 "BARVA_1" I L 9950 3650 50 
+F8 "BARVA_2" I L 9950 3850 50 
+F9 "BARVA_3" I L 9950 4050 50 
+F10 "BARVA_4" I L 9950 4250 50 
+F11 "BARVA_5" I L 9950 4450 50 
+F12 "BARVA_6" I L 9950 4650 50 
 $EndSheet
 $Sheet
 S 600  3950 850  1000
@@ -319,9 +323,9 @@ BTN_SIPKA_VLEVO
 Text GLabel 9750 3450 0    50   Input ~ 0
 BTN_SIPKA_VPRAVO
 Text GLabel 9750 3650 0    50   Input ~ 0
-BTN_SIPKA_NAHORU
+BARVA_1
 Text GLabel 9750 3850 0    50   Input ~ 0
-BTN_SIPKA_DOLU
+BARVA_2
 Wire Wire Line
 	9750 2650 9950 2650
 Wire Wire Line
@@ -347,9 +351,9 @@ BTN_SIPKA_VLEVO
 Text GLabel 5950 6550 2    50   Input ~ 0
 BTN_SIPKA_VPRAVO
 Text GLabel 5950 5450 2    50   Input ~ 0
-BTN_SIPKA_NAHORU
+BARVA_1
 Text GLabel 5950 6650 2    50   Input ~ 0
-BTN_SIPKA_DOLU
+BARVA_2
 Wire Wire Line
 	5950 5450 5450 5450
 Wire Wire Line
@@ -400,21 +404,6 @@ Text GLabel 1800 5350 2    50   Input ~ 0
 D+
 Text GLabel 1800 5500 2    50   Input ~ 0
 D-
-$Sheet
-S 600  6150 1000 1450
-U 5F7BA54B
-F0 "zapinani_LEDek.sch" 50
-F1 "zapinani_LEDek.sch" 50
-F2 "V_BAT_SPINANE" I R 1600 6250 50 
-F3 "V_BAT_1" I R 1600 6400 50 
-F4 "V_BAT_2" I R 1600 6550 50 
-F5 "V_BAT_4" I R 1600 6850 50 
-F6 "V_BAT_3" I R 1600 6700 50 
-F7 "GPIO_1" I R 1600 7000 50 
-F8 "GPIO_2" I R 1600 7150 50 
-F9 "GPIO_3" I R 1600 7300 50 
-F10 "GPIO_4" I R 1600 7450 50 
-$EndSheet
 Text GLabel 1800 6250 2    50   Input ~ 0
 V_BAT
 Wire Wire Line
@@ -423,34 +412,18 @@ Text GLabel 1800 6400 2    50   Input ~ 0
 V_BAT_1
 Text GLabel 1800 6550 2    50   Input ~ 0
 V_BAT_2
-Text GLabel 1800 6700 2    50   Input ~ 0
-V_BAT_3
-Text GLabel 1800 6850 2    50   Input ~ 0
-V_BAT_4
 Text GLabel 1800 7000 2    50   Input ~ 0
 ZAPINANI_1_CAST_LED
 Text GLabel 1800 7150 2    50   Input ~ 0
 ZAPINANI_2_CAST_LED
-Text GLabel 1800 7300 2    50   Input ~ 0
-ZAPINANI_3_CAST_LED
-Text GLabel 1800 7450 2    50   Input ~ 0
-ZAPINANI_4_CAST_LED
 Wire Wire Line
 	1800 6400 1600 6400
 Wire Wire Line
 	1600 6550 1800 6550
 Wire Wire Line
-	1800 6700 1600 6700
-Wire Wire Line
-	1600 6850 1800 6850
-Wire Wire Line
 	1800 7000 1600 7000
 Wire Wire Line
 	1600 7150 1800 7150
-Wire Wire Line
-	1800 7300 1600 7300
-Wire Wire Line
-	1600 7450 1800 7450
 $Sheet
 S 7800 650  900  850 
 U 5F79BCD0
@@ -459,68 +432,29 @@ F1 "LEDky40.sch" 50
 F2 "V_BAT_1" I L 7800 900 50 
 F3 "DATA_IN" I L 7800 750 50 
 F4 "V_BAT_2" I L 7800 1050 50 
-F5 "V_BAT_3" I L 7800 1200 50 
-F6 "V_BAT_4" I L 7800 1350 50 
-$EndSheet
-$Sheet
-S 9950 650  1050 850 
-U 5FACC290
-F0 "hodnoceni_LED.sch" 50
-F1 "LEDky40.sch" 50
-F2 "V_BAT_1" I L 9950 900 50 
-F3 "DATA_IN" I L 9950 750 50 
-F4 "V_BAT_2" I L 9950 1050 50 
-F5 "V_BAT_3" I L 9950 1200 50 
-F6 "V_BAT_4" I L 9950 1350 50 
 $EndSheet
 Text GLabel 9750 900  0    50   Input ~ 0
 V_BAT_1
-Text GLabel 9750 1050 0    50   Input ~ 0
-V_BAT_2
-Text GLabel 9750 1200 0    50   Input ~ 0
-V_BAT_3
-Text GLabel 9750 1350 0    50   Input ~ 0
-V_BAT_4
 Wire Wire Line
 	9750 900  9950 900 
 Wire Wire Line
 	9750 1050 9950 1050
-Wire Wire Line
-	9750 1200 9950 1200
-Wire Wire Line
-	9950 1350 9750 1350
 Text GLabel 7500 900  0    50   Input ~ 0
 V_BAT_1
 Text GLabel 7500 1050 0    50   Input ~ 0
 V_BAT_2
-Text GLabel 7500 1200 0    50   Input ~ 0
-V_BAT_3
-Text GLabel 7500 1350 0    50   Input ~ 0
-V_BAT_4
-Wire Wire Line
-	7500 1350 7800 1350
 Wire Wire Line
 	7500 750  7800 750 
 Wire Wire Line
 	7500 900  7800 900 
 Wire Wire Line
 	7500 1050 7800 1050
-Wire Wire Line
-	7500 1200 7800 1200
 Text GLabel 5950 4850 2    50   Input ~ 0
 ZAPINANI_1_CAST_LED
 Text GLabel 5950 5350 2    50   Input ~ 0
 ZAPINANI_2_CAST_LED
-Text GLabel 5950 5650 2    50   Input ~ 0
-ZAPINANI_3_CAST_LED
-Text GLabel 5950 5750 2    50   Input ~ 0
-ZAPINANI_4_CAST_LED
 Wire Wire Line
 	5950 5350 5450 5350
-Wire Wire Line
-	5450 5650 5950 5650
-Wire Wire Line
-	5450 5750 5950 5750
 NoConn ~ 5350 1800
 NoConn ~ 5450 4650
 $Sheet
@@ -720,4 +654,58 @@ Wire Wire Line
 	1600 4750 1450 4750
 Wire Wire Line
 	1450 4900 1600 4900
+$Sheet
+S 9950 650  1050 850 
+U 5FACC290
+F0 "hodnoceni_LED.sch" 50
+F1 "LEDky40.sch" 50
+F2 "V_BAT_1" I L 9950 900 50 
+F3 "DATA_IN" I L 9950 750 50 
+F4 "V_BAT_2" I L 9950 1050 50 
+$EndSheet
+Text GLabel 9750 1050 0    50   Input ~ 0
+V_BAT_2
+$Sheet
+S 600  6150 1000 1450
+U 5F7BA54B
+F0 "zapinani_LEDek.sch" 50
+F1 "zapinani_LEDek.sch" 50
+F2 "V_BAT_SPINANE" I R 1600 6250 50 
+F3 "V_BAT_1" I R 1600 6400 50 
+F4 "V_BAT_2" I R 1600 6550 50 
+F5 "GPIO_1" I R 1600 7000 50 
+F6 "GPIO_2" I R 1600 7150 50 
+$EndSheet
+Text GLabel 5950 5750 2    50   Input ~ 0
+BARVA_3
+Text GLabel 5950 5650 2    50   Input ~ 0
+BARVA_4
+Wire Wire Line
+	5950 5650 5450 5650
+Wire Wire Line
+	5450 5750 5950 5750
+Text GLabel 3550 5650 0    50   Input ~ 0
+BARVA_5
+Text GLabel 3550 5750 0    50   Input ~ 0
+BARVA_6
+Wire Wire Line
+	3550 5650 3850 5650
+Wire Wire Line
+	3850 5750 3550 5750
+Text GLabel 9750 4450 0    50   Input ~ 0
+BARVA_5
+Text GLabel 9750 4650 0    50   Input ~ 0
+BARVA_6
+Text GLabel 9750 4050 0    50   Input ~ 0
+BARVA_3
+Text GLabel 9750 4250 0    50   Input ~ 0
+BARVA_4
+Wire Wire Line
+	9950 4650 9750 4650
+Wire Wire Line
+	9750 4450 9950 4450
+Wire Wire Line
+	9950 4250 9750 4250
+Wire Wire Line
+	9750 4050 9950 4050
 $EndSCHEMATC
