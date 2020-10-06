@@ -340,11 +340,11 @@ Wire Wire Line
 	9750 3650 9950 3650
 Wire Wire Line
 	9950 3850 9750 3850
-Text GLabel 5950 6350 2    50   Input ~ 0
+Text GLabel 5950 6250 2    50   Input ~ 0
 BTN_NEW_GAME
 Text GLabel 5950 6150 2    50   Input ~ 0
 BTN_ENTER
-Text GLabel 5950 6250 2    50   Input ~ 0
+Text GLabel 5950 6350 2    50   Input ~ 0
 BTN_END
 Text GLabel 5950 6450 2    50   Input ~ 0
 BTN_SIPKA_VLEVO
@@ -352,7 +352,7 @@ Text GLabel 5950 6550 2    50   Input ~ 0
 BTN_SIPKA_VPRAVO
 Text GLabel 5950 5450 2    50   Input ~ 0
 BARVA_1
-Text GLabel 5950 6650 2    50   Input ~ 0
+Text GLabel 3550 5650 0    50   Input ~ 0
 BARVA_2
 Wire Wire Line
 	5950 5450 5450 5450
@@ -676,7 +676,7 @@ F4 "V_BAT_2" I R 1600 6550 50
 F5 "GPIO_1" I R 1600 7000 50 
 F6 "GPIO_2" I R 1600 7150 50 
 $EndSheet
-Text GLabel 5950 5750 2    50   Input ~ 0
+Text GLabel 3550 5750 0    50   Input ~ 0
 BARVA_3
 Text GLabel 5950 5650 2    50   Input ~ 0
 BARVA_4
@@ -684,9 +684,9 @@ Wire Wire Line
 	5950 5650 5450 5650
 Wire Wire Line
 	5450 5750 5950 5750
-Text GLabel 3550 5650 0    50   Input ~ 0
+Text GLabel 5950 6650 2    50   Input ~ 0
 BARVA_5
-Text GLabel 3550 5750 0    50   Input ~ 0
+Text GLabel 5950 5750 2    50   Input ~ 0
 BARVA_6
 Wire Wire Line
 	3550 5650 3850 5650
