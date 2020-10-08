@@ -449,9 +449,9 @@ Wire Wire Line
 	7500 900  7800 900 
 Wire Wire Line
 	7500 1050 7800 1050
-Text GLabel 5950 4850 2    50   Input ~ 0
-ZAPINANI_1_CAST_LED
 Text GLabel 5950 5350 2    50   Input ~ 0
+ZAPINANI_1_CAST_LED
+Text GLabel 5950 4850 2    50   Input ~ 0
 ZAPINANI_2_CAST_LED
 Wire Wire Line
 	5950 5350 5450 5350
