@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 32 34
+Sheet 21 21
 Title ""
 Date ""
 Rev ""
@@ -13,46 +13,114 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-$Sheet
-S 1900 1050 1650 850 
-U 5F7BCB45
-F0 "1_cast_3_rady.sch" 50
-F1 "zapinani.sch" 50
-F2 "V_BAT_SPINANE" I L 1900 1200 50 
-F3 "GPIO" I L 1900 1400 50 
-F4 "V_BAT" I L 1900 1600 50 
-$EndSheet
-$Sheet
-S 4650 1050 1650 900 
-U 5F7BCBA6
-F0 "2_cast_3_rady.sch" 50
-F1 "zapinani.sch" 50
-F2 "V_BAT_SPINANE" I L 4650 1200 50 
-F3 "GPIO" I L 4650 1400 50 
-F4 "V_BAT" I L 4650 1600 50 
-$EndSheet
-Text HLabel 1700 1200 0    50   Input ~ 0
-V_BAT_SPINANE
-Text HLabel 4450 1200 0    50   Input ~ 0
-V_BAT_SPINANE
-Text HLabel 1700 1600 0    50   Input ~ 0
+Text HLabel 3150 3200 2    50   Input ~ 0
 V_BAT_1
-Text HLabel 4450 1600 0    50   Input ~ 0
-V_BAT_2
-Text HLabel 1700 1400 0    50   Input ~ 0
+Text HLabel 2650 4100 3    50   Input ~ 0
 GPIO_1
-Text HLabel 4450 1400 0    50   Input ~ 0
+$Comp
+L Device:Q_PMOS_DGS Q?
+U 1 1 5F8EC64F
+P 2650 3300
+AR Path="/5F8EC64F" Ref="Q?"  Part="1" 
+AR Path="/5F7BA54B/5F8EC64F" Ref="Q?"  Part="1" 
+AR Path="/5F7BA54B/5F7BCB45/5F8EC64F" Ref="Q?"  Part="1" 
+AR Path="/5F7BA54B/5F7BCBA6/5F8EC64F" Ref="Q?"  Part="1" 
+AR Path="/5F7BA54B/5F7BCC0A/5F8EC64F" Ref="Q?"  Part="1" 
+AR Path="/5F7BA54B/5F7BCC69/5F8EC64F" Ref="Q?"  Part="1" 
+F 0 "Q?" V 2992 3300 50  0000 C CNN
+F 1 "Q_PMOS_DGS" V 2901 3300 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 2850 3400 50  0001 C CNN
+F 3 "~" H 2650 3300 50  0001 C CNN
+F 4 "C15127" H 2650 3300 50  0001 C CNN "LCSC"
+F 5 "0;0;180" H 2650 3300 50  0001 C CNN "JLCPCB_CORRECTION"
+	1    2650 3300
+	0    1    -1   0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5F8EC656
+P 2650 3800
+AR Path="/5F8EC656" Ref="R?"  Part="1" 
+AR Path="/5F7BA54B/5F8EC656" Ref="R?"  Part="1" 
+AR Path="/5F7BA54B/5F7BCB45/5F8EC656" Ref="R?"  Part="1" 
+AR Path="/5F7BA54B/5F7BCBA6/5F8EC656" Ref="R?"  Part="1" 
+AR Path="/5F7BA54B/5F7BCC0A/5F8EC656" Ref="R?"  Part="1" 
+AR Path="/5F7BA54B/5F7BCC69/5F8EC656" Ref="R?"  Part="1" 
+F 0 "R?" H 2720 3846 50  0000 L CNN
+F 1 "10k" H 2720 3755 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 2580 3800 50  0001 C CNN
+F 3 "~" H 2650 3800 50  0001 C CNN
+F 4 "C25744" H 2650 3800 50  0001 C CNN "LCSC"
+	1    2650 3800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2200 3200 2450 3200
+Wire Wire Line
+	2850 3200 3150 3200
+Wire Wire Line
+	2650 3500 2650 3650
+Wire Wire Line
+	2650 3950 2650 4100
+Text HLabel 2200 3200 0    50   Input ~ 0
+V_BAT_SPINANE
+Text Notes 1750 3150 0    50   ~ 0
+IN\n
+Text Notes 3200 3150 0    50   ~ 0
+OUT\n
+Text HLabel 6200 3200 2    50   Input ~ 0
+V_BAT_2
+Text HLabel 5700 4100 3    50   Input ~ 0
 GPIO_2
+$Comp
+L Device:Q_PMOS_DGS Q?
+U 1 1 5F8ECA64
+P 5700 3300
+AR Path="/5F8ECA64" Ref="Q?"  Part="1" 
+AR Path="/5F7BA54B/5F8ECA64" Ref="Q?"  Part="1" 
+AR Path="/5F7BA54B/5F7BCB45/5F8ECA64" Ref="Q?"  Part="1" 
+AR Path="/5F7BA54B/5F7BCBA6/5F8ECA64" Ref="Q?"  Part="1" 
+AR Path="/5F7BA54B/5F7BCC0A/5F8ECA64" Ref="Q?"  Part="1" 
+AR Path="/5F7BA54B/5F7BCC69/5F8ECA64" Ref="Q?"  Part="1" 
+F 0 "Q?" V 6042 3300 50  0000 C CNN
+F 1 "Q_PMOS_DGS" V 5951 3300 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 5900 3400 50  0001 C CNN
+F 3 "~" H 5700 3300 50  0001 C CNN
+F 4 "C15127" H 5700 3300 50  0001 C CNN "LCSC"
+F 5 "0;0;180" H 5700 3300 50  0001 C CNN "JLCPCB_CORRECTION"
+	1    5700 3300
+	0    1    -1   0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5F8ECA6B
+P 5700 3800
+AR Path="/5F8ECA6B" Ref="R?"  Part="1" 
+AR Path="/5F7BA54B/5F8ECA6B" Ref="R?"  Part="1" 
+AR Path="/5F7BA54B/5F7BCB45/5F8ECA6B" Ref="R?"  Part="1" 
+AR Path="/5F7BA54B/5F7BCBA6/5F8ECA6B" Ref="R?"  Part="1" 
+AR Path="/5F7BA54B/5F7BCC0A/5F8ECA6B" Ref="R?"  Part="1" 
+AR Path="/5F7BA54B/5F7BCC69/5F8ECA6B" Ref="R?"  Part="1" 
+F 0 "R?" H 5770 3846 50  0000 L CNN
+F 1 "10k" H 5770 3755 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 5630 3800 50  0001 C CNN
+F 3 "~" H 5700 3800 50  0001 C CNN
+F 4 "C25744" H 5700 3800 50  0001 C CNN "LCSC"
+	1    5700 3800
+	1    0    0    -1  
+$EndComp
 Wire Wire Line
-	1700 1200 1900 1200
+	5250 3200 5500 3200
 Wire Wire Line
-	1900 1400 1700 1400
+	5900 3200 6200 3200
 Wire Wire Line
-	1700 1600 1900 1600
+	5700 3500 5700 3650
 Wire Wire Line
-	4450 1200 4650 1200
-Wire Wire Line
-	4650 1400 4450 1400
-Wire Wire Line
-	4450 1600 4650 1600
+	5700 3950 5700 4100
+Text HLabel 5250 3200 0    50   Input ~ 0
+V_BAT_SPINANE
+Text Notes 4800 3150 0    50   ~ 0
+IN\n
+Text Notes 6250 3150 0    50   ~ 0
+OUT\n
 $EndSCHEMATC

@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 34
+Sheet 1 21
 Title ""
 Date ""
 Rev ""
@@ -32,7 +32,7 @@ DATA_zadani_LED
 Wire Wire Line
 	9800 2000 9950 2000
 $Sheet
-S 9950 2550 1050 2950
+S 9950 2550 1050 2300
 U 5FB92F8B
 F0 "tlacitka.sch" 50
 F1 "tlacitka.sch" 50
