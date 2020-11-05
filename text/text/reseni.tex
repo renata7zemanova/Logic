@@ -1,0 +1,91 @@
+\chapter{Pravidla hry}
+Logic je desková hra pro dva hráče. Jeden hráč určí hledanou kombinaci, dále bude označován jako hráč A, a druhý tuto kombinaci za pomocí logických úvah a
+vyhodnocení hráčem A hledá, dále bude označován jako hráč B.
+
+Hráči si určí herní pozice. Hráč A vybere barvy a následně je v určitém pořadí vloží do zadávacího pole a zakryje je, aby tuto
+kombinaci spoluhráč neviděl. Hráč B je v této chvíli otočen. Hráč B následně zvolí náhodnou kombinaci barev a pozic. Po ukončení tahu nechá
+hráče A, aby tah vyhodnotil. Hráč A vyhodnotí tah následujícím způsobem. Pokud hráč B vložil správnou barvu na správnou pozici, tak vloží 
+do vyhodnocovací sekce černý kolík. Pokud vložil barvu, která se v zadání vyskytuje, ale vložil ji na nesprávnou pozici, tak vloží bílý kolík.
+Pokud zůstanou některé pozice neobsazené, tak to znamená, že daná barva se v zadání nevyskytuje. Poté začne hráč B na základě vyhodnocení a 
+svých všech předchozích tahů hledat kombinaci.
+
+Cílem hry je nalézt správnou kombinaci dříve, než skončí plocha herního pole.
+
+Těžší varianta spočívá v možnosti absence barvy - v zadání je mezera.
+
+\chapter{Koncept}
+Celá DPS je navržena tak, aby odpovídala svým vzhledem deskové hře. Ve spodní části jsou ovládací prvky.
+Hráč pomocí tlačítek vybírá pozici a určuje jí barvu. Po ukončení tahu hra vyhodnotí zvolenou kombinaci a hráč může pokračovat dalším tahem.
+Herní pole proto obsahuje sekci s herními LED a s vyhodnocovacími LED.
+
+DPS je navržena pro strojní osazování u firmy JLCPCB.
+
+\chapter{Použitý hardware}
+\section{Procesor}
+Byl zvolen procesor ESP32-PICO.
+\section{LED}
+Byly zvoleny programovatelné LED WS2812C. Tento typ LED je určen pro přenosná zařízení, díky jejich nízké spotřebě oproti typu WS2812B.
+Tyto LED jsou řízeny programově. K procesoru jsou připojeny všechny jedním datovým pinem. Z procesoru jsou těmto LED předávána data za sebou v
+RGB formátu. Každá LED má definovaný počet bytů, ve kterých jsou data právě pro jednu LED. Pokud LED registruje další data, tak je pošle dál.
+Tímto způsobem se všechna data dostanou ke všem LED. V programu musí být tedy zachováno pořadí LED. 
+
+Porovnání WS2812B s WS2812C
+
+\chapter{Návrh DPS}
+DPS je navržena v programu KiCad.
+
+\section{Napájení}
+Byly zvoleny baterie 18650.
+
+\section{Nabíjecí obvod}
+Pro nabíjecí obvod byl zvolen čip TP4056. Jeho zapojení bylo převzato z datasheetu [citace]. %tady bude obrázek schématu asi
+Velikost rezistoru $R_\textind{PROG}$ se volí podle nabíjecího proudu. 
+Tabulka rezistorů $R_\textind{PROG}$.. [citace]
+
+\begin{table}[!h]
+    \caption{Nastavení nabíjecího proudu rezitorem $R_\textind{PROG}$}
+    \begin{center}
+        \begin{tabular}{|c|c|}
+            \hline
+            $R_\textind{PROG}$ [kOhm] & Nabíjecí proud [mA] \\
+            \hline
+            10      & 130 \\
+            \hline
+            5       & 250 \\
+            \hline
+            4       & 300 \\
+            \hline
+            3       & 400 \\
+            \hline
+            2       & 580 \\
+            \hline
+            1,66    & 690 \\
+            \hline
+            1,5     & 780 \\
+            \hline
+            1,33    & 900 \\
+            \hline
+            1,2     & 1000 \\
+            \hline
+        \end{tabular}
+        
+    \end{center}
+\end{table}
+
+Nabíjení baterií by mělo probíhat při 0,5C, tudíž pro 18650 je to cca 0,5 A. Proto byl zvolen rezitor Rprog 2 kOhm.
+
+\section{Měření baterie}
+
+\section{Stepdown}
+
+\section{Ochrana proti přepólování}
+
+\section{Zapínání LED}
+
+\section{Programovací převodník}
+Jako nabíjecí a zároveň programovací konektor slouží USB. Procesor má pouze programovací rozhraní RS-232. Aby mohlo programování probíhat z USB, 
+musí DPS obsahovat převodník z USB na RS-232. Byl zvolen převodník CP2102. 
+
+Byl zvolen protože na ESP32 devkitu C je použit právě tento převodník. Byl zapojen podle doporučeného zapojení v datasheetu [citace].
+
+\chapter{Ovládání hry}
