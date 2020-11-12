@@ -2,7 +2,7 @@
 
   (general
     (thickness 1.6)
-    (drawings 13)
+    (drawings 14)
     (tracks 1995)
     (zones 0)
     (modules 152)
@@ -6420,6 +6420,9 @@
     )
   )
 
+  (gr_text "Logic v1.0\nby Renata Zemanová" (at 131.28 125.12) (layer B.Fab)
+    (effects (font (size 1.5 1.5) (thickness 0.3)) (justify mirror))
+  )
   (gr_circle (center 171.5 138) (end 173.05 138) (layer Edge.Cuts) (width 0.3))
   (gr_circle (center 90 138) (end 91.55 138) (layer Edge.Cuts) (width 0.3))
   (gr_circle (center 90 65.5) (end 91.55 65.5) (layer Edge.Cuts) (width 0.3))
