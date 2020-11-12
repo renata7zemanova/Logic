@@ -61,9 +61,9 @@ F6 "VBUS" I R 1450 4600 50
 F7 "D+" I R 1450 4750 50 
 F8 "D-" I R 1450 4900 50 
 $EndSheet
-Text GLabel 1600 4150 2    50   Input ~ 0
-TX_ESP
 Text GLabel 1600 4000 2    50   Input ~ 0
+TX_ESP
+Text GLabel 1600 4150 2    50   Input ~ 0
 RX_ESP
 Text GLabel 1600 4300 2    50   Input ~ 0
 EN
