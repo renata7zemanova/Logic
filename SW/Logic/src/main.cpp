@@ -117,13 +117,30 @@ void setup() {
 
   Serial.begin(9600);
 
+  playing.pos = 0;
+
   while(true){
       Serial.println(digitalRead(SW7_YELLOW));
       delay(500);
 
-      //switch (){
-
-      //}
+      if(!digitalRead(SW7_YELLOW)){
+        set_color(&playing, 'y');
+      }
+      else if (!digitalRead(SW8_ORANGE)){
+        set_color(&playing, 'o');
+      }
+      else if (!digitalRead(SW9_RED)){
+        set_color(&playing, 'r');
+      }
+      else if (!digitalRead(SW10_PURPLE)){
+        set_color(&playing, 'p');
+      }
+      else if (!digitalRead(SW11_BLUE)){
+        set_color(&playing, 'b');
+      }
+      else if (!digitalRead(SW12_GREEN)){
+        set_color(&playing, 'g');
+      }
   }
 
   playing.leds.show();

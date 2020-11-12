@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 19 21
+Sheet 8 21
 Title ""
 Date ""
 Rev ""
@@ -14,7 +14,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L Connector:USB_B_Micro J?
+L Logic_KiCad-rescue:USB_B_Micro-Connector J?
 U 1 1 5F793175
 P 4000 3150
 AR Path="/5F793175" Ref="J?"  Part="1" 
