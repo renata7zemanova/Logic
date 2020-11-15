@@ -94,7 +94,7 @@ F 1 "Q_PMOS_SDG" V 2901 3300 50  0000 C CNN
 F 2 "" H 2850 3400 50  0001 C CNN
 F 3 "~" H 2650 3300 50  0001 C CNN
 	1    2650 3300
-	0    -1   -1   0   
+	0    1    -1   0   
 $EndComp
 $Comp
 L Device:Q_PMOS_SDG Q4
@@ -105,6 +105,6 @@ F 1 "Q_PMOS_SDG" V 5951 3300 50  0000 C CNN
 F 2 "" H 5900 3400 50  0001 C CNN
 F 3 "~" H 5700 3300 50  0001 C CNN
 	1    5700 3300
-	0    -1   -1   0   
+	0    1    -1   0   
 $EndComp
 $EndSCHEMATC
