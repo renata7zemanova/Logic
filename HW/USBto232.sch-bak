@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 4 21
+Sheet 4 30
 Title ""
 Date ""
 Rev ""
@@ -139,10 +139,6 @@ Wire Wire Line
 	6150 2250 6050 2250
 Connection ~ 6150 1950
 Wire Wire Line
-	4650 3100 5000 3100
-Wire Wire Line
-	4650 3200 5000 3200
-Wire Wire Line
 	6650 3100 7050 3100
 Wire Wire Line
 	7350 2700 7400 2700
@@ -211,12 +207,6 @@ Wire Wire Line
 	6550 2100 6550 2200
 Wire Wire Line
 	6850 2100 6850 2200
-Text HLabel 4650 3000 0    50   Input ~ 0
-VBUS
-Text HLabel 4650 3100 0    50   Input ~ 0
-D+
-Text HLabel 4650 3200 0    50   Input ~ 0
-D-
 $Comp
 L Interface_USB:CP2102N-A01-GQFN28 U2
 U 1 1 5F8C3A3C
@@ -337,4 +327,187 @@ Wire Wire Line
 	7150 2100 7150 2800
 Wire Wire Line
 	6550 2500 6550 2800
+$Comp
+L power:+5V #PWR?
+U 1 1 5FB1FCC8
+P 4650 3000
+F 0 "#PWR?" H 4650 2850 50  0001 C CNN
+F 1 "+5V" V 4665 3128 50  0000 L CNN
+F 2 "" H 4650 3000 50  0001 C CNN
+F 3 "" H 4650 3000 50  0001 C CNN
+	1    4650 3000
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Logic_KiCad-rescue:USB_B_Micro-Connector J?
+U 1 1 5FB5E45C
+P 3300 3100
+AR Path="/5FB5E45C" Ref="J?"  Part="1" 
+AR Path="/5FBB3550/5FB5E45C" Ref="J?"  Part="1" 
+AR Path="/5F78DB3E/5FB5E45C" Ref="J?"  Part="1" 
+F 0 "J?" H 3357 3567 50  0000 C CNN
+F 1 "USB_B_Micro" H 3357 3476 50  0000 C CNN
+F 2 "Connector_USB:USB_Micro-B_Wuerth_629105150521" H 3450 3050 50  0001 C CNN
+F 3 "~" H 3450 3050 50  0001 C CNN
+F 4 "ručně" H 3300 3100 50  0001 C CNN "LCSC"
+	1    3300 3100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB5E462
+P 3300 3500
+AR Path="/5FBB3550/5FB5E462" Ref="#PWR?"  Part="1" 
+AR Path="/5FB5E462" Ref="#PWR?"  Part="1" 
+AR Path="/5F78DB3E/5FB5E462" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 3300 3250 50  0001 C CNN
+F 1 "GND" H 3300 3350 50  0000 C CNN
+F 2 "" H 3300 3500 50  0001 C CNN
+F 3 "" H 3300 3500 50  0001 C CNN
+	1    3300 3500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3600 3200 3650 3200
+Wire Wire Line
+	3600 2900 3950 2900
+$Comp
+L Diode:SD05_SOD323 D?
+U 1 1 5FB5E46C
+P 3650 3600
+AR Path="/5FBB3550/5FB5E46C" Ref="D?"  Part="1" 
+AR Path="/5FB5E46C" Ref="D?"  Part="1" 
+AR Path="/5F78DB3E/5FB5E46C" Ref="D?"  Part="1" 
+F 0 "D?" V 3700 3800 50  0000 R CNN
+F 1 "SD05_SOD323" V 3500 4150 50  0000 R CNN
+F 2 "Diode_SMD:D_SOD-323" H 3650 3400 50  0001 C CNN
+F 3 "https://www.littelfuse.com/~/media/electronics/datasheets/tvs_diode_arrays/littelfuse_tvs_diode_array_sd_c_datasheet.pdf.pdf" H 3650 3600 50  0001 C CNN
+F 4 "neosazovat" H 3650 3600 50  0001 C CNN "LCSC"
+	1    3650 3600
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Diode:SD05_SOD323 D?
+U 1 1 5FB5E473
+P 3800 3600
+AR Path="/5FBB3550/5FB5E473" Ref="D?"  Part="1" 
+AR Path="/5FB5E473" Ref="D?"  Part="1" 
+AR Path="/5F78DB3E/5FB5E473" Ref="D?"  Part="1" 
+F 0 "D?" V 3950 3600 50  0000 R CNN
+F 1 "SD05_SOD323" V 3650 3600 50  0000 R CNN
+F 2 "Diode_SMD:D_SOD-323" H 3800 3400 50  0001 C CNN
+F 3 "https://www.littelfuse.com/~/media/electronics/datasheets/tvs_diode_arrays/littelfuse_tvs_diode_array_sd_c_datasheet.pdf.pdf" H 3800 3600 50  0001 C CNN
+F 4 "neosazovat" H 3800 3600 50  0001 C CNN "LCSC"
+	1    3800 3600
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Diode:SD05_SOD323 D?
+U 1 1 5FB5E47A
+P 3950 3600
+AR Path="/5FBB3550/5FB5E47A" Ref="D?"  Part="1" 
+AR Path="/5FB5E47A" Ref="D?"  Part="1" 
+AR Path="/5F78DB3E/5FB5E47A" Ref="D?"  Part="1" 
+F 0 "D?" V 3996 3521 50  0000 R CNN
+F 1 "SD05_SOD323" V 3905 3521 50  0000 R CNN
+F 2 "Diode_SMD:D_SOD-323" H 3950 3400 50  0001 C CNN
+F 3 "https://www.littelfuse.com/~/media/electronics/datasheets/tvs_diode_arrays/littelfuse_tvs_diode_array_sd_c_datasheet.pdf.pdf" H 3950 3600 50  0001 C CNN
+F 4 "neosazovat" H 3950 3600 50  0001 C CNN "LCSC"
+	1    3950 3600
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB5E480
+P 3650 3850
+AR Path="/5FBB3550/5FB5E480" Ref="#PWR?"  Part="1" 
+AR Path="/5FB5E480" Ref="#PWR?"  Part="1" 
+AR Path="/5F78DB3E/5FB5E480" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 3650 3600 50  0001 C CNN
+F 1 "GND" H 3655 3677 50  0000 C CNN
+F 2 "" H 3650 3850 50  0001 C CNN
+F 3 "" H 3650 3850 50  0001 C CNN
+	1    3650 3850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB5E486
+P 3800 3850
+AR Path="/5FBB3550/5FB5E486" Ref="#PWR?"  Part="1" 
+AR Path="/5FB5E486" Ref="#PWR?"  Part="1" 
+AR Path="/5F78DB3E/5FB5E486" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 3800 3600 50  0001 C CNN
+F 1 "GND" H 3805 3677 50  0000 C CNN
+F 2 "" H 3800 3850 50  0001 C CNN
+F 3 "" H 3800 3850 50  0001 C CNN
+	1    3800 3850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB5E48C
+P 3950 3850
+AR Path="/5FBB3550/5FB5E48C" Ref="#PWR?"  Part="1" 
+AR Path="/5FB5E48C" Ref="#PWR?"  Part="1" 
+AR Path="/5F78DB3E/5FB5E48C" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 3950 3600 50  0001 C CNN
+F 1 "GND" H 3955 3677 50  0000 C CNN
+F 2 "" H 3950 3850 50  0001 C CNN
+F 3 "" H 3950 3850 50  0001 C CNN
+	1    3950 3850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3650 3750 3650 3850
+Wire Wire Line
+	3800 3750 3800 3850
+Wire Wire Line
+	3950 3750 3950 3850
+Wire Wire Line
+	3650 3450 3650 3200
+Connection ~ 3650 3200
+Wire Wire Line
+	3950 3450 3950 2900
+Connection ~ 3950 2900
+Wire Wire Line
+	3800 3450 3800 3100
+Connection ~ 3800 3100
+Wire Wire Line
+	3800 3100 3600 3100
+$Comp
+L power:GND #PWR?
+U 1 1 5FB5E49D
+P 3200 3500
+AR Path="/5FBB3550/5FB5E49D" Ref="#PWR?"  Part="1" 
+AR Path="/5FB5E49D" Ref="#PWR?"  Part="1" 
+AR Path="/5F78DB3E/5FB5E49D" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 3200 3250 50  0001 C CNN
+F 1 "GND" H 3050 3450 50  0000 C CNN
+F 2 "" H 3200 3500 50  0001 C CNN
+F 3 "" H 3200 3500 50  0001 C CNN
+	1    3200 3500
+	1    0    0    -1  
+$EndComp
+NoConn ~ 3600 3300
+$Comp
+L power:+5V #PWR?
+U 1 1 5FB5E4A6
+P 3950 2750
+AR Path="/5FB5E4A6" Ref="#PWR?"  Part="1" 
+AR Path="/5F78DB3E/5FB5E4A6" Ref="#PWR?"  Part="1" 
+AR Path="/5FBB3550/5FB5E4A6" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 3950 2600 50  0001 C CNN
+F 1 "+5V" H 3965 2923 50  0000 C CNN
+F 2 "" H 3950 2750 50  0001 C CNN
+F 3 "" H 3950 2750 50  0001 C CNN
+	1    3950 2750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3950 2750 3950 2900
+Wire Wire Line
+	3800 3100 5000 3100
+Wire Wire Line
+	3650 3200 5000 3200
 $EndSCHEMATC

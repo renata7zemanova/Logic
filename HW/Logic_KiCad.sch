@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 21
+Sheet 1 30
 Title ""
 Date ""
 Rev ""
@@ -57,9 +57,6 @@ F2 "TX_ESP" I R 1450 4000 50
 F3 "RX_ESP" I R 1450 4150 50 
 F4 "EN_ESP" I R 1450 4300 50 
 F5 "IO0_ESP" I R 1450 4450 50 
-F6 "VBUS" I R 1450 4600 50 
-F7 "D+" I R 1450 4750 50 
-F8 "D-" I R 1450 4900 50 
 $EndSheet
 Text GLabel 1600 4000 2    50   Input ~ 0
 TX_ESP
@@ -129,10 +126,10 @@ L Device:C C6
 U 1 1 5FC1F436
 P 3400 4500
 F 0 "C6" H 3285 4454 50  0000 R CNN
-F 1 "100n" H 3285 4545 50  0000 R CNN
+F 1 "1u" H 3285 4545 50  0000 R CNN
 F 2 "Capacitor_SMD:C_0402_1005Metric" H 3438 4350 50  0001 C CNN
 F 3 "~" H 3400 4500 50  0001 C CNN
-F 4 "C1525" H 3400 4500 50  0001 C CNN "LCSC"
+F 4 "" H 3400 4500 50  0001 C CNN "LCSC"
 	1    3400 4500
 	-1   0    0    1   
 $EndComp
@@ -284,33 +281,31 @@ F2 "V_BAT_SPINANE" I R 1600 3400 50
 $EndSheet
 Text GLabel 1800 3400 2    50   Input ~ 0
 V_BAT
-Text GLabel 4600 1700 0    50   Input ~ 0
-V_BAT_PRIME
 $Comp
 L Switch:SW_SPDT SW1
 U 1 1 5F727A55
-P 5150 1700
-F 0 "SW1" H 5150 1985 50  0000 C CNN
-F 1 "SW_SPDT" H 5150 1894 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 5150 1700 50  0001 C CNN
-F 3 "~" H 5150 1700 50  0001 C CNN
-F 4 "ručně" H 5150 1700 50  0001 C CNN "LCSC"
-	1    5150 1700
+P 5250 2300
+F 0 "SW1" H 5250 2585 50  0000 C CNN
+F 1 "SW_SPDT" H 5250 2494 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 5250 2300 50  0001 C CNN
+F 3 "~" H 5250 2300 50  0001 C CNN
+F 4 "ručně" H 5250 2300 50  0001 C CNN "LCSC"
+	1    5250 2300
 	1    0    0    -1  
 $EndComp
-Text GLabel 5650 1600 2    50   Input ~ 0
+Text GLabel 5750 2200 2    50   Input ~ 0
 V_BAT_SPINANE
 Wire Wire Line
-	5350 1600 5650 1600
+	5450 2200 5750 2200
 Wire Wire Line
-	4950 1700 4600 1700
-Text Notes 4150 1400 0    50   ~ 0
+	5050 2300 4700 2300
+Text Notes 4250 2000 0    50   ~ 0
 Zapinani cele desky\n
-Text Notes 4850 1950 0    50   ~ 0
+Text Notes 4950 2550 0    50   ~ 0
 Kolébkový vypínač
-Text Notes 4350 1650 0    50   ~ 0
+Text Notes 4450 2250 0    50   ~ 0
 IN\n
-Text Notes 5900 1550 0    50   ~ 0
+Text Notes 6000 2150 0    50   ~ 0
 OUT\n
 Text GLabel 9750 2650 0    50   Input ~ 0
 BTN_ENTER
@@ -362,48 +357,7 @@ Wire Wire Line
 	5950 6250 5450 6250
 Wire Wire Line
 	5450 6350 5950 6350
-$Sheet
-S 550  600  950  400 
-U 5F7464DA
-F0 "Battery_pack.sch" 50
-F1 "Battery_pack.sch" 50
-F2 "V_BAT_PRIME" I R 1500 750 50 
-$EndSheet
-Text GLabel 1700 750  2    50   Input ~ 0
-V_BAT_PRIME
-$Sheet
-S 7900 5900 1100 500 
-U 5F751135
-F0 "nabijecka.sch" 50
-F1 "nabijecka.sch" 50
-F2 "bat_+" I L 7900 6000 50 
-$EndSheet
-Text GLabel 7700 6000 0    50   Input ~ 0
-V_BAT_PRIME
-Wire Wire Line
-	7700 6000 7900 6000
 NoConn ~ 5450 6950
-$Sheet
-S 600  5250 1050 500 
-U 5F78DB3E
-F0 "USB.sch" 50
-F1 "USB.sch" 50
-F2 "D+" I R 1650 5350 50 
-F3 "D-" I R 1650 5500 50 
-F4 "VBUS" I R 1650 5650 50 
-$EndSheet
-Text GLabel 1600 4600 2    50   Input ~ 0
-VBUS
-Text GLabel 1600 4750 2    50   Input ~ 0
-D+
-Text GLabel 1600 4900 2    50   Input ~ 0
-D-
-Text GLabel 1800 5650 2    50   Input ~ 0
-VBUS
-Text GLabel 1800 5350 2    50   Input ~ 0
-D+
-Text GLabel 1800 5500 2    50   Input ~ 0
-D-
 Text GLabel 1800 6250 2    50   Input ~ 0
 V_BAT
 Wire Wire Line
@@ -432,6 +386,8 @@ F1 "LEDky40.sch" 50
 F2 "V_BAT_1" I L 7800 900 50 
 F3 "DATA_IN" I L 7800 750 50 
 F4 "V_BAT_2" I L 7800 1050 50 
+F5 "V_BAT_3" I L 7800 1200 50 
+F6 "V_BAT_4" I L 7800 1350 50 
 $EndSheet
 Text GLabel 9750 900  0    50   Input ~ 0
 V_BAT_1
@@ -455,7 +411,7 @@ Text GLabel 5950 4850 2    50   Input ~ 0
 ZAPINANI_2_CAST_LED
 Wire Wire Line
 	5950 5350 5450 5350
-NoConn ~ 5350 1800
+NoConn ~ 5450 2400
 NoConn ~ 5450 4650
 $Sheet
 S 600  2600 1300 350 
@@ -623,23 +579,15 @@ V_BAT
 Wire Wire Line
 	9850 6100 10000 6100
 Wire Wire Line
-	5950 6650 5450 6650
+	5950 6650 5800 6650
 Wire Wire Line
 	5950 4850 5450 4850
-Wire Wire Line
-	1500 750  1700 750 
 Wire Wire Line
 	2150 2850 1900 2850
 Wire Wire Line
 	1900 2700 2150 2700
 Wire Wire Line
 	1600 3400 1800 3400
-Wire Wire Line
-	1650 5350 1800 5350
-Wire Wire Line
-	1650 5500 1800 5500
-Wire Wire Line
-	1650 5650 1800 5650
 Wire Wire Line
 	1600 4450 1450 4450
 Wire Wire Line
@@ -648,12 +596,6 @@ Wire Wire Line
 	1600 4150 1450 4150
 Wire Wire Line
 	1450 4000 1600 4000
-Wire Wire Line
-	1450 4600 1600 4600
-Wire Wire Line
-	1600 4750 1450 4750
-Wire Wire Line
-	1450 4900 1600 4900
 $Sheet
 S 9950 650  1050 850 
 U 5FACC290
@@ -662,6 +604,8 @@ F1 "LEDky40.sch" 50
 F2 "V_BAT_1" I L 9950 900 50 
 F3 "DATA_IN" I L 9950 750 50 
 F4 "V_BAT_2" I L 9950 1050 50 
+F5 "V_BAT_3" I L 9950 1200 50 
+F6 "V_BAT_4" I L 9950 1350 50 
 $EndSheet
 Text GLabel 9750 1050 0    50   Input ~ 0
 V_BAT_2
@@ -675,6 +619,10 @@ F3 "V_BAT_1" I R 1600 6400 50
 F4 "V_BAT_2" I R 1600 6550 50 
 F5 "GPIO_1" I R 1600 7000 50 
 F6 "GPIO_2" I R 1600 7150 50 
+F7 "V_BAT_3" I R 1600 6700 50 
+F8 "GPIO_3" I R 1600 7300 50 
+F9 "V_BAT_4" I R 1600 6850 50 
+F10 "GPIO_4" I R 1600 7450 50 
 $EndSheet
 Text GLabel 5950 5150 2    50   Input ~ 0
 BARVA_3
@@ -708,4 +656,188 @@ Wire Wire Line
 	5950 5050 5450 5050
 Wire Wire Line
 	5450 5150 5950 5150
+$Comp
+L Device:LED D?
+U 1 1 5FB248CB
+P 4950 1400
+F 0 "D?" H 4943 1145 50  0000 C CNN
+F 1 "green" H 4943 1236 50  0000 C CNN
+F 2 "LED_SMD:LED_0603_1608Metric" H 4950 1400 50  0001 C CNN
+F 3 "~" H 4950 1400 50  0001 C CNN
+F 4 "C72043" H 4950 1400 50  0001 C CNN "LCSC"
+	1    4950 1400
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5FB24AE4
+P 5450 1400
+F 0 "R?" V 5243 1400 50  0000 C CNN
+F 1 "10k" V 5334 1400 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 5380 1400 50  0001 C CNN
+F 3 "~" H 5450 1400 50  0001 C CNN
+F 4 "C25744" V 5450 1400 50  0001 C CNN "LCSC"
+	1    5450 1400
+	0    1    1    0   
+$EndComp
+$Comp
+L power:+3V3 #PWR?
+U 1 1 5FB24FF5
+P 4550 1400
+F 0 "#PWR?" H 4550 1250 50  0001 C CNN
+F 1 "+3V3" V 4565 1528 50  0000 L CNN
+F 2 "" H 4550 1400 50  0001 C CNN
+F 3 "" H 4550 1400 50  0001 C CNN
+	1    4550 1400
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB25283
+P 5850 1400
+F 0 "#PWR?" H 5850 1150 50  0001 C CNN
+F 1 "GND" V 5855 1272 50  0000 R CNN
+F 2 "" H 5850 1400 50  0001 C CNN
+F 3 "" H 5850 1400 50  0001 C CNN
+	1    5850 1400
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	5850 1400 5600 1400
+Wire Wire Line
+	5300 1400 5100 1400
+Wire Wire Line
+	4800 1400 4550 1400
+NoConn ~ 3850 5650
+NoConn ~ 3850 5750
+NoConn ~ 3850 5850
+NoConn ~ 3850 5950
+NoConn ~ 3850 6050
+NoConn ~ 3850 6100
+NoConn ~ 5450 4250
+NoConn ~ 3850 4450
+NoConn ~ 3850 4550
+NoConn ~ 3850 4650
+NoConn ~ 3850 4750
+$Comp
+L power:+5V #PWR?
+U 1 1 5FB67FE3
+P 4700 2300
+F 0 "#PWR?" H 4700 2150 50  0001 C CNN
+F 1 "+5V" V 4715 2428 50  0000 L CNN
+F 2 "" H 4700 2300 50  0001 C CNN
+F 3 "" H 4700 2300 50  0001 C CNN
+	1    4700 2300
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Mechanical:MountingHole H?
+U 1 1 5FB68D3C
+P 2350 7600
+F 0 "H?" H 2450 7646 50  0000 L CNN
+F 1 "MountingHole" H 2450 7555 50  0000 L CNN
+F 2 "" H 2350 7600 50  0001 C CNN
+F 3 "~" H 2350 7600 50  0001 C CNN
+	1    2350 7600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H?
+U 1 1 5FB692D5
+P 3150 7600
+F 0 "H?" H 3250 7646 50  0000 L CNN
+F 1 "MountingHole" H 3250 7555 50  0000 L CNN
+F 2 "" H 3150 7600 50  0001 C CNN
+F 3 "~" H 3150 7600 50  0001 C CNN
+	1    3150 7600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H?
+U 1 1 5FB69413
+P 5400 7600
+F 0 "H?" H 5500 7646 50  0000 L CNN
+F 1 "MountingHole" H 5500 7555 50  0000 L CNN
+F 2 "" H 5400 7600 50  0001 C CNN
+F 3 "~" H 5400 7600 50  0001 C CNN
+	1    5400 7600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H?
+U 1 1 5FB69560
+P 6250 7600
+F 0 "H?" H 6350 7646 50  0000 L CNN
+F 1 "MountingHole" H 6350 7555 50  0000 L CNN
+F 2 "" H 6250 7600 50  0001 C CNN
+F 3 "~" H 6250 7600 50  0001 C CNN
+	1    6250 7600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5FB6A1F5
+P 5800 7000
+F 0 "R?" H 5950 6950 50  0000 C CNN
+F 1 "10k" H 5950 7050 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 5730 7000 50  0001 C CNN
+F 3 "~" H 5800 7000 50  0001 C CNN
+F 4 "C25744" V 5800 7000 50  0001 C CNN "LCSC"
+	1    5800 7000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5FB6A7EA
+P 5800 7250
+F 0 "#PWR?" H 5800 7100 50  0001 C CNN
+F 1 "+3.3V" H 5815 7423 50  0000 C CNN
+F 2 "" H 5800 7250 50  0001 C CNN
+F 3 "" H 5800 7250 50  0001 C CNN
+	1    5800 7250
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	5800 6850 5800 6650
+Connection ~ 5800 6650
+Wire Wire Line
+	5800 6650 5450 6650
+Wire Wire Line
+	5800 7250 5800 7150
+Wire Wire Line
+	7800 1200 7500 1200
+Wire Wire Line
+	7800 1350 7500 1350
+Wire Wire Line
+	9950 1200 9750 1200
+Wire Wire Line
+	9750 1350 9950 1350
+Text GLabel 7500 1200 0    50   Input ~ 0
+V_BAT_3
+Text GLabel 7500 1350 0    50   Input ~ 0
+V_BAT_4
+Text GLabel 9750 1200 0    50   Input ~ 0
+V_BAT_3
+Text GLabel 9750 1350 0    50   Input ~ 0
+V_BAT_4
+Text GLabel 1800 6700 2    50   Input ~ 0
+V_BAT_3
+Text GLabel 1800 6850 2    50   Input ~ 0
+V_BAT_4
+Wire Wire Line
+	1800 6700 1600 6700
+Wire Wire Line
+	1600 6850 1800 6850
+Text GLabel 1800 7300 2    50   Input ~ 0
+ZAPINANI_3_CAST_LED
+Text GLabel 1800 7450 2    50   Input ~ 0
+ZAPINANI_4_CAST_LED
+Wire Wire Line
+	1800 7300 1600 7300
+Wire Wire Line
+	1600 7450 1800 7450
+Text GLabel 2500 5550 2    50   Input ~ 0
+ZAPINANI_3_CAST_LED
+Text GLabel 2600 5700 2    50   Input ~ 0
+ZAPINANI_4_CAST_LED
 $EndSCHEMATC
