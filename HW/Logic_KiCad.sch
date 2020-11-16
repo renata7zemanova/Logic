@@ -238,8 +238,6 @@ F 4 "C72043" H 4950 900 50  0001 C CNN "LCSC"
 	1    4950 900 
 	-1   0    0    1   
 $EndComp
-Text GLabel 4600 900  0    50   Input ~ 0
-V_BAT
 $Comp
 L Device:R R2
 U 1 1 602AE39C
@@ -813,4 +811,15 @@ F3 "V_LED_1" I L 9950 900 50
 F4 "V_LED_2" I L 9950 1050 50 
 F5 "V_LED_3" I L 9950 1200 50 
 $EndSheet
+$Comp
+L power:+5V #PWR?
+U 1 1 5FBE4E34
+P 4600 900
+F 0 "#PWR?" H 4600 750 50  0001 C CNN
+F 1 "+5V" V 4615 1028 50  0000 L CNN
+F 2 "" H 4600 900 50  0001 C CNN
+F 3 "" H 4600 900 50  0001 C CNN
+	1    4600 900 
+	0    -1   -1   0   
+$EndComp
 $EndSCHEMATC
