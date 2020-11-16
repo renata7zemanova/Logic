@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 18 30
+Sheet 19 28
 Title ""
 Date ""
 Rev ""
@@ -14,7 +14,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 Text HLabel 1000 1000 0    50   Input ~ 0
-V_BAT_1
+V_LED_1
 Text HLabel 1000 800  0    50   Input ~ 0
 DATA_IN
 $Sheet
@@ -40,7 +40,7 @@ F3 "DATA_OUT" I R 3700 800 50
 F4 "V_BAT" I L 2750 1000 50 
 $EndSheet
 Text HLabel 2650 1000 0    50   Input ~ 0
-V_BAT_1
+V_LED_1
 Wire Wire Line
 	2650 1000 2750 1000
 Wire Wire Line
@@ -55,7 +55,7 @@ F3 "DATA_OUT" I R 5250 800 50
 F4 "V_BAT" I L 4300 1000 50 
 $EndSheet
 Text HLabel 4150 1000 0    50   Input ~ 0
-V_BAT_1
+V_LED_1
 Wire Wire Line
 	4150 1000 4300 1000
 Wire Wire Line
@@ -69,8 +69,6 @@ F2 "DATA_IN" I L 1250 1700 50
 F3 "DATA_OUT" I R 2200 1700 50 
 F4 "V_BAT" I L 1250 1900 50 
 $EndSheet
-Text HLabel 1000 1900 0    50   Input ~ 0
-V_BAT_2
 Wire Wire Line
 	1250 1700 1000 1700
 Wire Wire Line
@@ -169,27 +167,29 @@ Wire Wire Line
 	2200 3600 2350 3600
 NoConn ~ 2350 3600
 Text HLabel 2650 1900 0    50   Input ~ 0
-V_BAT_2
+V_LED_2
 Text HLabel 4150 1900 0    50   Input ~ 0
-V_BAT_2
+V_LED_2
 Wire Wire Line
 	4300 1900 4150 1900
 Wire Wire Line
 	2750 1900 2650 1900
-Text HLabel 1000 2800 0    50   Input ~ 0
-V_BAT_3
-Text HLabel 2650 2800 0    50   Input ~ 0
-V_BAT_3
+Text HLabel 4150 2800 0    50   Input ~ 0
+V_LED_3
 Wire Wire Line
 	2750 2800 2650 2800
 Wire Wire Line
 	1250 2800 1000 2800
-Text HLabel 4150 2800 0    50   Input ~ 0
-V_BAT_4
-Text HLabel 1000 3800 0    50   Input ~ 0
-V_BAT_4
 Wire Wire Line
 	4300 2800 4150 2800
 Wire Wire Line
 	1250 3800 1000 3800
+Text HLabel 1000 1900 0    50   Input ~ 0
+V_LED_1
+Text HLabel 2650 2800 0    50   Input ~ 0
+V_LED_3
+Text HLabel 1000 3800 0    50   Input ~ 0
+V_LED_3
+Text HLabel 1000 2800 0    50   Input ~ 0
+V_LED_2
 $EndSCHEMATC
