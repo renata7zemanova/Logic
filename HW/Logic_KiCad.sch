@@ -717,7 +717,6 @@ F 1 "MountingHole" H 800 7255 50  0000 L CNN
 F 2 "MountingHole:MountingHole_3.2mm_M3_DIN965_Pad" H 700 7300 50  0001 C CNN
 F 3 "~" H 700 7300 50  0001 C CNN
 F 4 "-" H 700 7300 50  0001 C CNN "LCSC"
-F 5 "0;0;0" H 700 7300 50  0001 C CNN "JLCPCB_CORRECTION"
 	1    700  7300
 	1    0    0    -1  
 $EndComp
