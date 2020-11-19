@@ -14,11 +14,14 @@ Cílem hry je nalézt správnou kombinaci dříve, než skončí plocha herního
 Těžší varianta spočívá v možnosti absence barvy - v zadání je mezera.
 
 \chapter{Koncept}
-Celá DPS je navržena tak, aby odpovídala svým vzhledem deskové hře. Ve spodní části jsou ovládací prvky.
-Hráč pomocí tlačítek vybírá pozici a určuje jí barvu. Po ukončení tahu hra vyhodnotí zvolenou kombinaci a hráč může pokračovat dalším tahem.
+Celá DPS je navržena tak, aby se svým vzhledem co nejvíce podobala deskové hře. Ve spodní části DPS jsou tlačítka, která
+slouží pro ovládání hry.
+Hráč pomocí tlačítek vybírá pozici a určuje barvu LED na dané pozici. Po ukončení tahu hra vyhodnotí kombinaci zvolenou hráčem
+a hráč může pokračovat dalším tahem.
 Herní pole proto obsahuje sekci s herními LED a s vyhodnocovacími LED.
 
-DPS je navržena pro strojní osazování u firmy JLCPCB.
+DPS je navržena pro výrobu i strojní osazení u firmy JLCPCB. Výrobní podklady proto musely být navrženy v souladu
+s jejich výrobními možnostmi [citace].
 
 \chapter{Použitý hardware}
 \section{Procesor}
@@ -32,7 +35,13 @@ Tímto způsobem se všechna data dostanou ke všem LED. V programu musí být t
 Porovnání WS2812B s WS2812C
 
 \chapter{Návrh DPS}
-DPS je navržena v programu KiCad.
+DPS je navržena v programu KiCad a má 4 vrstvy. Vnitřní vrstvy slouží pro napájení. V jedné vnitřní vrstvě je po celé její
+ploše rozlité GND a ve druhé vnitřní vrstvě jsou rozlitá jednotlivá napájecí napětí. 
+Vrchní a spodní strana slouží pro signálové dráhy. Všechny SMD součástky jsou umístěny na vrchní vrstvě, protože firma
+JLCPCB osazuje pouze z jedné strany. THT součástky jsou připraveny na ruční pájení, proto je kolem nich ponecháno více místa.
+
+Kondenzátory u procesoru musí být co nejblíže k jeho pouzdru, aby se do procesoru dostalo co nejméně rušení.
+
 
 \section{Napájení}
 Byly zvoleny baterie 18650.
