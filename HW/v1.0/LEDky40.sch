@@ -1,0 +1,195 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 19 28
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+Text HLabel 1000 1000 0    50   Input ~ 0
+V_LED_1
+Text HLabel 1000 800  0    50   Input ~ 0
+DATA_IN
+$Sheet
+S 1250 700  950  500 
+U 5F78E191
+F0 "1.sch" 50
+F1 "LEDky4.sch" 50
+F2 "DATA_IN" I L 1250 800 50 
+F3 "DATA_OUT" I R 2200 800 50 
+F4 "V_BAT" I L 1250 1000 50 
+$EndSheet
+Wire Wire Line
+	1000 800  1250 800 
+Wire Wire Line
+	1000 1000 1250 1000
+$Sheet
+S 2750 700  950  500 
+U 5F791DD2
+F0 "2.sch" 50
+F1 "LEDky4.sch" 50
+F2 "DATA_IN" I L 2750 800 50 
+F3 "DATA_OUT" I R 3700 800 50 
+F4 "V_BAT" I L 2750 1000 50 
+$EndSheet
+Text HLabel 2650 1000 0    50   Input ~ 0
+V_LED_1
+Wire Wire Line
+	2650 1000 2750 1000
+Wire Wire Line
+	2750 800  2200 800 
+$Sheet
+S 4300 700  950  500 
+U 5F793C20
+F0 "3.sch" 50
+F1 "LEDky4.sch" 50
+F2 "DATA_IN" I L 4300 800 50 
+F3 "DATA_OUT" I R 5250 800 50 
+F4 "V_BAT" I L 4300 1000 50 
+$EndSheet
+Text HLabel 4150 1000 0    50   Input ~ 0
+V_LED_1
+Wire Wire Line
+	4150 1000 4300 1000
+Wire Wire Line
+	4300 800  3700 800 
+$Sheet
+S 1250 1600 950  500 
+U 5F7945F7
+F0 "4.ch" 50
+F1 "LEDky4.sch" 50
+F2 "DATA_IN" I L 1250 1700 50 
+F3 "DATA_OUT" I R 2200 1700 50 
+F4 "V_BAT" I L 1250 1900 50 
+$EndSheet
+Wire Wire Line
+	1250 1700 1000 1700
+Wire Wire Line
+	1000 1700 1000 1400
+Wire Wire Line
+	1000 1400 5450 1400
+Wire Wire Line
+	5450 1400 5450 800 
+Wire Wire Line
+	5450 800  5250 800 
+Wire Wire Line
+	1250 1900 1000 1900
+$Sheet
+S 2750 1600 950  500 
+U 5FB7721A
+F0 "5.sch" 50
+F1 "LEDky4.sch" 50
+F2 "DATA_IN" I L 2750 1700 50 
+F3 "DATA_OUT" I R 3700 1700 50 
+F4 "V_BAT" I L 2750 1900 50 
+$EndSheet
+$Sheet
+S 4300 1600 950  500 
+U 5FB77C34
+F0 "6.sch" 50
+F1 "LEDky4.sch" 50
+F2 "DATA_IN" I L 4300 1700 50 
+F3 "DATA_OUT" I R 5250 1700 50 
+F4 "V_BAT" I L 4300 1900 50 
+$EndSheet
+$Sheet
+S 1250 2500 950  500 
+U 5FB77C64
+F0 "7.sch" 50
+F1 "LEDky4.sch" 50
+F2 "DATA_IN" I L 1250 2600 50 
+F3 "DATA_OUT" I R 2200 2600 50 
+F4 "V_BAT" I L 1250 2800 50 
+$EndSheet
+$Sheet
+S 2750 2500 950  500 
+U 5FB77C81
+F0 "8.sch" 50
+F1 "LEDky4.sch" 50
+F2 "DATA_IN" I L 2750 2600 50 
+F3 "DATA_OUT" I R 3700 2600 50 
+F4 "V_BAT" I L 2750 2800 50 
+$EndSheet
+$Sheet
+S 4300 2500 950  500 
+U 5FB77C9B
+F0 "9.sch" 50
+F1 "LEDky4.sch" 50
+F2 "DATA_IN" I L 4300 2600 50 
+F3 "DATA_OUT" I R 5250 2600 50 
+F4 "V_BAT" I L 4300 2800 50 
+$EndSheet
+$Sheet
+S 1250 3500 950  500 
+U 5FB77CB0
+F0 "10.sch" 50
+F1 "LEDky4.sch" 50
+F2 "DATA_IN" I L 1250 3600 50 
+F3 "DATA_OUT" I R 2200 3600 50 
+F4 "V_BAT" I L 1250 3800 50 
+$EndSheet
+Wire Wire Line
+	2200 1700 2750 1700
+Wire Wire Line
+	3700 1700 4300 1700
+Wire Wire Line
+	5250 1700 5450 1700
+Wire Wire Line
+	5450 1700 5450 2300
+Wire Wire Line
+	5450 2300 1000 2300
+Wire Wire Line
+	1000 2300 1000 2600
+Wire Wire Line
+	1000 2600 1250 2600
+Wire Wire Line
+	2200 2600 2750 2600
+Wire Wire Line
+	3700 2600 4300 2600
+Wire Wire Line
+	5250 2600 5450 2600
+Wire Wire Line
+	5450 2600 5450 3150
+Wire Wire Line
+	5450 3150 1000 3150
+Wire Wire Line
+	1000 3150 1000 3600
+Wire Wire Line
+	1000 3600 1250 3600
+Wire Wire Line
+	2200 3600 2350 3600
+NoConn ~ 2350 3600
+Text HLabel 2650 1900 0    50   Input ~ 0
+V_LED_2
+Text HLabel 4150 1900 0    50   Input ~ 0
+V_LED_2
+Wire Wire Line
+	4300 1900 4150 1900
+Wire Wire Line
+	2750 1900 2650 1900
+Text HLabel 4150 2800 0    50   Input ~ 0
+V_LED_3
+Wire Wire Line
+	2750 2800 2650 2800
+Wire Wire Line
+	1250 2800 1000 2800
+Wire Wire Line
+	4300 2800 4150 2800
+Wire Wire Line
+	1250 3800 1000 3800
+Text HLabel 1000 1900 0    50   Input ~ 0
+V_LED_1
+Text HLabel 2650 2800 0    50   Input ~ 0
+V_LED_3
+Text HLabel 1000 3800 0    50   Input ~ 0
+V_LED_3
+Text HLabel 1000 2800 0    50   Input ~ 0
+V_LED_2
+$EndSCHEMATC
