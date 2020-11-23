@@ -1,5 +1,5 @@
 Drill report for Logic_panel_v1.kicad_pcb
-Created on Sat Nov 21 21:11:59 2020
+Created on Mon Nov 23 20:40:28 2020
 
 Copper Layer Stackup:
     =============================================================
@@ -12,15 +12,15 @@ Copper Layer Stackup:
 Drill file 'Logic_panel_v1.drl' contains
     plated through holes:
     =============================================================
-    T1  0.30mm  0.012"  (106 holes)
-    T2  0.50mm  0.020"  (197 holes)
+    T1  0.30mm  0.012"  (101 holes)
+    T2  0.50mm  0.020"  (199 holes)
     T3  0.55mm  0.022"  (2 holes)  (with 2 slots)
     T4  0.85mm  0.033"  (2 holes)  (with 2 slots)
     T5  1.00mm  0.039"  (3 holes)
     T6  1.10mm  0.043"  (44 holes)
     T7  3.20mm  0.126"  (4 holes)
 
-    Total plated holes count 358
+    Total plated holes count 355
 
 
 Not plated through holes are merged with plated holes
