@@ -13,39 +13,198 @@ Cílem hry je nalézt správnou kombinaci dříve, než skončí plocha herního
 
 Těžší varianta spočívá v možnosti absence barvy - v zadání je mezera.
 
-\chapter{Koncept}
-Celá DPS je navržena tak, aby se svým vzhledem co nejvíce podobala deskové hře. Ve spodní části DPS jsou tlačítka, která
-slouží pro ovládání hry.
-Hráč pomocí tlačítek vybírá pozici a určuje barvu LED na dané pozici. Po ukončení tahu hra vyhodnotí kombinaci zvolenou hráčem
-a hráč může pokračovat dalším tahem.
-Herní pole proto obsahuje sekci s herními LED a s vyhodnocovacími LED.
+\chapter{Popis zapojení}
 
-DPS je navržena pro výrobu i strojní osazení u firmy JLCPCB. Výrobní podklady proto musely být navrženy v souladu
-s jejich výrobními možnostmi [citace].
-
-\chapter{Použitý hardware}
 \section{Procesor}
-Byl zvolen procesor ESP32-PICO.
+Byl vybrán procesor ESP32-PICO-D4.
+
+Tento procesor obsahuje \cite{PICO_datasheet}: %napsáno zatím pro WROOM - opravit
+\begin{itemize}
+    \item WiFi,
+    \item Bluetooth,
+    \item procesor,
+    \item průměrný odběr proudu 80 mA,
+    \item 32 GPIO pinů,
+    \item dvoujádrový 32bitový procesor Xtensa LX6,
+    \item 520 kB SRAM, %?
+    \item 16 MB FLASH. %?
+  \end{itemize}
+
+  Napájecí napětí tohoto procesoru je od 3,0 do 3,6 V \cite{PICO_datasheet}. ESP32-PICO má vyvedeno 32 GPIO pinů, které je 
+  možno softwarově nastavit jako vstupní nebo výstupní. Na tyto piny lze poté připojit různá zařízení. Vstupním senzorem může 
+  být typicky tlačítko a výstupním indikátorem např. LED. Tato zařízení zprostředkovávají komunikaci mezi procesorem a okolním 
+  světem.
+
+  Zapojení pinu EN bylo převzato ze schématu \cite{PICO_datasheet}.
+
+  GPIO piny IO16 a IO17 nemohou být použity, protože ESP32-PICO má na těchto pinech připojenou flash paměť \cite{PICO_datasheet}.
+  Pokud by na tento pin bylo něco připojeno, tak by se procesor nedostal do své paměti. Nahraný program do procesoru by tedy
+  nemohl být načten a DPS by ztratila svoji funkci.
+
+  GPIO piny IO34 a vyšší jsou pouze vstupní \cite{PICO_datasheet}. Vstupní piny nemají softwarově zapojitelný pullup rezistor. 
+  Pokud je tedy zapotřebí pullup rezistor, musí se fyzicky zapojit.
+  
+  \section{Napájení}
+  \subsection{v0.0}
+  \subsection{v1.0}
+  Ve verzi 1.0 bylo napájení předěláno. Napájení v této verzi neprobíhá přes baterie, ale pouze přes USB konektor. Byl 
+  zvolen konektor USB Micro.
+  Výhody:
+  \begin{itemize}
+    \item Absence nabíjecího obvodu,
+    \item absence hlídání stavu nabití baterie,
+    \item absence ochrany proti přepólování (USB konektor je uzpůsoben svým tvarem, aby uživatel nemohl napájení přepólovat.),
+    \item .
+  \end{itemize}
+
+  Nevýhody:
+  \begin{itemize}
+    \item Předpokládá se, že uživatel vlastní powerbanku.% vymyslet další
+  \end{itemize}
+
+  \section{Stepdown}
+  Procesor ESP32-PICO-D4 má napájecí napětí 3,3 V. Napětí z powerbanky přes USB je 5 V. Proto je tedy zapotřebí zapojit 
+  stepdown, který bude vytvářet napájecí napětí pro procesor.
+
+  Jako stepdown byl zvolen čip SY8105.
+  Parametry čipu SY8105 \cite{SY8105_datasheet}:
+  \begin{itemize}
+    \item Vstupní napětí 1,5 - 18 V,
+    \item výstupní proud 5 A,
+    \item pouzdro TSOT23-6.
+  \end{itemize}
+
+  \begin{figure}[!h]
+    \begin{center}
+      \includegraphics[scale=0.5]{obrazky/SY8105_schema.png}
+    \end{center}
+    \caption[SY8105 schéma]{Schéma zapojení čipu SY8105 \cite{SY8105_datasheet}.}
+  \end{figure}
+
+  Výstupní napětí je závislé na poměru odporů R11 a R12. Nastavené velikosti odporů jsou pro výstupní napětí 3,3 V pro procesor 
+  ESP32-PICO.
+
+  \section{Převodník z USB na RS-232}
+  Procesor ESP32-PICO používá jako komunikační rozhraní linku RS-232. Programování ale probíhá přes USB, které toto rozhraní
+  nemá. Proto bylo potřeba použít převodník z USB na rozhraní RS-232.
+Pro převod z USB na RS-232 byl použit čip CP2102. %protože je i na devkitu
+
+Parametry čipu CP2102 [citace]:
+\begin{itemize}
+    \item 
+\end{itemize}
+
+Čip CP2102 zároveň převádí logiku 0 - 5 V na logiku 0 - 3,3 V \cite{CP2102_datasheet}.
+
+Jeho zapojení bylo převzato z datasheetu [citace / devkit - možná jsem to vzala z devkitu].
+
+Z USB jsou signály D+ a D- připojeny k čipu CP2102. Tento čip tento signál převede na signály RX a TX, které mají výstup 
+na pinech RXD a TXD. Následně jsou tyto signály připojeny k procesoru ESP32-PICO. Signály RX a TX se musí překřížit – RX 
+CP2102 se připojí na TX ESP32-PICO a TX CP2102 se připojí na RX ESP32-PICO. 
+
+LED D10 a D11 slouží k indikaci komunikace. Jsou zapojeny podle datasheetu \cite{CP2102_datasheet}. Pokud je do procesoru 
+nahráván program, tak LED D10 a D11 blikají.
+%obrázek schématu
+
 \section{LED}
-Byly zvoleny programovatelné LED WS2812C. Tento typ LED je určen pro přenosná zařízení, díky jejich nízké spotřebě oproti typu WS2812B.
-Tyto LED jsou řízeny programově. K procesoru jsou připojeny všechny jedním datovým pinem. Z procesoru jsou těmto LED předávána data za sebou v
-RGB formátu. Každá LED má definovaný počet bytů, ve kterých jsou data právě pro jednu LED. Pokud LED registruje další data, tak je pošle dál.
-Tímto způsobem se všechna data dostanou ke všem LED. V programu musí být tedy zachováno pořadí LED. 
+Byly vybrány LED typu WS2812C. Tento typ LED je určen pro přenosná zařízení, díky jejich nízké spotřebě. Každá LED 
+má v sobě procesor, který slouží pro zpracování dat. LED přebírají informaci o barvě v RGB formátu. 
+Tyto LED byly vybrány z důvodu nízké spotřeby a také kvůli jednoduchému přístupu z pohledu programování.
+LED WS2812C se zapojují za sebou přes piny DATA OUT a DATA IN. Každá LED si přebere data, která jsou pro ni a zbytek 
+pošle další LED.
 
-Porovnání WS2812B s WS2812C
+Parametry LED WS2812C [citace]: %přidat
+\begin{itemize}
+    \item 
+\end{itemize}
 
-\chapter{Návrh DPS}
-DPS je navržena v programu KiCad a má 4 vrstvy. Vnitřní vrstvy slouží pro napájení. V jedné vnitřní vrstvě je po celé její
-ploše rozlité GND a ve druhé vnitřní vrstvě jsou rozlitá jednotlivá napájecí napětí. 
-Vrchní a spodní strana slouží pro signálové dráhy. Všechny SMD součástky jsou umístěny na vrchní vrstvě, protože firma
-JLCPCB osazuje pouze z jedné strany. THT součástky jsou připraveny na ruční pájení, proto je kolem nich ponecháno více místa.
+Porovnání WS2812C s WS2812B:
+%tabulka
 
-Kondenzátory u procesoru musí být co nejblíže k jeho pouzdru, aby se do procesoru dostalo co nejméně rušení.
+Ke každé LED je připojen na napájení filtrační kondenzátor [citace na doporučení z datasheetu], aby LED svítili kontinuálně 
+a nedostal se jim na napájení žádný šum.
+
+\subsection{Rozdělení}
+LED jsou rozděneny do tří skupin. Skupina LED pro zadání, skupina LED pro herní pole a skupina LED pro zobrazení vyhodnocení 
+tahu.
+Skupina LED pro zadání obsahuje 4 LED a skupiny pro herní pole a pro vyhodnocení každá 40 LED.
+
+\section{Zapínání LED}
+DPS je navrhována pro přenosnou aplikaci, a proto je potřeba zajistit její co nejnižší odběr. 
+
+LED mají určitou spotřebu, i když zrvona nesvítí žádnou barvou. Proto je herní pole dohromady s vyhodnocovacími LED rozděleno 
+na 3 části. Do první části patří LED se zadáním a první 4 čtveřice LED z herního pole a z vyhodnocení. Do druhé části patří 
+další 3 čtveřice LED z herního pole a z vyhodnocení. Do třetí části patří poslední 3 čtveřice LED z herního pole a z 
+vyhodnocení.
+
+Těmto 3 částem je postupně zapínáno napájecí napětí. Každé části se zapne napájení až pokud se hráč dostane do fáze, kdy 
+danou oblast bude potřebovat. K zapínání dochází softwarově spínáním GPIO pinem procesoru.
+
+Ke spínání slouží obvody s MOSFET tranzistory. MOSFET tranzistory byly zvoleny pro jejich nulovou spotřebu, narozdíl od 
+bipolárních tranzistorů. 
+%přidat obrázek
+
+\subsection{Popis funkce}
+%přepsat
+
+\section{Spínací prvky}
+Přepínač SW1 slouží pro zapínání celé DPS. Tento přepínač připojuje napájecí napětí 5 V z USB k celému zbytku DPS.
+
+Tlačítka slouží pro ovládání hry. Ke každému tlačítku je připojen kondenzátor o hodnotě 100 nF. Tento kondenzátor 
+slouží pro filtraci zákmitů při zmáčknutí tlačítka. Filtrace se proto nemusí řešit softwarově.
+
+\section{PowerLED}
+Diody D1 a D2 slouží pro indikaci přítomnosti napájecího napětí.  Dioda D1 indikuje přítomnost napájecího napětí 
+5 V a dioda D2 indikuje přítomnost napájecího napětí 3,3 V.
+
+\chapter{Popis DPS}
+DPS je navržena v programu KiCad a její parametry jsou určeny pro výrobu i osazení ve firmě JLCPCB \cite{JLCPCB}. Výrobní 
+podklady proto musely být navrženy v souladu s jejich výrobními možnostmi \cite{JLCPCB_Capabilities}.
+
+DPS má 4 vrstvy. Vnitřní vrstvy slouží pro napájení a vnější pro signálové dráhy. V jedné vnitřní vrstvě je po celé její ploše 
+rozlité GND a ve druhé vnitřní vrstvě jsou rozlitá jednotlivá napájecí napětí.
+
+Na vrchní straně jsou umístěny i plošky pro osazení SMD součástek, protože firma JLCPCB osazuje pouze SMD součástky z jedné 
+strany. THT součástky jsou připraveny na ruční pájení.
+
+Signálové dráhy jsou vedeny tenkou dráhou a napájecí dráhy jsou vedeny tlusčí dráhou. V signálových drahách tečou zanedbatelné 
+proudy, proto mohou být co nejtenčí. Výrobce umožňuje vyrobit nejtenčí dráhu u čtyřvrstvé DPS 0,09 mm \cite{JLCPCB_Capabilities}. 
+Aby nebyly použity krajní hodnoty, byla zvolena šířka signálové dráhy 0,150 mm.
+
+Kondenzátoty u procesoru ESP32-PICO a u čipu CP2102 musí být umístěny co nejblíže jejich pouzdru. Tyto kondenzátory slouží pro 
+filtraci šumu na napájení.
+
+Dráhy od USB k čipu CP2102 D+ a D- fungují jako diferenciální pár. Proto musejí být jejich dráhy vedeny vedle sebe a blízko u 
+sebe.
+
+Rozložení počástek k čipu SY8105 na DPS může velmi ovlivnit jeho funkčnost. Rozložení a zapojení stepdownu 
+bylo převzato z datasheetu \cite{SY8105_datasheet}. %vložit obrázek
+
+LED jsou rozděleny do 3 skupin, aby se hra co nejvíce podobala deskové hře. LED pro zadání jsou v horní části DPS. V levém 
+sloupci pod zadáním jsou LED, které slouží jako herní pole, a v pravém sloupci jsou LED pro vyhodnocení tahu.
+
+\chapter{Oživení DPS}
+DPS přijde z výroby ve stavu, kdy jsou osazeny pouze SMD komponenty. % fotka
+
+Poté je nutné ručně osadit THT součástky, tj. vypínač, tlačítka a konektor USB micro. Připojení DPS přes USB k powerbance, 
+nebo do počítače, se rozsvítí LED D1 a D2, které indikují přítomnost napájecího napětí. LED D2 zároveň značí, že stepdown je 
+funkční.
 
 
-\section{Napájení}
-Byly zvoleny baterie 18650.
 
+
+
+
+
+
+
+
+
+
+
+
+
+%možná vůbec nebude, nebo bude určitě jinde
 \section{Nabíjecí obvod}
 Pro nabíjecí obvod byl zvolen čip TP4056. Jeho zapojení bylo převzato z datasheetu [citace]. %tady bude obrázek schématu asi
 Velikost rezistoru $R_\textind{PROG}$ se volí podle nabíjecího proudu. 
@@ -82,19 +241,3 @@ Tabulka rezistorů $R_\textind{PROG}$.. [citace]
 \end{table}
 
 Nabíjení baterií by mělo probíhat při 0,5C, tudíž pro 18650 je to cca 0,5 A. Proto byl zvolen rezitor Rprog 2 kOhm.
-
-\section{Měření baterie}
-
-\section{Stepdown}
-
-\section{Ochrana proti přepólování}
-
-\section{Zapínání LED}
-
-\section{Programovací převodník}
-Jako nabíjecí a zároveň programovací konektor slouží USB. Procesor má pouze programovací rozhraní RS-232. Aby mohlo programování probíhat z USB, 
-musí DPS obsahovat převodník z USB na RS-232. Byl zvolen převodník CP2102. 
-
-Byl zvolen protože na ESP32 devkitu C je použit právě tento převodník. Byl zapojen podle doporučeného zapojení v datasheetu [citace].
-
-\chapter{Ovládání hry}
