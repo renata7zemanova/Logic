@@ -87,31 +87,42 @@ Tento procesor obsahuje \cite{PICO_datasheet}: %napsáno zatím pro WROOM - opra
   \section{Převodník z USB na RS-232}
   Procesor ESP32-PICO používá jako komunikační rozhraní linku RS-232. Programování ale probíhá přes USB, které toto rozhraní
   nemá. Proto bylo potřeba použít převodník z USB na rozhraní RS-232.
-Pro převod z USB na RS-232 byl použit čip CP2102. %protože je i na devkitu
+  
+  Pro převod z USB na RS-232 byl použit čip CP2102, který  zároveň převádí logiku 0 - 5 V na logiku 0 - 3,3 V 
+  \cite{CP2102_datasheet}.%protože je i na devkitu
 
 Parametry čipu CP2102 [citace]:
 \begin{itemize}
     \item 
 \end{itemize}
 
-Čip CP2102 zároveň převádí logiku 0 - 5 V na logiku 0 - 3,3 V \cite{CP2102_datasheet}.
-
-Jeho zapojení bylo převzato z datasheetu [citace / devkit - možná jsem to vzala z devkitu].
+\begin{figure}[!h]
+    \begin{center}
+      \includegraphics[scale=0.5]{obrazky/CP2102_schema.png}
+    \end{center}
+    \caption[CP2102 schéma]{Schéma zapojení převodníku z USB na RS-232 [citace asi devkit].}
+\end{figure}
 
 Z USB jsou signály D+ a D- připojeny k čipu CP2102. Tento čip tento signál převede na signály RX a TX, které mají výstup 
 na pinech RXD a TXD. Následně jsou tyto signály připojeny k procesoru ESP32-PICO. Signály RX a TX se musí překřížit – RX 
 CP2102 se připojí na TX ESP32-PICO a TX CP2102 se připojí na RX ESP32-PICO. 
 
-LED D10 a D11 slouží k indikaci komunikace. Jsou zapojeny podle datasheetu \cite{CP2102_datasheet}. Pokud je do procesoru 
-nahráván program, tak LED D10 a D11 blikají.
-%obrázek schématu
+LED D10 a D11 slouží k indikaci komunikace s procesorem. Jsou zapojeny podle datasheetu \cite{CP2102_datasheet}. Pokud je do 
+procesoru nahráván program, tak LED D10 a D11 blikají.
+
+\begin{figure}[!h]
+    \begin{center}
+      \includegraphics[scale=0.5]{obrazky/CP2102_LED.png}
+    \end{center}
+    \caption[CP2102 LED]{Zapojení LED pro indikaci komunikace s procesorem k čipu CP2102 \cite{CP2102_datasheet}.}
+\end{figure}
 
 \section{LED}
 Byly vybrány LED typu WS2812C. Tento typ LED je určen pro přenosná zařízení, díky jejich nízké spotřebě. Každá LED 
 má v sobě procesor, který slouží pro zpracování dat. LED přebírají informaci o barvě v RGB formátu. 
 Tyto LED byly vybrány z důvodu nízké spotřeby a také kvůli jednoduchému přístupu z pohledu programování.
-LED WS2812C se zapojují za sebou přes piny DATA OUT a DATA IN. Každá LED si přebere data, která jsou pro ni a zbytek 
-pošle další LED.
+LED WS2812C se zapojují za sebou přes piny DATA OUT a DATA IN. Každá LED si přebere data, která jsou pro ni a zbytek pošle 
+další LED.
 
 Parametry LED WS2812C [citace]: %přidat
 \begin{itemize}
