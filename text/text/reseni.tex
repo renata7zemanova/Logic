@@ -89,18 +89,24 @@ Tento procesor obsahuje \cite{PICO_datasheet}: %napsáno zatím pro WROOM - opra
   nemá. Proto bylo potřeba použít převodník z USB na rozhraní RS-232.
   
   Pro převod z USB na RS-232 byl použit čip CP2102, který  zároveň převádí logiku 0 - 5 V na logiku 0 - 3,3 V 
-  \cite{CP2102_datasheet}.%protože je i na devkitu
+  \cite{CP2102_datasheet}. Tento čip byl vybrán z důvodu použití i na kitu ESP32-DEVKITC, kde je funkční.
+  Zapojení čipu bylo převzato z tohoto kitu ESP32-DEVKITC.
 
-Parametry čipu CP2102 [citace]:
+  Čip CP2102 dokáže komunikovat vekým množstvím komunikačních rychlostí (300, 9600, 19200, 38400, 115200, 256000, atd) 
+  \cite{CP2102_datasheet}. PC započne komunikaci určitou rychlostí a tento čip tuto komunikaci zachytí, určí rychlost 
+  a touto rychlostí začne probíhat programování.
+
+Parametry čipu CP2102 \cite{CP2102_datasheet}: %přidat
 \begin{itemize}
-    \item 
+    \item regulátor 3,3 V,
+    \item typický odběr proudu 9,5 mA.
 \end{itemize}
 
 \begin{figure}[!h]
     \begin{center}
       \includegraphics[scale=0.5]{obrazky/CP2102_schema.png}
     \end{center}
-    \caption[CP2102 schéma]{Schéma zapojení převodníku z USB na RS-232 [citace asi devkit].}
+    \caption[CP2102 schéma]{Schéma zapojení převodníku z USB na RS-232 \cite{Devkit_schema}.}
 \end{figure}
 
 Z USB jsou signály D+ a D- připojeny k čipu CP2102. Tento čip tento signál převede na signály RX a TX, které mají výstup 
@@ -118,29 +124,41 @@ procesoru nahráván program, tak LED D10 a D11 blikají.
 \end{figure}
 
 \section{LED}
-Byly vybrány LED typu WS2812C. Tento typ LED je určen pro přenosná zařízení, díky jejich nízké spotřebě. Každá LED 
-má v sobě procesor, který slouží pro zpracování dat. LED přebírají informaci o barvě v RGB formátu. 
+Byly vybrány LED typu WS2812C. Tento typ LED je určen pro přenosná zařízení, díky jejich nízké spotřebě. Tyto LED jsou plně
+kompatibilní s typem WS2812B, ke kterým existují knihovny, které usnadňují softwarovou práci s nimi \cite{WS2812C_datasheet}.
+
+Každá LED má v sobě procesor, který slouží pro zpracování dat. LED přebírají informaci o barvě v RGB formátu. 
 Tyto LED byly vybrány z důvodu nízké spotřeby a také kvůli jednoduchému přístupu z pohledu programování.
 LED WS2812C se zapojují za sebou přes piny DATA OUT a DATA IN. Každá LED si převezme data, která jsou pro ni a zbytek pošle 
 další LED.
 
-Parametry LED WS2812C [citace]: %přidat
+\begin{figure}[!h]
+    \begin{center}
+      \includegraphics[scale=0.5]{obrazky/WS2812C_spojeni.png}
+    \end{center}
+    \caption[WS2812C spojení]{Zapojení LED WS2812C \cite{WS2812C_datasheet}.}
+\end{figure}
+
+Parametry LED WS2812C \cite{WS2812C_datasheet}: %přidat
 \begin{itemize}
+    \item Napájecí napětí 3,5 - 5,3 V,
+    \item výstupní napětí -0,5 - VDD - 0,5 V,
+    \item typický odběr proudu 5 mA,
     \item 
 \end{itemize}
 
 Porovnání WS2812C s WS2812B:
 %tabulka
 
-Ke každé LED je připojen na napájení filtrační kondenzátor [citace na doporučení z datasheetu], aby LED svítili kontinuálně 
-a nedostal se jim na napájení žádný šum.
+Ke každé LED je připojen na napájení filtrační kondenzátor \cite{WS2812C_datasheet}, aby LED svítili kontinuálně a nedostal se 
+jim na napájení žádný šum.
 
 \subsection{Rozdělení}
 LED jsou rozděneny do tří skupin. Skupina LED pro zadání, skupina LED pro herní pole a skupina LED pro zobrazení vyhodnocení 
 tahu.
 Skupina LED pro zadání obsahuje 4 LED a skupiny pro herní pole a pro vyhodnocení každá 40 LED.
 
-\section{Zapínání LED}
+\section{Zapínání napájení LED}
 DPS je navrhována pro přenosnou aplikaci, a proto je potřeba zajistit její co nejnižší odběr. 
 
 LED mají určitou spotřebu, i když zrvona nesvítí žádnou barvou. Proto je herní pole dohromady s vyhodnocovacími LED rozděleno 
@@ -153,9 +171,16 @@ danou oblast bude potřebovat. K zapínání dochází softwarově spínáním G
 
 Ke spínání slouží obvody s MOSFET tranzistory. MOSFET tranzistory byly zvoleny pro jejich nulovou spotřebu, narozdíl od 
 bipolárních tranzistorů. 
-%přidat obrázek
 
-\subsection{Popis funkce}
+\begin{figure}[!h]
+  \begin{center}
+    \includegraphics[scale=0.5]{obrazky/Zapinani_napajeni_LED.png}
+  \end{center}
+  \caption[Zapinani LED]{Obvod pro zapínání napájení pro LED.}
+\end{figure}
+
+
+\subsection{Popis funkce zapínání LED}
 %přepsat
 
 \section{Spínací prvky}
@@ -164,9 +189,23 @@ Přepínač SW1 slouží pro zapínání celé DPS. Tento přepínač připojuje
 Tlačítka slouží pro ovládání hry. Ke každému tlačítku je připojen kondenzátor o hodnotě 100 nF. Tento kondenzátor 
 slouží pro filtraci zákmitů při zmáčknutí tlačítka. Filtrace se proto nemusí řešit softwarově.
 
+\begin{figure}[!h]
+  \begin{center}
+    \includegraphics[scale=0.5]{obrazky/Tlacitka_zapojeni.png}
+  \end{center}
+  \caption[Zapojení tlačítek]{Zapojení tlačítek.}
+\end{figure}
+
 \section{PowerLED}
 Diody D1 a D2 slouží pro indikaci přítomnosti napájecího napětí.  Dioda D1 indikuje přítomnost napájecího napětí 
 5 V a dioda D2 indikuje přítomnost napájecího napětí 3,3 V.
+
+\begin{figure}[!h]
+  \begin{center}
+    \includegraphics[scale=0.5]{obrazky/powerLED.png}
+  \end{center}
+  \caption[Zapojeni powerLED]{Zapojení LED pro indikaci napájecího napětí.}
+\end{figure}
 
 \chapter{Popis DPS}
 DPS je navržena v programu KiCad a její parametry jsou určeny pro výrobu i osazení ve firmě JLCPCB \cite{JLCPCB}. Výrobní 
@@ -189,19 +228,45 @@ Dráhy od USB k čipu CP2102 D+ a D- fungují jako diferenciální pár. Proto m
 sebe.
 
 Rozložení počástek k čipu SY8105 na DPS může velmi ovlivnit jeho funkčnost. Rozložení a zapojení stepdownu 
-bylo převzato z datasheetu \cite{SY8105_datasheet}. %vložit obrázek
+bylo převzato z datasheetu.
+
+\begin{figure}[!h]
+  \begin{center}
+    \includegraphics[scale=0.5]{obrazky/SY8105_rozlozeni_na_DPS.png}
+  \end{center}
+  \caption[SY8105 rozložení na DPS]{Rozložení součástek kolem čipu SY8105 na DPS \cite{SY8105_datasheet}.}
+\end{figure}
 
 LED jsou rozděleny do 3 skupin, aby se hra co nejvíce podobala deskové hře. LED pro zadání jsou v horní části DPS. V levém 
-sloupci pod zadáním jsou LED, které slouží jako herní pole, a v pravém sloupci jsou LED pro vyhodnocení tahu.
+sloupci pod zadáním jsou LED, které slouží jako herní pole, a v pravém sloupci jsou LED pro vyhodnocení tahu. Každá LED musí 
+mít svůj filtrační kondenzátor na napájení co nejblíže svému pouzdru.
 
 \chapter{Oživení DPS}
-DPS přijde z výroby ve stavu, kdy jsou osazeny pouze SMD komponenty. % fotka
+\section{v0.0}
+Po dodání DPS z výroby byly zapájeny THT komponenty (pouzdro na baterii, USB konektor, tlačítka a vypínač). Po zapojení baterií
+18650 do pouzdra se rozsvítí zelená LED D1, která indikuje přítomnost napájecího napětí. Po připojení k počítači přes USB
+se rozsvítí LED D9. Ta signalizuje nabíjení baterií. Pokud se rozsvítí LED D8, znamená to, že baterie jsou nabité.
+
+\section{v1.0}
+DPS přijde z výroby ve stavu, kdy jsou osazeny pouze SMD komponenty. % fotka DPS
 
 Poté je nutné ručně osadit THT součástky, tj. vypínač, tlačítka a konektor USB micro. Připojení DPS přes USB k powerbance, 
 nebo do počítače, se rozsvítí LED D1 a D2, které indikují přítomnost napájecího napětí. LED D2 zároveň značí, že stepdown je 
 funkční.
 
+\chapter{Způsob ovládání elektronické hry}
+První verze je připravena jako hra pro jednoho hráče.
 
+Po zapnutí DPS stikneme tlačítko "Nová hra". V této chvíli se vygeneruje zadání, které není vidět,
+a na první herní LED se rozbliká kurzor. 
+Kurzorem lze pohybovat pomocí tlačítek "Šipka vpravo" a "Šipka vlevo". Barvy LED se nastavují tlačítky ve spodní části DPS,
+které jsou barevně označené. 
+Po ukončení tahu stiskneme tlačítko "Potvrdit tah". Proběhne vyhodnocení a zobrazí se na vyhodnocovacích LED. Kurzor se posune
+na první LED v dalším řádku.
+Po zadání správné kombinace barev a jejich pozic se rozsvítí zadání a hra je u konce. Pro novou hru stiskneme tlačítko
+"Nová hra" a pro ukončení tlačítko "Konec".
+Při stisku tlačítka "Konec" zhasnou všechny herní, vyhodnocovací LED i LED pro zadání. Poté je DPS připravena pro vypnutí
+vypínačem. V této fázi lze zároveň stisknout tlačítko "Nová hra". 
 
 
 
