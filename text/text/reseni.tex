@@ -1,6 +1,6 @@
 \chapter{Pravidla hry}
-Logic je desková hra pro dva hráče. Jeden hráč určí hledanou kombinaci, dále bude označován jako hráč A, a druhý tuto kombinaci 
-za pomocí logických úvah a
+Hra Logic je desková hra pro dva hráče \cite{Logic_pravidla}. Jeden hráč určí hledanou kombinaci, dále bude označován jako 
+hráč A, a druhý tuto kombinaci za pomocí logických úvah a
 vyhodnocení hráčem A hledá, dále bude označován jako hráč B.
 
 Hráči si určí herní pozice. Hráč A vybere barvy a následně je v určitém pořadí vloží do zadávacího pole a zakryje je, aby tuto
@@ -9,14 +9,28 @@ ukončení tahu nechá
 hráče A, aby tah vyhodnotil. Hráč A vyhodnotí tah následujícím způsobem. Pokud hráč B vložil správnou barvu na správnou pozici, tak vloží 
 do vyhodnocovací sekce černý kolík. Pokud vložil barvu, která se v zadání vyskytuje, ale vložil ji na nesprávnou pozici, tak vloží bílý kolík.
 Pokud zůstanou některé pozice neobsazené, tak to znamená, že daná barva se v zadání nevyskytuje. Poté začne hráč B na základě vyhodnocení a 
-svých všech předchozích tahů hledat kombinaci.
+svých všech předchozích tahů hledat správnou kombinaci.
 
 Cílem hry je nalézt správnou kombinaci dříve, než skončí plocha herního pole.
 
-Hru lze hrát ve více variantách. Hřáči se mohou domluvit, zda zadání může, nebo nesmí obsahovat volnou pozici. Zároveň existuje 
+Hru lze hrát ve více variantách. Hráči se mohou domluvit, zda zadání může, nebo nesmí obsahovat volnou pozici. Zároveň existuje 
 více variací této hry. Většinou se liší v délce hledané kombinace.
 
 \chapter{Popis zapojení}
+
+\begin{figure}[!h]
+  \begin{center}
+    \includegraphics[scale=0.6]{obrazky/v0_blokove_schema.jpg}
+  \end{center}
+  \caption[Blokové schéma zapojení v0.0]{Blokové schéma zapojení v0.0.}
+\end{figure}
+
+\begin{figure}[!h]
+  \begin{center}
+    \includegraphics[scale=0.6]{obrazky/v1_blokove_schema.jpg}
+  \end{center}
+  \caption[Blokové schéma zapojení v1.0]{Blokové schéma zapojení v1.0.}
+\end{figure}
 
 \section{Procesor}
 Byl vybrán procesor ESP32-PICO-D4.
@@ -56,17 +70,17 @@ Tento procesor obsahuje \cite{PICO_datasheet}: %napsáno zatím pro WROOM - opra
   Ve verzi 1.0 byl změněn způsob napájení. Napájení v této verzi neprobíhá přes baterie, ale pouze přes USB konektor, přes 
   který ve verzi 0.0 probíhalo pouze programování procesoru a nabíjení baterií. 
 
-  Výhody:
+  Výhody
   \begin{itemize}
-    \item Absence nabíjecího obvodu,
+    \item absence nabíjecího obvodu,
     \item absence hlídání stavu nabití baterie,
     \item absence ochrany proti přepólování (USB konektor je uzpůsoben svým tvarem, aby uživatel nemohl napájení přepólovat.),
     \item napájení inteligentních LED napětím přímo z USB (Inteligentní LED mají menší odběr proudu.).
   \end{itemize}
 
-  Nevýhody:
+  Nevýhody
   \begin{itemize}
-    \item Předpokládá se, že uživatel vlastní powerbanku.% vymyslet další
+    \item předpokládá se, že uživatel vlastní powerbanku.% vymyslet další
   \end{itemize}
 
   Byl zvolen konektor USB Micro, protože se jedná o nejrozšířenější USB konektor dnešní doby.
@@ -139,7 +153,7 @@ procesoru nahráván program, tak LED D10 a D11 blikají.
 
 \begin{figure}[!h]
     \begin{center}
-      \includegraphics[scale=1]{obrazky/CP2102_LED.png}
+      \includegraphics[scale=0.5]{obrazky/CP2102_LED.png}
     \end{center}
     \caption[Zapojení LED pro indikaci komunikace čipu CP2102 s procesorem]{Zapojení LED pro indikaci komunikace čipu CP2102 s procesorem \cite{CP2102_datasheet}.}
 \end{figure}
@@ -209,13 +223,14 @@ bipolárních tranzistorů.
 \end{figure}
 
 Napájení inteligentních LED nelze spínat pouze jedním tranzistorem, protože logická 1 procesoru má hodnotu 3,3 V, ale je 
-zapotřebí spínat 5 V. Pokud bychom pro spínání použili pouze jeden MOSFET tranzistor, tak by napájení bylo vždy sepnuto.
+zapotřebí spínat 5 V. Pokud by byl pro spínání použit pouze jeden MOSFET tranzistor, tak by napájení bylo vždy sepnuto.
 
-GPIO pin procesoru je nastaven do logické 0, dokud nechceme dané skupině přivést napájecí napětí. Při logické nule na gate 
+GPIO pin procesoru je nastaven do logické 0, dokud není potřebné přivedení napájecího napětí dané skupině. 
+Při logické nule na gate 
 tranzistoru Q4 je tranzistor zavřený. Tranzistor Q5 v tomto okamžiku drží zavřený rezistor R15.
 
-Když GPIO pin procesoru přepneme do logické 1, tak se tranzistor Q4 otevře. Otevřením tranzistoru Q4 je gate tranzistoru Q5 
-připojen ke GND a tím se otevře i tranzistor Q5, kterým sepneme napájecí napětí dané skupině inteligentních LED.
+Když je GPIO pin procesoru přepnut do logické 1, tak se tranzistor Q4 otevře. Otevřením tranzistoru Q4 je gate tranzistoru Q5 
+připojen ke GND a tím se otevře i tranzistor Q5, kterým je sepnuto napájecí napětí dané skupině inteligentních LED.
 
 Rezistor R14 udržuje tranzistor Q4 zavřený při nestandardních stavech pinu procesoru, jako je např. při resetu procesoru.
 
@@ -248,12 +263,12 @@ DPS je navržena v programu KiCad a její parametry jsou určeny pro výrobu i o
 podklady proto musely být navrženy v souladu s jejich výrobními možnostmi \cite{JLCPCB_Capabilities}.
 
 DPS má 4 vrstvy. Vnitřní vrstvy slouží pro napájení a vnější pro signálové dráhy. V jedné vnitřní vrstvě je po celé její ploše 
-rozlité GND a ve druhé vnitřní vrstvě jsou rozlitá jednotlivá napájecí napětí.
+polygon GND a ve druhé vnitřní vrstvě jsou polyogny jednotlivých napájecích napětí.
 
 Na vrchní straně jsou umístěny plošky pro osazení SMD součástek, protože firma JLCPCB osazuje pouze SMD součástky a pouze z jedné 
 strany. THT součástky jsou připraveny na ruční pájení.
 
-Signálové dráhy jsou vedeny tenkou dráhou a napájecí dráhy jsou vedeny tlusčí dráhou. V signálových drahách tečou zanedbatelné 
+Signálové dráhy jsou vedeny tenkou dráhou a napájecí dráhy jsou vedeny širší dráhou. V signálových drahách tečou zanedbatelné 
 proudy, proto mohou být co nejtenčí. Výrobce umožňuje vyrobit nejtenčí dráhu u čtyřvrstvé DPS 0,09 mm \cite{JLCPCB_Capabilities}. 
 Aby nebyly použity krajní hodnoty, byla zvolena šířka signálové dráhy 0,150 mm.
 
@@ -263,7 +278,7 @@ filtraci šumu na napájení.
 Dráhy od USB k čipu CP2102 D+ a D- fungují jako diferenciální pár. Proto musejí být jejich dráhy vedeny vedle sebe a blízko u 
 sebe.
 
-Rozložení počástek k čipu SY8105 na DPS může velmi ovlivnit jeho funkčnost. Rozložení a zapojení stepdownu 
+Rozložení součástek k čipu SY8105 na DPS může velmi ovlivnit jeho funkčnost. Rozložení a zapojení stepdownu 
 bylo převzato z datasheetu.
 
 \begin{figure}[!h]
