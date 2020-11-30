@@ -70,6 +70,8 @@ build
 citace.txt
 schema
 schema_Logic.zip
+*.drawio
+CP2102_LED
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
