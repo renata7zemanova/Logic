@@ -1997,12 +1997,17 @@ a~som si plne vedom%
   \rule{\linewidth}{0pt}\nopagebreak
   \vskip 2em plus 2fill
   {%% sazba bibliograficke citace
-    \vspace{\stretch{1}}\noindent
+    \newpage %%přidáno mnou!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    %\vspace{\stretch{1}}\noindent
+    \mbox{}
+    \vfill
+    \noindent
     \parbox{\linewidth}{%%%
       \sffamily \MakeUppercase{\author@prijmeni},~\author@jmeno{}.
       {\slshape \title@orig@lang}.
       \@city, \@grade, \pocet@stran~\citace@stran.
-      {\csname oznaceniprace@\orig@lang\endcsname}.
+      %{\csname oznaceniprace@\orig@lang\endcsname}.
+      Semestrální práce.
       \university@orig@lang,
       \faculty@orig@lang,
       \department@orig@lang.

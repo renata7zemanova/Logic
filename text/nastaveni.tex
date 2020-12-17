@@ -10,8 +10,8 @@
   %english-slovak,	% originální jazyk je angličtina, překlad je slovensky
 %
 %%% Z následujících voleb typu práce lze použít pouze jednu
-  semestral,		  % semestrální práce (nesází se abstrakty, prohlášení, poděkování) (výchozí)
-  %bachelor,			%	bakalářská práce
+  %semestral,		  % semestrální práce (nesází se abstrakty, prohlášení, poděkování) (výchozí)
+  bachelor,			%	bakalářská práce
   %master,			  % diplomová práce
   %treatise,			% pojednání o dizertační práci
   %doctoral,			% dizertační práce
@@ -26,17 +26,17 @@
 %%% Jméno a příjmení autora ve tvaru
 %  [tituly před jménem]{Křestní}{Příjmení}[tituly za jménem]
 % Pokud osoba nemá titul před/za jménem, smažte celý řetězec '[...]'
-\author[Bc.]{Křestní}{Příjmení}
+\author{Renata}{Zemanová}
 
 %%% Pohlaví autora/autorky
 % (nepoužije se ve variantě english-czech ani english-slovak)
 % Číselná hodnota: 1...žena, 0...muž
-\gender{0}
+\gender{1}
 
 %%% Jméno a příjmení vedoucího/školitele včetně titulů
 %  [tituly před jménem]{Křestní}{Příjmení}[tituly za jménem]
 % Pokud osoba nemá titul před/za jménem, smažte celý řetězec '[...]'
-\advisor[prof.\ Ing.]{Křestní}{Příjmení}[CSc.]
+\advisor[doc.\ Ing.]{Jiří}{Háze}[Ph.D.]
 
 %%% Jméno a příjmení oponenta včetně titulů
 %  [tituly před jménem]{Křestní}{Příjmení}[tituly za jménem]
@@ -49,12 +49,12 @@
 %%% Název práce
 %  Parametr ve složených závorkách {} je název v originálním jazyce,
 %  parametr v hranatých závorkách [] je překlad (podle toho jaký je originální jazyk)
-\title[Title of Student's Thesis]{Název studentské práce}
+\title[Electronic game Logic]{Elektronická hra Logic}
 
 %%% Označení oboru studia
 %  Parametr ve složených závorkách {} je název oboru v originálním jazyce,
 %  parametr v hranatých závorkách [] je překlad
-\specialization[Teleinformatics]{Teleinformatika}
+\specialization[Microelectronics and technology]{mikroelektronika a technologie}
 
 %%% Označení ústavu
 %  Parametr ve složených závorkách {} je název ústavu v originálním jazyce,
@@ -66,10 +66,10 @@
 %\department[Department of Physics]{Ústav fyziky}
 %\department[Department of Foreign Languages]{Ústav jazyků}
 %\department[Department of Mathematics]{Ústav matematiky}
-%\department[Department of Microelectronics]{Ústav mikroelektroniky}
+\department[Department of Microelectronics]{Ústav mikroelektroniky}
 %\department[Department of Radio Electronics]{Ústav radioelektroniky}
 %\department[Department of Theoretical and Experimental Electrical Engineering]{Ústav teoretické a experimentální elektrotechniky}
-\department[Department of Telecommunications]{Ústav telekomunikací}
+%\department[Department of Telecommunications]{Ústav telekomunikací}
 %\department[Department of Power Electrical and Electronic Engineering]{Ústav výkonové elektrotechniky a elektroniky}
 
 %%% Označení fakulty
@@ -88,32 +88,40 @@
 \facultylogo[logo/FEKT_zkratka_barevne_PANTONE_CZ]{logo/UTKO_color_PANTONE_CZ}
 
 %%% Rok sepsání práce
-\graduateyear{2030}
+\graduateyear{2020}
 
 %%% Datum obhajoby (uplatní se pouze v prezentaci k obhajobě)
-\date{11.\,11.\,1980} 
+\date{07.\,01.\,2021} 
 
 %%% Místo obhajoby
 % Na titulních stránkách bude automaticky vysázeno VELKÝMI písmeny (pokud tyto stránky sází šablona)
 \city{Brno}
 
 %%% Abstrakt
-\abstract[%
-Překlad abstraktu
-(v~angličtině, pokud je originálním jazykem čeština či slovenština; v~češtině či slovenštině, pokud je originálním jazykem angličtina)
-]{%
-Abstrakt práce v~originálním jazyce
+\abstract[
+The goal of this thesis is design an electronic game Logic. This electronic game should look like the board game and also respect the game's 
+rules.
+
+The electronic game is designed as one PCB that contains control electronics and game elements. A~prototype of electronics hardware was made,
+on which the functionality of the connection was tested.
+]{
+Cílem práce je navrhnout elektronickou hru Logic. Elektronická hra musí respektovat pravidla deskové hry. Dále by se hra měla i~svým vzhledem
+podobat deskové hře.
+
+Elektronická hra je navržena jako jedna DPS, která obsahuje řídicí elektroniku i~herní prvky. Byl vyroben prototyp hardwaru elektroniky, na němž 
+byla otestována funkčnost zapojení.
 }
 
 %%% Klíčová slova
-\keywrds[%
-Překlad klíčových slov
-(v~angličtině, pokud je originálním jazykem čeština či slovenština; v~češtině či slovenštině, pokud je originálním jazykem angličtina)
-]{%
-Klíčová slova v~originálním jazyce
+\keywrds[
+Electronic game Logic, board game rules, ESP32-PICO, intelligent control LED WS2812C, USB, PCB
+]{
+Elektronická hra Logic, pravidla deskové hry, ESP32-PICO, inteligentní LED WS2812C, USB, DPS
 }
 
 %%% Poděkování
 \acknowledgement{%
-Rád bych poděkoval vedoucímu diplomové práce panu Ing.~XXX YYY, Ph.D.\ za odborné vedení, konzultace, trpělivost a podnětné návrhy k~práci.
+Ráda bych poděkovala vedoucímu bakalářské práce panu doc.~Ing.~Jiřímu Házemu, Ph.D.\ za odborné vedení, konzultace, trpělivost a podnětné návrhy 
+k~práci.
 }%
+
