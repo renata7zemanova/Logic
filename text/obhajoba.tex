@@ -88,28 +88,20 @@
 \begin{frame} 
 	% nadpis snímku
 	\frametitle{Cíle práce}
+	\vspace{1cm}
 	\begin{itemize}
-			\item Nastudovat
-			\item Popsat
-				\begin{itemize}
-					\item nastudované
-				\end{itemize}
-			\item Implementovat
-				\begin{itemize}
-					\item nastudované
-					\item nové
-				\end{itemize}
-			\item Porovnat a vyhodnotit
-				\begin{itemize}
-						\item výsledky
-				\end{itemize}
+			\item Nastudování pravidla
+			\item Návrh
+			\item Výroba
+			\item Testování
+			\item Ovládání hry
 	\end{itemize}
 \end{frame}
 
 
 %%%%%%%%%%%%%
 \begin{frame} 
-	\frametitle{Klíčové nástroje}
+	\frametitle{Pravidla}
 
 	% prostředí 'alertblock', které slouží pro zdůraznění informace
 	\begin{alertblock}{Pro práci je klíčový Eulerův vzorec}
@@ -130,7 +122,7 @@
 
 %%%%%%%%%%%%%
 \begin{frame} 
-	\frametitle{Plošný spoj}
+	\frametitle{Návrh prototypu}
 	
 	\begin{columns}[T] 								% prostředí sloupce s umístěním nahoře
 		\begin{column}{0.4\textwidth}		% první sloupec
@@ -148,7 +140,7 @@
 			\begin{figure}%	
 				\centering
 				\vspace{1cm}	              % horizontální mezera
-				\includegraphics[width=0.8\columnwidth]{obrazky/soucastky}
+				\includegraphics[width=0.8\columnwidth]{obrazky/powerLED.png}
 				%lze vložit popisek, ale povetšinou je to v prezentaci zbytečné
 				%\caption{Popisek obrázku}%
 				%\label{obr:ukazka}
@@ -160,7 +152,47 @@
 
 %%%%%%%%%%%%%
 \begin{frame} 
-	\frametitle{Výsledky}
+	\frametitle{Výroba}
+	\vspace{1cm}
+	\begin{table}[]
+		\centering
+		\caption{Výsledky měření mobilních sítí}
+		\label{tab:tabulka}
+			\begin{tabular}{lcc}
+				\toprule
+					Technologie  & Rychlost stahování [kB/s] & Rychlost nahrávání [kB/s] \\
+				\midrule
+					GPRS (2,5G)	& 7,2 	& 3,6\\
+					UMTS 3G     & 48 		& 48\\
+					HSPA (3,5G)	&	1\,706	&	720\\
+					LTE (4G) 		& 40\,750 & 10\,750\\
+				\bottomrule                                       
+			\end{tabular}
+	\end{table}
+\end{frame}
+
+\begin{frame} 
+	\frametitle{Testování}
+	\vspace{1cm}
+	\begin{table}[]
+		\centering
+		\caption{Výsledky měření mobilních sítí}
+		\label{tab:tabulka}
+			\begin{tabular}{lcc}
+				\toprule
+					Technologie  & Rychlost stahování [kB/s] & Rychlost nahrávání [kB/s] \\
+				\midrule
+					GPRS (2,5G)	& 7,2 	& 3,6\\
+					UMTS 3G     & 48 		& 48\\
+					HSPA (3,5G)	&	1\,706	&	720\\
+					LTE (4G) 		& 40\,750 & 10\,750\\
+				\bottomrule                                       
+			\end{tabular}
+	\end{table}
+\end{frame}
+
+\begin{frame} 
+	\frametitle{Způsob hry}
 	\vspace{1cm}
 	\begin{table}[]
 		\centering
@@ -183,7 +215,27 @@
 %%%%%%%%%%%%%
 \begin{frame} 
 	\frametitle{Závěr}
-	\dots
+	\begin{columns}[T] 								% prostředí sloupce s umístěním nahoře
+		\begin{column}{0.4\textwidth}		% první sloupec
+			%\begin{itemize}
+			%	\item Deska
+			%	\item Součástky
+			%	\item Signály
+			%	\item Napájení
+			%\end{itemize}
+		\end{column}
+		%
+		\begin{column}{0.6\textwidth}		% druhý sloupec
+			\begin{figure}%	
+				\centering
+				%\vspace{0.1cm}	              % horizontální mezera
+				\includegraphics[width=0.8\columnwidth]{obrazky/Verze1_3D_pohled.png}
+				%lze vložit popisek, ale povetšinou je to v prezentaci zbytečné
+				%\caption{Popisek obrázku}%
+				%\label{obr:ukazka}
+			\end{figure}
+		\end{column}
+	\end{columns}	
 \end{frame}
 
 
@@ -197,11 +249,11 @@
 \end{frame}
 
 % otázky oponenta
-\frame{
-\frametitle{Otázky oponenta}
-	\emph{Jaká je souvislost Vašeho vzorce (1.2) s~Maxwellovými rovnicemi v~integrálním tvaru?}\\[2ex]
+%\frame{
+%\frametitle{Otázky oponenta}
+%	\emph{Jaká je souvislost Vašeho vzorce (1.2) s~Maxwellovými rovnicemi v~integrálním tvaru?}\\[2ex]
 	%
-	Již staří Římané\,\dots
-}
+%	Již staří Římané\,\dots
+%}
 
 \end{document}
