@@ -102,45 +102,71 @@
 %%%%%%%%%%%%%
 \begin{frame} 
 	\frametitle{Pravidla}
-
-	% prostředí 'alertblock', které slouží pro zdůraznění informace
-	\begin{alertblock}{Pro práci je klíčový Eulerův vzorec}
-		$$\eul^{\jmag x}=\cos x + \jmag\sin x$$
-	\end{alertblock}
-
-	\vspace{4ex}
-	Eulerova identita je speciálním případem tohoto vzorce, jestliže dosadíme $x=\uppi$\,:
-
-	% prostředí 'block', které slouží jako informativní
-	\begin{block}{Eulerova identita}
-		$$\eul^{\jmag \uppi}=\cos \uppi + \jmag\sin \uppi,$$\\
-		odkud vyplývá
-		$$\eul^{\jmag \uppi}+1=0.$$
-	\end{block}
-\end{frame} 
-
-
-%%%%%%%%%%%%%
-\begin{frame} 
-	\frametitle{Návrh prototypu}
-	
 	\begin{columns}[T] 								% prostředí sloupce s umístěním nahoře
-		\begin{column}{0.4\textwidth}		% první sloupec
-			Obrázek znázorňuje model:\\[2ex]
-			%
+		\begin{column}{0.5\textwidth}		% první sloupec
+			\vspace{0.5cm}
 			\begin{itemize}
-				\item Deska
-				\item Součástky
-				\item Signály
-				\item Napájení
+				\item Respektování pravidel deskové hry
+				\item Zadání kombinace barev v určitém pořadí
+				\item Vyhodnocení
+				\begin{itemize}
+					\item Správná barva na správné pozici
+					\item Správná barva na špatné pozici
+				\end{itemize}
+				\item 10 pokusů
 			\end{itemize}
 		\end{column}
 		%
-		\begin{column}{0.6\textwidth}		% druhý sloupec
+		\begin{column}{0.5\textwidth}		% druhý sloupec
 			\begin{figure}%	
 				\centering
-				\vspace{1cm}	              % horizontální mezera
-				\includegraphics[width=0.8\columnwidth]{obrazky/powerLED.png}
+				\vspace{0.5cm}	              % horizontální mezera
+				\includegraphics[width=1.1\columnwidth]{obrazky/Logic_deskovka.png}
+				%lze vložit popisek, ale povetšinou je to v prezentaci zbytečné
+				%\caption{Popisek obrázku}%
+				%\label{obr:ukazka}
+			\end{figure}
+		\end{column}
+	\end{columns}	
+\end{frame} 
+
+
+	% prostředí 'alertblock', které slouží pro zdůraznění informace
+	%\begin{alertblock}{Pro práci je klíčový Eulerův vzorec}
+	%	$$\eul^{\jmag x}=\cos x + \jmag\sin x$$
+	%\end{alertblock}
+
+	%\vspace{4ex}
+	%Eulerova identita je speciálním případem tohoto vzorce, jestliže dosadíme $x=\uppi$\,:
+
+	% prostředí 'block', které slouží jako informativní
+	%\begin{block}{Eulerova identita}
+	%	$$\eul^{\jmag \uppi}=\cos \uppi + \jmag\sin \uppi,$$\\
+	%	odkud vyplývá
+	%	$$\eul^{\jmag \uppi}+1=0.$$
+	%\end{block}
+%%%%%%%%%%%%%
+\begin{frame} 
+	\frametitle{Návrh elektroniky}
+	
+	\begin{columns}[T] 								% prostředí sloupce s umístěním nahoře
+		\begin{column}{0.45\textwidth}		% první sloupec
+			\vspace{0.5cm}
+			\begin{itemize}
+				\item Řídicí elektronika
+				\item Napájení
+				\item Měnič napětí
+				\item Převodník z USB na RS-232
+				\item Herní prvky
+				\item Ovládací prvky
+			\end{itemize}
+		\end{column}
+		%
+		\begin{column}{0.55\textwidth}		% druhý sloupec
+			\begin{figure}%	
+				\centering
+				\vspace{0.5cm}	              % horizontální mezera
+				\includegraphics[width=1\columnwidth]{obrazky/v1_blokove_schema.jpg}
 				%lze vložit popisek, ale povetšinou je to v prezentaci zbytečné
 				%\caption{Popisek obrázku}%
 				%\label{obr:ukazka}
@@ -149,87 +175,196 @@
 	\end{columns}											% ukončení prostředí sloupce
 \end{frame}
 
+\begin{frame} 
+	\frametitle{Herní prvky}
+	\begin{columns}[T] 								% prostředí sloupce s umístěním nahoře
+		\begin{column}{0.4\textwidth}		% první sloupec
+			%Obrázek znázorňuje model:\\[2ex]
+			\vspace{0.5cm}
+			\begin{itemize}
+				\item WS2812C
+				\item RGB
+				\item Napájení
+				\item Princip spojení
+				\item Komunikace
+			\end{itemize}
+		\end{column}
+		%
+		\begin{column}{0.7\textwidth}		% druhý sloupec
+			\begin{figure}%	
+				\centering
+				%\vspace{0.5cm}	              % horizontální mezera
+				\includegraphics[width=0.3\columnwidth]{obrazky/WS2812C.jpg}
+				%lze vložit popisek, ale povetšinou je to v prezentaci zbytečné
+				%\caption{Popisek obrázku}%
+				%\label{obr:ukazka}
+			\end{figure}
+		\end{column}
+	\end{columns}	
+	
+	\begin{figure}%	
+		\centering
+		\vspace{0.5cm}	              % horizontální mezera
+		\includegraphics[width=1\columnwidth]{obrazky/WS2812C_spojeni.png}
+	\end{figure}% ukončení prostředí sloupce
+\end{frame}
+
 
 %%%%%%%%%%%%%
 \begin{frame} 
-	\frametitle{Výroba}
-	\vspace{1cm}
-	\begin{table}[]
-		\centering
-		\caption{Výsledky měření mobilních sítí}
-		\label{tab:tabulka}
-			\begin{tabular}{lcc}
-				\toprule
-					Technologie  & Rychlost stahování [kB/s] & Rychlost nahrávání [kB/s] \\
-				\midrule
-					GPRS (2,5G)	& 7,2 	& 3,6\\
-					UMTS 3G     & 48 		& 48\\
-					HSPA (3,5G)	&	1\,706	&	720\\
-					LTE (4G) 		& 40\,750 & 10\,750\\
-				\bottomrule                                       
-			\end{tabular}
-	\end{table}
+	\frametitle{Návrh DPS}
+		\begin{columns}[T] 	
+		\begin{column}{0.4\textwidth}		% první sloupec
+			%Obrázek znázorňuje model:\\[2ex]
+			\vspace{0.5cm}
+			\begin{itemize}
+				\item KiCad
+				\item JLCPCB
+				\item 4 vrstvy
+			\end{itemize}
+			\vspace{0.5cm}
+			\textbf{Vzhled}
+			\begin{itemize}
+				\item 10 ~$\times$ 10 cm
+				\item 3 části inteligentních LED
+			\end{itemize}
+		\end{column}
+
+		\begin{column}{0.6\textwidth}		% druhý sloupec
+			\begin{figure}%	
+				\centering
+				%\vspace{0.5cm}	              % horizontální mezera
+				\includegraphics[width=0.8\columnwidth]{prilohy/Verze1_DPS_cela.png}
+			\end{figure}% ukončení prostředí sloupce
+		\end{column}
+	\end{columns}
 \end{frame}
 
 \begin{frame} 
-	\frametitle{Testování}
-	\vspace{1cm}
-	\begin{table}[]
-		\centering
-		\caption{Výsledky měření mobilních sítí}
-		\label{tab:tabulka}
-			\begin{tabular}{lcc}
-				\toprule
-					Technologie  & Rychlost stahování [kB/s] & Rychlost nahrávání [kB/s] \\
-				\midrule
-					GPRS (2,5G)	& 7,2 	& 3,6\\
-					UMTS 3G     & 48 		& 48\\
-					HSPA (3,5G)	&	1\,706	&	720\\
-					LTE (4G) 		& 40\,750 & 10\,750\\
-				\bottomrule                                       
-			\end{tabular}
-	\end{table}
+	\frametitle{Návrh DPS}
+		\begin{columns}[T] 	
+		\begin{column}{0.5\textwidth}		% druhý sloupec
+			\vspace{0.5cm}
+			\textbf{Funkční rozmístění součástek}
+			\begin{itemize}
+				\item Kondenzátory co nejblíže pouzdra součáskty
+				\item D+ a D- diferenciální pár
+				\item Rozložení součástek měniče podle dokumentace
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}		% druhý sloupec
+			\begin{figure}%	
+				\centering
+				%\vspace{0.5cm}	              % horizontální mezera
+				\includegraphics[width=1\columnwidth]{obrazky/SY8105_rozlozeni_na_DPS.png}
+			\end{figure}% ukončení prostředí sloupce
+		\end{column}
+	\end{columns}
+\end{frame}
+
+	%\begin{table}[]
+	%	\centering
+	%	\caption{Výsledky měření mobilních sítí}
+		%\label{tab:tabulka}
+		%	\begin{tabular}{lcc}
+		%		\toprule
+		%			Technologie  & Rychlost stahování [kB/s] & Rychlost nahrávání [kB/s] \\
+		%		\midrule
+		%			GPRS (2,5G)	& 7,2 	& 3,6\\
+		%			UMTS 3G     & 48 		& 48\\
+		%			HSPA (3,5G)	&	1\,706	&	720\\
+		%			LTE (4G) 		& 40\,750 & 10\,750\\
+		%		\bottomrule                                       
+		%	\end{tabular}
+	%\end{table}
+
+\begin{frame} 
+	\frametitle{Oživení}
+	\begin{columns}[T] 	
+		\begin{column}{0.4\textwidth}		% druhý sloupec
+			\vspace{0.5cm}
+			\begin{itemize}
+				\item Osazení THT komponent
+				\item Vložení baterií do pouzdra
+				\item LED indikující napájecí napětí
+				\item Chybná pouzdra tranzistorů
+				\item Tlačítko připojeno na špatném pinu
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.6\textwidth}		% druhý sloupec
+			\begin{figure}%	
+				\centering
+				\vspace{0.3cm}	              % horizontální mezera
+				\includegraphics[width=0.8\columnwidth]{obrazky/Verze0_zapnuto_nabito.jpg}
+			\end{figure}% ukončení prostředí sloupce
+		\end{column}
+	\end{columns}
+	
 \end{frame}
 
 \begin{frame} 
 	\frametitle{Způsob hry}
-	\vspace{1cm}
-	\begin{table}[]
+	\begin{figure}%	
 		\centering
-		\caption{Výsledky měření mobilních sítí}
-		\label{tab:tabulka}
-			\begin{tabular}{lcc}
-				\toprule
-					Technologie  & Rychlost stahování [kB/s] & Rychlost nahrávání [kB/s] \\
-				\midrule
-					GPRS (2,5G)	& 7,2 	& 3,6\\
-					UMTS 3G     & 48 		& 48\\
-					HSPA (3,5G)	&	1\,706	&	720\\
-					LTE (4G) 		& 40\,750 & 10\,750\\
-				\bottomrule                                       
-			\end{tabular}
-	\end{table}
+		%\vspace{0.5cm}	              % horizontální mezera
+		\includegraphics[width=0.5\columnwidth]{obrazky/vyvojovy_diagram.png}
+	\end{figure}% ukončení prostředí sloupce
+	%\begin{table}[]
+	%	\centering
+	%	\caption{Výsledky měření mobilních sítí}
+	%	\label{tab:tabulka}
+	%		\begin{tabular}{lcc}
+	%			\toprule
+	%				Technologie  & Rychlost stahování [kB/s] & Rychlost nahrávání [kB/s] \\
+	%			\midrule
+	%				GPRS (2,5G)	& 7,2 	& 3,6\\
+	%				UMTS 3G     & 48 		& 48\\
+	%				HSPA (3,5G)	&	1\,706	&	720\\
+	%				LTE (4G) 		& 40\,750 & 10\,750\\
+	%			\bottomrule                                       
+	%		\end{tabular}
+	%\end{table}
 \end{frame}
 
+\begin{frame} 
+	\frametitle{Plány do budoucna}
+	\vspace{0.5cm}
+	\begin{columns}[T] 								% prostředí sloupce s umístěním nahoře
+		\begin{column}{0.4\textwidth}		% první sloupec
+			\begin{itemize}
+				\item Software
+				\item Konfigurace pro 2 hráče
+				\item Návrh a výroba krabičky
+				\item Jiné způsoby ovládání
+				\item Snížení spotřeby - závislost jasu inteligentních LED na okolním osvětlení
+			\end{itemize}
+		\end{column}
+		%
+		\begin{column}{0.6\textwidth}		% druhý sloupec
+		\end{column}
+	\end{columns}	
+\end{frame}
 
 %%%%%%%%%%%%%
 \begin{frame} 
 	\frametitle{Závěr}
-	\begin{columns}[T] 								% prostředí sloupce s umístěním nahoře
-		\begin{column}{0.4\textwidth}		% první sloupec
-			%\begin{itemize}
-			%	\item Deska
-			%	\item Součástky
-			%	\item Signály
-			%	\item Napájení
-			%\end{itemize}
+	\begin{columns}[T] % prostředí sloupce s umístěním nahoře								
+		\begin{column}{0.3\textwidth}		% první sloupec
+			\vspace{0.5cm}
+			\begin{itemize}
+				\item Pravidla
+				\item Návrh elektroniky
+				\item Návrh DPS
+				\item Oživení
+				\item Způsob hry
+			\end{itemize}
 		\end{column}
 		%
-		\begin{column}{0.6\textwidth}		% druhý sloupec
+		\begin{column}{0.7\textwidth}		% druhý sloupec
 			\begin{figure}%	
 				\centering
 				%\vspace{0.1cm}	              % horizontální mezera
-				\includegraphics[width=0.8\columnwidth]{obrazky/Verze1_3D_pohled.png}
+				\includegraphics[width=0.7\columnwidth]{obrazky/Verze1_3D_pohled.png}
 				%lze vložit popisek, ale povetšinou je to v prezentaci zbytečné
 				%\caption{Popisek obrázku}%
 				%\label{obr:ukazka}
