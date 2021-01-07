@@ -153,6 +153,7 @@
 		\begin{column}{0.45\textwidth}		% první sloupec
 			\vspace{0.5cm}
 			\begin{itemize}
+				\item Přenosné zařízení
 				\item Řídicí elektronika
 				\item Napájení
 				\item Měnič napětí
@@ -165,7 +166,7 @@
 		\begin{column}{0.55\textwidth}		% druhý sloupec
 			\begin{figure}%	
 				\centering
-				\vspace{0.5cm}	              % horizontální mezera
+				\vspace{1cm}	              % horizontální mezera
 				\includegraphics[width=1\columnwidth]{obrazky/v1_blokove_schema.jpg}
 				%lze vložit popisek, ale povetšinou je to v prezentaci zbytečné
 				%\caption{Popisek obrázku}%
@@ -240,28 +241,6 @@
 	\end{columns}
 \end{frame}
 
-\begin{frame} 
-	\frametitle{Návrh DPS}
-		\begin{columns}[T] 	
-		\begin{column}{0.5\textwidth}		% druhý sloupec
-			\vspace{0.5cm}
-			\textbf{Funkční rozmístění součástek}
-			\begin{itemize}
-				\item Kondenzátory co nejblíže pouzdra součáskty
-				\item D+ a D- diferenciální pár
-				\item Rozložení součástek měniče podle dokumentace
-			\end{itemize}
-		\end{column}
-		\begin{column}{0.5\textwidth}		% druhý sloupec
-			\begin{figure}%	
-				\centering
-				%\vspace{0.5cm}	              % horizontální mezera
-				\includegraphics[width=1\columnwidth]{obrazky/SY8105_rozlozeni_na_DPS.png}
-			\end{figure}% ukončení prostředí sloupce
-		\end{column}
-	\end{columns}
-\end{frame}
-
 	%\begin{table}[]
 	%	\centering
 	%	\caption{Výsledky měření mobilních sítí}
@@ -307,7 +286,7 @@
 	\begin{figure}%	
 		\centering
 		%\vspace{0.5cm}	              % horizontální mezera
-		\includegraphics[width=0.5\columnwidth]{obrazky/vyvojovy_diagram.png}
+		\includegraphics[width=1\columnwidth]{obrazky/vyvojovy_diagram_prezentace.png}
 	\end{figure}% ukončení prostředí sloupce
 	%\begin{table}[]
 	%	\centering
@@ -328,9 +307,9 @@
 
 \begin{frame} 
 	\frametitle{Plány do budoucna}
-	\vspace{0.5cm}
 	\begin{columns}[T] 								% prostředí sloupce s umístěním nahoře
 		\begin{column}{0.4\textwidth}		% první sloupec
+			\vspace{0.5cm}
 			\begin{itemize}
 				\item Software
 				\item Konfigurace pro 2 hráče
@@ -341,6 +320,14 @@
 		\end{column}
 		%
 		\begin{column}{0.6\textwidth}		% druhý sloupec
+			\begin{figure}%	
+				\centering
+				%\vspace{0.1cm}	              % horizontální mezera
+				\includegraphics[width=0.7\columnwidth]{obrazky/otaznik.png}
+				%lze vložit popisek, ale povetšinou je to v prezentaci zbytečné
+				%\caption{Popisek obrázku}%
+				%\label{obr:ukazka}
+			\end{figure}
 		\end{column}
 	\end{columns}	
 \end{frame}
@@ -373,14 +360,50 @@
 	\end{columns}	
 \end{frame}
 
-
-% podekovani
-\begin{frame}[c] 
-% bez nadpisu snímku
+\begin{frame} 
 	\frametitle{\mbox{ }}
-	\begin{center}
-		{\Huge Děkuji za pozornost!}
-	\end{center}
+	\begin{columns}[T] % prostředí sloupce s umístěním nahoře								
+		\begin{column}{0.3\textwidth}		% první sloupec
+			\vspace{0.7cm}
+			\centering
+			{\Huge Děkuji za pozornost!}
+			\vspace{0.7cm}
+			\begin{itemize}
+				\item Pravidla
+				\item Návrh elektroniky
+				\item Návrh DPS
+				\item Oživení
+				\item Způsob hry
+			\end{itemize}
+		\end{column}
+		%
+		\begin{column}{0.7\textwidth}		% druhý sloupec
+			\begin{figure}%	
+				\centering
+				%\vspace{0.1cm}	              % horizontální mezera
+				\includegraphics[width=0.6\columnwidth]{obrazky/Verze1_3D_pohled.png}
+				%lze vložit popisek, ale povetšinou je to v prezentaci zbytečné
+				%\caption{Popisek obrázku}%
+				%\label{obr:ukazka}
+			\end{figure}
+		\end{column}
+	\end{columns}	
+\end{frame}
+
+\begin{frame}[c] 
+	\frametitle{Použitá literatura}
+	[1] Agátin svět: Dřevěná hra Logik Praha: [cit. 08. 12. 2020]. Dostupné z URL:
+	<https://www.agatinsvet.cz/drevena-hra-logik/?gclid=Cj0KCQiA5bz-BRD-ARIsABjT4nhc98iKGbskL1JDi\_EOA2-Yynl\_DGO3UGjG5w-4-lmWRE58qwTKp1oaAj9CEALw\_wcB>.
+
+	[2] JLCPCB: PCB Capabilities [cit. 23. 11. 2020]. Dostupné z URL:
+	<https://jlcpcb.com/capabilities/Capabilities>.
+
+	[3] Satic Chipid: TP4056 A Standalone Linear Li-lon Battery Charger with Thermal Regulation in SOP-8 [cit. 03. 12. 2020]. Dostupné z URL:
+	<https://static.chipdip.ru/lib/977/DOC002977110.pdf>.
+
+	[4] Worldsemi: WS2812C Poslední aktualizace 06. 12. 2017 [cit. 24. 11. 2020]. Dostupné z URL:
+	<https://datasheet.lcsc.com/szlcsc/1810231210\_Worldsemi-WS2812C\_C114587.pdf>.
+
 \end{frame}
 
 % otázky oponenta
