@@ -299,13 +299,11 @@ F 5 "0;0;0" H 5250 2300 50  0001 C CNN "JLCPCB_CORRECTION"
 $EndComp
 Wire Wire Line
 	5450 2200 5750 2200
-Wire Wire Line
-	5050 2300 4700 2300
 Text Notes 4250 2000 0    50   ~ 0
 Zapinani cele desky\n
 Text Notes 4950 2550 0    50   ~ 0
 Kolébkový vypínač
-Text Notes 4450 2250 0    50   ~ 0
+Text Notes 4100 2250 0    50   ~ 0
 IN\n
 Text Notes 6000 2150 0    50   ~ 0
 OUT\n
@@ -807,7 +805,7 @@ Text GLabel 1600 4600 2    50   Input ~ 0
 V_IN
 Wire Wire Line
 	1600 4600 1450 4600
-Text GLabel 4700 2300 0    50   Input ~ 0
+Text GLabel 4250 2300 0    50   Input ~ 0
 V_IN
 $Comp
 L power:+5V #PWR012
@@ -841,4 +839,23 @@ F 3 "" H 4600 900 50  0001 C CNN
 	1    4600 900 
 	0    -1   -1   0   
 $EndComp
+$Comp
+L Simulation_SPICE:DIODE D92
+U 1 1 600E85D1
+P 4600 2300
+F 0 "D92" H 4600 2083 50  0000 C CNN
+F 1 "DIODE" H 4600 2174 50  0000 C CNN
+F 2 "Diode_SMD:D_SMA" H 4600 2300 50  0001 C CNN
+F 3 "~" H 4600 2300 50  0001 C CNN
+F 4 "Y" H 4600 2300 50  0001 L CNN "Spice_Netlist_Enabled"
+F 5 "D" H 4600 2300 50  0001 L CNN "Spice_Primitive"
+F 6 "C8678" H 4600 2300 50  0001 C CNN "LCSC"
+F 7 "0;0;180" H 4600 2300 50  0001 C CNN "JLCPCB_CORRECTION"
+	1    4600 2300
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	4450 2300 4250 2300
+Wire Wire Line
+	4750 2300 5050 2300
 $EndSCHEMATC

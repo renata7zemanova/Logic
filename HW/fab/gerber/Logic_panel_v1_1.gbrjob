@@ -7,14 +7,14 @@
       "Application": "Pcbnew",
       "Version":     "5.1.5+dfsg1-2build2"
     },
-    "CreationDate":  "2020-11-23T21:15:33+01:00"
+    "CreationDate":  "2021-01-24T21:22:01+01:00"
   },
   "GeneralSpecs":
   {
     "ProjectId":
     {
-      "Name": "Logic_panel_v1",
-      "GUID": "4c6f6769-635f-4706-916e-656c5f76312e",
+      "Name": "Logic_panel_v1_1",
+      "GUID": "4c6f6769-635f-4706-916e-656c5f76315f",
       "Revision": "rev?"
     },
     "Size":
@@ -32,7 +32,9 @@
       "PadToPad":  0.200,
       "PadToTrack":  0.200,
       "TrackToTrack":  0.200,
-      "MinLineWidth":  0.150
+      "MinLineWidth":  0.150,
+      "TrackToRegion":  0.250,
+      "RegionToRegion":  0.250
     },
     {
       "Layers": "Inner",
@@ -46,47 +48,47 @@
   "FilesAttributes":
   [
     {
-      "Path":  "Logic_panel_v1-CuTop.gbr",
+      "Path":  "Logic_panel_v1_1-CuTop.gbr",
       "FileFunction":  "Copper,L1,Top",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "Logic_panel_v1-CuBottom.gbr",
+      "Path":  "Logic_panel_v1_1-CuBottom.gbr",
       "FileFunction":  "Copper,L4,Bot",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "Logic_panel_v1-PasteBottom.gbr",
+      "Path":  "Logic_panel_v1_1-PasteBottom.gbr",
       "FileFunction":  "SolderPaste,Bot",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "Logic_panel_v1-PasteTop.gbr",
+      "Path":  "Logic_panel_v1_1-PasteTop.gbr",
       "FileFunction":  "SolderPaste,Top",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "Logic_panel_v1-SilkTop.gbr",
+      "Path":  "Logic_panel_v1_1-SilkTop.gbr",
       "FileFunction":  "Legend,Top",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "Logic_panel_v1-SilkBottom.gbr",
+      "Path":  "Logic_panel_v1_1-SilkBottom.gbr",
       "FileFunction":  "Legend,Bot",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "Logic_panel_v1-MaskBottom.gbr",
+      "Path":  "Logic_panel_v1_1-MaskBottom.gbr",
       "FileFunction":  "SolderMask,Bot",
       "FilePolarity":  "Negative"
     },
     {
-      "Path":  "Logic_panel_v1-MaskTop.gbr",
+      "Path":  "Logic_panel_v1_1-MaskTop.gbr",
       "FileFunction":  "SolderMask,Top",
       "FilePolarity":  "Negative"
     },
     {
-      "Path":  "Logic_panel_v1-EdgeCuts.gbr",
+      "Path":  "Logic_panel_v1_1-EdgeCuts.gbr",
       "FileFunction":  "Profile",
       "FilePolarity":  "Positive"
     }
