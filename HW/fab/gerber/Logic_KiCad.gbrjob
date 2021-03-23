@@ -7,20 +7,20 @@
       "Application": "Pcbnew",
       "Version":     "5.1.5+dfsg1-2build2"
     },
-    "CreationDate":  "2021-01-24T21:22:01+01:00"
+    "CreationDate":  "2021-03-22T16:34:41+01:00"
   },
   "GeneralSpecs":
   {
     "ProjectId":
     {
-      "Name": "Logic_panel_v1_1",
-      "GUID": "4c6f6769-635f-4706-916e-656c5f76315f",
+      "Name": "Logic_KiCad",
+      "GUID": "4c6f6769-635f-44b6-9943-61642e6b6963",
       "Revision": "rev?"
     },
     "Size":
     {
-      "X": 100.102,
-      "Y": 100.102
+      "X": 100.500,
+      "Y": 100.500
     },
     "LayerNumber": 4,
     "BoardThickness":  1.600
@@ -48,47 +48,47 @@
   "FilesAttributes":
   [
     {
-      "Path":  "Logic_panel_v1_1-CuTop.gbr",
+      "Path":  "Logic_KiCad-CuTop.gbr",
       "FileFunction":  "Copper,L1,Top",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "Logic_panel_v1_1-CuBottom.gbr",
+      "Path":  "Logic_KiCad-CuBottom.gbr",
       "FileFunction":  "Copper,L4,Bot",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "Logic_panel_v1_1-PasteBottom.gbr",
+      "Path":  "Logic_KiCad-PasteBottom.gbr",
       "FileFunction":  "SolderPaste,Bot",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "Logic_panel_v1_1-PasteTop.gbr",
+      "Path":  "Logic_KiCad-PasteTop.gbr",
       "FileFunction":  "SolderPaste,Top",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "Logic_panel_v1_1-SilkTop.gbr",
+      "Path":  "Logic_KiCad-SilkTop.gbr",
       "FileFunction":  "Legend,Top",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "Logic_panel_v1_1-SilkBottom.gbr",
+      "Path":  "Logic_KiCad-SilkBottom.gbr",
       "FileFunction":  "Legend,Bot",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "Logic_panel_v1_1-MaskBottom.gbr",
+      "Path":  "Logic_KiCad-MaskBottom.gbr",
       "FileFunction":  "SolderMask,Bot",
       "FilePolarity":  "Negative"
     },
     {
-      "Path":  "Logic_panel_v1_1-MaskTop.gbr",
+      "Path":  "Logic_KiCad-MaskTop.gbr",
       "FileFunction":  "SolderMask,Top",
       "FilePolarity":  "Negative"
     },
     {
-      "Path":  "Logic_panel_v1_1-EdgeCuts.gbr",
+      "Path":  "Logic_KiCad-EdgeCuts.gbr",
       "FileFunction":  "Profile",
       "FilePolarity":  "Positive"
     }

@@ -13,7 +13,7 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-Text GLabel 7500 750  0    50   Input ~ 0
+Text GLabel 7350 750  0    50   Input ~ 0
 DATA_herni_LED
 Text GLabel 9750 750  0    50   Input ~ 0
 DATA_hodnoceni_LED
@@ -384,14 +384,14 @@ F5 "V_LED_3" I L 7800 1200 50
 $EndSheet
 Text GLabel 9750 900  0    50   Input ~ 0
 V_LED_1
-Text GLabel 7500 900  0    50   Input ~ 0
+Text GLabel 7200 900  0    50   Input ~ 0
 V_LED_1
-Text GLabel 7500 1050 0    50   Input ~ 0
+Text GLabel 7200 1050 0    50   Input ~ 0
 V_LED_2
 Wire Wire Line
-	7500 750  7800 750 
+	7350 750  7800 750 
 Wire Wire Line
-	7500 900  7550 900 
+	7800 900  7600 900 
 Text GLabel 5950 5350 2    50   Input ~ 0
 ZAPINANI_1_CAST_LED
 Text GLabel 5950 4850 2    50   Input ~ 0
@@ -739,8 +739,8 @@ Wire Wire Line
 Wire Wire Line
 	5800 7350 5800 7150
 Wire Wire Line
-	7800 1200 7750 1200
-Text GLabel 7500 1200 0    50   Input ~ 0
+	7800 1200 7650 1200
+Text GLabel 7200 1200 0    50   Input ~ 0
 V_LED_3
 Text GLabel 9750 1200 0    50   Input ~ 0
 V_LED_3
@@ -1198,53 +1198,53 @@ Wire Wire Line
 $Comp
 L power:PWR_FLAG #FLG0105
 U 1 1 6051C980
-P 7600 1050
-F 0 "#FLG0105" H 7600 1125 50  0001 C CNN
-F 1 "PWR_FLAG" H 7600 1223 50  0000 C CNN
-F 2 "" H 7600 1050 50  0001 C CNN
-F 3 "~" H 7600 1050 50  0001 C CNN
-	1    7600 1050
+P 7400 1050
+F 0 "#FLG0105" H 7400 1125 50  0001 C CNN
+F 1 "PWR_FLAG" H 7400 1223 50  0000 C CNN
+F 2 "" H 7400 1050 50  0001 C CNN
+F 3 "~" H 7400 1050 50  0001 C CNN
+	1    7400 1050
 	-1   0    0    1   
 $EndComp
 $Comp
 L power:PWR_FLAG #FLG0107
 U 1 1 6051CE63
-P 7750 1200
-F 0 "#FLG0107" H 7750 1275 50  0001 C CNN
-F 1 "PWR_FLAG" H 7750 1373 50  0000 C CNN
-F 2 "" H 7750 1200 50  0001 C CNN
-F 3 "~" H 7750 1200 50  0001 C CNN
-	1    7750 1200
+P 7650 1200
+F 0 "#FLG0107" H 7650 1275 50  0001 C CNN
+F 1 "PWR_FLAG" H 7650 1373 50  0000 C CNN
+F 2 "" H 7650 1200 50  0001 C CNN
+F 3 "~" H 7650 1200 50  0001 C CNN
+	1    7650 1200
 	-1   0    0    1   
 $EndComp
-Connection ~ 7750 1200
+Connection ~ 7650 1200
 Wire Wire Line
-	7750 1200 7500 1200
+	7650 1200 7200 1200
 $Comp
 L power:PWR_FLAG #FLG0109
 U 1 1 6051D33A
-P 7550 900
-F 0 "#FLG0109" H 7550 975 50  0001 C CNN
-F 1 "PWR_FLAG" H 7550 1073 50  0000 C CNN
-F 2 "" H 7550 900 50  0001 C CNN
-F 3 "~" H 7550 900 50  0001 C CNN
-	1    7550 900 
-	-1   0    0    1   
+P 7600 900
+F 0 "#FLG0109" H 7600 975 50  0001 C CNN
+F 1 "PWR_FLAG" H 7600 1050 50  0000 C CNN
+F 2 "" H 7600 900 50  0001 C CNN
+F 3 "~" H 7600 900 50  0001 C CNN
+	1    7600 900 
+	1    0    0    -1  
 $EndComp
-Connection ~ 7550 900 
+Connection ~ 7600 900 
 Wire Wire Line
-	7550 900  7800 900 
+	7600 900  7200 900 
 Wire Wire Line
 	9750 900  9950 900 
 Wire Wire Line
 	9750 1200 9950 1200
 Wire Wire Line
-	7500 1050 7600 1050
+	7200 1050 7400 1050
 Wire Wire Line
 	9800 2150 9950 2150
-Connection ~ 7600 1050
+Connection ~ 7400 1050
 Wire Wire Line
-	7600 1050 7800 1050
+	7400 1050 7800 1050
 Wire Wire Line
 	9750 1050 9950 1050
 $Comp

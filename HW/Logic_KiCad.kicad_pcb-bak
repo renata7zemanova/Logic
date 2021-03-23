@@ -2,7 +2,7 @@
 
   (general
     (thickness 1.6)
-    (drawings 48)
+    (drawings 49)
     (tracks 2448)
     (zones 0)
     (modules 267)
@@ -11019,10 +11019,11 @@
     )
   )
 
+  (gr_line (start 97 140.7) (end 97 30.5) (layer Dwgs.User) (width 0.15))
   (gr_line (start 193 31.6) (end 193 137.4) (layer Dwgs.User) (width 0.15))
   (gr_line (start 197.2 43) (end 90.7 43) (layer Dwgs.User) (width 0.15))
-  (gr_circle (center 189 30.7) (end 189.576 30.7) (layer Edge.Cuts) (width 0.2) (tstamp 6058B216))
-  (gr_circle (center 193.1 127) (end 193.676 127) (layer Edge.Cuts) (width 0.2) (tstamp 6058B214))
+  (gr_circle (center 97 127) (end 97.576 127) (layer Edge.Cuts) (width 0.2) (tstamp 6058B216))
+  (gr_circle (center 193 127) (end 193.576 127) (layer Edge.Cuts) (width 0.2) (tstamp 6058B214))
   (gr_circle (center 193 43) (end 193.576 43) (layer Edge.Cuts) (width 0.2))
   (gr_line (start 82.48 127) (end 204.18 127) (layer Dwgs.User) (width 0.15) (tstamp 60483289))
   (gr_line (start 200.18 57.1) (end 86.58 57.1) (layer Dwgs.User) (width 0.15) (tstamp 6049BAB9))
