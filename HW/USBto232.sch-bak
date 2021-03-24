@@ -498,7 +498,7 @@ F 0 "J2" H 3057 5967 50  0000 C CNN
 F 1 "USB_C_Receptacle_USB2.0" H 3057 5876 50  0000 C CNN
 F 2 "Connector_USB:USB_C_Receptacle_HRO_TYPE-C-31-M-12" H 3100 5100 50  0001 C CNN
 F 3 "https://www.usb.org/sites/default/files/documents/usb_type-c.zip" H 3100 5100 50  0001 C CNN
-F 4 "0;0;0" H 2950 5100 50  0001 C CNN "JLCPCB_CORRECTION"
+F 4 "0;0;180" H 2950 5100 50  0001 C CNN "JLCPCB_CORRECTION"
 F 5 "C165948" H 2950 5100 50  0001 C CNN "LCSC"
 	1    2950 5100
 	1    0    0    -1  
