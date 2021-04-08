@@ -1,3 +1,9 @@
+#include <Arduino.h>
+#include <SmartLeds.h>
+#include <Color.h>
+#include <cstdlib>
+#include <map>
+
 #define SET_POWER_LEDS_1_TO_4 13 
 #define SET_POWER_LEDS_5_TO_7 4
 #define SET_POWER_LEDS_8_TO_10 18
@@ -159,9 +165,9 @@ void new_line (led_t &LED){
   LED.pos = LINE_LENGTH * (line + 1);
 }
 
-void generate_task (Colors *task){
+void generate_task (Colors *task, int diff){
   for(int i = 0; i < LINE_LENGTH; ++i)
-    task[i] = Colors(esp_random() % (NUM_OF_COLORS - 3));
+    task[i] = Colors(esp_random() % (NUM_OF_COLORS - diff));
 }
 
 void set_task(led_t &leds, Colors* array_task, int length){
@@ -171,9 +177,14 @@ void set_task(led_t &leds, Colors* array_task, int length){
 	} 
 }
 
-void evaluate (int led_pos, Colors *playing, Colors *task, int *black, int *white){ //dvojite barvy 
-  Serial.println();
-  Serial.println("dalsi tah");
+void convert_brown_to_black(Colors *playing, int led_pos_nul){
+  for(int i = 0; i < LINE_LENGTH; ++i){//funkci convert broen to black
+    if(playing[i + led_pos_nul] == BROWN)
+      playing[i + led_pos_nul] = BLACK;
+  }
+}
+
+void evaluate (int led_pos, Colors *playing, Colors *task, int *black, int *white){ 
   int led_pos_nul = led_pos - (led_pos % LINE_LENGTH);
 
   int pos[LINE_LENGTH] = {0};
@@ -183,13 +194,13 @@ void evaluate (int led_pos, Colors *playing, Colors *task, int *black, int *whit
   int l = 0;
   bool end = false;
 
+  convert_brown_to_black(playing, led_pos_nul);
+
   for(int i = 0; i < LINE_LENGTH; ++i){
     if(task[i] == playing[i + led_pos_nul]){
       ++*black;
       pos[k] = i;
       ++k;
-      Serial.print("nasel jsem cernou na indexu: ");
-      Serial.println(i);
     }
     if(*black == LINE_LENGTH){
       end = true;
@@ -202,7 +213,6 @@ void evaluate (int led_pos, Colors *playing, Colors *task, int *black, int *whit
       if(k != 0){
         for(int a = 0; a < k; ++a){
           if(i == pos[a]){
-            Serial.println("Zakazano cerna zadani");
             similar = true;
             break;
           }
@@ -217,7 +227,6 @@ void evaluate (int led_pos, Colors *playing, Colors *task, int *black, int *whit
           for(int a = 0; a < k; ++a){
             if(j == pos[a]){
               similar = true;
-              Serial.println("Zakazano cerna herni");
               break;
             }
           }
@@ -230,7 +239,6 @@ void evaluate (int led_pos, Colors *playing, Colors *task, int *black, int *whit
           if(l != 0){
             for(int a = 0; a < l; ++a){
               if(j == pos_play[a]){
-                Serial.println("Zablokovani pozice");
                 similar = true;
                 break;
               }
@@ -239,11 +247,6 @@ void evaluate (int led_pos, Colors *playing, Colors *task, int *black, int *whit
           if(similar){
             continue;
           }
-
-          Serial.print("Nasel jsem bilou na pozici zadani ");
-          Serial.print(i);
-          Serial.print(" herni ");
-          Serial.println(j);
           pos_play[l] = j;
           ++l;
           ++*white;

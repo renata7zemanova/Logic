@@ -33,13 +33,21 @@ void setup() {
   Colors playing_array[LINE_LENGTH * 10];
   Colors evaluated_array[LINE_LENGTH * 10];
   Colors task_array[LINE_LENGTH];
+
   int tog = 0;
   int num_of_black = 0;
   int num_of_white = 0;
   bool end = false;
   int count_enter = 0;
 
-  bool GAME_FOR_2_PLAYERS = true;
+  bool GAME_FOR_2_PLAYERS = false;
+  bool GAME_WITH_SPACE = true;
+
+  int DIFF = 3; 
+
+  if(GAME_WITH_SPACE){
+    DIFF = 2;
+  }
   
   wait_for_btn_press(SW_NEW_GAME);
 
@@ -57,7 +65,7 @@ void setup() {
       assignment.leds.wait();
 
       if(!GAME_FOR_2_PLAYERS){
-        generate_task(task);
+        generate_task(task, DIFF);
         set_task(assignment, task, LINE_LENGTH);
       }
 
