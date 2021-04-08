@@ -149,13 +149,13 @@ void clear_array(Colors* array, int length){
 	}
 }
 
-void shift_cursor (led_t &LED, Direct DIR){
-  if((DIR == RIGHT) && !((LED.pos + 1) % LINE_LENGTH))
-    LED.pos -= LINE_LENGTH - 1;
+void shift_cursor (led_t &LED, Direct DIR, int length){
+  if((DIR == RIGHT) && !((LED.pos + 1 + LINE_LENGTH - length) % LINE_LENGTH))
+    LED.pos -= LINE_LENGTH - (LINE_LENGTH - length) - 1;
   else if(DIR == RIGHT)
     LED.pos += 1;
   else if((DIR == LEFT) && (LED.pos == 0 || !(LED.pos % LINE_LENGTH)))
-    LED.pos += LINE_LENGTH - 1;
+    LED.pos += LINE_LENGTH - (LINE_LENGTH - length) - 1;
   else if(DIR == LEFT)
     LED.pos -= 1;
 }
@@ -165,8 +165,8 @@ void new_line (led_t &LED){
   LED.pos = LINE_LENGTH * (line + 1);
 }
 
-void generate_task (Colors *task, int diff){
-  for(int i = 0; i < LINE_LENGTH; ++i)
+void generate_task (Colors *task, int length, int diff){
+  for(int i = 0; i < length; ++i)
     task[i] = Colors(esp_random() % (NUM_OF_COLORS - diff));
 }
 
@@ -177,38 +177,38 @@ void set_task(led_t &leds, Colors* array_task, int length){
 	} 
 }
 
-void convert_brown_to_black(Colors *playing, int led_pos_nul){
-  for(int i = 0; i < LINE_LENGTH; ++i){//funkci convert broen to black
+void convert_brown_to_black(Colors *playing, int led_pos_nul, int length){
+  for(int i = 0; i < length; ++i){//funkci convert broen to black
     if(playing[i + led_pos_nul] == BROWN)
       playing[i + led_pos_nul] = BLACK;
   }
 }
 
-void evaluate (int led_pos, Colors *playing, Colors *task, int *black, int *white){ 
+void evaluate (int led_pos, Colors *playing, Colors *task, int *black, int *white, int length){ 
   int led_pos_nul = led_pos - (led_pos % LINE_LENGTH);
 
-  int pos[LINE_LENGTH] = {0};
-  int pos_play[LINE_LENGTH] = {0};
+  int pos[length] = {0};
+  int pos_play[length] = {0};
   int k = 0;
   bool similar = false;
   int l = 0;
   bool end = false;
 
-  convert_brown_to_black(playing, led_pos_nul);
+  convert_brown_to_black(playing, led_pos_nul, length);
 
-  for(int i = 0; i < LINE_LENGTH; ++i){
+  for(int i = 0; i < length; ++i){
     if(task[i] == playing[i + led_pos_nul]){
       ++*black;
       pos[k] = i;
       ++k;
     }
-    if(*black == LINE_LENGTH){
+    if(*black == length){
       end = true;
     }
   }
 
   if(!end){
-    for(int i = 0; i < LINE_LENGTH; ++i){
+    for(int i = 0; i < length; ++i){
       similar = false;
       if(k != 0){
         for(int a = 0; a < k; ++a){
@@ -221,7 +221,7 @@ void evaluate (int led_pos, Colors *playing, Colors *task, int *black, int *whit
       if(similar){
         continue;
       }
-      for(int j = 0; j < LINE_LENGTH; ++j){
+      for(int j = 0; j < length; ++j){
         similar = false;
         if(k != 0){
           for(int a = 0; a < k; ++a){
@@ -257,7 +257,7 @@ void evaluate (int led_pos, Colors *playing, Colors *task, int *black, int *whit
   }
 }
 
-void on_col_btn_press(Colors color,Colors* array,led_t &leds){
+void on_col_btn_press(Colors color,Colors* array,led_t &leds, int length){
 	if(array[leds.pos] == color){
 		array[leds.pos] = BROWN;
 		color = BLACK;
@@ -266,7 +266,7 @@ void on_col_btn_press(Colors color,Colors* array,led_t &leds){
 		array[leds.pos] = color;
 	}
 	set_color(leds, color);
-	shift_cursor(leds, RIGHT);
+	shift_cursor(leds, RIGHT, length);
 }
 
 void set_end_color(Colors* array, led_t &leds){
@@ -276,12 +276,12 @@ void set_end_color(Colors* array, led_t &leds){
 		set_color(leds, BLACK);
 }
 
-void on_arrow_btn_press(Direct dir, Colors* array, led_t &leds){
+void on_arrow_btn_press(Direct dir, Colors* array, led_t &leds, int length){
 	if(array[leds.pos] != BROWN)
 		set_color(leds, array[leds.pos]);
 	else
 		set_color(leds, BLACK);
-	shift_cursor(leds, dir);
+	shift_cursor(leds, dir, length);
 }
 
 void wait_for_btn_release(int btn){
@@ -336,10 +336,10 @@ bool is_end(int pos){
 	return false; 
 }
 
-void set_evaluated_black(int num_of_black, led_t& leds){
+void set_evaluated_black(int num_of_black, led_t& leds, int length){
 	for(int i = 0; i < num_of_black; ++i){		
 		set_color(leds, RED);
-		if(i != (LINE_LENGTH - 1))
+		if(i != (length - 1))
 			++leds.pos;	
 	}
 }

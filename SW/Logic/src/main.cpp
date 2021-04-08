@@ -41,13 +41,11 @@ void setup() {
   int count_enter = 0;
 
   bool GAME_FOR_2_PLAYERS = false;
-  bool GAME_WITH_SPACE = true;
+  bool GAME_WITH_SPACE = false;
+  bool GAME_ON_3_COLORS = true; 
 
   int DIFF = 3; 
-
-  if(GAME_WITH_SPACE){
-    DIFF = 2;
-  }
+  int GAME_LINE_LENGTH = 4;
   
   wait_for_btn_press(SW_NEW_GAME);
 
@@ -55,6 +53,12 @@ void setup() {
     
     if(is_pressed(SW_NEW_GAME)){
       wait_for_btn_release(SW_NEW_GAME);
+
+      if(GAME_WITH_SPACE)
+        DIFF = 2;
+
+      if(GAME_ON_3_COLORS)
+        GAME_LINE_LENGTH = 3;
 
       clear(playing, LED_COUNT_GAME);
       clear(assignment, LED_COUNT_TASK);
@@ -65,8 +69,8 @@ void setup() {
       assignment.leds.wait();
 
       if(!GAME_FOR_2_PLAYERS){
-        generate_task(task, DIFF);
-        set_task(assignment, task, LINE_LENGTH);
+        generate_task(task, GAME_LINE_LENGTH, DIFF);
+        set_task(assignment, task, GAME_LINE_LENGTH);
       }
 
       if(GAME_FOR_2_PLAYERS){
@@ -85,54 +89,54 @@ void setup() {
     if(is_pressed(SW_YELLOW)){
       wait_for_btn_release(SW_YELLOW);
       if(count_enter == 0 && GAME_FOR_2_PLAYERS)
-        on_col_btn_press(YELLOW, task_array, assignment);
+        on_col_btn_press(YELLOW, task_array, assignment, GAME_LINE_LENGTH);
       else if((is_odd(count_enter) && GAME_FOR_2_PLAYERS) || !GAME_FOR_2_PLAYERS)
-        on_col_btn_press(YELLOW, playing_array, playing);
-      else if(/*is_even(count_enter) &&*/ GAME_FOR_2_PLAYERS)
-        on_col_btn_press(YELLOW, evaluated_array, evaluated); 
+        on_col_btn_press(YELLOW, playing_array, playing, GAME_LINE_LENGTH);
+      else if(GAME_FOR_2_PLAYERS)
+        on_col_btn_press(YELLOW, evaluated_array, evaluated, GAME_LINE_LENGTH); 
     }
 
     else if(is_pressed(SW_ORANGE)){
       wait_for_btn_release(SW_ORANGE);
       if(count_enter == 0 && GAME_FOR_2_PLAYERS)
-        on_col_btn_press(ORANGE, task_array, assignment);
+        on_col_btn_press(ORANGE, task_array, assignment, GAME_LINE_LENGTH);
       else if((is_odd(count_enter) && GAME_FOR_2_PLAYERS) || !GAME_FOR_2_PLAYERS)
-        on_col_btn_press(ORANGE, playing_array, playing);
+        on_col_btn_press(ORANGE, playing_array, playing, GAME_LINE_LENGTH);
     }
 
     else if(is_pressed(SW_RED)){
       wait_for_btn_release(SW_RED);
       if(count_enter == 0 && GAME_FOR_2_PLAYERS)
-        on_col_btn_press(RED, task_array, assignment);
+        on_col_btn_press(RED, task_array, assignment, GAME_LINE_LENGTH);
       else if((is_odd(count_enter) && GAME_FOR_2_PLAYERS) || !GAME_FOR_2_PLAYERS)
-        on_col_btn_press(RED, playing_array, playing);
-      else if(/*is_even(count_enter) &&*/ GAME_FOR_2_PLAYERS)
-        on_col_btn_press(RED, evaluated_array, evaluated);
+        on_col_btn_press(RED, playing_array, playing, GAME_LINE_LENGTH);
+      else if(GAME_FOR_2_PLAYERS)
+        on_col_btn_press(RED, evaluated_array, evaluated, GAME_LINE_LENGTH);
     }
 
     else if(is_pressed(SW_PURPLE)){
       wait_for_btn_release(SW_PURPLE);
       if(count_enter == 0 && GAME_FOR_2_PLAYERS)
-        on_col_btn_press(PURPLE, task_array, assignment);
+        on_col_btn_press(PURPLE, task_array, assignment, GAME_LINE_LENGTH);
       else if((is_odd(count_enter) && GAME_FOR_2_PLAYERS) || !GAME_FOR_2_PLAYERS){
-        on_col_btn_press(PURPLE, playing_array, playing);
+        on_col_btn_press(PURPLE, playing_array, playing, GAME_LINE_LENGTH);
       }
     }
 
     else if(is_pressed(SW_BLUE)){
       wait_for_btn_release(SW_BLUE);
       if(count_enter == 0 && GAME_FOR_2_PLAYERS)
-        on_col_btn_press(BLUE, task_array, assignment);
+        on_col_btn_press(BLUE, task_array, assignment, GAME_LINE_LENGTH);
       else if((is_odd(count_enter) && GAME_FOR_2_PLAYERS) || !GAME_FOR_2_PLAYERS)
-        on_col_btn_press(BLUE, playing_array, playing);
+        on_col_btn_press(BLUE, playing_array, playing, GAME_LINE_LENGTH);
     }
 
     else if(is_pressed(SW_GREEN)){
       wait_for_btn_release(SW_GREEN);
       if(count_enter == 0 && GAME_FOR_2_PLAYERS)
-        on_col_btn_press(GREEN, task_array, assignment);
+        on_col_btn_press(GREEN, task_array, assignment, GAME_LINE_LENGTH);
       else if((is_odd(count_enter) && GAME_FOR_2_PLAYERS) || !GAME_FOR_2_PLAYERS)
-        on_col_btn_press(GREEN, playing_array, playing);
+        on_col_btn_press(GREEN, playing_array, playing, GAME_LINE_LENGTH);
     }
 
 
@@ -140,21 +144,21 @@ void setup() {
     else if(is_pressed(SW_LEFT)){
       wait_for_btn_release(SW_LEFT);
       if(count_enter == 0 && GAME_FOR_2_PLAYERS)
-        on_arrow_btn_press(LEFT, task_array, assignment);
+        on_arrow_btn_press(LEFT, task_array, assignment, GAME_LINE_LENGTH);
       else if((is_odd(count_enter) && GAME_FOR_2_PLAYERS) || !GAME_FOR_2_PLAYERS)
-        on_arrow_btn_press(LEFT, playing_array, playing);
-      else if(/*is_even(count_enter) &&*/ GAME_FOR_2_PLAYERS)
-        on_arrow_btn_press(LEFT, evaluated_array, evaluated);
+        on_arrow_btn_press(LEFT, playing_array, playing, GAME_LINE_LENGTH);
+      else if(GAME_FOR_2_PLAYERS)
+        on_arrow_btn_press(LEFT, evaluated_array, evaluated, GAME_LINE_LENGTH);
     } 
 
     else if(is_pressed(SW_RIGHT)){
       wait_for_btn_release(SW_RIGHT);
       if(count_enter == 0 && GAME_FOR_2_PLAYERS)
-        on_arrow_btn_press(RIGHT, task_array, assignment);
+        on_arrow_btn_press(RIGHT, task_array, assignment, GAME_LINE_LENGTH);
       else if((is_odd(count_enter) && GAME_FOR_2_PLAYERS) || !GAME_FOR_2_PLAYERS)
-        on_arrow_btn_press(RIGHT, playing_array, playing);
-      else if(/*is_even(count_enter) &&*/ GAME_FOR_2_PLAYERS)
-        on_arrow_btn_press(RIGHT, evaluated_array, evaluated);
+        on_arrow_btn_press(RIGHT, playing_array, playing, GAME_LINE_LENGTH);
+      else if(GAME_FOR_2_PLAYERS)
+        on_arrow_btn_press(RIGHT, evaluated_array, evaluated, GAME_LINE_LENGTH);
     } 
 
     else if(is_pressed(SW_ENTER)){
@@ -170,10 +174,10 @@ void setup() {
         num_of_black = 0;
         num_of_white = 0;
 
-        evaluate(playing.pos, playing_array, task, &num_of_black, &num_of_white);
-        set_evaluated_black(num_of_black, evaluated);
+        evaluate(playing.pos, playing_array, task, &num_of_black, &num_of_white, GAME_LINE_LENGTH);
+        set_evaluated_black(num_of_black, evaluated, GAME_LINE_LENGTH);
 
-        if(num_of_black == LINE_LENGTH){
+        if(num_of_black == GAME_LINE_LENGTH){
           playing.leds.wait();
           assignment.leds.wait();
           evaluated.leds.wait();
@@ -237,7 +241,7 @@ void setup() {
         toggle_cursor(assignment, task_array[assignment.pos], tog);
       else if((is_odd(count_enter) && GAME_FOR_2_PLAYERS) || !GAME_FOR_2_PLAYERS)
         toggle_cursor(playing, playing_array[playing.pos], tog);
-      else if(/*is_even(count_enter) &&*/ GAME_FOR_2_PLAYERS)
+      else if(GAME_FOR_2_PLAYERS)
         toggle_cursor(evaluated, evaluated_array[evaluated.pos], tog);
     }
 
