@@ -13,21 +13,10 @@ void setup() {
   led_t assignment (LED_COUNT_TASK, LED_PIN_TASK, 0);
   led_t evaluated (LED_COUNT_EVAL, LED_PIN_EVAL, 1);
 
-  clear(playing, LED_COUNT_GAME);
-  clear(assignment, LED_COUNT_TASK);
-  clear(evaluated, LED_COUNT_EVAL);
-
-  playing.leds.show();
-  assignment.leds.show();
-  evaluated.leds.show();
-
-  playing.leds.wait();
-  assignment.leds.wait();
-  evaluated.leds.wait();
-
-  evaluated.pos = 0;
-  playing.pos = 0;
-  assignment.pos = 0;
+  clear_all_leds(playing, LED_COUNT_GAME, assignment, LED_COUNT_TASK, evaluated, LED_COUNT_EVAL);
+  show_leds(playing, assignment, evaluated);
+  wait_leds(playing, assignment, evaluated);
+  set_led_pos_null(playing, assignment, evaluated);
 
   Colors task[LINE_LENGTH];
   Colors playing_array[LINE_LENGTH * 10];
@@ -60,9 +49,7 @@ void setup() {
       if(GAME_ON_3_COLORS)
         GAME_LINE_LENGTH = 3;
 
-      clear(playing, LED_COUNT_GAME);
-      clear(assignment, LED_COUNT_TASK);
-      clear(evaluated, LED_COUNT_EVAL);
+      clear_all_leds(playing, LED_COUNT_GAME, assignment, LED_COUNT_TASK, evaluated, LED_COUNT_EVAL);
 
       assignment.leds.wait();
       assignment.leds.show();
@@ -178,13 +165,9 @@ void setup() {
         set_evaluated_black(num_of_black, evaluated, GAME_LINE_LENGTH);
 
         if(num_of_black == GAME_LINE_LENGTH){
-          playing.leds.wait();
-          assignment.leds.wait();
-          evaluated.leds.wait();
-          
-          playing.leds.show();
-          assignment.leds.show();
-          evaluated.leds.show();
+          wait_leds(playing, assignment, evaluated);
+          show_leds(playing, assignment, evaluated);
+
           wait_for_btns_press(SW_NEW_GAME, SW_END);
           continue; //////netusim, proc tu je 
         }
@@ -212,17 +195,9 @@ void setup() {
     else if(is_pressed(SW_END)){
       wait_for_btn_release(SW_END);
       
-      clear(playing, LED_COUNT_GAME);
-      clear(assignment, LED_COUNT_TASK);
-      clear(evaluated, LED_COUNT_EVAL);
-
-      playing.leds.wait();
-      assignment.leds.wait();
-      evaluated.leds.wait();
-      
-      playing.leds.show();
-      assignment.leds.show();
-      evaluated.leds.show();
+      clear_all_leds(playing, LED_COUNT_GAME, assignment, LED_COUNT_TASK, evaluated, LED_COUNT_EVAL);
+      wait_leds(playing, assignment, evaluated);
+      show_leds(playing, assignment, evaluated);
 
       end = true;
       count_enter = 0;
@@ -245,10 +220,7 @@ void setup() {
         toggle_cursor(evaluated, evaluated_array[evaluated.pos], tog);
     }
 
-    playing.leds.wait();
-    evaluated.leds.wait();
-    if(GAME_FOR_2_PLAYERS)
-      assignment.leds.wait();
+    wait_leds(playing, assignment, evaluated);
 
     playing.leds.show();
     evaluated.leds.show();

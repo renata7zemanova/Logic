@@ -351,3 +351,27 @@ void set_evaluated_white(int num_of_black, int num_of_white, led_t& leds){
 			++leds.pos;	
 	}
 }
+
+void show_leds(led_t& leds1, led_t& leds2, led_t& leds3){
+    leds1.leds.show();
+    leds2.leds.show();
+    leds3.leds.show();
+}
+
+void wait_leds(led_t& leds1, led_t& leds2, led_t& leds3){
+    leds1.leds.wait();
+    leds2.leds.wait();
+    leds3.leds.wait();
+}
+
+void clear_all_leds(led_t& leds1, int cnt1, led_t& leds2, int cnt2, led_t& leds3, int cnt3){
+    clear(leds1, cnt1);
+    clear(leds2, cnt2);
+    clear(leds3, cnt3);
+}
+
+void set_led_pos_null(led_t& led1, led_t& led2, led_t& led3){
+    led1.pos = 0;
+    led2.pos = 0;
+    led3.pos = 0;
+}
