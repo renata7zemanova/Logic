@@ -258,6 +258,11 @@ void wait_for_btn_press(int btn){
         delay(1);
 }
 
+void wait_for_btns_press(int btn1, int btn2){
+  while (digitalRead(btn1) && digitalRead(btn2))
+    delay(1);
+}
+
 bool is_pressed(int btn){
   if(!digitalRead(btn))
     return true;
@@ -276,11 +281,39 @@ bool is_even(int num){//sudý
   return false;
 }
 
-void set_power_next_leds(int pos, int state){
-  if(pos == (LINE_LENGTH * 4))
+void set_power_leds(int pos, int state){ //pos nebude povinny udaj
+  if(state == POWER_ON){
+    if(pos == (LINE_LENGTH * 4))
+      digitalWrite(SET_POWER_LEDS_5_TO_7, state);
+    if(pos == (LINE_LENGTH * 7))
+      digitalWrite(SET_POWER_LEDS_8_TO_10, state);
+  }
+  else{
     digitalWrite(SET_POWER_LEDS_5_TO_7, state);
-  if(pos == (LINE_LENGTH * 7))
     digitalWrite(SET_POWER_LEDS_8_TO_10, state);
+  }
+}
+
+bool is_end(int pos){
+	if(pos > (10 * LINE_LENGTH - LINE_LENGTH))
+		return true;
+	return false; 
+}
+
+void set_evaluated_black(int num_of_black, led_t& leds){
+	for(int i = 0; i < num_of_black; ++i){		
+		set_color(leds, RED);
+		if(i != (LINE_LENGTH - 1))
+			++leds.pos;	
+	}
+}
+
+void set_evaluated_white(int num_of_black, int num_of_white, led_t& leds){
+	for(int i = 0; i < num_of_white; ++i){		
+		set_color(leds, YELLOW);
+		if(i + num_of_black != (LINE_LENGTH - 1))
+			++leds.pos;	
+	}
 }
 
 
@@ -336,8 +369,8 @@ void setup() {
   Colors evaluated_array[LINE_LENGTH * 10];
   Colors task_array[LINE_LENGTH];
   int tog = 0;
-  int black = 0;
-  int white = 0;
+  int num_of_black = 0;
+  int num_of_white = 0;
   bool end = false;
   int count_enter = 0;
 
@@ -354,19 +387,41 @@ void setup() {
       clear(assignment, LED_COUNT_TASK);
       clear(evaluated, LED_COUNT_EVAL);
 
-      for (int i = 0; i < LINE_LENGTH; ++i){
-        task_array[i] = BROWN;  
+      assignment.leds.wait();
+      assignment.leds.show();
+      assignment.leds.wait();
+
+      if(!GAME_FOR_2_PLAYERS){
+        generate_task(task);
+        for (int i = 0; i < LINE_LENGTH; ++i){//funkce
+          assignment.pos = i;
+          set_color(assignment, Colors(task[i]));  
+        }
       }
 
-      for(int i = 0; i < (LINE_LENGTH * 10); ++i){
+      if(GAME_FOR_2_PLAYERS){
+        for (int i = 0; i < LINE_LENGTH; ++i){//funkce 
+          task_array[i] = BROWN;  
+        }
+
+        for(int i = 0; i < (LINE_LENGTH * 10); ++i){//stejna funkce jako predchozi
+          evaluated_array[i] = BROWN;
+        }
+
+        evaluated.pos = 0;
+        assignment.pos = 0;
+
+        count_enter = 0;
+      }
+
+      for(int i = 0; i < (LINE_LENGTH * 10); ++i){//funkce jako predchozi 2
         playing_array[i] = BROWN;
-        evaluated_array[i] = BROWN;
       }
-      count_enter = 0;
 
-      evaluated.pos = 0;
       playing.pos = 0;
-      assignment.pos = 0;
+      
+      end = false; 
+      set_power_leds(playing.pos, POWER_OFF);
     }
 
     if(is_pressed(SW_YELLOW)){
@@ -375,7 +430,7 @@ void setup() {
         on_col_btn_press(YELLOW, task_array, assignment);
       else if((is_odd(count_enter) && GAME_FOR_2_PLAYERS) || !GAME_FOR_2_PLAYERS)
         on_col_btn_press(YELLOW, playing_array, playing);
-      else if(is_even(count_enter) && GAME_FOR_2_PLAYERS)
+      else if(/*is_even(count_enter) &&*/ GAME_FOR_2_PLAYERS)
         on_col_btn_press(YELLOW, evaluated_array, evaluated); 
     }
 
@@ -393,7 +448,7 @@ void setup() {
         on_col_btn_press(RED, task_array, assignment);
       else if((is_odd(count_enter) && GAME_FOR_2_PLAYERS) || !GAME_FOR_2_PLAYERS)
         on_col_btn_press(RED, playing_array, playing);
-      else if(is_even(count_enter) && GAME_FOR_2_PLAYERS)
+      else if(/*is_even(count_enter) &&*/ GAME_FOR_2_PLAYERS)
         on_col_btn_press(RED, evaluated_array, evaluated);
     }
 
@@ -430,7 +485,7 @@ void setup() {
         on_arrow_btn_press(LEFT, task_array, assignment);
       else if((is_odd(count_enter) && GAME_FOR_2_PLAYERS) || !GAME_FOR_2_PLAYERS)
         on_arrow_btn_press(LEFT, playing_array, playing);
-      else if(is_even(count_enter) && GAME_FOR_2_PLAYERS)
+      else if(/*is_even(count_enter) &&*/ GAME_FOR_2_PLAYERS)
         on_arrow_btn_press(LEFT, evaluated_array, evaluated);
     } 
 
@@ -440,38 +495,58 @@ void setup() {
         on_arrow_btn_press(RIGHT, task_array, assignment);
       else if((is_odd(count_enter) && GAME_FOR_2_PLAYERS) || !GAME_FOR_2_PLAYERS)
         on_arrow_btn_press(RIGHT, playing_array, playing);
-      else if(is_even(count_enter) && GAME_FOR_2_PLAYERS)
+      else if(/*is_even(count_enter) &&*/ GAME_FOR_2_PLAYERS)
         on_arrow_btn_press(RIGHT, evaluated_array, evaluated);
     } 
 
-        else if(is_pressed(SW_ENTER)){
-      //opraveno
+    else if(is_pressed(SW_ENTER)){
       wait_for_btn_release(SW_ENTER);
-
       if(count_enter == 0 && GAME_FOR_2_PLAYERS)
         set_end_color(task_array, assignment);
       else if((is_odd(count_enter) && GAME_FOR_2_PLAYERS) || !GAME_FOR_2_PLAYERS)
         set_end_color(playing_array, playing);
       else if(is_even(count_enter) && GAME_FOR_2_PLAYERS)
         set_end_color(evaluated_array, evaluated);
-//
 
+      if(!GAME_FOR_2_PLAYERS){
+        if(is_end(playing.pos)){
+          assignment.leds.wait();
+          assignment.leds.show();
+          wait_for_btns_press(SW_NEW_GAME, SW_END);
+        }
+        num_of_black = 0;
+        num_of_white = 0;
 
+        evaluate(playing.pos, playing_array, task, &num_of_black, &num_of_white);
+        set_evaluated_black(num_of_black, evaluated);
 
-//opraveno   
+        if(num_of_black == LINE_LENGTH){
+          playing.leds.wait();
+          assignment.leds.wait();
+          evaluated.leds.wait();
+          
+          playing.leds.show();
+          assignment.leds.show();
+          evaluated.leds.show();
+          wait_for_btns_press(SW_NEW_GAME, SW_END);
+          continue; //////netusim, proc tu je 
+        }
+        set_evaluated_white(num_of_black, num_of_white, evaluated);
+      }
+
       if(GAME_FOR_2_PLAYERS)
-        ++count_enter; 
-
-      if((((count_enter != 1) && (count_enter % 2)) && GAME_FOR_2_PLAYERS) || !GAME_FOR_2_PLAYERS){
+        ++count_enter;
+        
+      if((((count_enter != 1) && is_odd(count_enter)) && GAME_FOR_2_PLAYERS) || !GAME_FOR_2_PLAYERS){
         new_line(playing);
         new_line(evaluated);
       }
-      set_power_next_leds(playing.pos, POWER_ON);
-      //
+      set_power_leds(playing.pos, POWER_ON);
     }
 
     else if(is_pressed(SW_END)){
       wait_for_btn_release(SW_END);
+      
       clear(playing, LED_COUNT_GAME);
       clear(assignment, LED_COUNT_TASK);
       clear(evaluated, LED_COUNT_EVAL);
@@ -484,19 +559,10 @@ void setup() {
       assignment.leds.show();
       evaluated.leds.show();
 
-      playing.leds.wait();
-      assignment.leds.wait();
-      evaluated.leds.wait();
-
-      for (int i = 0; i < LINE_LENGTH; ++i){
-        task_array[i] = BROWN;  
-      }
-
-      for(int i = 0; i < (LINE_LENGTH * 10); ++i){
-        playing_array[i] = BROWN;
-        evaluated_array[i] = BROWN;
-      }
+      end = true;
       count_enter = 0;
+      
+      set_power_leds(playing.pos, POWER_OFF); //pos chci, aby byl dobrovolny parametr
       
       wait_for_btn_press(SW_NEW_GAME);
     }  
@@ -505,13 +571,12 @@ void setup() {
     if(tog == 3)
       tog = 0;
 
-    //if(!end && (tog == 0 || tog == 2)){ //mozna bylo spatne
-    if(tog == 0 || tog == 2){
-      if(count_enter == 0)
+    if(!end && (tog == 0 || tog == 2)){ 
+      if(count_enter == 0 && GAME_FOR_2_PLAYERS)
         toggle_cursor(assignment, task_array[assignment.pos], tog);
-      else if(count_enter % 2)
+      else if((is_odd(count_enter) && GAME_FOR_2_PLAYERS) || !GAME_FOR_2_PLAYERS)
         toggle_cursor(playing, playing_array[playing.pos], tog);
-      else
+      else if(/*is_even(count_enter) &&*/ GAME_FOR_2_PLAYERS)
         toggle_cursor(evaluated, evaluated_array[evaluated.pos], tog);
     }
 
@@ -531,132 +596,3 @@ void setup() {
 }
 
 void loop() {}
-/*
-  while(digitalRead(SW_NEW_GAME))
-    delay(1);
-
-  while(true){
-    else if (!digitalRead(SW_END)){
-      while(!digitalRead(SW_END))
-        delay(1);
-      Serial.println("konec");
-      clear(playing, LED_COUNT_GAME);
-      clear(assignment, LED_COUNT_TASK);
-      clear(evaluated, LED_COUNT_EVAL);
-      assignment.leds.wait();
-      evaluated.leds.wait();
-      playing.leds.wait();
-      assignment.leds.show();
-      evaluated.leds.show();
-      playing.leds.show();
-      end = true;
-      digitalWrite(SET_POWER_LEDS_5_TO_7, POWER_OFF);
-      digitalWrite(SET_POWER_LEDS_8_TO_10, POWER_OFF);
-
-      while(digitalRead(SW_NEW_GAME)){
-        delay(1);
-      }
-    }
-
-    else if (!digitalRead(SW_NEW_GAME)){
-      while(!digitalRead(SW_NEW_GAME))
-        delay(1);
-      clear(playing, LED_COUNT_GAME);
-      clear(assignment, LED_COUNT_TASK);
-      clear(evaluated, LED_COUNT_EVAL);
-
-      assignment.leds.wait();
-      assignment.leds.show();
-      assignment.leds.wait();
-
-      generate_task(task);
-      
-      for (int i = 0; i < LINE_LENGTH; ++i){
-        assignment.pos = i;
-        set_color(assignment, Colors(task[i]));  
-      }
-
-      for(int i = 0; i < (LINE_LENGTH * 10); ++i){
-        playing_array[i] = BROWN;
-      }
-      end = false;
-      digitalWrite(SET_POWER_LEDS_5_TO_7, POWER_OFF);
-      digitalWrite(SET_POWER_LEDS_8_TO_10, POWER_OFF);
-    }
-
-
-
-    else if (!digitalRead(SW_ENTER)){
-      while(!digitalRead(SW_ENTER))
-        delay(1);
-      Serial.println("enter");
-      if(playing_array[playing.pos] != BROWN)
-        set_color(playing, playing_array[playing.pos]);
-      else
-        set_color(playing, BLACK);
-
-      if(playing.pos > (10 * LINE_LENGTH - LINE_LENGTH)){
-        assignment.leds.wait();
-        assignment.leds.show();
-        while (digitalRead(SW_NEW_GAME) && digitalRead(SW_END)){
-          delay(1);
-        }
-      }
-
-      black = 0;
-      white = 0;
-
-      evaluate(playing.pos, playing_array, task, &black, &white);
-
-      Serial.print("barvy cerna ");
-      Serial.print(black);
-      Serial.print(" bila ");
-      Serial.println(white);
-
-      for(int i = 0; i < black; ++i){
-        set_color(evaluated, RED);
-        if(i != (LINE_LENGTH - 1))
-          ++evaluated.pos;
-      } 
-
-      if(black == LINE_LENGTH){
-        playing.leds.wait();
-        assignment.leds.wait();
-        evaluated.leds.wait();
-        
-        playing.leds.show();
-        assignment.leds.show();
-        evaluated.leds.show();
-        while (digitalRead(SW_END) && digitalRead(SW_NEW_GAME)){
-          delay(1);
-        }
-        continue;
-      }
-      for(int i = 0; i < white; ++i){
-        set_color(evaluated, WHITE);
-        if(i + black != (LINE_LENGTH - 1))
-          ++evaluated.pos;
-      }
-
-      new_line(playing);
-      new_line(evaluated);
-
-      if(playing.pos == (LINE_LENGTH * 4))
-        digitalWrite(SET_POWER_LEDS_5_TO_7, POWER_ON);
-      if(playing.pos == (LINE_LENGTH * 7))
-        digitalWrite(SET_POWER_LEDS_8_TO_10, POWER_ON);
-    }
-
-    ++tog;
-    if(tog == 3)
-      tog = 0;
-
-    if(!end && (tog == 0 || tog == 2))
-      toggle_cursor(playing, playing_array[playing.pos], tog);
-
-    delay(200);
-  } 
-  
-}
-
-void loop() {}*/
