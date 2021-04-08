@@ -47,6 +47,16 @@ struct led_t {
   int pos;
 };
 
+/*struct leds_t{
+    led_t play;
+    led_t task;
+    led_t eval;
+    Colors play_array;
+    Colors task_array;
+    Colors eval_array;
+
+};*/
+
 void _init_ (){
   pinMode(LED_PIN_GAME, OUTPUT);
   pinMode(LED_PIN_TASK, OUTPUT);
@@ -71,27 +81,6 @@ void _init_ (){
   digitalWrite(SET_POWER_LEDS_1_TO_4, POWER_ON); 
   digitalWrite(SET_POWER_LEDS_5_TO_7, POWER_OFF);
   digitalWrite(SET_POWER_LEDS_8_TO_10, POWER_OFF);
-}
-
-void print_color(Colors col){ //ke smazani
-  if(col == YELLOW)
-    Serial.print("yellow ");
-  if(col == BLUE)
-    Serial.print("blue ");
-  if(col == GREEN)
-    Serial.print("green ");
-  if(col == RED)
-    Serial.print("red ");
-  if(col == PURPLE)
-    Serial.print("purple ");
-  if(col == ORANGE)
-    Serial.print("orange ");
-  if(col == BLACK)
-    Serial.print("black ");
-  if(col == WHITE)
-    Serial.print("white ");
-  if(col == BROWN)
-    Serial.print("brown ");
 }
 
 void set_color (led_t &LED, Colors COLOR){
@@ -135,7 +124,7 @@ void toggle_cursor (led_t &LED, Colors color_for_blick, int tog){
     set_color(LED, BLACK);
 }
 
-void clear (led_t &LED, const int COUNT){
+void clear(led_t &LED, const int COUNT){
   for (int i = 0; i < COUNT; i++){
     LED.pos = i;
     set_color(LED, BLACK);
@@ -178,7 +167,7 @@ void set_task(led_t &leds, Colors* array_task, int length){
 }
 
 void convert_brown_to_black(Colors *playing, int led_pos_nul, int length){
-  for(int i = 0; i < length; ++i){//funkci convert broen to black
+  for(int i = 0; i < length; ++i){
     if(playing[i + led_pos_nul] == BROWN)
       playing[i + led_pos_nul] = BLACK;
   }
@@ -193,6 +182,9 @@ void evaluate (int led_pos, Colors *playing, Colors *task, int *black, int *whit
   bool similar = false;
   int l = 0;
   bool end = false;
+
+  *black = 0;
+  *white = 0;
 
   convert_brown_to_black(playing, led_pos_nul, length);
 
@@ -257,7 +249,7 @@ void evaluate (int led_pos, Colors *playing, Colors *task, int *black, int *whit
   }
 }
 
-void on_col_btn_press(Colors color,Colors* array,led_t &leds, int length){
+void set_color_and_go_right(Colors color,Colors* array,led_t &leds, int length){
 	if(array[leds.pos] == color){
 		array[leds.pos] = BROWN;
 		color = BLACK;
@@ -269,18 +261,15 @@ void on_col_btn_press(Colors color,Colors* array,led_t &leds, int length){
 	shift_cursor(leds, RIGHT, length);
 }
 
-void set_end_color(Colors* array, led_t &leds){
+void set_last_color(Colors* array, led_t &leds){
   if(array[leds.pos] != BROWN)
 		set_color(leds, array[leds.pos]);
 	else
 		set_color(leds, BLACK);
 }
 
-void on_arrow_btn_press(Direct dir, Colors* array, led_t &leds, int length){
-	if(array[leds.pos] != BROWN)
-		set_color(leds, array[leds.pos]);
-	else
-		set_color(leds, BLACK);
+void save_col_and_arrow(Direct dir, Colors* array, led_t &leds, int length){
+	set_last_color(array, leds);
 	shift_cursor(leds, dir, length);
 }
 
@@ -352,10 +341,20 @@ void set_evaluated_white(int num_of_black, int num_of_white, led_t& leds){
 	}
 }
 
+void show_leds(led_t& leds1, led_t& leds2){
+    leds1.leds.show();
+    leds2.leds.show();
+}
+
 void show_leds(led_t& leds1, led_t& leds2, led_t& leds3){
     leds1.leds.show();
     leds2.leds.show();
     leds3.leds.show();
+}
+
+void wait_leds(led_t& leds1, led_t& leds2){
+    leds1.leds.wait();
+    leds2.leds.wait();
 }
 
 void wait_leds(led_t& leds1, led_t& leds2, led_t& leds3){
@@ -368,6 +367,11 @@ void clear_all_leds(led_t& leds1, int cnt1, led_t& leds2, int cnt2, led_t& leds3
     clear(leds1, cnt1);
     clear(leds2, cnt2);
     clear(leds3, cnt3);
+}
+
+void set_led_pos_null(led_t& led1, led_t& led2){
+    led1.pos = 0;
+    led2.pos = 0;
 }
 
 void set_led_pos_null(led_t& led1, led_t& led2, led_t& led3){
