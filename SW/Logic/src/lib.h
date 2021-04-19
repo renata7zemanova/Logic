@@ -47,15 +47,14 @@ struct led_t {
   int pos;
 };
 
-/*struct leds_t{
+struct leds_t{
     led_t play;
     led_t task;
     led_t eval;
     Colors play_array;
     Colors task_array;
     Colors eval_array;
-
-};*/
+};
 
 void _init_ (){
   pinMode(LED_PIN_GAME, OUTPUT);

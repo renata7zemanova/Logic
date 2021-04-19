@@ -25,7 +25,6 @@ void setup() {
 
   all_leds.play_array[LINE_LENGTH * 10];
 */
-
   clear_all_leds(playing, LED_COUNT_GAME, assignment, LED_COUNT_TASK, evaluated, LED_COUNT_EVAL);
   show_leds(playing, assignment, evaluated);
   wait_leds(playing, assignment, evaluated);
