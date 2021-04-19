@@ -236,32 +236,31 @@ end
 
 %\section{Výpis kódu jazyka C}
 
-\begin{lstlisting}[frame=single,numbers=right,caption={Příklad implementace první kanonické formy v~jazyce C.},label=lst:priklad.vypis.kodu.C,basicstyle=\ttfamily\small, keywordstyle=\color{black}\bfseries\underbar,]
-// první kanonická forma
-short fxdf2t( short coef[][5], short sample)
-{
-	static int v1[SECTIONS] = {0,0},v2[SECTIONS] = {0,0};
-	int x, y, accu;
-	short k;
+\begin{lstlisting}[frame=single,numbers=right,caption={Příklad implementace první kanonické formy v~jazyce C++.},label=lst:priklad.vypis.kodu.C,basicstyle=\ttfamily\small, keywordstyle=\color{black}\bfseries\underbar,]
+void _init_ (){
+  pinMode(LED_PIN_GAME, OUTPUT);
+  pinMode(LED_PIN_TASK, OUTPUT);
+  pinMode(LED_PIN_EVAL, OUTPUT);
 
-	x = sample;
-	for( k = 0; k < SECTIONS; k++){
-		accu = v1[k] >> 1;
-		y = _sadd( accu, _smpy( coef[k][0], x));
-		y = _sshl(y, 1) >> 16;
+  pinMode(SET_POWER_LEDS_1_TO_4, OUTPUT);
+  pinMode(SET_POWER_LEDS_5_TO_7, OUTPUT);
+  pinMode(SET_POWER_LEDS_8_TO_10, OUTPUT);
 
-		accu = v2[k] >> 1;
-		accu = _sadd( accu, _smpy( coef[k][1], x));
-		accu = _sadd( accu, _smpy( coef[k][2], y));
-		v1[k] = _sshl( accu, 1);
+  pinMode(SW_ENTER, INPUT_PULLUP);
+  pinMode(SW_RIGHT, INPUT_PULLUP);
+  pinMode(SW_LEFT, INPUT_PULLUP);
+  pinMode(SW_END, INPUT_PULLUP);
+  pinMode(SW_NEW_GAME, INPUT_PULLUP);
+  pinMode(SW_YELLOW, INPUT_PULLUP);
+  pinMode(SW_ORANGE, INPUT_PULLUP);
+  pinMode(SW_RED, INPUT_PULLUP);
+  pinMode(SW_PURPLE, INPUT_PULLUP);
+  pinMode(SW_BLUE, INPUT_PULLUP);
+  pinMode(SW_GREEN, INPUT_PULLUP);
 
-		accu = _smpy( coef[k][3], x);
-		accu = _sadd( accu, _smpy( coef[k][4], y));
-		v2[k] = _sshl( accu, 1);
-
-		x = y;
-	}
-	return( y);
+  digitalWrite(SET_POWER_LEDS_1_TO_4, POWER_ON); 
+  digitalWrite(SET_POWER_LEDS_5_TO_7, POWER_OFF);
+  digitalWrite(SET_POWER_LEDS_8_TO_10, POWER_OFF);
 }
 \end{lstlisting}
 \end{minipage}
