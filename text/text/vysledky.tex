@@ -1,41 +1,223 @@
-\chapter{Výsledky studentské práce}
+\chapter{Software}
+Software pro elektronickou hru Logic byl napsán v jazyce C++. Bylo využito skutečnosti, že mikrokontrolér ESP32-PICO podporuje Arduino 
+framework. Pro psaní softwaru bylo použito vývojové prostředí Visual Studio Code. \textcolor{red}{citace}%odkaz - citace
 
-Praktická část a výsledky studentské práce vhodně rozdělené do částí.
+Pro programování inteligentních LED bylo využito již existující knihovny SmartLeds.h \textcolor{red}{citace}%odkaz - citace
+Tato knihovna velmi usnadňuje softwarovou práci s těmito inteligentními LED. Obsahuje například funkci {\it show}, která umožní zobrazit 
+nastavené barvy na všech LED připojených k jednomu pinu mikrokontroléru ESP32-PICO. 
 
-\section{Programové řešení}
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nulla pulvinar eleifend sem. Integer in sapien. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante. In laoreet, magna id viverra tincidunt, sem odio bibendum justo, vel imperdiet sapien wisi sed libero. Phasellus enim erat, vestibulum vel, aliquam a, posuere eu, velit. Aliquam erat volutpat. Nullam faucibus mi quis velit \cite{sr02/2009}.
+\section{Funkce init}
+Funkce {\it \_init\_} slouží pro inicializaci vstupně-výstupních pinů. Všechny piny, na kterých jsou připojena tlačítka, jsou nastaveny jako 
+vstupní se zapnutým softwarovým pull-up rezistorem. Piny, na kterých jsou připojeny inteligentní LED, jsou nastaveny jako výstupní. Piny,
+kterými je ovládáno připojení napájecího napětí jednotlivých částí inteligentních LED, jsou nastaveny jako výstupní a mají přednastavenou 
+počáteční hodnotu. První část je zapnuta, zbylé 2 jsou vypnuty. Zbylým dvěma částem je napájení zapínáno až ve chvíli, kdy mají dané 
+inteligentní LED svítit.
 
-\section{Výsledky měření}
-Fusce tellus odio, dapibus id fermentum quis, suscipit id erat. Fusce tellus. Morbi scelerisque luctus velit. In laoreet, magna id viverra tincidunt, sem odio bibendum justo, vel imperdiet sapien wisi sed libero. Quisque porta. Fusce suscipit libero eget elit. Nulla non lectus sed nisl molestie malesuada. Phasellus faucibus molestie nisl. Integer vulputate sem a nibh rutrum consequat. Proin mattis lacinia justo. Phasellus et lorem id felis nonummy placerat. Etiam ligula pede, sagittis quis, interdum ultricies, scelerisque eu. Cras elementum. Aenean placerat. Donec ipsum massa, ullamcorper in, auctor et, scelerisque sed, est. Aliquam ante. Integer imperdiet lectus quis justo. Vivamus ac leo pretium faucibus. Nullam faucibus mi quis velit.
+\begin{minipage}{\linewidth}
+\begin{lstlisting}[frame=single,numbers=right,caption={Funkce pro úvodní inicializaci hardwaru.},label=lst:priklad.vypis.kodu.C,basicstyle=\ttfamily\small, keywordstyle=\color{black}\bfseries\underbar,]
+void _init_ (){
+    pinMode(LED_PIN_GAME, OUTPUT);
+    pinMode(LED_PIN_TASK, OUTPUT);
+    pinMode(LED_PIN_EVAL, OUTPUT);
 
-\subsection{Etiam quis quam}
-Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit \cite{sr02/2009,pravidla}. Nunc auctor. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Maecenas lorem. Maecenas libero. In laoreet, magna id viverra tincidunt, sem odio bibendum justo, vel imperdiet sapien wisi sed libero. Nullam rhoncus aliquam metus.
+    pinMode(SET_POWER_LEDS_1_TO_4, OUTPUT);
+    pinMode(SET_POWER_LEDS_5_TO_7, OUTPUT);
+    pinMode(SET_POWER_LEDS_8_TO_10, OUTPUT);
 
-\subsubsection{Integer rutrum orci vestibulum}
-Integer rutrum, orci vestibulum ullamcorper ultricies, lacus quam ultricies odio, vitae placerat pede sem sit amet enim. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Fusce tellus odio, dapibus id fermentum quis, suscipit id erat. Nullam eget nisl. Nunc auctor. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Fusce dui leo, imperdiet in, aliquam sit amet, feugiat eu, orci. Curabitur vitae diam non enim vestibulum interdum. Aliquam erat volutpat. Pellentesque sapien. Phasellus enim erat, vestibulum vel, aliquam a, posuere eu, velit.
+    pinMode(SW_ENTER, INPUT_PULLUP);
+    pinMode(SW_RIGHT, INPUT_PULLUP);
+    pinMode(SW_LEFT, INPUT_PULLUP);
+    pinMode(SW_END, INPUT_PULLUP);
+    pinMode(SW_NEW_GAME, INPUT_PULLUP);
+    pinMode(SW_YELLOW, INPUT_PULLUP);
+    pinMode(SW_ORANGE, INPUT_PULLUP);
+    pinMode(SW_RED, INPUT_PULLUP);
+    pinMode(SW_PURPLE, INPUT_PULLUP);
+    pinMode(SW_BLUE, INPUT_PULLUP);
+    pinMode(SW_GREEN, INPUT_PULLUP);
 
-\subsubsection{Eger rutrum orci westibulum}
-Fusce dui leo, imperdiet in, aliquam sit amet, feugiat eu, orci. Maecenas aliquet accumsan leo. Aliquam ornare wisi eu metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam erat volutpat. Donec iaculis gravida nulla. Sed elit dui, pellentesque a, faucibus vel, interdum nec, diam. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Nulla non arcu lacinia neque faucibus fringilla. Phasellus enim erat, vestibulum vel, aliquam a, posuere eu, velit. Praesent vitae arcu tempor neque lacinia pretium
-\cite{Walter1999,Svacina1999IEEE,RajmicSysel2002}.
+    digitalWrite(SET_POWER_LEDS_1_TO_4, POWER_ON); 
+    digitalWrite(SET_POWER_LEDS_5_TO_7, POWER_OFF);
+    digitalWrite(SET_POWER_LEDS_8_TO_10, POWER_OFF);
+}
+    \end{lstlisting}
+    \end{minipage}
 
-Aliquam erat volutpat. Quisque porta. Integer imperdiet lectus quis justo. Nullam justo enim, consectetuer nec, ullamcorper ac, vestibulum in, elit. Nullam faucibus mi quis velit. Fusce tellus. Fusce consectetuer risus a nunc. Cras pede libero, dapibus nec, pretium sit amet, tempor quis. Morbi imperdiet, mauris ac auctor dictum, nisl ligula egestas nulla, et sollicitudin sem purus in lacus
-\cite{CSN_ISO_690-2011,CSN_ISO_7144-1997,CSN_ISO_31-11}.
-Mauris elementum mauris vitae tortor. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Quisque porta. Integer vulputate sem a nibh rutrum consequat. Nulla pulvinar eleifend sem. Praesent id justo in neque elementum ultrices \cite{BiernatovaSkupa2011:CSNISO690komentar}.
+\section{Funkce ovládání tlačítek}
+Zákmity tlačítek, které se dějí při stisku tlačítka, jsou řešeny hardwarových způsobem pomocí filtračních kondenzátorů. Proto tento probém
+není řešen softwarově. Je ale možné, že hráč tlačítko drží po dobu delší, než trvá jeden programový cyklus. Došlo by tak k detekci více stisků.
 
-Fusce suscipit libero eget elit. Integer vulputate sem a nibh rutrum consequat. Aliquam erat volutpat. Etiam neque. Nulla turpis magna, cursus sit amet, suscipit a, interdum id, felis. Nullam rhoncus aliquam metus. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Nunc auctor. Nunc dapibus tortor vel mi dapibus sollicitudin. Praesent in mauris eu tortor porttitor accumsan. Nulla non arcu lacinia neque faucibus fringilla. Nullam lectus justo, vulputate eget mollis sed, tempor sed magna. Maecenas lorem. Aenean placerat. Donec vitae arcu. Maecenas lorem. Donec iaculis gravida nulla. Nulla non lectus sed nisl molestie malesuada.
+Aby k této detekci nedocházelo, čeká se po detekci stisku na puštění tlačítka. Až poté je vykonáván příkaz. Tím je zaručeno, že se 
+např. kurzor posune vždy jen o jedno pole. Pro zjednodušení tohoto zápisu byly vytvořeny funkce {\it is\_pressed(SW)} a {\it wait\_for\_btn\_release(SW)}.
+Argumentem obou funkcí je pin tlačítka, na které se dotazuje/čeká. Funkce {\it is\_pressed} má návratovou hodnotu typu bool. Typ bool nabývá pouze 2 hodnot.
+Těmito hodnotami jsou „true“\ = 1 (pravda) a „false“\ = 0 (nepravda). Pokud je tlačítko zmáčknuto, funkce vrátí „true“\, pokud tlačítko zmáčknuto není, 
+funkce vrátí „false“\. Návratová hodnota je poté vyhodnocována v podmínce, zda je konkrétní tlačítko zmáčknuto. 
 
-Duis pulvinar. Nulla est. Duis condimentum augue id magna semper rutrum. Integer pellentesque quam vel velit. Aliquam ante. Nulla quis diam. Proin mattis lacinia justo. Aenean fermentum risus id tortor. Nunc auctor. Nullam justo enim, consectetuer nec, ullamcorper ac, vestibulum in, elit. In dapibus augue non sapien. Etiam bibendum elit eget erat. In sem justo, commodo ut, suscipit at, pharetra vitae, orci. Maecenas libero.
+\begin{minipage}{\linewidth}
+\begin{lstlisting}[frame=single,numbers=right,caption={Funkce pro detekci stisku tlačítka.},label=lst:priklad.vypis.kodu.C,basicstyle=\ttfamily\small, keywordstyle=\color{black}\bfseries\underbar,]
+bool is_pressed(int btn){
+    if(!digitalRead(btn))
+        return true;
+    return false;
+}
+\end{lstlisting}
+\end{minipage}
 
-Nulla non lectus sed nisl molestie malesuada. Donec vitae arcu. Aenean fermentum risus id tortor. Praesent in mauris eu tortor porttitor accumsan. Nulla pulvinar eleifend sem. Duis viverra diam non justo. Integer imperdiet lectus quis justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In rutrum. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nulla non lectus sed nisl molestie malesuada. Aliquam erat volutpat. Mauris tincidunt sem sed arcu. Duis bibendum, lectus ut viverra rhoncus, dolor nunc faucibus libero, eget facilisis enim ipsum id lacus. Fusce tellus odio, dapibus id fermentum quis, suscipit id erat. In enim a arcu imperdiet malesuada. Nulla non lectus sed nisl molestie malesuada. Proin mattis lacinia justo.
+\begin{minipage}{\linewidth}
+\begin{lstlisting}[frame=single,numbers=right,caption={Funkce čekající na puštění tlačítka.},label=lst:priklad.vypis.kodu.C,basicstyle=\ttfamily\small, keywordstyle=\color{black}\bfseries\underbar,]
+void wait_for_btn_release(int btn){
+    while(!digitalRead(btn))
+        delay(1);
+}
+\end{lstlisting}
+\end{minipage} 
 
-Aliquam in lorem sit amet leo accumsan lacinia. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis sapien nunc, commodo et, interdum suscipit, sollicitudin et, dolor. Suspendisse sagittis ultrices augue. Nullam lectus justo, vulputate eget mollis sed, tempor sed magna. In convallis. Praesent id justo in neque elementum ultrices. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+Tlačítka s barvami plní 2 funkce. Nejprve nastaví barvu dané LED a poté posunou kurzor o jedno pole vpravo. Tlačítka s šipkou posouvají kurzor daným směrem. 
+Pro tyto 2 postupy vznikly funkce {\it set\_color(led, color)} a {\it shift\_cursor(led, direct, length)}.
+Funkce {\it set\_color} má 2 argumenty. Jedním argumentem je barva LED, kterou má nastavit a druhým je řetězec LED, kde má tuto barvu nastavit.
 
-Pellentesque pretium lectus id turpis. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Curabitur ligula sapien, pulvinar a vestibulum quis, facilisis vel sapien. Praesent dapibus. Sed elit dui, pellentesque a, faucibus vel, interdum nec, diam. Duis viverra diam non justo. Duis ante orci, molestie vitae vehicula venenatis, tincidunt ac pede. Phasellus rhoncus. Maecenas fermentum, sem in pharetra pellentesque, velit turpis volutpat ante, in pharetra metus odio a lectus. Proin pede metus, vulputate nec, fermentum fringilla, vehicula vitae, justo. Fusce aliquam vestibulum ipsum. Nullam at arcu a est sollicitudin euismod.
+\begin{minipage}{\linewidth}
+\begin{lstlisting}[frame=single,numbers=right,caption={Ukázka funkce nastavující barvu inteligentním LED.},label=lst:priklad.vypis.kodu.C,basicstyle=\ttfamily\small, keywordstyle=\color{black}\bfseries\underbar,]
+void set_color (led_t &LED, Colors COLOR){
+    const int num_max = 32;
+    switch (COLOR){
+        case YELLOW:
+        LED.leds[LED.pos] = Rgb{num_max, num_max, 0}; 
+        break;
+        case RED:
+        LED.leds[LED.pos] = Rgb{num_max, 0, 0}; 
+        break;
+        case BLUE:
+        ...
+    } 
+}    
+\end{lstlisting}
+\end{minipage} 
 
-%Aliquam ante. Phasellus faucibus molestie nisl. Etiam ligula pede, sagittis quis, interdum ultricies, scelerisque eu. Morbi leo mi, nonummy eget tristique non, rhoncus non leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi scelerisque luctus velit. Curabitur bibendum justo non orci. Donec quis nibh at felis congue commodo. Nullam faucibus mi quis velit. Aenean id metus id velit ullamcorper pulvinar. Pellentesque sapien. Fusce nibh. Vestibulum fermentum tortor id mi. Nullam eget nisl. Praesent vitae arcu tempor neque lacinia pretium. Proin in tellus sit amet nibh dignissim sagittis. Donec quis nibh at felis congue commodo.
-%
-%Nam quis nulla. Proin in tellus sit amet nibh dignissim sagittis. Nullam dapibus fermentum ipsum. Curabitur ligula sapien, pulvinar a vestibulum quis, facilisis vel sapien. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Vivamus ac leo pretium faucibus. Nunc tincidunt ante vitae massa. Maecenas sollicitudin. Ut tempus purus at lorem. Nullam lectus justo, vulputate eget mollis sed, tempor sed magna. Fusce consectetuer risus a nunc. Etiam quis quam.
-%
-%Donec quis nibh at felis congue commodo. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Nullam feugiat, turpis at pulvinar vulputate, erat libero tristique tellus, nec bibendum odio risus sit amet ante. Sed elit dui, pellentesque a, faucibus vel, interdum nec, diam. Cras elementum. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Etiam neque. Integer tempor. Vivamus porttitor turpis ac leo. Nulla non arcu lacinia neque faucibus fringilla.
-%
-%Etiam posuere lacus quis dolor. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Nullam faucibus mi quis velit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus faucibus molestie nisl. Maecenas ipsum velit, consectetuer eu lobortis ut, dictum at dui. Maecenas aliquet accumsan leo. Pellentesque ipsum. Donec vitae arcu. Suspendisse nisl. Morbi imperdiet, mauris ac auctor dictum, nisl ligula egestas nulla, et sollicitudin sem purus in lacus. Pellentesque ipsum. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
+Funkce {\it shift\_cursor} posune kurzor vpravo, nebo vlevo, dle předaného argumentu. Pokud se kurzor nachází na konci herního řádku a je předán 
+argument pro posun kurzoru vpravo, je pozice přepočítána tak, aby se kurzor posunul na začátek herního řádku. Pokud se kurzor nachází na začátku herního 
+řádku a je předán argument pro posun kurzoru vlevo, je pozice přepočítána tak, aby se kurzor posunul na konec herního řádku. 
+
+\begin{minipage}{\linewidth}
+\begin{lstlisting}[frame=single,numbers=right,caption={Funkce posouvající kurzor.},label=lst:priklad.vypis.kodu.C,basicstyle=\ttfamily\small, keywordstyle=\color{black}\bfseries\underbar,]
+void shift_cursor (led_t &LED, Direct DIR, int length){
+    if((DIR == RIGHT) && 
+      !((LED.pos + 1 + LINE_LENGTH - length) % LINE_LENGTH))
+        LED.pos -= LINE_LENGTH - (LINE_LENGTH - length) - 1;
+    else if(DIR == RIGHT)
+        LED.pos += 1;
+    else if((DIR == LEFT) && 
+           (LED.pos == 0 || !(LED.pos % LINE_LENGTH)))
+        LED.pos += LINE_LENGTH - (LINE_LENGTH - length) - 1;
+    else if(DIR == LEFT)
+        LED.pos -= 1;
+}   
+\end{lstlisting}
+\end{minipage} 
+
+\section{Zadání}
+Vygenerování zadání a její následné uložení do inteligentních LED zajíšťují funkce {\it generate\_task(array, length, diff)} a {\it set\_task(leds, array, length)}.
+Funkce generate task vygeneruje pomocí funkce {\it esp\_random} a matematické úpravy číslo od 0 do počtu barev. Každá barva je interpretována jiným číslem z tohoto 
+rozsahu. Proměnná {\it diff} určuje, zda je může vygenerovat i černá (= mezera). Její hodnotu určuje stav přepínače. Proměnná {\it length určuje}, zda se vygeneruje zadání 
+pro hru na 3 nebo 4 herní prvky. Její hodnota je také určována stavem přepínače. Zadání je uloženo do pole prvků, které je poté používáno pro vyhodnocení.
+
+\begin{minipage}{\linewidth}
+\begin{lstlisting}[frame=single,numbers=right,caption={Funkce pro vygenerování zadání.},label=lst:priklad.vypis.kodu.C,basicstyle=\ttfamily\small, keywordstyle=\color{black}\bfseries\underbar,]
+void generate_task (Colors *task, int length, int diff){
+    for(int i = 0; i < length; ++i)
+        task[i] = Colors(esp_random() % (NUM_OF_COLORS - diff));
+}      
+\end{lstlisting}
+\end{minipage} 
+
+Funkce {\it set\_task} uloží hodnoty z pole, ve kterém je vygenerováno zadání, do inteligentních LED. Tam je uloženo a po zavolaní funkce {\it show} je ve správnou 
+chvíli zobrazeno.
+
+\begin{minipage}{\linewidth}
+\begin{lstlisting}[frame=single,numbers=right,caption={Funkce pro vygenerování zadání.},label=lst:priklad.vypis.kodu.C,basicstyle=\ttfamily\small, keywordstyle=\color{black}\bfseries\underbar,]
+void set_task(led_t &leds, Colors* array_task, int length){
+    for (int i = 0; i < length; ++i){
+        leds.pos = i;
+        set_color(leds, array_task[i]); 
+    } 
+}      
+\end{lstlisting}
+\end{minipage}
+
+\textcolor{red}{funkce evaluate - vyhodnocení} %evaluate - vyhodnocení
+
+\chapter{Způsob ovládání elektronické hry}
+DPS obsahuje 3 přepínače SW13, SW14 a SW15. Těmito přepínači si hráč volí způsob hry.
+
+Přepínač SW15 slouží k volbě hry pro jednoho, nebo pro dva hráče. Pokud hráč umístí přepínač do pozice ON, hra se přepne
+do módu pro dva hráče. Rozdíl mezi těmito variantami hry je popsán v následujících kapitolách, funkce dalších přepínačů taktéž.
+
+\section{Hra pro jednoho hráče}
+Tato verze hry pro jednoho hráče má stejná pravidla jako desková hra Logic. Funkci druhého hráče nahrazuje řídicí elektronika
+- mikrokontrolér ESP32-PICO.
+
+Po zapnutí DPS stikneme tlačítko "Nová hra"\ . V~této chvíli se vygeneruje zadání, které není vidět, a~první herní LED se 
+rozbliká. Rozblikání herní LED značí pozici kurzoru. 
+Kurzorem lze pohybovat pomocí tlačítek "Šipka vpravo"\  a~"Šipka vlevo"\ . Barvy herních LED se nastavují tlačítky ve spodní části 
+DPS. Tato tlačítka jsou označena danými barvami.
+Po zadání kombinace stiskneme tlačítko "Potvrdit tah"\ . Po stisku tlačítka proběhne vyhodnocení a~to se zobrazí na vyhodnocovacích LED. 
+Červená barva ve vyhodnocení značí, že hráč má v barevné kombinaci stejnou barvu se zadáním na správné pozici. Žlutá barva znamená,
+že hráč má v barevné kombinaci stejnou barvu se zadáním, ale na chybné pozici. Další barvy nejsou ohodnoceny. Pozice vyhodnocení
+záměrně není shodná s pozicemi, kterých se hodnocení týká. Zleva jsou nejdříve umístěna všechna červená a až poté všechna žlutá 
+hodnocení.
+
+Po vyhodnocení se kurzor posune na první LED v~dalším řádku.
+Po zadání správné kombinace barev a~jejich pozic se rozsvítí zadání a~hra je u~konce. Pro novou hru stiskneme tlačítko
+"Nová hra"\  a~pro ukončení tlačítko "Konec"\ .
+Po stisku tlačítka "Konec"\  zhasnou všechny herní, vyhodnocovací LED i~LED pro zadání. Poté je DPS připravena pro vypnutí
+vypínačem.
+
+Přepínač SW14 slouží pro nastavení, zda zadání obsahuje 3 nebo 4 barvy. Pokud hráč umístí přepínač do pozice ON, tak tím 
+zvolí variantu hry na 3 barvy. Pohyb kurzoru se omezí na první 3 pole. Poslední pole se ignoruje a také nikdy nesvítí.
+
+Přepínač SW13 slouží pro nastavení, zda zadání může nebo nesmí obsahovat mezeru. Pokud dá hráč přepínač do pozice ON, 
+tak v zadání může být mezera. Není to ale nutností. 
+
+\begin{figure}[!h]
+    \begin{center}
+        \includegraphics[scale=0.45]{obrazky/vyvojovy_diagram_1_hrac.png}
+    \end{center}
+    \caption[Vývojový diagram]{Vývojový diagram.}
+    \end{figure}
+
+\section{Hra pro dva hráče}
+Varianta elektronické hry Logic pro dva hráče má totožná pravidla s deskovou hrou. Po spuštění hry a stisku tlačítka "Nová hra"\ .
+bliká kurzor v poli inteligentních LED se zadáním. První hráč zadává barvy pomocí barevných tlačítek a v poli LED se pohybuje pomocí šipek 
+interpretovanými tlačítky. Hráč zadání zakryje a stiskne tlačítko „Potvrdit tah“\ . 
+
+Po stisku zadání zůstane svítit a kurzor se přesune na první herní pozici. Druhý hráč hádá zadanou kombinaci a tuto kombinaci 
+navolí pomocí barevných tlačítek. Kurzorem může taktéž pohybovat pomocí šipek interpretovanými tlačítky. Po zadání kombinace 
+druhý hráč stiskne tlačítko „Potvrdit tah“\  a kurzor se přesune na první pozici vyhodnocovacího pole. 
+
+První hráč má v tuto chvíli aktivní pouze šipky a červené a žluté barevné tlačítko. Červenou barvu zadává jako první a 
+indikuje jí, že některá barva druhého hráče je obsažena v zadání, a to na totožné pozici. Poté zadává žlutou barvu, kterou 
+indikuje, že některá z barev prvního hráče je obsažena v zadání, ale na jiné pozici, než kam ji druhý hráč umístil. Vyhodnocení 
+hráč záměrně neumisťuje na pozice, kterých se hodnocení týká. Zpravidla se zleva umisťují nejdříve všechna červená a až poté 
+všechna žlutá hodnocení. 
+
+Po dokončení hodnocení je opět kurzor posunut na první pozici dalšího řádku herního pole. Hra dále pokračuje obdobným způsobem.
+Pokud druhý hráč nalezne správnou kombinaci, pak první hráč odkryje zadání pro možnou kontrolu a hra je u konce. Pro možnost další 
+hry stiskne jeden z hráčů tlačítko „Nová hra“. Celé herní, vyhodnocovací pole i pole se zadáním je smazáno a kurzor je znovu posunut 
+na první pozici pole se zadáním. 
+
+\begin{figure}[!h]
+    \begin{center}
+        \includegraphics[scale=0.45]{obrazky/vyvojovy_diagram_2_hraci.png}
+    \end{center}
+    \caption[Vývojový diagram]{Vývojový diagram.}
+    \end{figure}
+
+\chapter{Krabička}
+Krabička byla navržena v programu SolidWorks a vytištěna na 3D tiskárně. Krabička obsahuje 2 vyvýšené sloupky, do kterých jsou zalepeny 
+matičky. Vnitřní a nižší jsou určeny pro přišroubování DPS pomocí montážních otvorů a šroubů M3. Vnější otvory jsou poté pro přišroubování 
+vrchního krytu krabičky. V obou případech jsou použity šrouby M3 se zápustnou hlavou, protože mají podstatně nižší hlavičku, než šrouby klasické.
+
+Krabička také obsahuje tzv. stříšku, která je také součástí deskové hry. Tato stříška slouží pro zakrytí zadání ve hře pro 2 hráče, kdy 
+musí zadání svítit po celou dobu hry, aby druhý hráč byl schopen vyhodnocovat. 
+
+\chapter{Kompletace}
