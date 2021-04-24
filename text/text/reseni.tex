@@ -377,7 +377,18 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   Dílčí obvody byly rozmístěny v~následujícím pořadí~-~USB konektory, měnič napětí, převodník z~USB 
   na RS-232 a~ESP332-PICO. USB konektor musel být umístěn na okraj DPS. Proto byly jednotlivé části obvodu naskládány podél levého okraje DPS.
 
-  %umístění level shifterů, zapínání napájení (co ještě chybí?)
+  USB konektory jsou umístěny těsně vedle sebe. Tímto způsobem je ošetřeno, že za pomoci běžného USB kabelu, nepůjde zapojit napájení do obou 
+  konektorů zároveň. 
+
+  Převodník úrovně je umístěn vždy těsně před vstupem signálu do první inteligentní LED daného řetězce.
+
+  Přepínač pro změnu hry pro jednoho a pro 2 hráče byl umístěn do mezery, mezi herní a vyhodnocovací inteligentní LED. Další 2 přepínače, jeden 
+  pro volbu hry na 3 nebo 4 herní prvky a druhý na volbu nastavení, zda se v zadání může, nebo nesmí vyskytnout mezera, jsou umístěny v pravém 
+  horním rohu. 
+
+  Obvody pro zapínání napájení jednotlivým sekcím inteligentních LED jsou umístěny vždy na začátku dané části polygonu vlevo od herních inteligentních
+  LED.
+  %(co ještě chybí?)
 
   \section{Funkční rozmístění součástek}
   U~některých součástek není jejich umístění na DPS lhostejné. Rozmístění součástekv některých případech může ovlivnit funkčnost obvodu. 
@@ -418,62 +429,7 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   %odběr proudu
 
   \chapter{Od prvního prototypu po finální verzi} %přečíst a celé opravit
-  \section{Verze 0.0}
-  DPS přijde z~výroby ve stavu, kdy jsou osazeny pouze SMD komponenty.
-
-  \begin{figure}[!h]
-    \begin{center}
-      \includegraphics[scale=0.1]{obrazky/Verze0_vyroba_kolejnice.jpg}
-    \end{center}
-    \caption[Verze~0.0 z~výroby]{Verze~0.0 z~výroby.}
-  \end{figure}
-
-  Po dodání DPS z~výroby byly zapájeny THT komponenty (pouzdro na baterii, konektor USB micro, tlačítka a~vypínač). Na testovací verzi
-  byl místo vypínače osazen konektor, na který je pro zapnutí DPS potřeba nasunout propojku. Po zapojení baterií
-  18650 do pouzdra a~zapnutí vypínače se rozsvítí zelená LED~D1, která indikuje přítomnost napájecího napětí. 
-
-  Po vložení baterií do pouzdra a~zapnutí DPS bylo pomocí multimetru zjištěno, že ochrana proti přepólování baterií nepropouští napětí 
-  dále, i~když jsou baterie v~pouzdře umístěny správně. Bylo zjištěno, že pouzdro tranzistoru zajišťujícího ochranu proti přepólování 
-  neodpovídá navrženému pouzdru tranzistoru. Všechny MOSFET tranzistory byly stejného typu, takže musely být všechny otočeny.
-  
-  Při zkoušce nabíjení bylo zjištěno, že červená LED indikující nabíjení baterií je přepólovaná. LED se povedla otočit a indikace nabíjení 
-  baterií z~USB byla v~pořádku. 
-  
-  Při programování byl zjištěn problém s~komunikací po lince RS-232. Bylo zjištěno, že LED pro indikaci komunikace po lince RS-232 jsou 
-  špatně zapojeny, a~proto byly odstraněny a~nahrazeny zkratem. Jejich zapojení této komunikaci bránilo. Bipolární tranzistory byly 
-  taktéž osazeny ve špatném pouzdře a~neodpovídaly navrženým pouzdrům. 
-  
-  Při programování a~testování všech inteligentních LED WS2812C a~tlačítek bylo zjištěno, že jedno tlačítko bylo zapojeno na pin, který 
-  nemá softwarově zapínatelný pullup rezistor. Tento rezistor byl dodatečně osazen.
-  
-  Po veškerých opravách byla DPS připravena na testování softwaru elektronické hry Logic.
-
-  \begin{figure}[!h]
-    \begin{center}
-      \includegraphics[scale=0.1]{obrazky/Verze0_zapnuto_nabito.jpg}
-    \end{center}
-    \caption[Oživená verze~0.0 s~opravami]{Oživená verze~0.0 s~opravami.}
-  \end{figure}
-
-  \section{Verze~1.0}
-  DPS přijde z~výroby ve stavu, kdy jsou osazeny pouze SMD komponenty. 
-
-  \begin{figure}[!h]
-    \begin{center}
-      \includegraphics[scale=0.65]{obrazky/Verze1_3D_pohled.png}
-    \end{center}
-    \caption[3D~pohled verze~1.0 DPS]{3D~pohled verze~1.0 DPS.}
-  \end{figure}
-
-  Poté je nutné ručně osadit THT součástky, tj. vypínač, tlačítka a~konektor USB micro. Po připojení DPS přes USB konektor k~powerbance, 
-  nebo do počítače, se rozsvítí LED~D1~a~D2, které indikují přítomnost napájecího napětí. LED~D2 zároveň značí, že zapojení měniče
-  napětí je funkční.
-
-  Tato firma v dnešní době 
-  velmi rychle rozšiřuje svůj sortiment k osazení. Od výroby prototypů začala tato firma osazovat nejen SMD součástky, ale také THT.
-
-  Všechny chyby z~předchozí verze byly odstraněny.
-
+  \section{Napájení}
   \subsection{Verze~0.0}
   V~první verzi byly pro napájení použity baterie Li-Ion INR18650-29E od firmy Samsung. Tyto baterie mají jmenovité napětí 3,7~V, 
   při plném nabití až 4,2~V. Kapacita jedné baterie je 2850~mAh \cite{18650}. Byly použity 2~články baterií, které byly zapojeny paralelně. 
@@ -560,6 +516,68 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   \end{itemize}
 
   Byl zvolen konektor USB~Micro, protože se jedná o~nejrozšířenější USB konektor dnešní doby.
+
+  \section{Vzhled DPS}
+  %dopsat
+  
+  \section{Oživení prototypů}
+  \subsection{Verze 0.0}
+  DPS přijde z~výroby ve stavu, kdy jsou osazeny pouze SMD komponenty.
+
+  \begin{figure}[!h]
+    \begin{center}
+      \includegraphics[scale=0.1]{obrazky/Verze0_vyroba_kolejnice.jpg}
+    \end{center}
+    \caption[Verze~0.0 z~výroby]{Verze~0.0 z~výroby.}
+  \end{figure}
+
+  Po dodání DPS z~výroby byly zapájeny THT komponenty (pouzdro na baterii, konektor USB micro, tlačítka a~vypínač). Na testovací verzi
+  byl místo vypínače osazen konektor, na který je pro zapnutí DPS potřeba nasunout propojku. Po zapojení baterií
+  18650 do pouzdra a~zapnutí vypínače se rozsvítí zelená LED~D1, která indikuje přítomnost napájecího napětí. 
+
+  Po vložení baterií do pouzdra a~zapnutí DPS bylo pomocí multimetru zjištěno, že ochrana proti přepólování baterií nepropouští napětí 
+  dále, i~když jsou baterie v~pouzdře umístěny správně. Bylo zjištěno, že pouzdro tranzistoru zajišťujícího ochranu proti přepólování 
+  neodpovídá navrženému pouzdru tranzistoru. Všechny MOSFET tranzistory byly stejného typu, takže musely být všechny otočeny.
+  
+  Při zkoušce nabíjení bylo zjištěno, že červená LED indikující nabíjení baterií je přepólovaná. LED se povedla otočit a indikace nabíjení 
+  baterií z~USB byla v~pořádku. 
+  
+  Při programování byl zjištěn problém s~komunikací po lince RS-232. Bylo zjištěno, že LED pro indikaci komunikace po lince RS-232 jsou 
+  špatně zapojeny, a~proto byly odstraněny a~nahrazeny zkratem. Jejich zapojení této komunikaci bránilo. Bipolární tranzistory byly 
+  taktéž osazeny ve špatném pouzdře a~neodpovídaly navrženým pouzdrům. 
+  
+  Při programování a~testování všech inteligentních LED WS2812C a~tlačítek bylo zjištěno, že jedno tlačítko bylo zapojeno na pin, který 
+  nemá softwarově zapínatelný pullup rezistor. Tento rezistor byl dodatečně osazen.
+  
+  Po veškerých opravách byla DPS připravena na testování softwaru elektronické hry Logic.
+
+  \begin{figure}[!h]
+    \begin{center}
+      \includegraphics[scale=0.1]{obrazky/Verze0_zapnuto_nabito.jpg}
+    \end{center}
+    \caption[Oživená verze~0.0 s~opravami]{Oživená verze~0.0 s~opravami.}
+  \end{figure}
+
+  \subsection{Verze~1.0}
+  DPS přijde z~výroby ve stavu, kdy jsou osazeny pouze SMD komponenty. 
+
+  \begin{figure}[!h]
+    \begin{center}
+      \includegraphics[scale=0.65]{obrazky/Verze1_3D_pohled.png}
+    \end{center}
+    \caption[3D~pohled verze~1.0 DPS]{3D~pohled verze~1.0 DPS.}
+  \end{figure}
+
+  Poté je nutné ručně osadit THT součástky, tj. vypínač, tlačítka a~konektor USB micro. Po připojení DPS přes USB konektor k~powerbance, 
+  nebo do počítače, se rozsvítí LED~D1~a~D2, které indikují přítomnost napájecího napětí. LED~D2 zároveň značí, že zapojení měniče
+  napětí je funkční.
+
+  Tato firma v dnešní době 
+  velmi rychle rozšiřuje svůj sortiment k osazení. Od výroby prototypů začala tato firma osazovat nejen SMD součástky, ale také THT.
+
+  Všechny chyby z~předchozí verze byly odstraněny.
+
+  
 
  
   
