@@ -4,7 +4,7 @@ hráč~A, a~druhý tuto kombinaci za pomoci logických úvah a~vyhodnocení hrá
 
 Hráči si určí herní pozice. Hráč~A~vybere barevné kolíky dle libosti a~následně je v~určitém pořadí vloží do zadávacího pole. Zadání zakryje
 stříškou, aby tuto
-kombinaci spoluhráč neviděl. Hráč~B~se v~tuto chvíli nedívá. Hráč~B~následně zvolí náhodnou kombinaci barev a~jejich pozic. Po 
+kombinaci spoluhráč neviděl. Hráč~B~se v~tuto chvíli nedívá. Hráč~B~následně zvolí libovolnou kombinaci barev a~jejich pozic. Po 
 ukončení tahu nechá
 hráče~A,~aby jeho tah vyhodnotil. Hráč~A~vyhodnotí tah následujícím způsobem. Pokud hráč~B~vložil správnou barvu na správnou pozici, tak vloží 
 do vyhodnocovací sekce černý kolík. Pokud vložil barvu, která se v~zadání vyskytuje, ale vložil ji na nesprávnou pozici, tak vloží bílý kolík.
@@ -28,34 +28,22 @@ více variací této hry. Většinou se liší v~délce hledané kombinace.
 \end{figure}
 
 \chapter{Návrh elektroniky}
-
-Již byly navrženy 2~verze DPS elektronické hry Logic. Verze~0 byla pouze testovací, takže neobsahovala celé herní pole. 
-Sloužila pro ověření funkčnosti daných zapojení různých čipů a~zároveň pro testování softwaru.
-
-\begin{figure}[!h]
-  \begin{center}
-    \includegraphics[scale=0.5]{obrazky/v0_blokove_schema.jpg}
-  \end{center}
-  \caption[Blokové schéma zapojení verze~0.0]{Blokové schéma zapojení verze~0.0.}
-\end{figure}
+V následující kapitole budou rozebrány všechny komponenty DPS Elektronické hry Logic. Návrh se skládá z řídicí elektroniky, 
+napájení, herních prvků a dalších potřebných komponent.
 
 \begin{figure}[!h]
   \begin{center}
-    \includegraphics[scale=0.5]{obrazky/v1_blokove_schema.jpg}
+    \includegraphics[scale=0.5]{obrazky/v2_blokove_schema.jpg}
   \end{center}
-  \caption[Blokové schéma zapojení verze~1.0]{Blokové schéma zapojení verze~1.0.}
-\end{figure}
-
-Asi největším rozdílem mezi verzí~0~a~1 je způsob napájení. Verze~0 je napájena z~baterií a~verze~1 je napájena z~USB. Díky této změně 
-odpadly i~mnohé části obvodu. Díky absenci baterií bylo možné postrádat nabíjecí obvody, ochranu proti přepólování a~měření napětí 
-na bateriích.
+  \caption[Blokové schéma elektroniky]{Blokové schéma elektroniky.}
+\end{figure}    
 
 \section{Řídicí elektronika}
 Jako řídicí elektronika byl vybrán mikrokontrolér ESP32-PICO-D4. Hlavním důvodem pro výběr tohoto mikrokontroléru bylo, že je téměř totožný 
 jako ESP32-WROOM, se 
 kterým mám dlouhodobé zkušenosti. Tento mikrokontrolér má veškeré periferie, které jsou pro výrobu této hry zapotřebí. 
 
-Mikrokontrolér ESP32-PICO také podporuje Arduino framework, díky kterému bude programování značně zjednodušeno.
+Mikrokontrolér ESP32-PICO také podporuje Arduino framework, díky kterému bylo programování značně zjednodušeno.
 
 Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}: 
 \begin{itemize}
@@ -86,17 +74,71 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   GPIO piny IO02, IO05, IO12 a IO15 slouží jako konfigurační piny při spouštění nebo resetu mikrokontroléru ESP32-PICO. Slouží například k~výběru
   paměti, ze které se mikrokontrolér ESP32-PICO načítá. Při resetu musí být tyto piny ve správné konfiguraci. 
 
-  %tabulka s údaji o strapping pins
-   
+  Pin MTDI je GPIO12 a pin MTDO je pin GPIO15 \cite{PICO_datasheet}.
+
+  \iffalse
+
+  \begin{table}[!h]
+    \caption{Konfigurační piny \cite{PICO_datasheet}.}
+    \begin{center}
+      \begin{tabular}{|c|c|c|c|c|c|}
+      \hline
+      \rowcolor[HTML]{9B9B9B} 
+      \multicolumn{6}{|c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{000000} Voltage of Internal LDO (VDD\_SDIO)}} \\ 
+      \hline
+      \rowcolor[HTML]{C0C0C0} 
+      Pin & Default & \multicolumn{2}{c|}{\cellcolor[HTML]{C0C0C0}3.3 V} & \multicolumn{2}{c|}{\cellcolor[HTML]{C0C0C0}1.8 V} \\ 
+      \hline
+      MTDI & Pull-down  & \multicolumn{2}{c|}{0}   & \multicolumn{2}{c|}{1}  \\ 
+      \hline
+      \rowcolor[HTML]{9B9B9B} 
+      \multicolumn{6}{|c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{000000} Booting Mode}}  \\ 
+      \hline
+      \rowcolor[HTML]{C0C0C0} 
+      Pin  & Default & \multicolumn{2}{c|}{\cellcolor[HTML]{C0C0C0}SPI Boot}   & \multicolumn{2}{c|}{\cellcolor[HTML]{C0C0C0}Download Boot} \\ 
+      \hline
+      GPIO0  & Pull-up  & \multicolumn{2}{c|}{1} & \multicolumn{2}{c|}{0} \\ 
+      \hline
+      GPIO2  & Pull-down & \multicolumn{2}{c|}{Don't-care}  & \multicolumn{2}{c|}{0}  \\ 
+      \hline
+      \rowcolor[HTML]{9B9B9B} 
+      \multicolumn{6}{|c|}{\cellcolor[HTML]{9B9B9B}Enabling/Disabling Debugging Log Print over U0TXD During Booting} \\ 
+      \hline
+      \rowcolor[HTML]{C0C0C0} 
+      Pin  & Default  & \multicolumn{2}{c|}{\cellcolor[HTML]{C0C0C0}U0TXD Active} & \multicolumn{2}{c|}{\cellcolor[HTML]{C0C0C0}U0TXD Silent} \\ 
+      \hline
+      MTDO & Pull-up & \multicolumn{2}{c|}{1}  & \multicolumn{2}{c|}{0} \\ 
+      \hline
+      \rowcolor[HTML]{9B9B9B} 
+      \multicolumn{6}{|c|}{\cellcolor[HTML]{9B9B9B}Timing of SDIO Slave} \\ 
+      \hline
+      \rowcolor[HTML]{C0C0C0} 
+      {\color[HTML]{000000} Pin} & {\color[HTML]{000000} Default} & {\color[HTML]{000000} \begin{tabular}[c]{@{}c@{}}FE Sampling\\ FE Output\end{tabular}} & {\color[HTML]{000000} \begin{tabular}[c]{@{}c@{}}FE Sampling\\ RE Output\end{tabular}} & {\color[HTML]{000000} \begin{tabular}[c]{@{}c@{}}RE Sampling\\ FE Output\end{tabular}} & {\color[HTML]{000000} \begin{tabular}[c]{@{}c@{}}RE Sampling\\ RE Output\end{tabular}} \\ 
+      \hline
+      MTDO  & Pull-up  & 0    & 0   & 1  & 1 \\ 
+      \hline
+      GPIO5  & Pull-up  & 0  & 1 & 0  & 1 \\ 
+      \hline
+      \end{tabular}  
+    \end{center}
+  \end{table}
+
+\fi
+
   GPIO piny IO34 a~vyšší jsou pouze vstupní \cite{PICO_datasheet}. Vstupní piny nemají softwarově zapojitelný pullup rezistor. 
   Pokud je tedy zapotřebí pullup rezistor, musí se fyzicky zapojit.
   
   \section{Napájení}
   Napájení probíhá před USB konektor. V dnešní době jsou 2 nejpoužívanější konektory – USB Micro a USB-C. Proto byly navrženy oba USB konektory. 
-  Zapojení tohoto konektoru bylo převzato z ...%xxx (+ citace). Neumí power delivery ani Quick Charge
-
-  \section{Napájení} %tuto část až dolů do prototypů 
-  V~následujících kapitolách jsou rozebrány způsoby napájení obou vyrobených verzí DPS elektronické hry Logic.
+  DPS nepodporuje funkci Quick Charge ani Power Delivery. DPS může být napájena pouze napětím 5 V. Každé jiné napětí by zbytečné komplikovalo návrh DPS.
+  Konektor USB-C je tedy funkčně zapojen totožně jako USB Micro a oba konektory jsou na DPS pouze kvůli jejich tvaru. 
+  
+  \begin{figure}[!h]
+    \begin{center}
+      \includegraphics[scale=0.4]{obrazky/SY8105_schema.png} %vyměnit za správný obrázek
+    \end{center}
+    \caption[Schéma zapojení konektoru USB-C \cite{USB-C}]{Schéma zapojení konektoru USB-C \cite{USB-C}.}
+  \end{figure}
 
   \section{Snižující měnič napájecího napětí pro mikrokontrolér}
   Mikrokontrolér ESP32-PICO má napájecí napětí 3,3~V. Napětí z~powerbanky přes USB je 5~V. Proto je tedy zapotřebí zapojit 
@@ -109,22 +151,29 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
     \begin{center}
       \includegraphics[scale=0.4]{obrazky/SY8105_schema.png}
     \end{center}
-    \caption[Schéma zapojení čipu SY8105 \cite{SY8105_datasheet} \cite{UniversalStepDown}]{Schéma zapojení čipu SY8105 
-    \cite{SY8105_datasheet} \cite{UniversalStepDown}.}
+    \caption[Schéma zapojení čipu SY8105 \cite{SY8105_datasheet}]{Schéma zapojení čipu SY8105 \cite{SY8105_datasheet}.}
   \end{figure}
 
-  %popsat funkci zapojení
+  Výstupní napětí zapojení čipu SY8105 je závislé na poměru rezistorů R11~a~R12 \cite{SY8105_datasheet}. 
+  Hodnota rezistoru R11 byla zvolena 160 k$\Omega$. Hodnota rezistoru R12 byla dopočítána dle následující rovnice. %odkaz na rovnici (dle rovnice číslo...)
 
-  V~tomto projektu existují varianty pro stabilizaci na výstupu pro 5~V~a~pro 3,3~V. Z~poznámek v~projektu RB0005-UniversalStepDown 
-  vyplývá, že výstupní napětí je závislé na poměru rezistorů R11~a~R12. Rezistory byly zvoleny pro výstupní napětí 3,3~V~a~přepočítány, 
-  aby byl zachován jejich poměr, ale aby byly použity rezistory ze standardní rezistorové řady.
+  \begin{equation} 
+    R_{12}~=~\frac{0,6}{U_{OUT}-0,6}~\cdot~R_{11}~=~\frac{0,6}{3,3-0,6}~\cdot~160\cdot10^3~=~35,555~\:k\Omega 
+    \quad \quad \quad \cite{SY8105_datasheet}
+  \end{equation}
+
+  Hodnota rezistoru R12 byla zvolena nejbližší z vyráběné rezistorové řady E24 \cite{Rezistorova_rada}, tudíž 36 k$\Omega$. Hodnota 
+  rezistoru se musí co nejvíce blížit vypočítané hodnotě, aby výstupní napětí nebylo příliš odlišné od požadovaného. Proto nebyl
+  zvolen rezistor z častěji používaných řad E6 ani E12. Hodnota rezistoru z těchto řad by se již příliš odchylovala od vypočítané.
+   
+  %popsat funkci zapojení
 
   \begin{table}[!h]
     \caption{Parametry čipu SY8105 \cite{SY8105_datasheet}}
     \begin{center}
         \begin{tabular}{|c|c|}
             \hline
-            Vstupní napětí             & 4,5~-~18~V \\ 
+            Vstupní napětí             & 4,5--18~V \\ 
             \hline
             Maximální výstupní proud   & 5~A \\
             \hline
@@ -139,7 +188,7 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   Velkou inspirací při výběru součástek byl kit ESP32-DEVKITC \cite{Devkit_schema}. Tento kit obsahuje ESP32-WROOM a~také převodník
   z~USB na RS-232. Na tomto kitu je převodník realizován čipem CP2102. ESP32-WROOM a~ESP32-PICO se liší pouze v~drobnostech. 
   Proto byl převodník CP2102 použit i~při návrhu převodníku u~elektronické hry Logic.  Tento čip zároveň převádí logiku 
-  z~0~-~5~V~na logiku 0~-~3,3~V \cite{CP2102_datasheet}. 
+  z~0--5~V~na logiku 0--3,3~V \cite{CP2102_datasheet}. 
 
   \begin{table}[!h]
     \caption{Parametry čipu CP2102 \cite{CP2102_datasheet}}
@@ -148,7 +197,7 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
             \hline
             Typický odběr proudu   & 9,5~mA \\ 
             \hline
-            Napájecí napětí        & 3~-~3,6 V \\
+            Napájecí napětí        & 3--3,6 V \\
             \hline
         \end{tabular}    
     \end{center}
@@ -201,9 +250,9 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
     \begin{center}
         \begin{tabular}{|c|c|}
             \hline
-            Napájecí napětí       & 3,5~-~5,3~V \\
+            Napájecí napětí       & 3,5--5,3~V \\
             \hline
-            Výstupní napětí       & (VDD~-~0,5)~-~(VDD~+~0,5)~V \\
+            Výstupní napětí       & (VDD~-~0,5)--(VDD~+~0,5)~V \\
             \hline
             Typický odběr proudu  & 5~mA \\
             \hline
@@ -241,7 +290,7 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   \subsection{Zapínání napájení}
   DPS je navrhována pro přenosnou aplikaci, a~proto je potřeba zajistit její co nejnižší odběr. 
 
-  Inteligentní LED WS2812C mají spotřebu 0,3~mAve vypnutém stavu. Proto je herní pole dohromady
+  Inteligentní LED WS2812C mají spotřebu 0,3~mA ve vypnutém stavu. Proto je herní pole dohromady
   s~vyhodnocovacími LED rozděleno na 3~části.Tyto 3 části mají rozděleno napájení, které je postupně zapínáno dle potřeby. 
   Do první části patří inteligentní LED se zadáním a~první 4~čtveřice inteligentních LED 
   z~herního pole a~z~vyhodnocení. Do druhé části patří další 3~čtveřice inteligentních LED z~herního a vyhodnocovacího pole. 
@@ -289,8 +338,6 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   
   Z důvodu nedostatku pinů musely být přepínače připojeny k mikrokontroléru ESP32 přes konfigurační piny. U konfiguračních pinů
   musejí být dodržena pravidla pro připojovaná zařízení.  %(viz kapitola Řídicí elektronika) 
-  %Tabulka z datasheetu ESP – do řídicí elektroniky! (K ESP popsat funkci STRAPPING pins, odůvodnit, proč není připojen GPIO12.)
-  
   Z těchto důvodů je jeden přepínač připojen přes pull-down rezistor a ostatní dva přepínače jsou připojeny přes pull-up rezistor. 
   %obrázek připojení přepínačů (možná)
 
@@ -337,7 +384,7 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
 
   Signálové dráhy jsou vedeny tenkou dráhou a~napájecí dráhy jsou vedeny širší dráhou. V~signálových drahách tečou zanedbatelné 
   proudy, proto mohou být co nejtenčí. Výrobce umožňuje vyrobit u~čtyřvrstvé DPS nejtenčí dráhu 0,09~mm \cite{JLCPCB_Capabilities}. 
-  Aby nebyly použity krajní hodnoty, byla zvolena šířka signálové dráhy 0,150~mm.
+  Aby nebyly použity krajní hodnoty, byla zvolena šířka signálové dráhy 0,15~mm.
 
   Dráhy, kterými je vedeno napájecí napětí, mají tloušťku 0,5~mm. Pro výpočet šířky dráhy byla použita online kalkulačka Printed
   Circuit Board Width Tool \cite{Kalkulacka_drahy_DPS}. Proud dráhami při použití všech inteligentních LED je 420~mA a tloušťka 
@@ -356,7 +403,7 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   vytvoření pevné a stejně tlusté nepájivé masky. 
 
   \section{Vzhled DPS}
-  Vzhled DPS byl ovlivněn vzhledem deskové hry a~výrobními možnostmi firmy JLCPCB. Firma JLCPCB vyrábí DPS o~maximálních 
+  Vzhled DPS byl ovlivněn vzhledem deskové hry a~výrobními možnostmi firmy JLCPCB. Firma JLCPCB vyrábí DPS o~maximálních %není pravda - opravit - asi napsat osazuje/bez velkého poplatku
   rozměrech 10~$\times$~10~cm \cite{JLCPCB}. Tato DPS tedy byla navržena na maximální vyrobitelnou velikost a~poté byly do těchto 
   rozměrů rozmisťovány součástky.
 
@@ -429,6 +476,28 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   %odběr proudu
 
   \chapter{Od prvního prototypu po finální verzi} %přečíst a celé opravit
+
+  Již byly navrženy 2~verze DPS elektronické hry Logic. Verze~0 byla pouze testovací, takže neobsahovala celé herní pole. 
+  Sloužila pro ověření funkčnosti daných zapojení různých čipů a~zároveň pro testování softwaru.
+
+  \begin{figure}[!h]
+    \begin{center}
+      \includegraphics[scale=0.5]{obrazky/v0_blokove_schema.jpg}
+    \end{center}
+    \caption[Blokové schéma zapojení verze~0.0]{Blokové schéma zapojení verze~0.0.}
+  \end{figure}
+
+  \begin{figure}[!h]
+    \begin{center}
+      \includegraphics[scale=0.5]{obrazky/v1_blokove_schema.jpg}
+    \end{center}
+    \caption[Blokové schéma zapojení verze~1.0]{Blokové schéma zapojení verze~1.0.}
+  \end{figure}
+
+  Asi největším rozdílem mezi verzí~0~a~1 je způsob napájení. Verze~0 je napájena z~baterií a~verze~1 je napájena z~USB. Díky této změně 
+  odpadly i~mnohé části obvodu. Díky absenci baterií bylo možné postrádat nabíjecí obvody, ochranu proti přepólování a~měření napětí 
+  na bateriích.       
+
   \section{Napájení}
   \subsection{Verze~0.0}
   V~první verzi byly pro napájení použity baterie Li-Ion INR18650-29E od firmy Samsung. Tyto baterie mají jmenovité napětí 3,7~V, 
