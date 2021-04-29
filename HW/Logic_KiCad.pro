@@ -1,4 +1,4 @@
-update=26.11.2020 15:59:38
+update=28.04.2021 21:22:13
 version=1
 last_client=kicad
 [general]
@@ -248,7 +248,7 @@ dPairViaGap=0.25
 [schematic_editor]
 version=1
 PageLayoutDescrFile=
-PlotDirectoryName=../text/prilohy/
+PlotDirectoryName=D:/schema_Logic_export/
 SubpartIdSeparator=0
 SubpartFirstId=65
 NetFmtName=Spice
