@@ -63,7 +63,7 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
 
   \begin{figure}[!h]
     \begin{center}
-      \includegraphics[scale=1]{obrazky/ESP32_PICO_schema.png}
+      \includegraphics[scale=0.5]{obrazky/ESP32_PICO_schema.png}
     \end{center}
     \caption[Schéma zapojení mikrokontroléru ESP32-PICO \cite{PICO_datasheet}]{Schéma zapojení mikrokontroléru ESP32-PICO \cite{PICO_datasheet}.}
   \end{figure}
@@ -135,9 +135,9 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   
   \begin{figure}[!h]
     \begin{center}
-      \includegraphics[scale=0.4]{obrazky/SY8105_schema.png} %vyměnit za správný obrázek
+      \includegraphics[scale=0.7]{obrazky/Obe_USB_schema.png}
     \end{center}
-    \caption[Schéma zapojení konektoru USB-C \cite{USB-C}]{Schéma zapojení konektoru USB-C \cite{USB-C}.}
+    \caption[Schéma zapojení USB konektorů \cite{USB-C}]{Schéma zapojení USB konektorů \cite{USB-C}.}
   \end{figure}
 
   \section{Snižující měnič napájecího napětí pro mikrokontrolér}
@@ -149,7 +149,7 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
 
   \begin{figure}[!h]
     \begin{center}
-      \includegraphics[scale=0.4]{obrazky/SY8105_schema.png}
+      \includegraphics[scale=0.5]{obrazky/SY8105_schema.png}
     \end{center}
     \caption[Schéma zapojení čipu SY8105 \cite{SY8105_datasheet}]{Schéma zapojení čipu SY8105 \cite{SY8105_datasheet}.}
   \end{figure}
@@ -165,7 +165,7 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   Hodnota rezistoru R12 byla zvolena nejbližší z vyráběné rezistorové řady E24 \cite{Rezistorova_rada}, tudíž 36 k$\Omega$. Hodnota 
   rezistoru se musí co nejvíce blížit vypočítané hodnotě, aby výstupní napětí nebylo příliš odlišné od požadovaného. Proto nebyl
   zvolen rezistor z častěji používaných řad E6 ani E12. Hodnota rezistoru z těchto řad by se již příliš odchylovala od vypočítané.
-   
+
   %popsat funkci zapojení
 
   \begin{table}[!h]
@@ -236,7 +236,7 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
 
   \begin{figure}[!h]
     \begin{center}
-      \includegraphics[scale=0.5]{obrazky/WS2812C_spojeni.png}
+      \includegraphics[scale=0.5]{obrazky/2_LED_WS2812C.png}
     \end{center}
     \caption[Zapojení inteligentních LED WS2812C \cite{WS2812C_datasheet}]{Zapojení inteligentních LED WS2812C \cite{WS2812C_datasheet}.}
   \end{figure}
@@ -279,7 +279,12 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   napájecímu napětí 5 V. Jedná se o nejjednodušší způsob převodníku úrovně směrem nahoru. Tento způsob umožňuje komunikaci oběma směry. 
   MOSFET tranzistor byl zvolen pro nulovou spotřebu, narozdíl od bipolárních tranzistorů. 
 
-  %Obrázek zapojení level shifteru
+  \begin{figure}[!h]
+    \begin{center}
+      \includegraphics[scale=0.9]{obrazky/level_shifter.png}
+    \end{center}
+    \caption[Zapojení převodníků úrovně]{Zapojení převodníků úrovně.}
+  \end{figure}
 
   Pokud jsou obě zařízení v klidu (nekomunikují), tak je tranzistor zavřený a pull-up rezistory zajišťují, že na pinu mikrokoltroléru
   i inteligentní LED je logická 1. Pro mikrokontrolér ESP32-PICO je to tedy 3,3 V a pro inteligentní LED WS2812C je to 5 V. Jakmile započne
@@ -301,7 +306,7 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
 
   \begin{figure}[!h]
     \begin{center}
-      \includegraphics[scale=0.7]{obrazky/Zapinani_napajeni_LED.png}
+      \includegraphics[scale=0.45]{obrazky/Zapinani_napajeni_LED.png}
     \end{center}
     \caption[Obvod pro zapínání napájení pro inteligentní LED]{Obvod pro zapínání napájení pro inteligentní LED.}
   \end{figure}
@@ -327,7 +332,7 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
 
   \begin{figure}[!h]
     \begin{center}
-      \includegraphics[scale=0.8]{obrazky/Tlacitka_zapojeni.png}
+      \includegraphics[scale=0.6]{obrazky/Tlacitka_zapojeni.png}
     \end{center}
     \caption[Zapojení tlačítek]{Zapojení tlačítek.}
   \end{figure}
@@ -339,7 +344,13 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   Z důvodu nedostatku pinů musely být přepínače připojeny k mikrokontroléru ESP32 přes konfigurační piny. U konfiguračních pinů
   musejí být dodržena pravidla pro připojovaná zařízení.  %(viz kapitola Řídicí elektronika) 
   Z těchto důvodů je jeden přepínač připojen přes pull-down rezistor a ostatní dva přepínače jsou připojeny přes pull-up rezistor. 
-  %obrázek připojení přepínačů (možná)
+
+  \begin{figure}[!h]
+    \begin{center}
+      \includegraphics[scale=0.6]{obrazky/Prepinace_zapojeni.png}
+    \end{center}
+    \caption[Zapojení přepínačů]{Zapojení přepínačů.}
+  \end{figure}
 
   \begin{table}[!h]
     \caption{Zapojení přepínačů ke strapping pins mikrokontroléru EPS32}
@@ -365,7 +376,7 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
 
   \begin{figure}[!h]
     \begin{center}
-      \includegraphics[scale=0.5]{obrazky/powerLED.png}
+      \includegraphics[scale=0.8]{obrazky/powerLED.png}
     \end{center}
     \caption[Zapojení LED pro indikaci napájecího napětí]{Zapojení LED pro indikaci napájecího napětí.}
   \end{figure}
