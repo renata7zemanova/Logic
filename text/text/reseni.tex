@@ -1,10 +1,10 @@
 \chapter{Pravidla deskové hry}
-Hra Logic je desková hra pro dva hráče \cite{Logic_pravidla}. Jeden hráč určí hledanou kombinaci, dále bude označován jako 
+Logic je desková hra pro dva hráče \cite{Logic_pravidla}. Jeden hráč určí hledanou kombinaci, dále bude označován jako 
 hráč~A, a~druhý tuto kombinaci za pomoci logických úvah a~vyhodnocení hráčem~A~hledá, dále bude označován jako hráč~B.
 
 Hráči si určí herní pozice. Hráč~A~vybere barevné kolíky dle libosti a~následně je v~určitém pořadí vloží do zadávacího pole. Zadání zakryje
 stříškou, aby tuto
-kombinaci spoluhráč neviděl. Hráč~B~se v~tuto chvíli nedívá. Hráč~B~následně zvolí libovolnou kombinaci barev a~jejich pozic. Po 
+kombinaci spoluhráč neviděl. Hráč~B~se po tuto dobu nedívá. Hráč~B~následně zvolí libovolnou kombinaci barev a~jejich pozic. Po 
 ukončení tahu nechá
 hráče~A,~aby jeho tah vyhodnotil. Hráč~A~vyhodnotí tah následujícím způsobem. Pokud hráč~B~vložil správnou barvu na správnou pozici, tak vloží 
 do vyhodnocovací sekce černý kolík. Pokud vložil barvu, která se v~zadání vyskytuje, ale vložil ji na nesprávnou pozici, tak vloží bílý kolík.
@@ -13,9 +13,9 @@ Vyhodnocovací kolíky umisťuje od kraje, nejprve černé a~pak bílé, aby hr�
 týká \cite{Logic_pravidla}.
 Poté začne hráč~B~na základě vyhodnocení a svých všech předchozích tahů hledat správnou kombinaci.
 
-Hráč~B~má maximálně 10~pokusů na zjištění správné kombinace. Po skončení hry hráč~A~odkryje stříšku a~ukáže hledanou kombinaci. Hra skončí po 
-určení správné 
-kombinace, nebo po vypotřebování všech pokusů.
+Hráč~B~má maximálně 10~pokusů na zjištění správné kombinace. Po skončení hry hráč~A~odkryje stříšku a~ukáže hledanou kombinaci, aby mohlo dojít
+k případné kontrole. Hra skončí po určení správné 
+kombinace, nebo po vypotřebování všech pokusů. %\hyperref[Ridici_elektronika]{Řídicí} %\ref{Ridici_elektronika} 
 
 Hru lze hrát ve více variantách. Hráči se mohou domluvit, zda zadání může, nebo nesmí obsahovat volnou pozici. Zároveň existuje 
 více variací této hry. Většinou se liší v~délce hledané kombinace.
@@ -33,12 +33,12 @@ napájení, herních prvků a dalších potřebných komponent.
 
 \begin{figure}[!h]
   \begin{center}
-    \includegraphics[scale=0.5]{obrazky/v2_blokove_schema.jpg}
+    \includegraphics[scale=0.6]{obrazky/v2_blokove_schema.jpg}
   \end{center}
   \caption[Blokové schéma elektroniky]{Blokové schéma elektroniky.}
 \end{figure}    
 
-\section{Řídicí elektronika}
+\section{Řídicí elektronika} \label{Ridici_elektronika}
 Jako řídicí elektronika byl vybrán mikrokontrolér ESP32-PICO-D4. Hlavním důvodem pro výběr tohoto mikrokontroléru bylo, že je téměř totožný 
 jako ESP32-WROOM, se 
 kterým mám dlouhodobé zkušenosti. Tento mikrokontrolér má veškeré periferie, které jsou pro výrobu této hry zapotřebí. 
@@ -55,7 +55,7 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
     \item 4~MB~FLASH. 
   \end{itemize}
 
-  Napájecí napětí tohoto mikrokontroléru je od~3,0~do~3,6~V~a průměrný odběr proudu je 80~mA \cite{PICO_datasheet}. ESP32-PICO má vyvedeno 
+  Napájecí napětí tohoto mikrokontroléru je 3,0--3,6~V~a průměrný odběr proudu je 80~mA \cite{PICO_datasheet}. ESP32-PICO má vyvedeno 
   32~GPIO pinů, které je 
   možno softwarově nastavit jako vstupní nebo výstupní. Na tyto piny lze poté připojit různá zařízení. Vstupním senzorem může 
   být typicky tlačítko a~výstupním indikátorem např. LED. Tato zařízení zprostředkovávají komunikaci mezi mikrokontrolérem a okolním 
@@ -75,8 +75,6 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   paměti, ze které se mikrokontrolér ESP32-PICO načítá. Při resetu musí být tyto piny ve správné konfiguraci. 
 
   Pin MTDI je GPIO12 a pin MTDO je pin GPIO15 \cite{PICO_datasheet}.
-
-  \iffalse
 
   \begin{table}[!h]
     \caption{Konfigurační piny \cite{PICO_datasheet}.}
@@ -121,17 +119,15 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
       \hline
       \end{tabular}  
     \end{center}
-  \end{table}
-
-\fi
+  \end{table}  
 
   GPIO piny IO34 a~vyšší jsou pouze vstupní \cite{PICO_datasheet}. Vstupní piny nemají softwarově zapojitelný pullup rezistor. 
   Pokud je tedy zapotřebí pullup rezistor, musí se fyzicky zapojit.
   
   \section{Napájení}
   Napájení probíhá před USB konektor. V dnešní době jsou 2 nejpoužívanější konektory – USB Micro a USB-C. Proto byly navrženy oba USB konektory. 
-  DPS nepodporuje funkci Quick Charge ani Power Delivery. DPS může být napájena pouze napětím 5 V. Každé jiné napětí by zbytečné komplikovalo návrh DPS.
-  Konektor USB-C je tedy funkčně zapojen totožně jako USB Micro a oba konektory jsou na DPS pouze kvůli jejich tvaru. 
+  DPS nepodporuje funkci Quick Charge ani Power Delivery. DPS může být napájena pouze napětím 5 V. Přítomnost jiného napětí není žádoucí. 
+  Konektor USB-C je tedy funkčně zapojen totožně jako USB Micro a oba konektory jsou na DPS pouze kvůli jejich tvarům. 
   
   \begin{figure}[!h]
     \begin{center}
@@ -147,6 +143,8 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   Jako měnič byl zvolen čip SY8105. Tento čip byl vybrán podle projektu RB0005-UniversalStepDown \cite{UniversalStepDown}. 
   V~tomto projektu zapojení funguje bezproblémově, a~proto bylo rozhodnuto toto zapojení použít v~mé práci. 
 
+  Čip SY8105 má napájecí napětí 4,5--18 V a jeho maximální výstupní proud může dosahovat až 5 A.
+
   \begin{figure}[!h]
     \begin{center}
       \includegraphics[scale=0.41]{obrazky/SY8105_schema.png}
@@ -155,31 +153,20 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   \end{figure}
 
   Výstupní napětí zapojení čipu SY8105 je závislé na poměru rezistorů R11~a~R12 \cite{SY8105_datasheet}. 
-  Hodnota rezistoru R11 byla zvolena 160 k$\Omega$. Hodnota rezistoru R12 byla dopočítána dle následující rovnice. %odkaz na rovnici (dle rovnice číslo...)
+  Hodnota rezistoru R11 byla zvolena 160 k$\Omega$. Hodnota rezistoru R12 byla dopočítána dle 
+  rovnice číslo \ref{eq:R12}.
 
   \begin{equation} 
     R_{12}~=~\frac{0,6}{U_{OUT}-0,6}~\cdot~R_{11}~=~\frac{0,6}{3,3-0,6}~\cdot~160\cdot10^3~=~35,555~\:k\Omega 
     \quad \quad \quad \cite{SY8105_datasheet}
+  \label{eq:R12}
   \end{equation}
 
-  Hodnota rezistoru R12 byla zvolena nejbližší z vyráběné rezistorové řady E24 \cite{Rezistorova_rada}, tudíž 36 k$\Omega$. Hodnota 
+  Hodnota rezistoru R12 byla zvolena nejbližší z vyráběné rezistorové řady E24, tudíž 36 k$\Omega$ \cite{Rezistorova_rada}. Hodnota 
   rezistoru se musí co nejvíce blížit vypočítané hodnotě, aby výstupní napětí nebylo příliš odlišné od požadovaného. Proto nebyl
   zvolen rezistor z častěji používaných řad E6 ani E12. Hodnota rezistoru z těchto řad by se již příliš odchylovala od vypočítané.
 
   %popsat funkci zapojení
-
-  \begin{table}[!h]
-    \caption{Parametry čipu SY8105 \cite{SY8105_datasheet}}
-    \begin{center}
-        \begin{tabular}{|c|c|}
-            \hline
-            Vstupní napětí             & 4,5--18~V \\ 
-            \hline
-            Maximální výstupní proud   & 5~A \\
-            \hline
-        \end{tabular}    
-    \end{center}
-\end{table}
 
   \section{Převodník z~USB na RS-232}
   Mikrokontrolér ESP32-PICO používá jako komunikační rozhraní linku RS-232. Programování ale probíhá přes USB konektor, který toto rozhraní
@@ -190,18 +177,7 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   Proto byl převodník CP2102 použit i~při návrhu převodníku u~elektronické hry Logic.  Tento čip zároveň převádí logiku 
   z~0--5~V~na logiku 0--3,3~V \cite{CP2102_datasheet}. 
 
-  \begin{table}[!h]
-    \caption{Parametry čipu CP2102 \cite{CP2102_datasheet}}
-    \begin{center}
-        \begin{tabular}{|c|c|}
-            \hline
-            Typický odběr proudu   & 9,5~mA \\ 
-            \hline
-            Napájecí napětí        & 3--3,6 V \\
-            \hline
-        \end{tabular}    
-    \end{center}
-  \end{table}
+ Čip CP2102 má napájecí napětí 3--3,6 V a jeho typickým odběrem proudu je 9,5 mA.
 
   Čip CP2102 dokáže komunikovat velkým množstvím komunikačních rychlostí (300, 9600, 19200, 38400, 115200, 256000~Bd, atd) 
   \cite{CP2102_datasheet}. Počítač započne komunikaci určitou rychlostí a~tento čip komunikaci zachytí, určí rychlost 

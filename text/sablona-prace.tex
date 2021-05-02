@@ -1,4 +1,5 @@
 % Soubory musí být v kódování, které je nastaveno v příkazu \usepackage[...]{inputenc}
+\PassOptionsToPackage{table, xcdraw}{xcolor}
 
 \documentclass[%        Základní nastavení
 %  draft,    				  % Testovací překlad
@@ -105,6 +106,8 @@
     {Ž}{{\v{Z}}}1
 }
 
+\usepackage{hyperref}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%      Definice informací o dokumentu             %%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -169,7 +172,7 @@
 % Vysázení stránky s rozšířeným abstraktem
 % (pokud píšete práci v češtině či slovenštině, vložení rozšířeného abstraktu zrušte;
 %  pro semestrální projekt také není potřeba rozšířený abstrakt uvádět)
-\input{text/rozsireny_abstrakt}
+%\input{text/rozsireny_abstrakt}
 
 %%% Vysázení citace práce
 \makecitation
@@ -183,40 +186,43 @@
 %%% Vysázení obsahu
 \tableofcontents
 
-%%% Vysázení seznamu obrázků
-% (vynechejte, pokud máte dva nebo méně obrázků)
-\listoffigures
-
-%%% Vysázení seznamu tabulek
-% (vynechejte, pokud máte dvě nebo méně tabulek)
-\listoftables
-
-%%% Vysázení seznamu výpisů kódu
-% (vynechejte, pokud máte dva nebo méně výpisů)
-\lstlistoflistings
-
 \cleardoublepage\pagestyle{plain}   % zapnutí číslování stránek
 
 %Pro vkládání kapitol i příloh používejte raději \include než \input
 %%% Vložení souboru 'text/uvod.tex' s úvodem
-\include{text/uvod}
+\include{text/uvod.tex}
 
 %%% Vložení souboru 'text/reseni' s popisem řešení práce
 % (rozdělte na více souborů či kapitol, pokud je vhodné)
-\include{text/reseni}
+\include{text/reseni.tex}
 
 %%% Vložení souboru 'text/vysledky' s popisem vysledků práce
 % (rozdělte na více souborů či kapitol, pokud je vhodné)
-\include{text/vysledky}
+\include{text/vysledky.tex}
 
 %%% Vložení souboru 'text/zaver' se závěrem
-\include{text/zaver}
+\include{text/zaver.tex}
 
 %%% Vložení souboru 'text/literatura' se seznamem zdrojů
-\include{text/literatura}
+\include{text/literatura.tex}
 
 %%% Vložení souboru 'text/zkratky' se seznam použitých symbolů, veličin a zkratek
-\include{text/zkratky}
+\include{text/zkratky.tex}
+
+%%% Vysázení seznamu obrázků
+% (vynechejte, pokud máte dva nebo méně obrázků)
+\listoffigures
+\addcontentsline{toc}{chapter}{Seznam obrázků}
+
+%%% Vysázení seznamu tabulek
+% (vynechejte, pokud máte dvě nebo méně tabulek)
+\listoftables
+\addcontentsline{toc}{chapter}{Seznam tabulek}
+
+%%% Vysázení seznamu výpisů kódu
+% (vynechejte, pokud máte dva nebo méně výpisů)
+\lstlistoflistings
+\addcontentsline{toc}{chapter}{Seznam výpisů}
 
 %%% Začátek příloh
 \appendix
@@ -227,6 +233,6 @@
 
 %%% Vložení souboru 'text/prilohy' s přílohami
 % Obvykle je přítomen alespoň popis co najdeme na přiloženém médiu
-\include{text/prilohy}
+\include{text/prilohy.tex}
 
 \end{document}
