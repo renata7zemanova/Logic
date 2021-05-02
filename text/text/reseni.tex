@@ -238,8 +238,8 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
     \end{center}
   \end{table}
 
-  Ke každé inteligentní LED je připojen na napájení filtrační kondenzátor \cite{WS2812C_datasheet}, aby LED svítily kontinuálně 
-  a~nedostal se jim na napájení žádný šum.
+  Ke každé inteligentní LED je připojen mezi napájecí napětí a GND filtrační kondenzátor, aby LED svítily kontinuálně 
+  a~nedostal se jim na napájení žádný šum \cite{WS2812C_datasheet}.
 
   \subsection{Rozdělení}
   Inteligentní LED jsou rozděneny do tří skupin. Skupina inteligentních LED pro zadání, skupina inteligentních LED pro herní pole 
@@ -247,8 +247,8 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   Skupina inteligentních LED pro zadání obsahuje 4~LED a~skupiny pro herní pole a~pro vyhodnocení každá 40~LED.
 
   \subsection{Převodník úrovně}
-  Inteligentní LED WS2812C pracují s logikou od 0~V do 5~V. Mikrokontrolér ESP32-PICO pracuje s logikou od 0~V do 3,3~V. 
-  Z tohoto důvodu byl mezi mikrokontrolér a inteligentní LED na datový signál pro inteligentní LED zapojen převodník úrovně, 
+  Inteligentní LED WS2812C pracují s logikou 0--5~V. Mikrokontrolér ESP32-PICO pracuje s logikou 0--3,3~V. 
+  Z tohoto důvodu byl mezi mikrokontrolér a inteligentní LED, na datový signál pro inteligentní LED, zapojen převodník úrovně, 
   tzv. level shifter. 
   
   Převodník je realizován MOSFET tranzistorem a dvěma pull-up rezistory. Jeden rezistor je připojen k napájecímu napětí 3,3 V a druhý k 
@@ -259,10 +259,10 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
     \begin{center}
       \includegraphics[scale=0.9]{obrazky/level_shifter.png}
     \end{center}
-    \caption[Zapojení převodníků úrovně]{Zapojení převodníků úrovně.}
+    \caption[Zapojení převodníků úrovně]{Zapojení převodníku úrovně.}
   \end{figure}
 
-  Pokud jsou obě zařízení v klidu (nekomunikují), tak je tranzistor zavřený a pull-up rezistory zajišťují, že na pinu mikrokoltroléru
+  Pokud jsou obě zařízení v klidu (nekomunikují), tak je tranzistor zavřený a pull-up rezistory zajišťují, že na pinu mikrokontroléru
   i inteligentní LED je logická 1. Pro mikrokontrolér ESP32-PICO je to tedy 3,3 V a pro inteligentní LED WS2812C je to 5 V. Jakmile započne
   mikrokontrolér komunikaci, to znamená, že svůj stav přepne do stavu logické nuly (0 V), tak rozdíl mezi gate a source tranzistoru stoupne
   a na výstupu tranzistoru bude také logická nula (0 V). Pokud by komunikace mohla probíhat i naopak (inteligentní LED by odesílala data do
@@ -271,8 +271,9 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   \subsection{Zapínání napájení}
   DPS je navrhována pro přenosnou aplikaci, a~proto je potřeba zajistit její co nejnižší odběr. 
 
-  Inteligentní LED WS2812C mají spotřebu 0,3~mA ve vypnutém stavu. Proto je herní pole dohromady
-  s~vyhodnocovacími LED rozděleno na 3~části.Tyto 3 části mají rozděleno napájení, které je postupně zapínáno dle potřeby. 
+  Inteligentní LED WS2812C mají spotřebu 0,3~mA ve vypnutém stavu. I takto nízká spotřeba je  pro přenosnou aplikaci nežádoucí. Připojení
+  napájení inteligentním LED je tedy spínáno. Proto je herní pole dohromady
+  s~vyhodnocovacími LED rozděleno na 3~části. Tyto 3 části mají rozděleno napájení, které je postupně zapínáno dle potřeby. 
   Do první části patří inteligentní LED se zadáním a~první 4~čtveřice inteligentních LED 
   z~herního pole a~z~vyhodnocení. Do druhé části patří další 3~čtveřice inteligentních LED z~herního a vyhodnocovacího pole. 
   Do třetí části patří poslední 3 čtveřice inteligentních LED z~herního a z vyhodnocovacího pole.
@@ -288,23 +289,23 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   \end{figure}
 
   Napájení inteligentních LED nelze spínat pouze jedním tranzistorem, protože logická~1~mikrokontroléru ESP32-PICO má hodnotu pouze 3,3~V. 
-  V tomto případě je zapotřebí spínat 5~V. Pokud by byl pro spínání použit pouze jeden tranzistor, tak by bylo napájení vždy sepnuto.
+  V tomto případě je ale zapotřebí spínat 5~V. Pokud by byl pro spínání použit pouze jeden tranzistor, tak by bylo napájení vždy sepnuto.
 
   GPIO pin mikrokontroléru ESP32-PICO je nastaven do logické~0, dokud není potřebné přivedení napájecího napětí dané skupině. 
   Při logické nule na gate 
   tranzistoru Q4 je tranzistor zavřený. Tranzistor Q5 v~tomto okamžiku drží zavřený rezistor R15.
 
-  Když je GPIO pin mikrokontroléru přepnut do logické~1, tak se tranzistor Q4 otevře. Otevřením tranzistoru Q4 je gate tranzistoru Q5 
+  Když je signál GPIO\_1, přivedený z mikrokontroléru, přepnut do logické~1, tak se tranzistor Q4 otevře. Otevřením tranzistoru Q4 je gate tranzistoru Q5 
   připojen ke GND a~tím se otevře i~tranzistor Q5, kterým je sepnuto napájecí napětí dané skupině inteligentních LED.
 
   Rezistor R14 udržuje tranzistor Q4 zavřený při nestandardních stavech pinu mikrokontroléru, jako je např. při resetu procesoru.
 
-  \section{Spínací prvky}
-  Přepínač SW1 slouží pro zapínání celé DPS. Tento přepínač připojuje napájecí napětí 5~V~z~USB k~celému zbytku DPS. 
+  \section{Mechanické prvky}
+  Přepínač SW1 slouží pro zapínání celé DPS. Tento přepínač připojuje napájecí napětí 5~V~z~USB konektoru k~celému zbytku DPS. 
   %doplnit info o kolébkovém vypínači - možná až do realizace
 
   Tlačítka slouží pro ovládání hry. Ke každému tlačítku je připojen kondenzátor o~hodnotě 100~nF. Tento kondenzátor 
-  slouží pro filtraci zákmitů při zmáčknutí tlačítka. Filtrace se proto nemusí řešit softwarově.
+  slouží pro filtraci zákmitů při zmáčknutí tlačítka. Filtrace se díky tomu nemusí řešit softwarově.
 
   \begin{figure}[!h]
     \begin{center}
@@ -317,7 +318,7 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   slouží pro možnosti hry na 3 nebo 4 herní prvky a poslední přepínač slouží pro nastavení, zda se v zadání může, nebo 
   nesmí vyskytnout mezera. 
   
-  Z důvodu nedostatku pinů musely být přepínače připojeny k mikrokontroléru ESP32 přes konfigurační piny. U konfiguračních pinů
+  Z důvodu obsazenosti pinů musely být přepínače připojeny k mikrokontroléru ESP32 přes konfigurační piny. U konfiguračních pinů
   musejí být dodržena pravidla pro připojovaná zařízení.  %(viz kapitola Řídicí elektronika) 
   Z těchto důvodů je jeden přepínač připojen přes pull-down rezistor a ostatní dva přepínače jsou připojeny přes pull-up rezistor. 
 
@@ -364,14 +365,14 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   DPS má 4~vrstvy. Vnitřní vrstvy slouží pro napájení a~vnější pro signálové dráhy. V~jedné vnitřní vrstvě je po celé její ploše 
   polygon GND a~ve druhé vnitřní vrstvě jsou polygony jednotlivých napájecích napětí. Součástky jsou rozloženy tak, aby pokud možno
   korespondovaly s polygony a napájecí napětí tak nemuselo být dále rozváděno zbytečně po celé DPS. Někdy však nemohlo být umístění 
-  přizpůsobeno a napájecí napětí tak muselo být přivedenou dráhou v horní nebo spodní vstvě, která jsou převážně určeny pro signálové 
+  přizpůsobeno a napájecí napětí tak muselo být přivedeno dráhou v horní nebo spodní vrstvě, které jsou převážně určeny pro signálové 
   dráhy. 
 
   Na vrchní straně jsou umístěny plošky pro osazení součástek, protože firma JLCPCB osazuje součástky pouze z~jedné strany DPS.
 
-  Signálové dráhy jsou vedeny tenkou dráhou a~napájecí dráhy jsou vedeny širší dráhou. V~signálových drahách tečou zanedbatelné 
-  proudy, proto mohou být co nejtenčí. Výrobce umožňuje vyrobit u~čtyřvrstvé DPS nejtenčí dráhu 0,09~mm \cite{JLCPCB_Capabilities}. 
-  Aby nebyly použity krajní hodnoty, byla zvolena šířka signálové dráhy 0,15~mm.
+  Signálové dráhy jsou vedeny úzkou dráhou a~napájecí dráhy jsou vedeny širší dráhou. V~signálových drahách tečou zanedbatelné 
+  proudy, proto mohou být co nejužší. Výrobce umožňuje vyrobit u~čtyřvrstvé DPS nejtenčí dráhu 0,09~mm \cite{JLCPCB_Capabilities}. 
+  Aby nebyly použity krajní výrobní hodnoty, byla zvolena šířka signálové dráhy 0,15~mm.
 
   Dráhy, kterými je vedeno napájecí napětí, mají tloušťku 0,5~mm. Pro výpočet šířky dráhy byla použita online kalkulačka Printed
   Circuit Board Width Tool \cite{Kalkulacka_drahy_DPS}. Proud dráhami při použití všech inteligentních LED je 420~mA a tloušťka 
@@ -402,21 +403,22 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   pole, a~v~pravém sloupci je matice inteligentní LED pro vyhodnocení tahu. Matice reprezentují herní tahy, proto jsou v rozložení (4~$\times$~10~LED).
   
   Rozmístění tlačítek a přepínačů probíhalo dle 
-  rozmyšlenému způsobu ovládání elektronické hry. Byl také brán ohled na estetiku vzhledu. Proto byly tlačítka i inteligentní LED
+  rozmyšleného způsobu ovládání elektronické hry. Byl také brán ohled na estetiku vzhledu. Proto byly tlačítka i inteligentní LED
   rozmístěny dle přesné mřížky. Následně byl ostatními obvody využíván zbylý prostor. 
 
   Dráhy s~napájecím napětím by měly být co nejkratší a měly by být vedeny co nejvíce zpříma. Proto byla snaha o umístění součástkek
   se stejným napájecím napětím k sobě. Ne vždy ale mohla být tato doporučení splněna. Někdy musel být proveden kompromis mezi vzhledem a funkčním 
-  zapoením. 
+  zapojením. 
+
   Dílčí obvody byly rozmístěny v~následujícím pořadí~-~USB konektory, měnič napětí, převodník z~USB 
-  na RS-232 a~ESP332-PICO. USB konektor musel být umístěn na okraj DPS. Proto byly jednotlivé části obvodu naskládány podél levého okraje DPS.
+  na RS-232 a~ESP332-PICO. USB konektory musely být umístěny na okraj DPS. Proto byly jednotlivé části obvodu naskládány podél levého okraje DPS.
 
   USB konektory jsou umístěny těsně vedle sebe. Tímto způsobem je ošetřeno, že za pomoci běžného USB kabelu, nepůjde zapojit napájení do obou 
   konektorů zároveň. 
 
   Převodník úrovně je umístěn vždy těsně před vstupem signálu do první inteligentní LED daného řetězce.
 
-  Přepínač pro změnu hry pro jednoho a pro 2 hráče byl umístěn do mezery, mezi herní a vyhodnocovací inteligentní LED. Další 2 přepínače, jeden 
+  Přepínač pro změnu hry pro jednoho a pro 2 hráče byl umístěn do mezery, mezi herními a vyhodnocovacími inteligentními LED. Další 2 přepínače, jeden 
   pro volbu hry na 3 nebo 4 herní prvky a druhý na volbu nastavení, zda se v zadání může, nebo nesmí vyskytnout mezera, jsou umístěny v pravém 
   horním rohu. 
 
@@ -426,7 +428,8 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
 
   \section{Funkční rozmístění součástek}
   U~některých součástek není jejich umístění na DPS lhostejné. Rozmístění součástekv některých případech může ovlivnit funkčnost obvodu. 
-  Rozmístění součástek často souvisí s~rozkreslením ve schématu. Například kondenzátory filtrující napájení se umisťují co nejblíže přívodu napájení.
+  Rozmístění součástek často souvisí s~rozkreslením ve schématu. Například kondenzátory filtrující šum napájecího napětí se umisťují co nejblíže přívodu 
+  napájení.
 
   Rozložení součástek měniče napětí na DPS může velmi ovlivnit jeho funkčnost, zejména pak jeho účinnost. Proto bylo rozložení a~zapojení součástek 
   převzato z~datasheetu.
@@ -439,57 +442,59 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
     \cite{SY8105_datasheet}.}
   \end{figure}
 
-  Signály D+~a~D- od USB k~čipu CP2102 jsou diferenciální pár, a~proto tomu musely být přizpůsobeny i~dráhy těchto signálů. Dráhy 
-  jsou vedeny vedle sebe a~blízko u~sebe po celou jejich délku.
-
+  Signály D+~a~D- od USB k~čipu CP2102 jsou diferenciálním párem. Tomuto faktu musely být přizpůsobeny i~dráhy těchto signálů. Dráhy 
+  jsou vedeny vedle sebe a~blízko u~sebe. Po celou jejich délku se nepřibližují ani neoddalují. Zkřížení probíhá až těsně před vstupem do %...
   Kondenzátory u~mikrokontroléru ESP32-PICO a~u~čipu CP2102 musí být umístěny co nejblíže jejich pouzdru. Tyto kondenzátory slouží pro 
-  filtraci šumu na napájení. Stejná pravidla platí také pro filtrační kondenzátory u inteligentních LED WS2812C.
+  filtraci šumu na napájecím napětí. Stejná pravidla platí také pro filtrační kondenzátory u inteligentních LED WS2812C.
 
   Kondenzátory u~tlačítek jsou také umístěny co nejblíže pouzdru tlačítek. Čím blíže pouzdru kondenzátor bude, tím lépe budou 
   filtrovány zákmity při stisku tlačítka.
 
   \chapter{Oživení DPS}
-  Při výrobě finální verze DPS elektronické hry Logic byly využity maximální možnosti osazení firmou JLCPCB.  
+  Při výrobě finální verze DPS Elektronické hry Logic byly využity maximální možnosti osazení firmou JLCPCB.  
   Pro oživení finální DPS je tedy zapotřebí pájení pouze vypínače, který není umístěn na DPS, ale je zasazen do krabičky a zapájen
   do DPS pomocí drátových prodlužek. 
 
   Při objednání finální DPS nastaly problémy s nedostatkem součástek, se kterým se v této době potýká mnoho návrhářů. Čip SY8105 neměla %citace o nedostatku součástek
-  firma JLCPCB dlouhodobě na skladě a nebylo možné čekat, než jej znovu naskladní. Z tohoto důvodu byl na finální DPS objednán tento čip 
-  externě a doosazen ručně. Za klasických okolností by byl ale i tento čip osazen firmou JLCPCB.
+  firma JLCPCB dlouhodobě na skladě a nebylo možné čekat, než jej budou znovu osazovat. Z tohoto důvodu byl na finální DPS objednán tento čip 
+  externě a poté doosazen ručně. Za klasických okolností by byl ale i tento čip osazen firmou JLCPCB.
 
-  Po připojení DPS přes konektor USB-C nebo USB Micro k powerbance, nebo do počítače, se rozsvítí LED D1 a D2, které indikují přítomnost 
+  Po připojení DPS přes USB konektor k powerbance, nebo do počítače, se rozsvítí LED D1 a D2, které indikují přítomnost 
   napájecího napětí. LED D1 značí přítomnost napětí 5 V z powerbanky a LED D2 značí správnou funkci zapojení měniče napětí, tedy přítomnost 
   napětí 3,3 V.
   %odběr proudu
 
-  \chapter{Od prvního prototypu po finální verzi} %přečíst a celé opravit
+  \chapter{Od prvního prototypu po finální verzi}
 
-  Již byly navrženy 2~verze DPS elektronické hry Logic. Verze~0 byla pouze testovací, takže neobsahovala celé herní pole. 
+  Před finální verzí byly navrženy 2~prototypy DPS elektronické hry Logic. Verze~0 byla pouze testovací, takže neobsahovala celé herní pole. 
   Sloužila pro ověření funkčnosti daných zapojení různých čipů a~zároveň pro testování softwaru.
 
   \begin{figure}[!h]
     \begin{center}
       \includegraphics[scale=0.5]{obrazky/v0_blokove_schema.jpg}
     \end{center}
-    \caption[Blokové schéma zapojení verze~0.0]{Blokové schéma zapojení verze~0.0.}
+    \caption[Blokové schéma zapojení prototypu verze~0.0]{Blokové schéma zapojení prototypu verze~0.0.}
   \end{figure}
 
   \begin{figure}[!h]
     \begin{center}
       \includegraphics[scale=0.5]{obrazky/v1_blokove_schema.jpg}
     \end{center}
-    \caption[Blokové schéma zapojení verze~1.0]{Blokové schéma zapojení verze~1.0.}
+    \caption[Blokové schéma zapojení prototypu verze~1.0]{Blokové schéma zapojení prototypu verze~1.0.}
   \end{figure}
 
-  Asi největším rozdílem mezi verzí~0~a~1 je způsob napájení. Verze~0 je napájena z~baterií a~verze~1 je napájena z~USB. Díky této změně 
+  Asi největším rozdílem mezi verzí prototypu~0.0~a~1.0 je způsob napájení. Verze~0.0 je napájena z~baterií a~verze~1.0 je napájena pomocí USB 
+  konektoru. Díky této změně 
   odpadly i~mnohé části obvodu. Díky absenci baterií bylo možné postrádat nabíjecí obvody, ochranu proti přepólování a~měření napětí 
   na bateriích.       
 
-  \section{Napájení}
+  \section{Způsoby napájení prototypů}
+  Každý z prototypů měl velmi odlišný způsob napájení. V následujících kapitolách je popsán způsob napájení prototypových verzí.
+
   \subsection{Verze~0.0}
-  V~první verzi byly pro napájení použity baterie Li-Ion INR18650-29E od firmy Samsung. Tyto baterie mají jmenovité napětí 3,7~V, 
-  při plném nabití až 4,2~V. Kapacita jedné baterie je 2850~mAh \cite{18650}. Byly použity 2~články baterií, které byly zapojeny paralelně. 
-  Paralelním zapojením se celková kapacita zdvojnásobila.
+  V~první verzi prototypu byly pro napájení použity baterie Li-Ion INR18650-29E od firmy Samsung. Tyto baterie mají jmenovité napětí 3,7~V, 
+  při plném nabití až 4,2~V. Kapacita jedné baterie je 2850~mAh \cite{18650}. Byly použity 2~články baterií, které byly spojeny paralelně. 
+  Paralelním zapojením byla celková kapacita zdvojnásobena.
 
   Baterie typu Li-Ion jsou náchylné na podvybití. Verze~0.0 proto obsahovala i měření napětí na bateriích. Pokud by došlo k~podvybití, mohla 
   by se bateriím zmenšovat kapacita, nebo by se mohly zničit. 
@@ -507,17 +512,17 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
 
   \begin{figure}[!h]
     \begin{center}
-      \includegraphics[scale=0.7]{obrazky/TP4056_schema.png}
+      \includegraphics[scale=0.6]{obrazky/TP4056_schema.png}
     \end{center}
     \caption[Schéma zapojení čipu TP4056 \cite{TP4056_datasheet}]{Schéma zapojení čipu TP4056 \cite{TP4056_datasheet}.}
   \end{figure}
 
-  Červená LED~D9 indikuje nabíjení baterií a  zelená LED~D8 svítí, pokud jsou baterie nabité \cite{TP4056_datasheet}. 
-  Pokud nesvítí ani červená ani zelená LED, znamená to, že baterie jsou podvybité, baterie nejsou vloženy a~nebo je příliš vysoká, 
+  Červená LED~D9 indikovala nabíjení baterií a  zelená LED~D8 svítila, pokud byly baterie nabité \cite{TP4056_datasheet}. 
+  Pokud nesvítila ani červená ani zelená LED, znamenalo to, že baterie jsou podvybité, nebo nejsou vloženy, a~nebo je příliš vysoká, 
   nebo nízká jejich teplota \cite{TP4056_datasheet}.
 
-  Rezistorem R13 se určuje nabíjecí proud baterií \cite{TP4056_datasheet}. Aby baterie nabíjením nebyly poškozovány, měl by být nabíjecí 
-  proud maximálně 0,5~C (polovina kapacity baterie). Vybraná baterie má kapacitu 2850~mAh. Nabíjecí proud proto může být až 1425~mA. 
+  Rezistorem R13 se určuvol nabíjecí proud baterií \cite{TP4056_datasheet}. Aby baterie nabíjením nebyly poškozovány, měl by být nabíjecí 
+  proud maximálně 0,5~C (polovina kapacity baterie). Vybraná baterie má kapacitu 2850~mAh. Nabíjecí proud proto mohl být až 1425~mA. 
   Jelikož je pro tuto hru důležitější kapacita baterie, než doba nabíjení, byl zvolen nabíjecí proud pouze 0,5~A. Čím menším proudem 
   je baterie nabíjena, tím má delší životnost a~pomaleji ztrácí svoji kapacitu.
 
@@ -553,7 +558,7 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   Byl zvolen rezistor o~hodnotě 2~k$\Omega$, kterým byl určen nabíjecí proud 580~mA. 
 
   \subsection{Verze~1.0}
-  Ve verzi~1.0 byl změněn způsob napájení. Napájení v~této verzi neprobíhá přes baterie, ale pouze přes USB konektor, přes 
+  Ve verzi~1.0 byl radikálně změněn způsob napájení. Napájení v~této verzi neprobíhá přes baterie, ale pouze přes USB konektor, přes 
   který ve verzi~0.0 probíhalo pouze nabíjení baterií. 
 
   Výhody
@@ -573,12 +578,23 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
 
   Byl zvolen konektor USB~Micro, protože se jedná o~nejrozšířenější USB konektor dnešní doby.
 
+  Do finální verze byl poté přidán ještě i konektor USB-C.
+
+  \subsection{Vývoj mechanických prvků}
+  Na obou prototypech byla použita tlačítka s THT montáží. Do finální verze byla použita tlačítka s SMD montáží. Tato tlačítka jsou 
+  robustnější a celokovová. 
+
+  Do finální verze byly přidány také přepínače pro volbu možností hry. 
+
   \section{Vzhled DPS}
   %dopsat
   
   \section{Oživení prototypů}
+  Při výrobě prototypů firma JLCPCB osazovala pouze SMD komponenty. THT komponenty musely být doosazovány ručně. V následujících kapitolách
+  je popsán způsob oživování prototypů DPS.
+
   \subsection{Verze 0.0}
-  DPS přijde z~výroby ve stavu, kdy jsou osazeny pouze SMD komponenty.
+  DPS přišla z~výroby ve stavu, kdy byly osazeny pouze SMD komponenty.
 
   \begin{figure}[!h]
     \begin{center}
@@ -592,20 +608,20 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   18650 do pouzdra a~zapnutí vypínače se rozsvítí zelená LED~D1, která indikuje přítomnost napájecího napětí. 
 
   Po vložení baterií do pouzdra a~zapnutí DPS bylo pomocí multimetru zjištěno, že ochrana proti přepólování baterií nepropouští napětí 
-  dále, i~když jsou baterie v~pouzdře umístěny správně. Bylo zjištěno, že pouzdro tranzistoru zajišťujícího ochranu proti přepólování 
-  neodpovídá navrženému pouzdru tranzistoru. Všechny MOSFET tranzistory byly stejného typu, takže musely být všechny otočeny.
+  dále, i~když jsou baterie v~pouzdře umístěny se správnou orientací napětí. Bylo zjištěno, že pouzdro tranzistoru zajišťujícího ochranu proti přepólování 
+  neodpovídá navrženému pouzdru tranzistoru. Všechny MOSFET tranzistory byly stejného typu, takže musely být všechny odpájeny a otočeny.
   
   Při zkoušce nabíjení bylo zjištěno, že červená LED indikující nabíjení baterií je přepólovaná. LED se povedla otočit a indikace nabíjení 
   baterií z~USB byla v~pořádku. 
   
   Při programování byl zjištěn problém s~komunikací po lince RS-232. Bylo zjištěno, že LED pro indikaci komunikace po lince RS-232 jsou 
-  špatně zapojeny, a~proto byly odstraněny a~nahrazeny zkratem. Jejich zapojení této komunikaci bránilo. Bipolární tranzistory byly 
-  taktéž osazeny ve špatném pouzdře a~neodpovídaly navrženým pouzdrům. 
+  špatně zapojeny, a~proto byly odstraněny a~nahrazeny zkratem. Jejich zapojení této komunikaci bránilo. Do další verze byly překreseny správně.
+  Bipolární tranzistory byly taktéž osazeny ve špatném pouzdře a~neodpovídaly navrženým pouzdrům. 
   
   Při programování a~testování všech inteligentních LED WS2812C a~tlačítek bylo zjištěno, že jedno tlačítko bylo zapojeno na pin, který 
-  nemá softwarově zapínatelný pullup rezistor. Tento rezistor byl dodatečně osazen.
+  nemá softwarově zapínatelný pullup rezistor. Tento rezistor byl dodatečně osazen a do schématu i DPS další verze zakreslen. 
   
-  Po veškerých opravách byla DPS připravena na testování softwaru elektronické hry Logic.
+  Po veškerých opravách byla DPS plně funkční připravena na testování softwaru Elektronické hry Logic.
 
   \begin{figure}[!h]
     \begin{center}
@@ -615,7 +631,7 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   \end{figure}
 
   \subsection{Verze~1.0}
-  DPS přijde z~výroby ve stavu, kdy jsou osazeny pouze SMD komponenty. 
+  DPS přišla z~výroby ve stavu, kdy byly osazeny pouze SMD komponenty. 
 
   \begin{figure}[!h]
     \begin{center}
@@ -624,14 +640,13 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
     \caption[3D~pohled verze~1.0 DPS]{3D~pohled verze~1.0 DPS.}
   \end{figure}
 
-  Poté je nutné ručně osadit THT součástky, tj. vypínač, tlačítka a~konektor USB micro. Po připojení DPS přes USB konektor k~powerbance, 
+  Poté byly ručně osazeny THT součástky, tj. vypínač, tlačítka a~konektor USB micro. Po připojení DPS přes USB konektor k~powerbance, 
   nebo do počítače, se rozsvítí LED~D1~a~D2, které indikují přítomnost napájecího napětí. LED~D2 zároveň značí, že zapojení měniče
   napětí je funkční.
 
-  Tato firma v dnešní době 
-  velmi rychle rozšiřuje svůj sortiment k osazení. Od výroby prototypů začala tato firma osazovat nejen SMD součástky, ale také THT.
-
-  Všechny chyby z~předchozí verze byly odstraněny.
+  Všechny chyby z~předchozí verze prototypu byly odstraněny. DPS byla tedy plně funkční a mohla být programována hra Logic v plném rozsahu.
+  
+  Zároveň mohly být přidány drobnosti, např. v podobě přepínačů, k DPS a objednána finální verze.
 
   
 

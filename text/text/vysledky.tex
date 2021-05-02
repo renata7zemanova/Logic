@@ -1,10 +1,10 @@
 \chapter{Software}
-Software pro elektronickou hru Logic byl napsán v jazyce C++. Bylo využito skutečnosti, že mikrokontrolér ESP32-PICO podporuje Arduino 
-framework. Pro psaní softwaru bylo použito vývojové prostředí Visual Studio Code. \textcolor{red}{citace}%odkaz - citace
+Software pro Elektronickou hru Logic byl napsán v jazyce C++. Bylo využito skutečnosti, že mikrokontrolér ESP32-PICO podporuje Arduino 
+framework. Pro psaní softwaru bylo použito vývojové prostředí Visual Studio Code. 
 
 Pro programování inteligentních LED bylo využito již existující knihovny SmartLeds.h \textcolor{red}{citace}%odkaz - citace
 Tato knihovna velmi usnadňuje softwarovou práci s těmito inteligentními LED. Obsahuje například funkci {\it show}, která umožní zobrazit 
-nastavené barvy na všech LED připojených k jednomu pinu mikrokontroléru ESP32-PICO. 
+nastavené barvy na všech inteligentních LED připojených k jednomu pinu mikrokontroléru ESP32-PICO. 
 
 \section{Funkce init}
 Funkce {\it \_init\_} slouží pro inicializaci vstupně-výstupních pinů. Všechny piny, na kterých jsou připojena tlačítka, jsou nastaveny jako 
@@ -156,24 +156,26 @@ do módu pro dva hráče. Rozdíl mezi těmito variantami hry je popsán v násl
 Tato verze hry pro jednoho hráče má stejná pravidla jako desková hra Logic. Funkci druhého hráče nahrazuje řídicí elektronika
 - mikrokontrolér ESP32-PICO.
 
-Po zapnutí DPS stikneme tlačítko "Nová hra"\ . V~této chvíli se vygeneruje zadání, které není vidět, a~první herní LED se 
-rozbliká. Rozblikání herní LED značí pozici kurzoru. 
-Kurzorem lze pohybovat pomocí tlačítek "Šipka vpravo"\  a~"Šipka vlevo"\ . Barvy herních LED se nastavují tlačítky ve spodní části 
-DPS. Tato tlačítka jsou označena danými barvami.
-Po zadání kombinace stiskneme tlačítko "Potvrdit tah"\ . Po stisku tlačítka proběhne vyhodnocení a~to se zobrazí na vyhodnocovacích LED. 
-Červená barva ve vyhodnocení značí, že hráč má v barevné kombinaci stejnou barvu se zadáním na správné pozici. Žlutá barva znamená,
+Po zapnutí DPS stikne hráč tlačítko "Nová hra". V~této chvíli se vygeneruje zadání, které není vidět, a~první herní LED se 
+rozbliká. Blikající herní LED značí pozici kurzoru. 
+Kurzorem lze pohybovat pomocí šipek interpretovanými tlačítky "Šipka vpravo"\  a~"Šipka vlevo". Barvy herních LED se nastavují 
+tlačítky ve spodní části DPS. Tato tlačítka jsou označena danými barvami.
+Po zadání kombinace stiskne hráč tlačítko "Potvrdit tah". Po stisku tohoto tlačítka proběhne vyhodnocení a~to se zobrazí na 
+vyhodnocovacích LED. 
+Červená barva ve vyhodnocení značí, že hráč má v barevné kombinaci stejnou barvu se zadáním na stejné pozici. Žlutá barva znamená,
 že hráč má v barevné kombinaci stejnou barvu se zadáním, ale na chybné pozici. Další barvy nejsou ohodnoceny. Pozice vyhodnocení
 záměrně není shodná s pozicemi, kterých se hodnocení týká. Zleva jsou nejdříve umístěna všechna červená a až poté všechna žlutá 
 hodnocení.
 
-Po vyhodnocení se kurzor posune na první LED v~dalším řádku.
-Po zadání správné kombinace barev a~jejich pozic se rozsvítí zadání a~hra je u~konce. Pro novou hru stiskneme tlačítko
-"Nová hra"\  a~pro ukončení tlačítko "Konec"\ .
+Po vyhodnocení se kurzor posune na první LED v~dalším řádku. Hra pokračuje obdobným způsobem.
+Po zadání správné kombinace barev a~jejich pozic se rozsvítí zadání a~hra je u~konce. Pro novou hru stiskne hráč tlačítko
+"Nová hra"\  a~pro ukončení tlačítko "Konec".
 Po stisku tlačítka "Konec"\  zhasnou všechny herní, vyhodnocovací LED i~LED pro zadání. Poté je DPS připravena pro vypnutí
 vypínačem.
 
 Přepínač SW14 slouží pro nastavení, zda zadání obsahuje 3 nebo 4 barvy. Pokud hráč umístí přepínač do pozice ON, tak tím 
-zvolí variantu hry na 3 barvy. Pohyb kurzoru se omezí na první 3 pole. Poslední pole se ignoruje a také nikdy nesvítí.
+zvolí variantu hry na 3 barvy. Pohyb kurzoru se tím omezí pouze na první 3 pozice v řádku. Poslední pozice se ignoruje a také nikdy 
+nesvítí.
 
 Přepínač SW13 slouží pro nastavení, zda zadání může nebo nesmí obsahovat mezeru. Pokud dá hráč přepínač do pozice ON, 
 tak v zadání může být mezera. Není to ale nutností. 
@@ -182,25 +184,26 @@ tak v zadání může být mezera. Není to ale nutností.
     \begin{center}
         \includegraphics[scale=0.55]{obrazky/vyvojovy_diagram_1_hrac.png}
     \end{center}
-    \caption[Vývojový diagram]{Vývojový diagram.}
+    \caption[Vývojový diagram verze hry pro jednoho hráče]{Vývojový diagram verze hry pro jednoho hráče.}
     \end{figure}
 
 \section{Hra pro dva hráče}
-Varianta elektronické hry Logic pro dva hráče má totožná pravidla s deskovou hrou. Po spuštění hry a stisku tlačítka "Nová hra"\ .
-bliká kurzor v poli inteligentních LED se zadáním. První hráč zadává barvy pomocí barevných tlačítek a v poli LED se pohybuje pomocí šipek 
-interpretovanými tlačítky. Hráč zadání zakryje a stiskne tlačítko „Potvrdit tah“\ . 
+Varianta elektronické hry Logic pro dva hráče má totožná pravidla s deskovou hrou. Po spuštění hry a stisku tlačítka "Nová hra"\ bliká 
+kurzor v poli inteligentních LED se zadáním. První hráč zadává barvy pomocí barevných tlačítek a v poli LED se pohybuje pomocí šipek 
+interpretovanými tlačítky. Hráč zadání zakryje stříškou a stiskne tlačítko „Potvrdit tah“. 
 
-Po stisku zadání zůstane svítit a kurzor se přesune na první herní pozici. Druhý hráč hádá zadanou kombinaci a tuto kombinaci 
+Po stisku zadání zůstane svítit a kurzor se přesune na první herní LED. Druhý hráč hledá zadanou kombinaci a tuto náhodnou kombinaci 
 navolí pomocí barevných tlačítek. Kurzorem může taktéž pohybovat pomocí šipek interpretovanými tlačítky. Po zadání kombinace 
 druhý hráč stiskne tlačítko „Potvrdit tah“\  a kurzor se přesune na první pozici vyhodnocovacího pole. 
 
 První hráč má v tuto chvíli aktivní pouze šipky a červené a žluté barevné tlačítko. Červenou barvu zadává jako první a 
 indikuje jí, že některá barva druhého hráče je obsažena v zadání, a to na totožné pozici. Poté zadává žlutou barvu, kterou 
-indikuje, že některá z barev prvního hráče je obsažena v zadání, ale na jiné pozici, než kam ji druhý hráč umístil. Vyhodnocení 
+udává, že některá z barev prvního hráče je obsažena v zadání, ale na jiné pozici, než kam ji druhý hráč umístil. Vyhodnocení 
 hráč záměrně neumisťuje na pozice, kterých se hodnocení týká. Zpravidla se zleva umisťují nejdříve všechna červená a až poté 
 všechna žlutá hodnocení. 
 
-Po dokončení hodnocení je opět kurzor posunut na první pozici dalšího řádku herního pole. Hra dále pokračuje obdobným způsobem.
+Po dokončení hodnocení první hráč stiskne tlačítko "Potvrdit tah"\  a kurzor se opět přesune na první pozici dalšího řádku herního pole. 
+Hra dále pokračuje obdobným způsobem.
 Pokud druhý hráč nalezne správnou kombinaci, pak první hráč odkryje zadání pro možnou kontrolu a hra je u konce. Pro možnost další 
 hry stiskne jeden z hráčů tlačítko „Nová hra“. Celé herní, vyhodnocovací pole i pole se zadáním je smazáno a kurzor je znovu posunut 
 na první pozici pole se zadáním. 
@@ -209,15 +212,30 @@ na první pozici pole se zadáním.
     \begin{center}
         \includegraphics[scale=0.6]{obrazky/vyvojovy_diagram_2_hraci.png}
     \end{center}
-    \caption[Vývojový diagram]{Vývojový diagram.}
+    \caption[Vývojový diagram verze hry pro dva hráče]{Vývojový diagram verze hry pro dva hráče.}
     \end{figure}
 
-\chapter{Krabička}
-Krabička byla navržena v programu SolidWorks a vytištěna na 3D tiskárně. Krabička obsahuje 2 vyvýšené sloupky, do kterých jsou zalepeny 
-matičky. Vnitřní a nižší jsou určeny pro přišroubování DPS pomocí montážních otvorů a šroubů M3. Vnější otvory jsou poté pro přišroubování 
-vrchního krytu krabičky. V obou případech jsou použity šrouby M3 se zápustnou hlavou, protože mají podstatně nižší hlavičku, než šrouby klasické.
+\chapter{Krabička} %otvor pro vypínač a přidat délku šroubů
+Krabička byla navržena v programu SolidWorks a vytištěna na 3D tiskárně. Spodní díl krabičky obsahuje 2 vyvýšené sloupky, ve kterých jsou otvory
+na šrouby a matice. Vnitřní a nižší jsou určeny pro přišroubování DPS pomocí montážních otvorů a šroubů M3. Vnější otvory jsou poté pro přišroubování 
+vrchního krytu krabičky. V obou případech jsou použity šrouby M3 se zápustnou hlavou. Klasické šrouby mají hlavičku, která je moc vysoká a krabička by 
+nešla uzavřít. Zápustné šrouby jsou částečně zapuštěny do montážních otvorů DPS a tím je část hlavičky šroubu nad DPS nižší. Na boční straně je také otvor
+pro přivedení napájení USB konektorem.
+
+Vrchní část krabičky obsahuje otvory pro LED a také pro tlačítka a přepínače. Tato část krabičky leží těsně nad DPS, aby nedocházelo k podsvitu LED přes
+sebe a nemohlo tak docházet k podvodům během hry. 
 
 Krabička také obsahuje tzv. stříšku, která je také součástí deskové hry. Tato stříška slouží pro zakrytí zadání ve hře pro 2 hráče, kdy 
-musí zadání svítit po celou dobu hry, aby druhý hráč byl schopen vyhodnocovat. 
+musí zadání svítit po celou dobu hry, aby byl druhý hráč schopen vyhodnocovat. 
 
-\chapter{Kompletace}
+%obrázky
+
+\chapter{Kompletace} %přidat zasazení vypínače do krabičky
+Do spodního dílu krabičky byly do všech otvorů zalepeny matice M3 pomocí vteřinového lepidla. 
+
+Po zaschnutí byla do vnitřních otvorů přišroubována DPS pomocí šroubů M3 se zápustnou hlavou. 
+
+Po uchycení DPS byl pomocí drátových propojek připájen kolébkový vypínač k DPS.
+
+Krabička byla následně přikryta vrchním dílem a přišroubována pomocí vnějších matic také šrouby M3 se zápustnou hlavou. Následně je možno zadání zakrýt
+stříškou, připojit jeden z USB konektorů k napájecímu napětí a je možno začít hrát.  

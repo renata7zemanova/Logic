@@ -2,21 +2,20 @@
 \phantomsection
 \addcontentsline{toc}{chapter}{Závěr}
 
-Byla navržena elektronická hra Logic. Tato hra vychází z~původní deskové hry. Byl také vyroben prototyp této hry.
+Byla navržena Elektronická hra Logic. Tato hra vychází z~původní deskové hry.
 
 V~této práci byla uvedena pravidla deskové hry Logic. Dále byl popsán kompletní návrh elektronické verze této hry. Při výběru elektronických 
-komponentů byl kladen důraz na spotřebu jednotlivých zařízení. Hru řídí mikrokontrolér ESP32-PICO. Herními prvky jsou inteligentní LED WS2812C, 
-které jsou určeny pro přenosná zařízení. Hra Logic je integrována do jedné DPS, která řídí hru a~zároveň jsou na ní umístěny herní prvky.
+komponent byl kladen důraz na spotřebu jednotlivých zařízení. Hru řídí mikrokontrolér ESP32-PICO. Herními prvky jsou inteligentní LED WS2812C, 
+které jsou programovatelné a jsou určeny pro přenosná zařízení. Hra Logic je integrována do jedné DPS, která řídí hru, a~zároveň jsou na této 
+DPS umístěny herní prvky. Finální verze DPS osahuje také měnič napětí, převodník z USB na RS-232 a převodníky úrovně. Napájení probíhá pomocí
+USB konektorů.
 
 Při návrhu je kladen velký důraz na vizuální podobu s~deskovou hrou Logic. Zároveň byla také zachována veškerá doporučená zapojení použitých 
 čipů a~modulů a~rozmístění součástek na DPS.
 
-Byl vyroben prototyp, na kterém byla otestována funkčnost zapojení. Při oživování prototypu byly odhaleny chyby, jejichž opravy jsou zapracovány 
-do návrhu verze~1.0. Na prototypu byl následně otestován i software.
+V neposlední řadě je stručně popsán vývoj od prvního prototypu až po finální verzu DPS. 
 
-Dále bude projekt pokračovat v~řešení softwaru. Bude vyrobena krabička na DPS a~umístěn vypínač. Také budou vyzkoušeny další
-alternativy způsobu ovládání. DPS bude navržena, aby bylo možné hrát hru jak v~konfiguraci pro jednoho hráče, tak v~konfiguraci
-pro dva hráče.
+V této práci je také popsáno softwarové řešení Elektronické hry Logic, včetně popisu funkce automatického vyhodnocení ve hře pro jednoho hráče.
 
-Jsou také zvažovány další možnosti snížení spotřeby DPS, jako je například regulace jasu inteligentních LED v~závislosti na 
-okolním osvětlení.
+Byla navržena a vyrobena krabička. Tato krabička má všechny potřebné otvory a DPS z ní nemusí být nikdy vytahována. Obsahuje také stříšku pro
+zakrytí zadání ve hře pro dva hráče. 
