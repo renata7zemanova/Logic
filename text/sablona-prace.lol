@@ -5,6 +5,3 @@
 \contentsline {lstlisting}{\numberline {6.5}Funkce posouvající kurzor.}{37}{lstlisting.110}%
 \contentsline {lstlisting}{\numberline {6.6}Funkce pro vygenerování zadání.}{37}{lstlisting.124}%
 \contentsline {lstlisting}{\numberline {6.7}Funkce pro vygenerování zadání.}{38}{lstlisting.129}%
-\contentsline {lstlisting}{\numberline {E.1}Ukázka sazby zkratek}{69}{lstlisting.181}%
-\contentsline {lstlisting}{\numberline {E.2}Příklad Schur-Cohnova testu stability v~prostředí Matlab.}{71}{lstlisting.220}%
-\contentsline {lstlisting}{\numberline {E.3}Funkce init v~jazyce C++.}{72}{lstlisting.249}%
