@@ -1,11 +1,95 @@
 \chapter{Software}
 Software pro Elektronickou hru Logic byl napsán v jazyce C++. Bylo využito skutečnosti, že mikrokontrolér ESP32-PICO podporuje Arduino 
-framework. Pro psaní softwaru bylo použito vývojové prostředí Visual Studio Code. 
+framework. Pro psaní softwaru bylo použito vývojové prostředí Visual Studio Code. %kompilátor 
 
-Pro programování inteligentních LED bylo využito již existující knihovny SmartLeds.h \textcolor{red}{citace}%odkaz - citace
+Pro programování inteligentních LED bylo využito již existující knihovny SmartLeds.h \cite{SmartLeds}.
 Tato knihovna velmi usnadňuje softwarovou práci s těmito inteligentními LED. Obsahuje například funkci {\it show}, která umožní zobrazit 
 nastavené barvy na všech inteligentních LED připojených k jednomu pinu mikrokontroléru ESP32-PICO. 
 
+Celý software je rozdělen do dvou částí, počáteční inicializace a nekonečná smyčka programu. 
+
+Po spuštění probíhá inicializace vstupně-výstupních pinů a teké inicializace proměnných. Dále je všem inteligentním LED nastavena barva na černou,
+tzn. LED nesvítí. Po kompletním nastavení se již čeká na stisk tlačítka "Nová hra". 
+
+\section{Tlačítko Nová hra}
+Když je stisknuto tlačítko "Nová hra", tak je všem inteligentním LED nastavena černá barva. Program načte stavy přepínačů. Pokud je nastavena hra pro 
+jednoho hráče, tak je vygenerováno zadání. Pokud je hra s mezerou, tak je generace zadání rozšířena o černou barvu. Poslední přepínač určuje délku 
+vygenerovaného zadání. V případě hry pro jednoho hráče je přepínač s mezerou ignorován. Následně je zapnuto napájecí napětí 
+první části inteligentních LED a poté program přechází do druhé části, tj. nekonečné smyčky.
+
+\begin{minipage}{\linewidth}
+\begin{lstlisting}[frame=single,numbers=right,caption={Funkce pro vygenerování zadání.},label=lst:priklad.vypis.kodu.C,basicstyle=\ttfamily\small, keywordstyle=\color{black}\bfseries\underbar,]
+void generate_task (Colors *task, int length, int diff){
+    for(int i = 0; i < length; ++i)
+        task[i] = Colors(esp_random() % (NUM_OF_COLORS - diff));
+}     
+void set_task(led_t &leds, Colors* array_task, int length){
+    for (int i = 0; i < length; ++i){
+        leds.pos = i;
+        set_color(leds, array_task[i]); 
+    } 
+}   
+\end{lstlisting}
+\end{minipage} 
+
+Nekonečná smyčka má dva hlavní úkoly. Detekuje stisknutí tlačítek a v pravidelných intervalech bliká kurzorem. Na konci každého průchodu smyčkou 
+se obnoví zobrazení na inteligentních LED.
+
+\section{Tlačítka interpretující šipky}
+Po každém stisku některé z šipek program nejprve zjišťuje, zda je spuštěna hra pro jednoho, nebo pro dva hráče, a také, v případě hry pro dva
+hráče, v jaké části inteligentních LED se právě nachází kurzor. Poté je kurzor dle dané šipky posunut buď o jedno pole vpravo, nebo o jedno 
+pole vlevo, v rámci dané části inteligentních LED. 
+
+Pokud se kurzor nachází na konci řádku a je stisknuto tlačítko "Šipka vpravo", je pozice přepočítána tak, aby se kurzor posunul na 
+začátek téhož řádku. Pokud se kurzor nachází na začátku řádku a je stisknuto tlačítko "Šipka vlevo", je pozice přepočítána tak, aby se kurzor 
+posunul na konec téhož řádku. 
+
+\begin{minipage}{\linewidth}
+\begin{lstlisting}[frame=single,numbers=right,caption={Funkce posouvající kurzor.},label=lst:priklad.vypis.kodu.C,basicstyle=\ttfamily\small, keywordstyle=\color{black}\bfseries\underbar,]
+void shift_cursor (led_t &LED, Direct DIR, int length){
+    if((DIR == RIGHT) && 
+        !((LED.pos + 1 + LINE_LENGTH - length) % LINE_LENGTH))
+        LED.pos -= LINE_LENGTH - (LINE_LENGTH - length) - 1;
+    else if(DIR == RIGHT)
+        LED.pos += 1;
+    else if((DIR == LEFT) && 
+            (LED.pos == 0 || !(LED.pos % LINE_LENGTH)))
+        LED.pos += LINE_LENGTH - (LINE_LENGTH - length) - 1;
+    else if(DIR == LEFT)
+        LED.pos -= 1;
+}   
+\end{lstlisting}
+\end{minipage} 
+    
+\section{Barevná tlačítka}
+Po každém stisku barevného tlačítka program zjišťuje, zda je spuštěna hra pro jednoho, nebo pro dva hráče, a také, v případě hry pro dva hráče,
+v jaké části inteligentních LED se právě nachází kurzor. Poté se nastaví v dané části daná barva LED na pozici kurzoru a kurzor se posune o 
+jedno pole vpravo. Pokud se ve hře pro dva hráče nachází kurzor ve vyhodnocovací části, tak jsou stisky všech barev kromě červené a žluté 
+ignorovány. Na konci průchodu smyčkou je tato změna zobrazena na inteligentních LED. 
+
+\section{Tlačítko Potvrdit tah}
+Po stisku tlačítka "Potvrdit tah"\  je zjištěno, zda je nastavena hra pro jednoho, nebo pro dva hráče. 
+
+Pokud je nastavena hra pro jednoho hráče, tak dojde k vyhodnocení tahu a kurzor je posunut na první LED dalšího herního řádku. Pokud je již 
+kurzor na posledním řádku, tak je již zobrazeno zadání a kurzor přestává blikat. Pokud se shoduje herní kombinace se zadáním dříve, než na 
+posledním řádku, tak je zobrazeno vyhodnocení i zadání. Kurzor přestává blikat a hra čeká na stisk tlačítka "Konec", nebo "Nová hra". 
+
+Vyhodnocení probíhá ve dvou krocích. Nejdříve jsou hledány barvy na správných pozicích. Tyto barvy jsou ohodnoceny červeně. Pozice těchto 
+barev jsou v dalších krocích vynechávány. Pokud je počet nalezených barev na shodných pozicích stejný, jako je délka zadání, tak vyhodnocení 
+končí. Pokud tomu tak není, vyhodnocení pokračuje. Následně pokud je nalezena ve zbylých barvách barva, která je obsazena v zadání, tak je 
+ohodnocena žlutou barvou. Každá ohodnocená barva se v dalších krocích již přeskakuje. 
+
+Pokud je nastavena hra pro dva hráče, dojde k posunutí kurzoru na první LED části, která je právě na řadě. Pokud byl kurzor v zadání, posune
+se do herního pole, pokud byl v herním poli, posune se do pole pro vyhodnocení a pokud byl kurzor v poli pro vyhodnocení, tak se přesune
+do herního pole. 
+
+Pokud má následující řádek vypnuto napájecí napětí, tak je toto napětí softwarově zapnuto. 
+
+\section{Tlačítko Konec}
+Pokud je stisknuto tlačítko "Konec", jsou všechny LED zhasnuty a poté je jim odpojeno napájecí napětí. Následně se čeká na stisk tlačítka
+"Nová hra". 
+
+\iffalse
 \section{Funkce init}
 Funkce {\it \_init\_} slouží pro inicializaci vstupně-výstupních pinů. Všechny piny, na kterých jsou připojena tlačítka, jsou nastaveny jako 
 vstupní se zapnutým softwarovým pull-up rezistorem. Piny, na kterých jsou připojeny inteligentní LED, jsou nastaveny jako výstupní. Piny,
@@ -144,7 +228,7 @@ void set_task(led_t &leds, Colors* array_task, int length){
 \end{lstlisting}
 \end{minipage}
 
-\textcolor{red}{funkce evaluate - vyhodnocení} %evaluate - vyhodnocení
+\fi
 
 \chapter{Způsob ovládání elektronické hry}
 DPS obsahuje 3 přepínače SW13, SW14 a SW15. Těmito přepínači si hráč volí způsob hry.
