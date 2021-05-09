@@ -30,6 +30,10 @@
 #define SW_END 27 
 #define SW_NEW_GAME 26
 
+#define SW_13 5 
+#define SW_14 15 
+#define SW_15 2 
+
 #define POWER_ON 1
 #define POWER_OFF 0
 
@@ -319,7 +323,7 @@ void set_power_leds(int pos, int state){ //pos nebude povinny udaj
 }
 
 bool is_end(int pos){
-	if(pos > (10 * LINE_LENGTH)- LINE_LENGTH)
+	if(pos > (10 * LINE_LENGTH) - LINE_LENGTH - 1)
 		return true;
 	return false; 
 }
@@ -377,4 +381,16 @@ void set_led_pos_null(led_t& led1, led_t& led2, led_t& led3){
     led1.pos = 0;
     led2.pos = 0;
     led3.pos = 0;
+}
+
+bool is_game_with_space(){
+  return digitalRead(SW_14);
+}
+
+bool is_game_for_2_players(){
+  return digitalRead(SW_15);
+}
+
+bool is_game_on_3_colors(){
+  return digitalRead(SW_13);
 }

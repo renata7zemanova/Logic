@@ -16,15 +16,7 @@ void setup() {
   Colors playing_array[LINE_LENGTH * 10];
   Colors evaluated_array[LINE_LENGTH * 10];
   Colors task_array[LINE_LENGTH];
-/*
-  leds_t all_leds;
 
-  all_leds.play = playing;
-  all_leds.task = assignment;
-  all_leds.eval = evaluated;
-
-  all_leds.play_array[LINE_LENGTH * 10];//
-*/
   clear_all_leds(playing, LED_COUNT_GAME, assignment, LED_COUNT_TASK, evaluated, LED_COUNT_EVAL);
   show_leds(playing, assignment, evaluated);
   wait_leds(playing, assignment, evaluated);
@@ -37,27 +29,27 @@ void setup() {
   bool end = false;
   int count_enter = 0;
 
-  bool GAME_FOR_2_PLAYERS = false;
-  bool GAME_WITH_SPACE = true;
-  bool GAME_ON_3_COLORS = true; 
+  int GAME_LINE_LENGTH;
+  int DIFF;
+  bool GAME_FOR_2_PLAYERS;
 
-  int DIFF = 3; 
-  int GAME_LINE_LENGTH = 4;
-  
   wait_for_btn_press(SW_NEW_GAME);
 
-  while(true){
-    
+  while(true){  
     if(is_pressed(SW_NEW_GAME)){
       wait_for_btn_release(SW_NEW_GAME);
-      if(GAME_WITH_SPACE)
+      DIFF = 3; 
+      GAME_LINE_LENGTH = 4;
+      GAME_FOR_2_PLAYERS = is_game_for_2_players();
+      
+      if(is_game_with_space())
         DIFF = 2;
-      if(GAME_ON_3_COLORS)
+      if(is_game_on_3_colors())
         GAME_LINE_LENGTH = 3;
       clear_all_leds(playing, LED_COUNT_GAME, assignment, LED_COUNT_TASK, evaluated, LED_COUNT_EVAL);
-      assignment.leds.wait();
-      assignment.leds.show();
-      assignment.leds.wait();
+      wait_leds(playing, evaluated, assignment);
+      show_leds(playing, evaluated, assignment);
+      wait_leds(playing, evaluated, assignment);
       if(!GAME_FOR_2_PLAYERS){
         generate_task(task, GAME_LINE_LENGTH, DIFF);
         set_task(assignment, task, GAME_LINE_LENGTH);
@@ -165,6 +157,7 @@ void setup() {
           show_leds(playing, assignment, evaluated);
 
           wait_for_btns_press(SW_NEW_GAME, SW_END);
+          continue;
         }
         set_evaluated_white(num_of_black, num_of_white, evaluated);
 
