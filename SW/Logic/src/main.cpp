@@ -187,7 +187,7 @@ void setup() {
       show_leds(playing, assignment, evaluated);
       end = true;
       count_enter = 0;
-      set_power_leds(playing.pos, POWER_OFF); //pos chci, aby byl dobrovolny parametr
+      set_power_leds(playing.pos, POWER_OFF);
       wait_for_btn_press(SW_NEW_GAME);
     }  
 

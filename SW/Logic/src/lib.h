@@ -297,19 +297,19 @@ bool is_pressed(int btn){
   return false;
 }
 
-bool is_odd(int num){//lichý
+bool is_odd(int num){
   if(num % 2)
     return true;
   return false;
 }
 
-bool is_even(int num){//sudý
+bool is_even(int num){
   if(!(num & 2))
     return true;
   return false;
 }
 
-void set_power_leds(int pos, int state){ //pos nebude povinny udaj
+void set_power_leds(int pos, int state){
   if(state == POWER_ON){
     if(pos == (LINE_LENGTH * 4))
       digitalWrite(SET_POWER_LEDS_5_TO_7, state);
