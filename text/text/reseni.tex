@@ -299,7 +299,6 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
 
   \section{Mechanické prvky}
   Přepínač SW1 slouží pro zapínání celé DPS. Tento přepínač připojuje napájecí napětí 5~V~z~USB konektoru k~celému zbytku DPS. 
-  %doplnit info o kolébkovém vypínači - možná až do realizace
 
   Tlačítka SW2 až SW12 slouží pro ovládání hry. Ke každému tlačítku je připojen kondenzátor o~hodnotě 100~nF. Tento kondenzátor 
   slouží pro filtraci zákmitů při zmáčknutí tlačítka. Filtrace se díky tomu nemusí řešit softwarově.
@@ -418,6 +417,9 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
 
   Obvody pro zapínání napájení jednotlivým sekcím inteligentních LED jsou umístěny vždy na začátku dané části polygonu vlevo od herních inteligentních
   LED.
+
+  Vypínač pro zapínání napájení celé DPS je realizován kolébkovým vypínačem. Tento vypínač je umístěn na stěně krabičky a pomocí drátových propojek 
+  je připájen do připravených pájecích otvorů v DPS.
 
   \section{Funkční rozmístění součástek}
   U~některých součástek není jejich umístění na DPS lhostejné. Rozmístění součástek v některých případech může ovlivnit funkčnost obvodu. 

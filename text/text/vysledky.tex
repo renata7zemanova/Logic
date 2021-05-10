@@ -8,8 +8,8 @@ nastavené barvy na všech inteligentních LED připojených k jednomu pinu mikr
 
 Celý software je rozdělen do dvou částí, počáteční inicializace a nekonečná smyčka programu. 
 
-Po spuštění probíhá inicializace vstupně-výstupních pinů a teké inicializace proměnných. Dále je všem inteligentním LED nastavena barva na černou,
-tzn. LED nesvítí. Po kompletním nastavení se již čeká na stisk tlačítka "Nová hra". 
+Po spuštění probíhá inicializace vstupně-výstupních pinů a teké inicializace proměnných. Všem inteligentním LED je vypnuto napájecí napětí. 
+Dále je všem inteligentním LED nastavena barva na černou, tzn. LED nesvítí. Po kompletním nastavení se již čeká na stisk tlačítka "Nová hra". 
 
 \section{Tlačítko Nová hra}
 Když je stisknuto tlačítko "Nová hra", tak je všem inteligentním LED nastavena černá barva. Program načte stavy přepínačů. Pokud je nastavena hra pro 
@@ -71,7 +71,7 @@ ignorovány. Na konci průchodu smyčkou je tato změna zobrazena na inteligentn
 Po stisku tlačítka "Potvrdit tah"\  je zjištěno, zda je nastavena hra pro jednoho, nebo pro dva hráče. 
 
 Pokud je nastavena hra pro jednoho hráče, tak dojde k vyhodnocení tahu a kurzor je posunut na první LED dalšího herního řádku. Pokud je již 
-kurzor na posledním řádku, tak je již zobrazeno zadání a kurzor přestává blikat. Pokud se shoduje herní kombinace se zadáním dříve, než na 
+kurzor na posledním řádku, tak je zobrazeno zadání a kurzor přestává blikat. Pokud se shoduje herní kombinace se zadáním dříve, než na 
 posledním řádku, tak je zobrazeno vyhodnocení i zadání. Kurzor přestává blikat a hra čeká na stisk tlačítka "Konec", nebo "Nová hra". 
 
 Vyhodnocení probíhá ve dvou krocích. Nejdříve jsou hledány barvy na správných pozicích. Tyto barvy jsou ohodnoceny červeně. Pozice těchto 
@@ -234,7 +234,7 @@ void set_task(led_t &leds, Colors* array_task, int length){
 DPS obsahuje 3 přepínače SW13, SW14 a SW15. Těmito přepínači si hráč volí způsob hry.
 
 Přepínač SW15 slouží k volbě hry pro jednoho, nebo pro dva hráče. Pokud hráč umístí přepínač do pozice ON, hra se přepne
-do módu pro dva hráče. Rozdíl mezi těmito variantami hry je popsán v následujících kapitolách, funkce dalších přepínačů taktéž.
+do módu pro dva hráče. Rozdíl mezi těmito variantami hry je popsán v následujících kapitolách a funkce dalších přepínačů taktéž.
 
 \section{Hra pro jednoho hráče}
 Tato verze hry pro jednoho hráče má stejná pravidla jako desková hra Logic. Funkci druhého hráče nahrazuje řídicí elektronika
@@ -259,12 +259,12 @@ Po zadání správné kombinace barev a~jejich pozic se rozsvítí zadání a~hr
 Po stisku tlačítka "Konec"\  zhasnou všechny herní, vyhodnocovací LED i~LED pro zadání. Poté je DPS připravena pro vypnutí
 vypínačem.
 
-Přepínač SW14 slouží pro nastavení, zda zadání obsahuje 3 nebo 4 barvy. Pokud hráč umístí přepínač do pozice ON, tak tím 
-zvolí variantu hry na 3 barvy. Pohyb kurzoru se tím omezí pouze na první 3 pozice v řádku. Poslední pozice se ignoruje a také nikdy 
-nesvítí.
+Přepínač SW13 slouží pro nastavení, zda má zadání délku 3 nebo 4 pozice. Pokud hráč umístí přepínač do pozice ON, tak tím 
+zvolí variantu hry na 4 pozice. V poloze 1 je zvolena varianta na 3 pozice a pohyb kurzoru se tím omezí pouze na první 3 pozice 
+v řádku. Poslední pozice se ignoruje a také nikdy nesvítí.
 
-Přepínač SW13 slouží pro nastavení, zda zadání může nebo nesmí obsahovat mezeru. Pokud dá hráč přepínač do pozice ON, 
-tak v zadání může být mezera. Není to ale nutností. 
+Přepínač SW14 slouží pro nastavení, zda zadání může nebo nesmí obsahovat mezeru. Pokud dá hráč přepínač do pozice ON, 
+tak v zadání mezera nikdy není. Pokud je v poloze 1, tak v zadání mezera být může. Není to ale nutností. 
 
 \begin{figure}[!h]
     \begin{center}
@@ -297,6 +297,12 @@ Pokud druhý hráč nalezne správnou kombinaci, pak první hráč odkryje zadá
 hry stiskne jeden z hráčů tlačítko „Nová hra“. Celé herní, vyhodnocovací pole i pole se zadáním je smazáno a kurzor je znovu posunut 
 na první pozici pole se zadáním. 
 
+Přepínač SW13 slouží pro nastavení hry na 3 nebo 4 pole. Pokud hráči umístí přepínač do polohy ON, tak zvolí variantu hry na 4 pole. 
+V poloze 1 zvolí variantu hry na 3 pole a omezí tím pohyb kurzoru pouze na 3 pole v každém řádku každé herní části. Poslední pozice
+nikdy nesvítí a nikdy se také nehodnotí. 
+
+Pozice přepínače SW14 se ve variantě hry pro dva hráče ignoruje. 
+
 \begin{figure}[!h]
     \begin{center}
         \includegraphics[scale=0.6]{obrazky/vyvojovy_diagram_2_hraci.png}
@@ -304,27 +310,30 @@ na první pozici pole se zadáním.
     \caption[Vývojový diagram verze hry pro dva hráče]{Vývojový diagram verze hry pro dva hráče.}
     \end{figure}
 
-\chapter{Krabička} %otvor pro vypínač a přidat délku šroubů
+\chapter{Krabička}
 Krabička byla navržena v programu SolidWorks a vytištěna na 3D tiskárně. Spodní díl krabičky obsahuje 2 vyvýšené sloupky, ve kterých jsou otvory
 na šrouby a matice. Vnitřní a nižší jsou určeny pro přišroubování DPS pomocí montážních otvorů a šroubů M3. Vnější otvory jsou poté pro přišroubování 
-vrchního krytu krabičky. V obou případech jsou použity šrouby M3 se zápustnou hlavou. Klasické šrouby mají hlavičku, která je moc vysoká a krabička by 
-nešla uzavřít. Zápustné šrouby jsou částečně zapuštěny do montážních otvorů DPS a tím je část hlavičky šroubu nad DPS nižší. Na boční straně je také otvor
+vrchního krytu krabičky. Otvor v horní části spodního dílu krabičky slouží pro umístění kolébkového vypínače. Na boční straně je také otvor
 pro přivedení napájení USB konektorem.
 
 Vrchní část krabičky obsahuje otvory pro LED a také pro tlačítka a přepínače. Tato část krabičky leží těsně nad DPS, aby nedocházelo k podsvitu LED přes
 sebe a nemohlo tak docházet k podvodům během hry. 
 
 Krabička také obsahuje tzv. stříšku, která je také součástí deskové hry. Tato stříška slouží pro zakrytí zadání ve hře pro dva hráče, kdy 
-musí zadání svítit po celou dobu hry, aby byl druhý hráč schopen vyhodnocovat. 
+musí zadání svítit po celou dobu hry, aby byl druhý hráč schopen vyhodnocovat. Pro umístění stříšky slouží drážka ve vrchním dílu krabičky.
 
 %obrázky
 
-\chapter{Kompletace} %přidat zasazení vypínače do krabičky
-Do spodního dílu krabičky byly do všech otvorů zalepeny matice M3 pomocí vteřinového lepidla. 
+\chapter{Kompletace} 
+Do spodního dílu krabičky byly do všech otvorů zalepeny matice M3 pomocí vteřinového lepidla. Do vrchního otvoru byl nasunut kolébkový vypínač, který
+není třeba přilepit. Ke kolébkovému vypínači byly připájeny krátké drátové propojky.  
 
-Po zaschnutí byla do vnitřních otvorů přišroubována DPS pomocí šroubů M3 se zápustnou hlavou. 
+Do vnitřních otvorů byla přišroubována DPS pomocí šroubů M3$\times$6 se zápustnou hlavou. Klasické šrouby mají hlavičku, která je moc vysoká a krabička 
+by nešla uzavřít. Zápustné šrouby jsou částečně zapuštěny do montážních otvorů DPS a tím je část hlavičky šroubu nad DPS nižší. 
 
-Po uchycení DPS byl pomocí drátových propojek připájen kolébkový vypínač k DPS.
+Po uchycení DPS byly drátové prodlužky od kolébkového vypínače zasunuty do otvorů v DPS a připájeny.
 
-Krabička byla následně přikryta vrchním dílem a přišroubována pomocí vnějších matic také šrouby M3 se zápustnou hlavou. Následně je možno zadání zakrýt
-stříškou, připojit jeden z USB konektorů k napájecímu napětí a je možno začít hrát.  
+Krabička byla následně přikryta vrchním dílem a přišroubována pomocí vnějších matic také šrouby M3$\times$6 se zápustnou hlavou. Ve vrchním dílu krabičky 
+jsou otvory přizpůsobeny zápustným hlavám šroubů. Následně je možno zadání zakrýt stříškou, která se umisťuje do drážky ve vrchním dílu krabičky.
+Po připojení jednoho z USB konektorů k napájecímu napětí je možno začít hrát.  
+%obrázky
