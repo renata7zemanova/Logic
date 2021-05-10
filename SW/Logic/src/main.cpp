@@ -64,6 +64,7 @@ void setup() {
       playing.pos = 0;
       end = false; 
       set_power_leds(playing.pos, POWER_OFF);
+      set_power_leds(playing.pos, POWER_ON);
     }
 
     if(is_pressed(SW_YELLOW)){

@@ -81,7 +81,7 @@ void _init_ (){
   pinMode(SW_BLUE, INPUT_PULLUP);
   pinMode(SW_GREEN, INPUT_PULLUP);
 
-  digitalWrite(SET_POWER_LEDS_1_TO_4, POWER_ON); 
+  digitalWrite(SET_POWER_LEDS_1_TO_4, POWER_OFF); 
   digitalWrite(SET_POWER_LEDS_5_TO_7, POWER_OFF);
   digitalWrite(SET_POWER_LEDS_8_TO_10, POWER_OFF);
 }
@@ -311,12 +311,15 @@ bool is_even(int num){
 
 void set_power_leds(int pos, int state){
   if(state == POWER_ON){
+    if(pos == 0)
+      digitalWrite(SET_POWER_LEDS_1_TO_4, state);
     if(pos == (LINE_LENGTH * 4))
       digitalWrite(SET_POWER_LEDS_5_TO_7, state);
     if(pos == (LINE_LENGTH * 7))
       digitalWrite(SET_POWER_LEDS_8_TO_10, state);
   }
   else{
+    digitalWrite(SET_POWER_LEDS_1_TO_4, state);
     digitalWrite(SET_POWER_LEDS_5_TO_7, state);
     digitalWrite(SET_POWER_LEDS_8_TO_10, state);
   }
