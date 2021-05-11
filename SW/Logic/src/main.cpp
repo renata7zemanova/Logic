@@ -146,7 +146,7 @@ void setup() {
         set_last_color(task_array, assignment);
       else if((is_odd(count_enter) && GAME_FOR_2_PLAYERS) || !GAME_FOR_2_PLAYERS)
         set_last_color(playing_array, playing);
-      else if(is_even(count_enter) && GAME_FOR_2_PLAYERS)
+      else if(GAME_FOR_2_PLAYERS)
         set_last_color(evaluated_array, evaluated);
 
       if(!GAME_FOR_2_PLAYERS){  
@@ -167,6 +167,7 @@ void setup() {
           show_leds(assignment, evaluated);
 
           wait_for_btns_press(SW_NEW_GAME, SW_END);
+          continue;
         }
       }
 
