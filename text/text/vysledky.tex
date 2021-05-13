@@ -11,6 +11,13 @@ Celý software je rozdělen do dvou částí, počáteční inicializace a nekon
 Po spuštění probíhá inicializace vstupně-výstupních pinů a teké inicializace proměnných. Všem inteligentním LED je vypnuto napájecí napětí. 
 Dále je všem inteligentním LED nastavena barva na černou, tzn. LED nesvítí. Po kompletním nastavení se již čeká na stisk tlačítka "Nová hra". 
 
+\begin{figure}[!h]
+    \begin{center}
+      \includegraphics[scale=0.5]{obrazky/Celek.png}
+    \end{center}
+    \caption[Vývojový diagram softwaru]{Vývojový diagram softwaru.}
+  \end{figure}
+
 \section{Tlačítko Nová hra}
 Když je stisknuto tlačítko "Nová hra", tak je všem inteligentním LED nastavena černá barva. Program načte stavy přepínačů. Pokud je nastavena hra pro 
 jednoho hráče, tak je vygenerováno zadání. Pokud je hra s mezerou, tak je generace zadání rozšířena o černou barvu. Poslední přepínač určuje délku 
@@ -34,6 +41,13 @@ void set_task(led_t &leds, Colors* array_task, int length){
 
 Nekonečná smyčka má dva hlavní úkoly. Detekuje stisknutí tlačítek a v pravidelných intervalech bliká kurzorem. Na konci každého průchodu smyčkou 
 se obnoví zobrazení na inteligentních LED.
+
+  \begin{figure}[!h]
+    \begin{center}
+      \includegraphics[scale=0.5]{obrazky/Nova_hra.png}
+    \end{center}
+    \caption[Funkce tlačítka Nová hra]{Funkce tlačítka "Nová hra".}
+  \end{figure}
 
 \section{Tlačítka interpretující šipky}
 Po každém stisku některé z šipek program nejprve zjišťuje, zda je spuštěna hra pro jednoho, nebo pro dva hráče, a také, v případě hry pro dva
@@ -60,6 +74,13 @@ void shift_cursor (led_t &LED, Direct DIR, int length){
 }   
 \end{lstlisting}
 \end{minipage} 
+
+  \begin{figure}[!h]
+    \begin{center}
+      \includegraphics[scale=0.6]{obrazky/Sipka.png}
+    \end{center}
+    \caption[Funkce šipek]{Funkce šipek.}
+  \end{figure}
     
 \section{Barevná tlačítka}
 Po každém stisku barevného tlačítka program zjišťuje, zda je spuštěna hra pro jednoho, nebo pro dva hráče, a také, v případě hry pro dva hráče,
@@ -67,12 +88,26 @@ v jaké části inteligentních LED se právě nachází kurzor. Poté se nastav
 jedno pole vpravo. Pokud se ve hře pro dva hráče nachází kurzor ve vyhodnocovací části, tak jsou stisky všech barev kromě červené a žluté 
 ignorovány. Na konci průchodu smyčkou je tato změna zobrazena na inteligentních LED. 
 
+  \begin{figure}[!h]
+    \begin{center}
+      \includegraphics[scale=0.6]{obrazky/Barevne_tlacitko.png}
+    \end{center}
+    \caption[Funkce barevných tlačítek]{Funkce barevných tlačítek.}
+  \end{figure}
+
 \section{Tlačítko Potvrdit tah}
 Po stisku tlačítka "Potvrdit tah"\  je zjištěno, zda je nastavena hra pro jednoho, nebo pro dva hráče. 
 
 Pokud je nastavena hra pro jednoho hráče, tak dojde k vyhodnocení tahu a kurzor je posunut na první LED dalšího herního řádku. Pokud je již 
 kurzor na posledním řádku, tak je zobrazeno zadání a kurzor přestává blikat. Pokud se shoduje herní kombinace se zadáním dříve, než na 
 posledním řádku, tak je zobrazeno vyhodnocení i zadání. Kurzor přestává blikat a hra čeká na stisk tlačítka "Konec", nebo "Nová hra". 
+
+\begin{figure}[!h]
+    \begin{center}
+      \includegraphics[scale=0.5]{obrazky/Enter.png}
+    \end{center}
+    \caption[Funkce tlačítka Potvrdit tah]{Funkce tlačítka "Potvrdit tah".}
+  \end{figure}
 
 Vyhodnocení probíhá ve dvou krocích. Nejdříve jsou hledány barvy na správných pozicích. Tyto barvy jsou ohodnoceny červeně. Pozice těchto 
 barev jsou v dalších krocích vynechávány. Pokud je počet nalezených barev na shodných pozicích stejný, jako je délka zadání, tak vyhodnocení 
@@ -85,9 +120,16 @@ do herního pole.
 
 Pokud má následující řádek vypnuto napájecí napětí, tak je toto napětí softwarově zapnuto. 
 
-\section{Tlačítko Konec}
-Pokud je stisknuto tlačítko "Konec", jsou všechny LED zhasnuty a poté je jim odpojeno napájecí napětí. Následně se čeká na stisk tlačítka
-"Nová hra". 
+  \section{Tlačítko Konec}
+  Pokud je stisknuto tlačítko "Konec", jsou všechny LED zhasnuty a poté je jim odpojeno napájecí napětí. Následně se čeká na stisk tlačítka
+  "Nová hra". 
+
+  \begin{figure}[!h]
+    \begin{center}
+      \includegraphics[scale=0.6]{obrazky/Konec.png}
+    \end{center}
+    \caption[Funkce tlačítka Konec]{Funkce tlačítka "Konec".}
+  \end{figure}
 
 \iffalse
 \section{Funkce init}
@@ -311,13 +353,19 @@ Pozice přepínače SW14 se ve variantě hry pro dva hráče ignoruje.
     \end{figure}
 
 \chapter{Krabička}
-Krabička byla navržena v programu SolidWorks a vytištěna na 3D tiskárně. Spodní díl krabičky obsahuje 2 vyvýšené sloupky, ve kterých jsou otvory
+Krabička byla navržena v programu SolidWorks a vytištěna na 3D tiskárně. Její rozměry jsou 109~$\times$~129~$\times$~15~mm. 
+
+Spodní díl krabičky obsahuje 2 vyvýšené sloupky, ve kterých jsou otvory
 na šrouby a matice. Vnitřní a nižší jsou určeny pro přišroubování DPS pomocí montážních otvorů a šroubů M3. Vnější otvory jsou poté pro přišroubování 
 vrchního krytu krabičky. Otvor v horní části spodního dílu krabičky slouží pro umístění kolébkového vypínače. Na boční straně je také otvor
 pro přivedení napájení USB konektorem.
 
 Vrchní část krabičky obsahuje otvory pro LED a také pro tlačítka a přepínače. Tato část krabičky leží těsně nad DPS, aby nedocházelo k podsvitu LED přes
 sebe a nemohlo tak docházet k podvodům během hry. 
+
+Tlačítka měla příliš nízké hmatníky a po uzavření krabičky se velmi obtížně stiskávaly. 
+Ztenčení vrchního dílu již nemohlo být provedeno, a proto byly otvory pro tlačítka navrženy v kónickém tvaru. Tlačítka takto lze stisknout pohodlněji
+a mechanická pevnost zůstala zachována. 
 
 Krabička také obsahuje tzv. stříšku, která je také součástí deskové hry. Tato stříška slouží pro zakrytí zadání ve hře pro dva hráče, kdy 
 musí zadání svítit po celou dobu hry, aby byl druhý hráč schopen vyhodnocovat. Pro umístění stříšky slouží drážka ve vrchním dílu krabičky.
