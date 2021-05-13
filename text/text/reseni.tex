@@ -46,16 +46,16 @@ Mikrokontrolér ESP32-PICO také podporuje Arduino framework, díky kterému byl
 
 Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}: 
 \begin{itemize}
-    \item WiFi,
-    \item Bluetooth, 
+    \item modul WiFi,
+    \item modul Bluetooth, 
     \item 32~GPIO pinů, 
     \item dvoujádrový 32bitový procesor Xtensa LX6,
     \item 520~kB~SRAM, 
     \item 4~MB~FLASH. 
   \end{itemize}
 
-  Napájecí napětí tohoto mikrokontroléru je 3,0--3,6~V~a průměrný odběr proudu je 80~mA \cite{PICO_datasheet}. ESP32-PICO má vyvedeno 
-  32~GPIO pinů, které je 
+  Napájecí napětí tohoto mikrokontroléru je 3,0--3,6~V~a průměrný odběr proudu je 80~mA \cite{PICO_datasheet}. Mikrokontrolér ESP32-PICO má 
+  vyvedeno 32~GPIO pinů, které je 
   možno softwarově nastavit jako vstupní nebo výstupní. Na tyto piny lze poté připojit různá zařízení. Vstupním senzorem může 
   být typicky tlačítko a~výstupním indikátorem např. LED. Tato zařízení zprostředkovávají komunikaci mezi mikrokontrolérem a okolním 
   světem.
@@ -67,10 +67,10 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
     \caption[Schéma zapojení mikrokontroléru ESP32-PICO \cite{PICO_datasheet}]{Schéma zapojení mikrokontroléru ESP32-PICO \cite{PICO_datasheet}.}
   \end{figure}
 
-  GPIO piny IO16 a IO17 nemohou být použity, protože ESP32-PICO má na těchto pinech připojenou flash paměť \cite{PICO_datasheet}.
+  Vstupně-výstupní piny IO16 a IO17 nemohou být použity, protože ESP32-PICO má na těchto pinech připojenou flash paměť \cite{PICO_datasheet}.
   Pokud by na tento pin bylo připojeno nějaké zařízení, tak by mikrokontrolér ztratil přístup ke své paměti.
 
-  GPIO piny IO02, IO05, IO12 a IO15 slouží jako konfigurační piny při spouštění nebo resetu mikrokontroléru ESP32-PICO. Slouží například k~výběru
+  Vstupně-výstupní piny IO02, IO05, IO12 a IO15 slouží jako konfigurační piny při spouštění nebo resetu mikrokontroléru ESP32-PICO. Slouží například k~výběru
   paměti, ze které se mikrokontrolér ESP32-PICO načítá. Při resetu musí být tyto piny ve správné konfiguraci. Pin MTDI je GPIO12 a pin MTDO je pin 
   GPIO15 \cite{PICO_datasheet}.
 
@@ -119,12 +119,12 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
     \end{center}
   \end{table}  
 
-  GPIO piny IO34 a~vyšší jsou pouze vstupní \cite{PICO_datasheet}. Vstupní piny nemají softwarově zapojitelný pullup rezistor. 
+  Vstupně-výstupní piny IO34 a~vyšší jsou pouze vstupní \cite{PICO_datasheet}. Vstupní piny nemají softwarově zapojitelný pullup rezistor. 
   Pokud je tedy zapotřebí pullup rezistor, musí se fyzicky zapojit.
   
   \section{Napájení}
-  Napájení probíhá před USB konektor. V dnešní době jsou 2 nejpoužívanější konektory – USB Micro a USB-C. Proto byly navrženy oba USB konektory. 
-  DPS nepodporuje funkci Quick Charge ani Power Delivery. DPS může být napájena pouze napětím 5 V. Přítomnost jiného napětí není žádoucí. 
+  Napájení probíhá před USB konektor. V dnešní době jsou 2 nejpoužívanější konektory – USB Micro a USB-C. Proto byly použity oba USB konektory. 
+  Deska plošného spoje nepodporuje funkci Quick Charge ani Power Delivery. Může být napájena pouze napětím 5 V. Přítomnost jiného napětí není žádoucí. 
   Konektor USB-C je tedy funkčně zapojen totožně jako USB Micro a oba konektory jsou na DPS pouze kvůli jejich tvarům. 
   
   \begin{figure}[!h]
@@ -139,7 +139,7 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   měnič pro snížení napětí, který bude vytvářet z~napájecího napětí 5~V napájecí napětí 3,3~V pro mikrokontrolér ESP32-PICO.
 
   Jako měnič byl zvolen čip SY8105. Tento čip byl vybrán podle projektu RB0005-UniversalStepDown \cite{UniversalStepDown}. 
-  V~tomto projektu zapojení funguje bezproblémově, a~proto bylo rozhodnuto toto zapojení použít v~mé práci. 
+  V~tomto projektu zapojení funguje bezproblémově, a~proto bylo rozhodnuto toto zapojení použít v~této práci. 
 
   Čip SY8105 má napájecí napětí 4,5--18 V a jeho maximální výstupní proud může dosahovat až 5 A.
 
@@ -151,11 +151,10 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   \end{figure}
 
   Výstupní napětí zapojení čipu SY8105 je závislé na poměru rezistorů R11~a~R12 \cite{SY8105_datasheet}. 
-  Hodnota rezistoru R11 byla zvolena 160 k$\Omega$. Hodnota rezistoru R12 byla dopočítána dle 
-  rovnice číslo \ref{eq:R12}.
+  Hodnota rezistoru R11 byla zvolena 160 k$\Omega$. Hodnota rezistoru R12 byla dopočítána dle:
 
   \begin{equation} 
-    R_{12}~=~\frac{0,6}{U_{OUT}-0,6}~\cdot~R_{11}~=~\frac{0,6}{3,3-0,6}~\cdot~160\cdot10^3~=~35,555~\:k\Omega 
+    R_{12}~=~\frac{0,6}{U_{OUT}-0,6}~\cdot~R_{11}~=~\frac{0,6}{3,3-0,6}~\cdot~160\cdot10^3~=~35,555~\:k\Omega. 
     \quad \quad \quad \cite{SY8105_datasheet}
   \label{eq:R12}
   \end{equation}
@@ -176,11 +175,11 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   \end{figure}
 
   Velkou inspirací při výběru součástek byl kit ESP32-DEVKITC \cite{Devkit_schema}. Tento kit obsahuje ESP32-WROOM a~také převodník
-  z~USB na RS-232. Na tomto kitu je převodník realizován čipem CP2102. ESP32-WROOM a~ESP32-PICO se liší pouze v~drobnostech, 
+  z~USB na RS-232. Na tomto kitu je převodník realizován čipem CP2102. Mikrokontrolér ESP32-WROOM a~ESP32-PICO se liší pouze v~drobnostech, 
   proto byl převodník CP2102 použit i~při návrhu převodníku u~Elektronické hry Logic.  Tento čip zároveň převádí logiku 
   z~0--5~V~na logiku 0--3,3~V \cite{CP2102_datasheet}. 
 
- Čip CP2102 má napájecí napětí 3--3,6 V a jeho typickým odběrem proudu je 9,5 mA.
+ Čip CP2102 má napájecí napětí 3--3,6 V a jeho typickým proudovým odběrem je 9,5 mA.
 
   Čip CP2102 dokáže komunikovat velkým množstvím komunikačních rychlostí (300, 9600, 19200, 38400, 115200, 256000~Bd, atd) 
   \cite{CP2102_datasheet}. Komunikační rychlost se nastavuje během konfigurace COM portu v počítači \cite{CP2102_datasheet}.
@@ -249,7 +248,7 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   
   Převodník je realizován MOSFET tranzistorem a dvěma pullup rezistory. Jeden rezistor je připojen k napájecímu napětí 3,3 V a druhý k 
   napájecímu napětí 5 V. Jedná se o nejjednodušší způsob převodníku úrovně směrem nahoru. Tento způsob umožňuje komunikaci oběma směry. 
-  MOSFET tranzistor byl zvolen pro téměř nulovou spotřebu, narozdíl od bipolárních tranzistorů. MOSFET tranzistory jsou také rychlejší 
+  Tranzistor MOSFET byl zvolen pro téměř nulovou spotřebu, narozdíl od bipolárních tranzistorů. Tranzistory MOSFET jsou také rychlejší 
   než bipolární tranzistory, takže způsobí menší zkreslení signálu. 
 
   \begin{figure}[!h]
@@ -266,7 +265,7 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   mikrokoltroléru), tak by byl princip totožný. 
 
   \subsection{Zapínání napájení}
-  DPS je navrhována pro přenosnou aplikaci, a~proto je potřeba zajistit její co nejnižší odběr. 
+  Deska plošného spoje je navrhována pro přenosnou aplikaci, a~proto je potřeba zajistit její co nejnižší odběr. 
 
   Inteligentní LED WS2812C mají spotřebu 0,3~mA ve vypnutém stavu \cite{WS2812C_datasheet}. I takto nízká spotřeba je  pro přenosnou aplikaci 
   nežádoucí. Připojení
@@ -276,7 +275,7 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   z~herního pole a~z~vyhodnocení. Do druhé části patří další 3~čtveřice inteligentních LED z~herního a vyhodnocovacího pole. 
   Do třetí části patří poslední 3 čtveřice inteligentních LED z~herního a z vyhodnocovacího pole.
 
-  Ke spínání slouží obvody s~MOSFET tranzistory. MOSFET tranzistory byly zvoleny pro jejich téměř nulovou spotřebu, narozdíl od 
+  Ke spínání slouží obvody s~MOSFET tranzistory. Tranzistory MOSFET byly zvoleny pro jejich téměř nulovou spotřebu, narozdíl od 
   bipolárních tranzistorů. 
 
   \begin{figure}[!h]
@@ -289,7 +288,7 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   Napájení inteligentních LED nelze spínat pouze jedním tranzistorem, protože logická~1~mikrokontroléru ESP32-PICO má hodnotu pouze 3,3~V. 
   V tomto případě je ale zapotřebí spínat 5~V. Pokud by byl pro spínání použit pouze jeden tranzistor, tak by bylo napájení vždy sepnuto.
 
-  GPIO pin mikrokontroléru ESP32-PICO je nastaven do logické~0, dokud není potřebné přivedení napájecího napětí dané skupině. 
+  Vstupně-výstupní pin mikrokontroléru ESP32-PICO je nastaven do logické~0, dokud není potřebné přivedení napájecího napětí dané skupině. 
   Při logické nule na gate 
   tranzistoru Q4 je tranzistor zavřený. Tranzistor Q5 v~tomto okamžiku drží zavřený rezistor R15.
 
@@ -356,10 +355,10 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   \end{figure}
 
   \chapter{Návrh DPS}
-  DPS je navržena v~programu KiCad a~její parametry jsou určeny pro výrobu i~osazení ve firmě JLCPCB \cite{KiCad} \cite{JLCPCB}. Výrobní 
+  Deska plošného spoje je navržena v~programu KiCad a~její parametry jsou určeny pro výrobu i~osazení ve firmě JLCPCB \cite{KiCad} \cite{JLCPCB}. Výrobní 
   podklady proto musely být navrženy v~souladu s~jejich výrobními možnostmi \cite{JLCPCB_Capabilities}.
 
-  DPS má 4~vrstvy. Vnitřní vrstvy slouží pro napájení a~vnější pro signálové dráhy. V~jedné vnitřní vrstvě je po celé její ploše 
+  Deska plošného spoje má 4~vrstvy. Vnitřní vrstvy slouží pro napájení a~vnější pro signálové dráhy. V~jedné vnitřní vrstvě je po celé její ploše 
   polygon GND a~ve druhé vnitřní vrstvě jsou polygony jednotlivých napájecích napětí. Součástky jsou rozloženy tak, aby pokud možno
   korespondovaly s polygony a jednotlivá napájecí napětí tak nemusela být dále rozváděna zbytečně po celé DPS. Někdy však nemohlo být umístění 
   přizpůsobeno a napájecí napětí tak muselo být přivedeno dráhou v horní nebo spodní vrstvě, které jsou převážně určeny pro signálové 
@@ -375,16 +374,17 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   Circuit Board Width Tool \cite{Kalkulacka_drahy_DPS}. Proud dráhami při použití všech inteligentních LED je 420~mA a tloušťka 
   mědi 35~$\mu$A \cite{JLCPCB_Capabilities}. Doporučená šířka dráhy byla tedy 0,236~mm, a~proto byla zvolena šířka dráhy 0,5~mm.
 
+  %celé přepsat do věty, která bude končit rovnicí a tečkou.
   n~=~84~ks
 
   $I_\textind{LED}$~=~5~mA 
 
   \begin{equation} 
-    I~=~I_{LED}~\cdot~n~=~5~\cdot~84~=~420~\:~mA
+    I~=~I_{LED}~\cdot~n~=~5~\cdot~84~=~420~\:~mA.
   \end{equation}
 
   Vnější vrstvy byly vyplněny polygonem GND. Zejména tak bylo učiněno kvůli výrobnímu procesu nanášení nepájivé masky. Tato maska
-  může být velmi tenká zejména na plochách, kde jsou pouze tenké dráhy a žádné velké plochy. Vytvořením polygonu GND tak dopomáhá k 
+  může být velmi tenká zejména na plochách, kde jsou pouze tenké dráhy a žádné velké plochy. Vytvoření polygonu GND tak dopomáhá k 
   vytvoření pevné a stejně tlusté nepájivé masky. 
 
   \newpage
@@ -409,7 +409,7 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   zapojením. 
 
   Dílčí obvody byly rozmístěny v~následujícím pořadí~-~USB konektory, měnič napětí, převodník z~USB 
-  na RS-232 a~mikrokontrolér ESP32-PICO. USB konektory musely být umístěny na okraj DPS, proto byly jednotlivé části obvodu naskládány podél levého okraje.
+  na RS-232 a~mikrokontrolér ESP32-PICO. Konektory USB musely být umístěny na okraj DPS, proto byly jednotlivé části obvodu naskládány podél levého okraje.
 
   Převodník úrovně je umístěn vždy těsně před vstupem signálu do první inteligentní LED daného řetězce.
 
@@ -439,7 +439,7 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
     \cite{SY8105_datasheet}.}
   \end{figure}
 
-  Signály D+~a~D- od USB k~čipu CP2102 jsou diferenciálním párem. Tomuto faktu musely být přizpůsobeny i~dráhy těchto signálů. Dráhy 
+  Signály D+~a~D- od konektoru USB k~čipu CP2102 jsou diferenciálním párem. Tomuto faktu musely být přizpůsobeny i~dráhy těchto signálů. Dráhy 
   jsou vedeny vedle sebe a~blízko u~sebe. Po celou jejich délku se nepřibližují ani neoddalují. Zkřížení probíhá až těsně před vstupem do čipu CP2102.
   Kondenzátory u~mikrokontroléru ESP32-PICO a~u~čipu CP2102 musí být umístěny co nejblíže jejich pouzdru. Tyto kondenzátory slouží pro 
   filtraci šumu na napájecím napětí. Stejná pravidla platí také pro filtrační kondenzátory u inteligentních LED WS2812C.
@@ -482,7 +482,7 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
 
   Asi největším rozdílem mezi verzí prototypu~0.0~a~1.0 je způsob napájení. Verze~0.0 je napájena z~baterií a~verze~1.0 je napájena pomocí USB 
   konektoru. Díky této změně 
-  odpadly i~mnohé části obvodu. Díky absenci baterií bylo možné postrádat nabíjecí obvody, ochranu proti přepólování a~měření napětí 
+  odpadly i~mnohé části obvodu. Díky absenci baterií bylo možné odstranit nabíjecí obvody, ochranu proti přepólování a~měření napětí 
   na bateriích.       
 
   \section{Způsoby napájení prototypů}
@@ -595,11 +595,11 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   Druhý prototyp se již svým vzhledem velmi podobal finální verzi.
   
   \section{Oživení prototypů}
-  Při výrobě prototypů firma JLCPCB osazovala pouze SMD komponenty. THT komponenty musely být doosazovány ručně. V následujících kapitolách
+  Při výrobě prototypů firma JLCPCB osazovala pouze SMD komponenty. Komponenty THT musely být doosazovány ručně. V následujících kapitolách
   je popsán způsob oživování prototypů DPS.
 
   \subsection{Verze 0.0}
-  DPS přišla z~výroby ve stavu, kdy byly osazeny pouze SMD komponenty.
+  Deska plošného spoje přišla z~výroby ve stavu, kdy byly osazeny pouze SMD komponenty.
 
   \begin{figure}[!h]
     \begin{center}
@@ -620,7 +620,7 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   baterií z~USB byla v~pořádku. 
   
   Při programování byl zjištěn problém s~komunikací po lince RS-232. Bylo zjištěno, že zapojení LED pro indikaci komunikace po lince RS-232 bylo 
-  chybně navrženo, a~proto byly LED odstraněny a~nahrazeny zkratem. Jejich zapojení této komunikaci bránilo. Do další verze byly překreseny správně.
+  chybně navrženo, a~proto byly LED odstraněny a~nahrazeny zkratem. Jejich zapojení této komunikaci bránilo. Do další verze byly překresleny správně.
   Bipolární tranzistory byly taktéž osazeny ve špatném pouzdře a~neodpovídaly navrženým pouzdrům. 
   
   Při programování a~testování všech inteligentních LED WS2812C a~tlačítek bylo zjištěno, že jedno tlačítko bylo zapojeno na pin, který 
@@ -637,7 +637,7 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
 
   \newpage
   \subsection{Verze~1.0}
-  DPS přišla z~výroby ve stavu, kdy byly osazeny pouze SMD komponenty. 
+  Deska plošného spoje přišla z~výroby ve stavu, kdy byly osazeny pouze SMD komponenty. 
 
   \begin{figure}[!h]
     \begin{center}
@@ -650,7 +650,7 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   nebo do počítače, se rozsvítí LED~D1~a~D2, které indikují přítomnost napájecího napětí. LED~D2 zároveň značí, že zapojení měniče
   napětí je funkční.
 
-  Všechny chyby z~předchozí verze prototypu byly odstraněny. DPS byla tedy plně funkční a mohla být programována hra Logic v plném rozsahu.
+  Všechny chyby z~předchozí verze prototypu byly odstraněny. Deska plošného spoje byla tedy plně funkční a mohla být programována hra Logic v plném rozsahu.
   
   Po otestování byly k DPS přidány přepínače a poté byla finální verze DPS objednána.
 

@@ -8,7 +8,7 @@ nastavené barvy na všech inteligentních LED připojených k jednomu pinu mikr
 
 Celý software je rozdělen do dvou částí, počáteční inicializace a nekonečná smyčka programu. 
 
-Po spuštění probíhá inicializace vstupně-výstupních pinů a teké inicializace proměnných. Všem inteligentním LED je vypnuto napájecí napětí. 
+Po spuštění probíhá inicializace vstupně-výstupních pinů a také inicializace proměnných. Všem inteligentním LED je vypnuto napájecí napětí. 
 Dále je všem inteligentním LED nastavena barva na černou, tzn. LED nesvítí. Po kompletním nastavení se již čeká na stisk tlačítka "Nová hra". 
 
 \begin{figure}[!h]
@@ -273,7 +273,7 @@ void set_task(led_t &leds, Colors* array_task, int length){
 \fi
 
 \chapter{Způsob ovládání elektronické hry}
-DPS obsahuje 3 přepínače SW13, SW14 a SW15. Těmito přepínači si hráč volí způsob hry.
+Deska plošného spoje obsahuje 3 přepínače SW13, SW14 a SW15. Těmito přepínači si hráč volí způsob hry.
 
 Přepínač SW15 slouží k volbě hry pro jednoho, nebo pro dva hráče. Pokud hráč umístí přepínač do pozice ON, hra se přepne
 do módu pro dva hráče. Rozdíl mezi těmito variantami hry je popsán v následujících kapitolách a funkce dalších přepínačů taktéž.
