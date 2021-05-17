@@ -90,6 +90,11 @@
   \chapter{Model krabičky}
   %krabička model SolidWorks
 
+
+
+
+
+  
 \iffalse
 \chapter{Některé příkazy balíčku \texttt{thesis}}
 
@@ -243,7 +248,7 @@ end
 disp(' '); disp('Kontrola pomoci Schur-Cohn:');
 ma = zeros( length(a)-1,length(a));
 ma(1,:) = a/a(1);
-for( k = 1:length(a)-2)
+for( k~= 1:length(a)-2)
     aa = ma(k,1:end-k+1);
     bb = fliplr( aa);
     ma(k+1,1:end-k+1) = (aa-aa(end)*bb)/(1-aa(end)^2);
