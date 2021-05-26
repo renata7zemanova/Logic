@@ -123,7 +123,7 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   Pokud je tedy zapotřebí pullup rezistor, musí se fyzicky zapojit.
   
   \section{Napájení}
-  Napájení probíhá před USB konektor. V~dnešní době jsou 2~nejpoužívanější konektory – USB Micro a USB-C. Proto byly použity oba USB konektory. 
+  Napájení probíhá přes USB konektor. V~dnešní době jsou 2~nejpoužívanější konektory – USB Micro a USB-C. Proto byly použity oba USB konektory. 
   Deska plošného spoje nepodporuje funkci Quick Charge ani Power Delivery. Může být napájena pouze napětím 5~V. Přítomnost jiného napětí není žádoucí. 
   Konektor USB-C je tedy funkčně zapojen totožně jako USB~Micro a~oba konektory jsou na DPS pouze kvůli jejich tvarům. 
   
@@ -207,7 +207,7 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
 
   \begin{figure}[!h]
     \begin{center}
-      \includegraphics[scale=0.5]{obrazky/2_LED_WS2812C.png}
+      \includegraphics[scale=0.4]{obrazky/2_LED_WS2812C.png}
     \end{center}
     \caption[Zapojení inteligentních LED WS2812C \cite{WS2812C_datasheet}]{Zapojení inteligentních LED WS2812C \cite{WS2812C_datasheet}.}
   \end{figure}
@@ -289,7 +289,7 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   V~tomto případě je ale zapotřebí spínat 5~V. Pokud by byl pro spínání použit pouze jeden tranzistor, tak by bylo napájení vždy sepnuto.
 
   Vstupně-výstupní pin mikrokontroléru ESP32-PICO je nastaven do logické~0. V~případě, že je zapotřebí rozsvítit další LED na řádku, který 
-  nemá zapnuto napájecí napětí, tak je GPIO pin nastaven do logické~1 a~napájecího napětí je přivedeno dané skupině LED. 
+  nemá zapnuto napájecí napětí, tak je GPIO pin nastaven do logické~1 a~napájecí napětí je přivedeno dané skupině LED. 
   
   Při logické nule na gate 
   tranzistoru Q4 je tranzistor zavřený. Tranzistor Q5 v~tomto okamžiku drží zavřený rezistor R15.
@@ -302,33 +302,18 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   \section{Mechanické prvky}
   Přepínač SW1 slouží pro zapínání celé DPS. Tento přepínač připojuje napájecí napětí 5~V~z~USB konektoru k~celému zbytku DPS. 
 
-  Tlačítka SW2 až SW12 slouží pro ovládání hry. Ke každému tlačítku je připojen kondenzátor o~hodnotě 100~nF. Tento kondenzátor 
-  slouží pro filtraci zákmitů při zmáčknutí tlačítka. Filtrace se díky tomu nemusí řešit softwarově.
-
   \begin{figure}[!h]
     \begin{center}
-      \includegraphics[scale=0.6]{obrazky/Tlacitka_zapojeni.png}
+      \includegraphics[scale=0.5]{obrazky/Tlacitka_zapojeni.png}
     \end{center}
     \caption[Zapojení tlačítek]{Zapojení tlačítek.}
   \end{figure}
 
-  Přepínače SW13 až SW15 slouží pro volbu možnosti hry. První přepínač slouží pro volbu hry pro jednoho, nebo pro 2 hráče. Druhý 
-  slouží pro možnosti hry na 3~nebo 4~herní prvky a~poslední přepínač slouží pro nastavení, zda se v~zadání může, nebo 
-  nesmí vyskytnout mezera. 
-  
-  Z~důvodu obsazenosti pinů musely být přepínače připojeny k~mikrokontroléru ESP32 přes konfigurační piny. U~konfiguračních pinů
-  musejí být dodržena pravidla pro připojovaná zařízení.
-  Z~těchto důvodů je jeden přepínač připojen přes pulldown rezistor a~ostatní dva přepínače jsou připojeny přes pullup rezistor. 
-
-  \begin{figure}[!h]
-    \begin{center}
-      \includegraphics[scale=0.6]{obrazky/Prepinace_zapojeni.png}
-    \end{center}
-    \caption[Zapojení přepínačů]{Zapojení přepínačů.}
-  \end{figure}
+  Tlačítka SW2 až SW12 slouží pro ovládání hry. Ke každému tlačítku je připojen kondenzátor o~hodnotě 100~nF. Tento kondenzátor 
+  slouží pro filtraci zákmitů při zmáčknutí tlačítka. Filtrace se díky tomu nemusí řešit softwarově.
 
   \begin{table}[!h]
-    \caption{Připojení přepínačů ke konfiguračním pinům mikrokontroléru ESP32-PICO}
+    \caption{Připojení přepínačů ke konfiguračním pinům mikrokontroléru}
     \begin{center}
         \begin{tabular}{|c|c|c|c|}
             \hline
@@ -344,6 +329,21 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
         \end{tabular}    
     \end{center}
   \end{table}
+
+  Přepínače SW13 až SW15 slouží pro volbu možnosti hry. První přepínač slouží pro volbu hry pro jednoho, nebo pro 2 hráče. Druhý 
+  slouží pro možnosti hry na 3~nebo 4~herní prvky a~poslední přepínač slouží pro nastavení, zda se v~zadání může, nebo 
+  nesmí vyskytnout mezera. 
+  
+  Z~důvodu obsazenosti pinů musely být přepínače připojeny k~mikrokontroléru ESP32-PICO přes konfigurační piny. U~konfiguračních pinů
+  musejí být dodržena pravidla pro připojovaná zařízení.
+  Z~těchto důvodů je jeden přepínač připojen přes pulldown rezistor a~ostatní dva přepínače jsou připojeny přes pullup rezistor. 
+
+  \begin{figure}[!h]
+    \begin{center}
+      \includegraphics[scale=0.6]{obrazky/Prepinace_zapojeni.png}
+    \end{center}
+    \caption[Zapojení přepínačů]{Zapojení přepínačů.}
+  \end{figure}
 
   \section{Indikace přítomnosti napájecího napětí}
   Pro indikaci přítomnosti napájecího napětí slouží LED~D1~a~D2. Elektroluminiscenční dioda~D1 indikuje přítomnost napájecího napětí 
@@ -370,7 +370,7 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   Na vrchní straně jsou umístěny plošky pro osazení součástek, protože firma JLCPCB osazuje součástky pouze z~jedné strany DPS.
 
   Signálové dráhy jsou vedeny úzkou dráhou a~napájecí dráhy jsou vedeny širší dráhou. V~signálových drahách tečou zanedbatelné 
-  proudy, proto mohou být co nejužší. Výrobce umožňuje vyrobit u~čtyřvrstvé DPS nejtenčí dráhu 0,09~mm \cite{JLCPCB_Capabilities}. 
+  proudy, proto mohou být co nejužší. Výrobce umožňuje vyrobit u~čtyřvrstvé DPS nejužší dráhu 0,09~mm \cite{JLCPCB_Capabilities}. 
   Aby nebyly použity krajní výrobní hodnoty, byla zvolena šířka signálové dráhy 0,15~mm.
 
   Dráhy, kterými je vedeno napájecí napětí, mají tloušťku 0,5~mm. Pro výpočet šířky dráhy byla použita online kalkulačka Printed
@@ -402,10 +402,10 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   pole, a~v~pravém sloupci je matice inteligentní LED pro vyhodnocení tahu. Rozložení LED reprezentuje herní tahy, proto jsou v~matici 4~$\times$~10~LED.
   
   Rozmístění tlačítek a~přepínačů probíhalo dle 
-  rozmyšleného způsobu ovládání elektronické hry. Byl také brán ohled na estetiku vzhledu. Proto byly tlačítka i~inteligentní LED
+  rozmyšleného způsobu ovládání elektronické hry. Byl také brán ohled na estetiku vzhledu. Proto byly inteligentní LED i~tlačítka 
   rozmístěny dle přesné mřížky. Následně byl ostatními obvody využíván zbylý prostor. 
 
-  Dráhy s~napájecím napětím by měly být co nejkratší a~měly by být vedeny co nejvíce zpříma. Proto byla snaha o~umístění součástkek
+  Dráhy s~napájecím napětím by měly být co nejkratší a~měly by být vedeny co nejvíce zpříma. Proto byla snaha o~umístění součástek
   se stejným napájecím napětím k~sobě. Ne vždy ale mohla být tato doporučení splněna. Někdy musel být proveden kompromis mezi vzhledem a~funkčním 
   zapojením. 
 
@@ -464,7 +464,7 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
 
   \chapter{Od prvního prototypu po finální verzi}
 
-  Před finální verzí byly navrženy 2~prototypy DPS elektronické hry Logic. Verze~0 byla pouze testovací, takže neobsahovala celé herní pole. 
+  Před finální verzí byly navrženy 2~prototypy DPS Elektronické hry Logic. Verze~0.0 byla pouze testovací, takže neobsahovala celé herní pole. 
   Sloužila pro ověření funkčnosti daných zapojení různých čipů a~zároveň pro základní testování softwaru.
 
   \begin{figure}[!h]
@@ -474,17 +474,17 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
     \caption[Blokové schéma zapojení prototypu verze~0.0]{Blokové schéma zapojení prototypu verze~0.0.}
   \end{figure}
 
+  Asi největším rozdílem mezi verzí prototypu~0.0~a~1.0 je způsob napájení. Verze~0.0 je napájena z~baterií a~verze~1.0 je napájena pomocí USB 
+  konektoru. Díky této změně 
+  odpadly i~mnohé části obvodu. Díky absenci baterií bylo možné odstranit nabíjecí obvody, ochranu proti přepólování a~měření napětí 
+  na bateriích. 
+
   \begin{figure}[!h]
     \begin{center}
       \includegraphics[scale=0.5]{obrazky/v1_blokove_schema.jpg}
     \end{center}
     \caption[Blokové schéma zapojení prototypu verze~1.0]{Blokové schéma zapojení prototypu verze~1.0.}
   \end{figure}
-
-  Asi největším rozdílem mezi verzí prototypu~0.0~a~1.0 je způsob napájení. Verze~0.0 je napájena z~baterií a~verze~1.0 je napájena pomocí USB 
-  konektoru. Díky této změně 
-  odpadly i~mnohé části obvodu. Díky absenci baterií bylo možné odstranit nabíjecí obvody, ochranu proti přepólování a~měření napětí 
-  na bateriích.       
 
   \section{Způsoby napájení prototypů}
   Každý z~prototypů měl velmi odlišný způsob napájení. V~následujících kapitolách je popsán způsob napájení prototypových verzí.
@@ -517,8 +517,8 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
   bateriích \cite{18650} \cite{TP4056_datasheet}. Díky tomu nemůže dojít ke zničení baterií nabíjením.
 
   Červená LED~D9 indikovala nabíjení baterií a~zelená LED~D8 svítila, pokud byly baterie nabité \cite{TP4056_datasheet}. 
-  Pokud nesvítila ani červená ani zelená LED, znamenalo to, že baterie jsou podvybité, nebo nejsou vloženy. Příčinou mohla být také příliš vysoká, 
-  nebo nízká jejich teplota \cite{TP4056_datasheet}.
+  Pokud nesvítila ani červená ani zelená LED, znamenalo to, že baterie jsou podvybité, nebo nejsou vloženy. Příčinou mohla být také jejich příliš 
+  vysoká, nebo nízká teplota \cite{TP4056_datasheet}.
 
   Rezistorem R13 se určoval nabíjecí proud baterií \cite{TP4056_datasheet}. Aby baterie nabíjením nebyly poškozovány, měl by být nabíjecí 
   proud maximálně 0,5~C (polovina kapacity baterie). Vybraná baterie má kapacitu 2850~mAh. Nabíjecí proud proto mohl být až 1425~mA. 
@@ -609,8 +609,8 @@ Mikrokontrolér ESP32-PICO obsahuje \cite{PICO_datasheet}:
     \caption[DPS prototypu verze~0.0 z~výroby]{DPS prototypu verze~0.0 z~výroby.}
   \end{figure}
 
-  Po dodání DPS z~výroby byly zapájeny THT komponenty (pouzdro na baterii, konektor USB Micro, tlačítka a~vypínač). Na testovací verzi
-  byl místo vypínače osazen konektor, na který je pro zapnutí DPS potřeba nasunout propojku. Po zapojení baterií
+  Po dodání DPS z~výroby byly zapájeny THT komponenty (pouzdro na baterie, konektor USB Micro, tlačítka a~vypínač). Na testovací verzi
+  byl místo vypínače osazen konektor, na který je pro zapnutí DPS potřeba nasunout propojku. Po vložení baterií
   18650 do pouzdra a~zapnutí vypínače se rozsvítí zelená LED~D1, která indikuje přítomnost napájecího napětí. 
 
   Po vložení baterií do pouzdra a~zapnutí DPS bylo pomocí multimetru zjištěno, že ochrana proti přepólování baterií nepropouští napětí 
