@@ -8,7 +8,7 @@ Deska plošného spoje je nakreslena v programu KiCad.
 
 ## Software
 
-Pro programování DPS Elektronické hry Logic je zapotřebí stáhnout a nainstalovat vývojové prostředí [Visual Studio Code] (https://code.visualstudio.com/) a v něm rozšíření PlatformIO. 
+Pro programování DPS Elektronické hry Logic je zapotřebí stáhnout a nainstalovat vývojové prostředí [Visual Studio Code](https://code.visualstudio.com/) a v něm rozšíření PlatformIO. 
 
 Software je napsán pomocí Arduino frameworku.
 
