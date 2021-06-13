@@ -230,6 +230,7 @@
 			\begin{itemize}
 				\item 10 ~$\times$ 10 cm
 				\item 3 části inteligentních LED
+				\item USB konektory
 				\item Tlačítka
 				\item Přepínače
 			\end{itemize}
@@ -395,8 +396,20 @@
 
 \begin{frame} 
 	\frametitle{Otázka od oponenta}
+	
+	{\bf V práci píšete, že používáte pro komunikaci s MCU převodník USB na 
+	sběrnici RS-232, prosím o vysvětlení rozdílu mezi sběrnicí RS-232 a UART? }
+	
 	\begin{itemize}
-		\item {\bf V práci píšete, že používáte pro komunikaci s MCU převodník USB na sběrnici RS 232, prosím o vysvětlení rozdílu mezi sběrnicí RS232 a UART? }
+		\item {\bf RS-232} je standard definující signály mezi dvěma zařízeními, 
+		definující názvy signálů, jejich účel, úrovně napětí, konektory a 
+		pinouty. RS-232 je do určité míry odolnější vůči vnějšímu rušení. 
+
+		\item {\bf UART} je obecné označení a nepředstavuje žádný konkrétní 
+		standard. Minimálně to znamená, že má linku TX a RX, která odesílá 
+		sériový datový proud a přijímá sériový datový proud.
+		UART lze nakonfigurovat tak, aby podporoval mnoho různých specifických 
+		sériových protokolů. UART nemůže sám generovat napětí.
 	\end{itemize}	
 \end{frame}
 
