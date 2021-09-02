@@ -76,6 +76,7 @@ schema
 schema_Logic.zip
 *.drawio
 CP2102_LED
+testy_LED
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
